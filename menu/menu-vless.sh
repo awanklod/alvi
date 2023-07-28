@@ -6,7 +6,7 @@ NC="\e[0m"
 RED="\033[0;31m" 
 
 BURIQ () {
-    curl -sS https://raw.githubusercontent.com/ALVIICELL/permission/main/ipmini > /root/tmp
+    curl -sS https://raw.githubusercontent.com/awanklod/izin_alvi/main/izin > /root/tmp
     data=( `cat /root/tmp | grep -E "^### " | awk '{print $2}'` )
     for user in "${data[@]}"
     do
@@ -24,7 +24,7 @@ BURIQ () {
 }
 
 MYIP=$(curl -sS ipv4.icanhazip.com)
-Name=$(curl -sS https://raw.githubusercontent.com/ALVIICELL/permission/main/ipmini | grep $MYIP | awk '{print $2}')
+Name=$(curl -sS https://raw.githubusercontent.com/awanklod/izin_alvi/main/izin | grep $MYIP | awk '{print $2}')
 echo $Name > /usr/local/etc/.$Name.ini
 CekOne=$(cat /usr/local/etc/.$Name.ini)
 
@@ -41,7 +41,7 @@ fi
 
 PERMISSION () {
     MYIP=$(curl -sS ipv4.icanhazip.com)
-    IZIN=$(curl -sS https://raw.githubusercontent.com/ALVIICELL/permission/main/ipmini | awk '{print $4}' | grep $MYIP)
+    IZIN=$(curl -sS https://raw.githubusercontent.com/awanklod/izin_alvi/main/izin | awk '{print $4}' | grep $MYIP)
     if [ "$MYIP" = "$IZIN" ]; then
     Bloman
     else
@@ -108,7 +108,7 @@ echo "Checking VPS"
 
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
-echo -e "\E[44;1;39m     👑 ALVI CELL TUNNEL 👑            \E[0m" | tee -a /etc/log-create-user.log
+echo -e "\E[44;1;39m     👑 CLOUDVPN TUNNEL 👑            \E[0m" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "${BICyan} ┌─────────────────────────────────────────────────────┐${NC}"
 echo -e "       ${BIWhite}${UWhite}VLESS ${NC}"
