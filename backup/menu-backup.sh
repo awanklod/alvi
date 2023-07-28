@@ -18,7 +18,7 @@ echo -e "${ungu}++++++++++++++++++++++++++++++++++++++++++++"
 echo -e
 echo -e "${BlueCyan}              Menu Backup                   "
 echo -e
-echo -e "            ALVI CELL"
+echo -e "            CLOUDVPN"
 echo -e "${ungu}++++++++++++++++++++++++++++++++++++++++++++"
 echo
 echo
