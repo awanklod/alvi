@@ -18,7 +18,7 @@ echo -e "${ungu}++++++++++++++++++++++++++++++++++++++++++++"
 echo -e
 echo -e "${BlueCyan}              Menu Backup                   "
 echo -e
-echo -e "            t.me/Alvi_cell"
+echo -e "            t.me/amiqyu"
 echo -e "${ungu}++++++++++++++++++++++++++++++++++++++++++++"
 echo
 echo
