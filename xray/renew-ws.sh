@@ -1,5 +1,5 @@
 #!/bin/bash
-# My Telegram : https://t.me/Alvi_cell
+# My Telegram : https://t.me/amiqyu
 # ==========================================
 # Color
 RED='\033[0;31m'
@@ -60,7 +60,7 @@ echo "==============================="
 echo "Username  : $user"
 echo "Expired   : $exp4"
 echo "==============================="
-echo "Script By ALVI CELL"
+echo "Script By CLOUDVPN"
 read -n 1 -s -r -p "Press any key to back on menu"
 menu
 
