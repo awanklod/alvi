@@ -1,7 +1,7 @@
 #!/bin/bash
 #Script UdpCustom 2023
-#Script By ALVI CELL
-#https://t.me/Alvi_cell
+#Script By CLOUDVPN
+#https://t.me/amiqyu
 cd
 rm -rf /root/udp
 mkdir -p /root/udp
@@ -11,7 +11,7 @@ sleep 4
 echo " Proses Download Script UdpCustom........"
 sleep 4
 clear
-echo " Cecking Tool UdpCustom By Alvi cell......."
+echo " Cecking Tool UdpCustom By CLOUDVPN......."
 sleep 4
 clear
 echo " Succes Cecking Tool..........."
@@ -29,7 +29,7 @@ sleep 4
 echo " Proses Download Script Config Default........"
 sleep 4
 clear
-echo " Cecking Config Default By Alvi cell......."
+echo " Cecking Config Default By CLOUDVPN......."
 sleep 4
 clear
 echo " Succes Cecking Config Default Tool..........."
