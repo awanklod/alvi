@@ -275,4 +275,4 @@ secs_to_human "$(($(date +%s) - ${start}))" | tee -a log-install.txt
 echo -e "
 "
 read -n 1 -s -r -p "Press any key to reboot"
-reboot'
+reboot
