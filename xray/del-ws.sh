@@ -1,5 +1,5 @@
 #!/bin/bash
-# My Telegram : https://t.me/Alvi_cell
+# My Telegram : https://t.me/amiqyu
 # ==========================================
 # Color
 RED='\033[0;31m'
