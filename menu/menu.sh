@@ -248,9 +248,9 @@ export sem=$( curl -s https://raw.githubusercontent.com/ALVIICELL/permission/mai
 export pak=$( cat /home/.ver)
 IPVPS=$(curl -s ipinfo.io/ip )
 clear
-echo -e "${BIPurple}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
-echo -e "${red}              👾  CLOUDVPN  TUNNEL 👾                          ${NC}"
-echo -e "${BIPurple}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
+echo -e "${BIPurple}╒════════════════════════════════════════════════════════════╕\033[0m${NC}"
+echo -e "${BIRed}                     👾  CLOUDVPN  TUNNEL 👾                     ${NC}"
+echo -e "${BIPurple}╘════════════════════════════════════════════════════════════╛\033[0m${NC}"
 
 echo -e "${BIYellow}□ Server Uptime       = ${BIWhite}$( uptime -p  | cut -d " " -f 2-10000 ) ${NC}"
 echo -e "${BIYellow}□ Current Time        = ${BIWhite}$( date -d "0 days" +"%d-%m-%Y | %X" )${NC}"
@@ -258,32 +258,32 @@ echo -e "${BIYellow}□ Operating System    = ${BIWhite}$( cat /etc/os-release |
 echo -e "${BIYellow}□ IP VPS              = ${BIWhite}$IPVPS${NC}"
 echo -e "${BIYellow}□ Current Domain      = ${BIWhite}$( cat /etc/xray/domain )${NC}"
 echo -e "${BIYellow}□ NS Domain           = ${BIWhite}$(cat /root/nsdomain)${NC}"
-echo -e "${BIYellow}□ Jumlah / USAGE RAM  = ${BIWhite}${totalram}MB / ${BIBlack}${USAGERAM} MB${NC}"
+echo -e "${BIYellow}□ Total / USAGE RAM   = ${BIWhite}${totalram}MB / ${BIBlack}${USAGERAM} MB${NC}"
 echo -e "${BIYellow}□ CPU Usage           = $cpu_usage"
 
-echo -e " ${BICyan}┌─────────────────────────────────────────────────────┐${NC}"
+echo -e " ${BICyan}╒═════════════════════════════════════════════════════╕${NC}"
 echo -e " ${BICyan}│  Order By      ${NC} : ${BIRed}CLOUDVPN${NC}"  
 echo -e " ${BICyan}│  user          ${NC} : ${BIRed}$Name${NC}"
 echo -e " ${BICyan}│  expired       ${NC} : ${BIRed}$Exp${NC}"
-echo -e " ${BICyan}└─────────────────────────────────────────────────────┘${NC}"
+echo -e " ${BICyan}╘═════════════════════════════════════════════════════╛${NC}"
 
-echo -e "${BIBlue}┌──────────────────────────────────────────────────┐${NC}" 
+echo -e "${BIBlue}╒════════════════════════════════════════════════════════════╕${NC}" 
 echo -e "${BIBlue}│  \033[0m ${BOLD}${YELLOW}SSH     VMESS       VLESS      TROJAN       SHADOWSOCKS $NC" 
 echo -e "${BIBlue}│  \033[0m ${Blue} $ssh1        $vma           $vla          $tra          $ssa $NC" 
-echo -e "${BIBlue}└──────────────────────────────────────────────────┘${NC}" 
+echo -e "${BIBlue}╘════════════════════════════════════════════════════════════╛${NC}" 
 
 echo -e "     ${BICyan} SSH ${NC}: $ressh"" ${BICyan} NGINX ${NC}: $resngx"" ${BICyan}  XRAY ${NC}: $resv2r"" ${BICyan} TROJAN ${NC}: $resv2r"
 echo -e "   ${BICyan}     STUNNEL ${NC}: $resst" "${BICyan} DROPBEAR ${NC}: $resdbr" "${BICyan} SSH-WS ${NC}: $ressshws"
 
-echo -e "${BICyan} ┌─────────────────────────────────────────────────────┐${NC}"
+echo -e "${BICyan} ╒═════════════════════════════════════════════════════╕${NC}"
 echo -e "     ${BICyan}[${BIWhite}1]${red}🎮 SSH    " "  ${BICyan}[${BIWhite}6]${red}🎮 SETTING  " " ${BICyan}[${BIWhite}11${red}]🎮 SET REBOOT"
 echo -e "     ${BICyan}[${BIWhite}2]${red}🎮 VMESS  " "  ${BICyan}[${BIWhite}7]${red}🎮 TRIAL    " " ${BICyan}[${BIWhite}12${red}]🔐 SET PW VPS"
 echo -e "     ${BICyan}[${BIWhite}3]${red}🎮 VLESS  " "  ${BICyan}[${BIWhite}8]${red}🎮 BACKUP   " " ${BICyan}[${BIWhite}13${red}]🎮 UPDATE SC "
 echo -e "     ${BICyan}[${BIWhite}4]${red}🎮 TROJAN " "  ${BICyan}[${BIWhite}9]${red}🎮 ADD-HOST " " ${BICyan}[${BIWhite}99${red}]🎮 CLEAR SAMPAH"
 echo -e "     ${BICyan}[${BIWhite}5]${red}🎮 SHDSCK " "  ${BICyan}[${BIWhite}10]${red}🎮 RUNNING"
-echo -e "${BICyan} ┌─────────────────────────────────────────────────────┐${NC}"
+echo -e "${BICyan} ╒═════════════════════════════════════════════════════╕${NC}"
 echo -e "${BICyan} │$NC ${BICyan}HARI ini${NC}: ${red}$ttoday$NC ${BICyan}KEMARIN${NC}: ${red}$tyest$NC ${BICyan}BULAN${NC}: ${red}$tmon$NC $NC"
-echo -e "${BICyan} └─────────────────────────────────────────────────────┘${NC}"
+echo -e "${BICyan} ╘═════════════════════════════════════════════════════╛${NC}"
 echo
 read -p " Pilih menu bosku : " opt
 echo -e ""
