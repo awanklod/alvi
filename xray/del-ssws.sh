@@ -1,6 +1,6 @@
 #!/bin/bash
 clear
-NUMBER_OF_CLIENTS=$(grep -c -E "^#ss# " "/etc/xray/config.json")
+NUMBER_OF_CLIENTS=$(grep -c -E "^## " "/etc/xray/config.json")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
 echo -e "${CYAN}        ⇱ DELETE USER SHADOWSOCKS ⇲      ${NC}"
@@ -19,15 +19,15 @@ echo -e "${CYAN}        ⇱ DELETE USER SHADOWSOCKS ⇲      ${NC}"
 echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
 echo "  User       Expired  " 
 echo -e "${CYAN}══════════════════════════════════════════${NC}"
-grep -E "^#ss# " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | column -t | sort | uniq
+grep -E "^## " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | column -t | sort | uniq
 echo ""
 echo -e "${CYAN}══════════════════════════════════════════${NC}"
 read -rp "Input Username : " user
 if [ -z $user ]; then
 m-ssws
 else
-exp=$(grep -wE "^#ss# $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
-sed -i "/^#ss# $user $exp/,/^},{/d" /etc/xray/config.json
+exp=$(grep -wE "^## $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
+sed -i "/^## $user $exp/,/^},{/d" /etc/xray/config.json
 systemctl restart xray > /dev/null 2>&1
 clear
 echo -e "${CYAN}══════════════════════════════════════════${NC}"
