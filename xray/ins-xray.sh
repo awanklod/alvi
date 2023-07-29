@@ -587,6 +587,15 @@ sed -i '$ igrpc_set_header Host \$http_host;' /etc/nginx/conf.d/xray.conf
 sed -i '$ igrpc_pass grpc://127.0.0.1:33456;' /etc/nginx/conf.d/xray.conf
 sed -i '$ i}' /etc/nginx/conf.d/xray.conf
 
+sed -i '$ ilocation ^~ /ss-grpc' /etc/nginx/conf.d/xray.conf
+sed -i '$ i{' /etc/nginx/conf.d/xray.conf
+sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/xray.conf
+sed -i '$ igrpc_set_header X-Real-IP \$remote_addr;' /etc/nginx/conf.d/xray.conf
+sed -i '$ igrpc_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;' /etc/nginx/conf.d/xray.conf
+sed -i '$ igrpc_set_header Host \$http_host;' /etc/nginx/conf.d/xray.conf
+sed -i '$ igrpc_pass grpc://127.0.0.1:30310;' /etc/nginx/conf.d/xray.conf
+sed -i '$ i}' /etc/nginx/conf.d/xray.conf
+
 
 echo -e "$yell[SERVICE]$NC Restart All service"
 systemctl daemon-reload
@@ -631,6 +640,14 @@ wget -O trialtrojango "https://raw.githubusercontent.com/awanklod/alvi/main/xray
 wget -O deltrgo "https://raw.githubusercontent.com/awanklod/alvi/main/xray/deltrgo.sh" && chmod +x deltrgo
 wget -O renewtrgo "https://raw.githubusercontent.com/awanklod/alvi/main/xray/renewtrgo.sh" && chmod +x renewtrgo
 wget -O cektrgo "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cektrgo.sh" && chmod +x cektrgo
+
+# shadowsocks
+wget -O add-ssws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/add-ssws.sh" && chmod +x add-ssws
+wget -O trialssws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/trialssws.sh" && chmod +x trialssws
+wget -O del-ssws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/del-ssws.sh" && chmod +x del-ssws
+wget -O renew-ssws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/renew-ssws.sh" && chmod +x renew-ssws
+wget -O cek-ssws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-ssws.sh" && chmod +x cek-ssws
+
 
 
 sleep 1
