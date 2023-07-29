@@ -243,23 +243,23 @@ echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 menu
 }
-export sem=$( curl -s https://raw.githubusercontent.com/awanklod/izin_alvi/main/versions)
+export sem=$( curl -s https://raw.githubusercontent.com/ALVIICELL/permission/main/versions)
 export pak=$( cat /home/.ver)
 IPVPS=$(curl -s ipinfo.io/ip )
 clear
 echo -e "${Red}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
-echo -e "${red}              🎮  CLOUDVPN TUNNEL 🎮                          ${NC}"
+echo -e "${red}              👾 CLOUDVPN   TUNNEL 👾                          ${NC}"
 echo -e "${Red}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
 
-echo -e "${BIYellow}□ Server Uptime       = ${BIWhite}$( uptime -p  | cut -d " " -f 2-10000 ) ${NC}"
-echo -e "${BIYellow}□ Current Time        = ${BIWhite}$( date -d "0 days" +"%d-%m-%Y | %X" )${NC}"
-echo -e "${BIYellow}□ Operating System    = ${BIWhite}$( cat /etc/os-release | grep -w PRETTY_NAME | sed 's/PRETTY_NAME//g' | sed 's/=//g' | sed 's/"//g' ) ( $( uname -m) )${NC}"
-echo -e "${BIYellow}□ IP VPS              = ${BIWhite}$IPVPS${NC}"
-echo -e "${BIYellow}□ Current Domain      = ${BIWhite}$( cat /etc/xray/domain )${NC}"
-echo -e "${BIYellow}□ NS Domain           = ${BIWhite}$(cat /root/nsdomain)${NC}"
-echo -e "${BIYellow}□ Jumlah Ram          = ${BIWhite}${totalram}MB"
+echo -e "${BIYellow}□ Server Uptime       = ${GREEN}$( uptime -p  | cut -d " " -f 2-10000 ) ${NC}"
+echo -e "${BIYellow}□ Current Time        = ${GREEN}$( date -d "0 days" +"%d-%m-%Y | %X" )${NC}"
+echo -e "${BIYellow}□ Operating System    = ${GREEN}$( cat /etc/os-release | grep -w PRETTY_NAME | sed '\''s/PRETTY_NAME//g'\'' | sed '\''s/=//g'\'' | sed '\''s/"//g'\'' ) ( $( uname -m) )${NC}"
+echo -e "${BIYellow}□ IP VPS              = ${BIYellow}$IPVPS${NC}"
+echo -e "${BIYellow}□ Current Domain      = ${GREEN}$( cat /etc/xray/domain )${NC}"
+echo -e "${BIYellow}□ NS Domain           = ${GREEN}$(cat /root/nsdomain)${NC}"
+echo -e "${BIYellow}□ Jumlah Ram          = ${GREEN}${totalram}MB"
 echo -e "${BIYellow}□ CPU Usage           = $cpu_usage"
-echo -e "${BIYellow}□ AutoScript by       = ${BIRed}( CLOUDVPN )${NC}"
+echo -e "${BIYellow}□ AutoScript by       = ${GREEN}( CLOUDVPN )${NC}"
 
 echo -e "${BICyan} ┌─────────────────────────────────────────────────────┐${NC}"
 echo -e " ${BICyan}│  Version       ${NC} : 1.07"  
@@ -275,11 +275,11 @@ echo -e "${GREEN}└────────────────────
 echo -e "     ${BICyan} SSH ${NC}: $ressh"" ${BICyan} NGINX ${NC}: $resngx"" ${BICyan}  XRAY ${NC}: $resv2r"" ${BICyan} TROJAN ${NC}: $resv2r"
 echo -e "   ${BICyan}     STUNNEL ${NC}: $resst" "${BICyan} DROPBEAR ${NC}: $resdbr" "${BICyan} SSH-WS ${NC}: $ressshws"
 echo -e "${BICyan} ┌─────────────────────────────────────────────────────┐${NC}"
-echo -e "     ${BICyan}[${BIWhite}1]${red}👾 SSH    " "  ${BICyan}[${BIWhite}6]${red}👾 TRIALL    " " ${BICyan}[${BIWhite}11${red}]🔐 SET PW VPS"
-echo -e "     ${BICyan}[${BIWhite}2]${red}👾 VMESS  " "  ${BICyan}[${BIWhite}7]${red}👾 BACKUP    " " ${BICyan}[${BIWhite}12${red}]👾 UPDATE SC"
-echo -e "     ${BICyan}[${BIWhite}3]${red}👾 VLESS  " "  ${BICyan}[${BIWhite}8]${red}👾 ADD-HOST  " "${BICyan} [${BIWhite}99${red}]👾 CLEAR SAMPAH "
-echo -e "     ${BICyan}[${BIWhite}4]${red}👾 TROJAN " "  ${BICyan}[${BIWhite}9]${red}👾 RUNNING   "
-echo -e "     ${BICyan}[${BIWhite}5]${red}👾 SETING " "  ${BICyan}[${BIWhite}10]${red}👾 SET REBOOT"
+echo -e "     ${BICyan}[${BIWhite}1]${red}🎮 SSH    " "  ${BICyan}[${BIWhite}6]${red}🎮 TRIALL    " " ${BICyan}[${BIWhite}11${red}]🔐 SET PW VPS"
+echo -e "     ${BICyan}[${BIWhite}2]${red}🎮 VMESS  " "  ${BICyan}[${BIWhite}7]${red}🎮 BACKUP    " " ${BICyan}[${BIWhite}12${red}]🎮 UPDATE SC"
+echo -e "     ${BICyan}[${BIWhite}3]${red}🎮 VLESS  " "  ${BICyan}[${BIWhite}8]${red}🎮 ADD-HOST  " "${BICyan} [${BIWhite}99${red}]🎮 CLEAR SAMPAH "
+echo -e "     ${BICyan}[${BIWhite}4]${red}🎮 TROJAN " "  ${BICyan}[${BIWhite}9]${red}🎮 RUNNING   "
+echo -e "     ${BICyan}[${BIWhite}5]${red}🎮 SETING " "  ${BICyan}[${BIWhite}10]${red}🎮 SET REBOOT"
 echo -e "${BICyan} ┌─────────────────────────────────────────────────────┐${NC}"
 echo -e "${BICyan} │$NC ${BICyan}HARI ini${NC}: ${red}$ttoday$NC ${BICyan}KEMARIN${NC}: ${red}$tyest$NC ${BICyan}BULAN${NC}: ${red}$tmon$NC $NC"
 echo -e "${BICyan} └─────────────────────────────────────────────────────┘${NC}"
@@ -300,7 +300,7 @@ case $opt in
 11) clear ; passwd ;;
 12) clear ; up ;;
 99) clear ; clearcache ;;
-6969) clear ; wget https://raw.githubusercontent.com/awanklod/alvi/main/update.sh && chmod +x update.sh && ./update.sh && rm -f /root/update.sh ;;
+6969) clear ; wget https://raw.githubusercontent.com/ALVIICELL/1/main/update.sh && chmod +x update.sh && ./update.sh && rm -f /root/update.sh ;;
 0) clear ; menu ;;
 x) exit ;;
 esac
