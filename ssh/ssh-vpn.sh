@@ -275,6 +275,7 @@ wget -O menu "https://raw.githubusercontent.com/awanklod/alvi/main/menu/menu.sh"
 wget -O menu-trial "https://raw.githubusercontent.com/awanklod/alvi/main/menu/menu-trial.sh"
 wget -O menu-vmess "https://raw.githubusercontent.com/awanklod/alvi/main/menu/menu-vmess.sh"
 wget -O menu-vless "https://raw.githubusercontent.com/awanklod/alvi/main/menu/menu-vless.sh"
+wget -O menu-ssws "https://raw.githubusercontent.com/awanklod/alvi/main/menu/menu-ssws.sh"
 wget -O running "https://raw.githubusercontent.com/awanklod/alvi/main/menu/running.sh"
 wget -O clearcache "https://raw.githubusercontent.com/awanklod/alvi/main/menu/clearcache.sh"
 wget -O menu-trgo "https://raw.githubusercontent.com/awanklod/alvi/main/menu/menu-trgo.sh"
@@ -332,6 +333,7 @@ chmod +x menu
 chmod +x menu-trial
 chmod +x menu-vmess
 chmod +x menu-vless
+chmod +x menu-ssws
 chmod +x running
 chmod +x clearcache
 chmod +x menu-trgo
