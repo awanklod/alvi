@@ -185,6 +185,14 @@ sleep 2
 clear
 wget https://raw.githubusercontent.com/awanklod/alvi/main/tunnel/udp.sh && bash udp.sh
 clear
+#Instal LIMIT
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "$green          Install LIMIT              $NC"
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+sleep 2
+clear
+wget https://raw.githubusercontent.com/awanklod/alvi/main/limit/limit.sh && chmod +x limit.sh && ./limit.sh
+clear
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
 if [ "$BASH" ]; then
