@@ -41,9 +41,9 @@ uuid=$(cat /proc/sys/kernel/random/uuid)
 masaaktif=1
 Quota=5
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
-sed -i '/#ssws$/a\#ss# '"$user $exp"'\
+sed -i '/#ssws$/a\## '"$user $exp"'\
 },{"password": "'""$uuid""'","method": "'""$cipher""'","email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#ssgrpc$/a\#ss# '"$user $exp"'\
+sed -i '/#ssgrpc$/a\## '"$user $exp"'\
 },{"password": "'""$uuid""'","method": "'""$cipher""'","email": "'""$user""'"' /etc/xray/config.json
 echo $cipher:$uuid > /tmp/log
 shadowsocks_base64=$(cat /tmp/log)
