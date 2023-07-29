@@ -251,7 +251,7 @@ clear
 echo -e "${BIPurple}╒════════════════════════════════════════════════════════════╕\033[0m${NC}"
 echo -e "${BIRed}                     👾  CLOUDVPN  TUNNEL 👾                     ${NC}"
 echo -e "${BIPurple}╘════════════════════════════════════════════════════════════╛\033[0m${NC}"
-echo -e "${BIBlue}╒════════════════════════════════════════════════════════════╕\033[0m${NC}"
+echo -e "${BIBlack}╒════════════════════════════════════════════════════════════╕\033[0m${NC}"
 echo -e "${BIYellow}□ Server Uptime       = ${BIWhite}$( uptime -p  | cut -d " " -f 2-10000 ) ${NC}"
 echo -e "${BIYellow}□ Current Time        = ${BIWhite}$( date -d "0 days" +"%d-%m-%Y | %X" )${NC}"
 echo -e "${BIYellow}□ Operating System    = ${BIWhite}$( cat /etc/os-release | grep -w PRETTY_NAME | sed 's/PRETTY_NAME//g' | sed 's/=//g' | sed 's/"//g' ) ( $( uname -m) )${NC}"
@@ -260,7 +260,7 @@ echo -e "${BIYellow}□ Current Domain      = ${BIWhite}$( cat /etc/xray/domain 
 echo -e "${BIYellow}□ NS Domain           = ${BIWhite}$(cat /root/nsdomain)${NC}"
 echo -e "${BIYellow}□ Total / USAGE RAM   = ${BIWhite}${totalram}MB / ${BIBlack}${USAGERAM} MB${NC}"
 echo -e "${BIYellow}□ CPU Usage           = ${BIWhite}${cpu_usage}${NC}"
-echo -e "${BIBlue}╘════════════════════════════════════════════════════════════╛\033[0m${NC}"
+echo -e "${BIBlack}╘════════════════════════════════════════════════════════════╛\033[0m${NC}"
 echo -e " ${BIPurple}╒═════════════════════════════════════════════════════╕${NC}"
 echo -e " ${BIPurple}│  Order By      ${NC} : ${BIRed}CLOUDVPN${NC}"  
 echo -e " ${BIPurple}│  user          ${NC} : ${BIRed}$Name${NC}"
@@ -283,7 +283,7 @@ echo -e "     ${BICyan}[${BIWhite}4]${red}🎮 TROJAN " "  ${BICyan}[${BIWhite}9
 echo -e "     ${BICyan}[${BIWhite}5]${red}🎮 SHDSCK " "  ${BICyan}[${BIWhite}10]${red}🎮 RUNNING"
 echo -e "${BIPurple}   ╘══════════════════════════════════════════════════════╛${NC}"
 echo -e "${BIBlack} ╒═════════════════════════════════════════════════════╕${NC}"
-echo -e "${BICyan} │$NC ${BICyan}HARI ini${NC}: ${red}$ttoday$NC ${BICyan}KEMARIN${NC}: ${red}$tyest$NC ${BICyan}BULAN${NC}: ${red}$tmon$NC $NC"
+echo -e "${BIBlack} │$NC ${BICyan}HARI ini${NC}: ${red}$ttoday$NC ${BICyan}KEMARIN${NC}: ${red}$tyest$NC ${BICyan}BULAN${NC}: ${red}$tmon$NC $NC"
 echo -e "${BIBlack} ╘═════════════════════════════════════════════════════╛${NC}"
 echo
 read -p " Pilih menu bosku : " opt
