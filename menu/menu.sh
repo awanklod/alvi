@@ -253,7 +253,7 @@ echo -e "${Red}━━━━━━━━━━━━━━━━━━━━━�
 
 echo -e "${BIYellow}□ Server Uptime       = ${BIWhite}$( uptime -p  | cut -d " " -f 2-10000 ) ${NC}"
 echo -e "${BIYellow}□ Current Time        = ${BIWhite}$( date -d "0 days" +"%d-%m-%Y | %X" )${NC}"
-echo -e "${BIYellow}□ Operating System    = ${BIWhite}$( cat /etc/os-release | grep -w PRETTY_NAME | sed '\''s/PRETTY_NAME//g'\'' | sed '\''s/=//g'\'' | sed '\''s/"//g'\'' ) ( $( uname -m) )${NC}"
+echo -e "${BIYellow}□ Operating System    = ${BIWhite}$( cat /etc/os-release | grep -w PRETTY_NAME | sed 's/PRETTY_NAME//g' | sed 's/=//g' | sed 's/"//g' ) ( $( uname -m) )${NC}"
 echo -e "${BIYellow}□ IP VPS              = ${BIWhite}$IPVPS${NC}"
 echo -e "${BIYellow}□ Current Domain      = ${BIWhite}$( cat /etc/xray/domain )${NC}"
 echo -e "${BIYellow}□ NS Domain           = ${BIWhite}$(cat /root/nsdomain)${NC}"
