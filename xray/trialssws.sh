@@ -40,6 +40,7 @@ cipher="aes-128-gcm"
 uuid=$(cat /proc/sys/kernel/random/uuid)
 masaaktif=1
 Quota=5
+iplimit=1
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#ssws$/a\## '"$user $exp"'\
 },{"password": "'""$uuid""'","method": "'""$cipher""'","email": "'""$user""'"' /etc/xray/config.json
@@ -54,7 +55,32 @@ shadowsockslink2="ss://${shadowsocks_base64e}@isi_bug_disini:$ntls?path=ss-ws&se
 shadowsockslink1="ss://${shadowsocks_base64e}@${domain}:$tls?mode=gun&security=tls&type=grpc&serviceName=ss-grpc&sni=bug.com#${user}"
 systemctl restart xray > /dev/null 2>&1
 service cron restart > /dev/null 2>&1
+if [ ! -e /etc/shadowsocks ]; then
+  mkdir -p /etc/shadowsocks
+fi
 
+if [[ $iplimit -gt 0 ]]; then
+mkdir -p /etc/kyt/limit/shadowsocks/ip
+echo -e "$iplimit" > /etc/kyt/limit/shadowsocks/ip/$user
+else
+echo > /dev/null
+fi
+
+if [ -z ${Quota} ]; then
+  Quota="0"
+fi
+
+c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
+d=$((${c} * 1024 * 1024 * 1024))
+
+if [[ ${c} != "0" ]]; then
+  echo "${d}" >/etc/shadowsocks/${user}
+fi
+DATADB=$(cat /etc/shadowsocks/.shadowsocks.db | grep "^###" | grep -w "${user}" | awk '{print $2}')
+if [[ "${DATADB}" != '' ]]; then
+  sed -i "/\b${user}\b/d" /etc/shadowsocks/.shadowsocks.db
+fi
+echo "### ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/shadowsocks/.shadowsocks.db
 
 clear
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}" 
@@ -62,6 +88,8 @@ echo -e "${BIWhite}            ⇱ SHADOWSOCKS ACCOUNT ⇲            ${NC}"
 echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
+echo -e "User Quota     : ${Quota} GB"
+echo -e "User Ip        : ${iplimit} IP"
 echo -e "Wildcard       : (bug.com).${domain}"
 echo -e "Port TLS       : ${tls}"
 echo -e "Port none TLS  : ${tls}"
