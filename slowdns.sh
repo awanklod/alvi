@@ -1,24 +1,5 @@
 #!/bin/bash
-# Script  By CyberVPN
-# 2023 SLOWDNS
-# ===============================================
-sudo apt install squid -y
-mkdir /var/lib/ssnvpn-pro/
-rm -f /usr/bin/menu-ssh
-wget -q -O /var/lib/ssnvpn-pro/ipvps.conf "https://raw.githubusercontent.com/Azigaming404/Autoscript-by-azi/main/ipvps.conf"
-wger -q -O /usr/bin/tendang "https://raw.githubusercontent.com/Azigaming404/Autoscript-by-azi/main/limit/tendang.sh"
-wget -q -O /usr/bin/autokill "https://raw.githubusercontent.com/Azigaming404/Autoscript-by-azi/main/limit/autokill.sh"
-wget -q -O /usr/bin/menu-ssh "https://raw.githubusercontent.com/Azigaming404/Autoscript-by-azi/main/menu-ssh.sh"
-wget -q -O /usr/bin/restart "https://raw.githubusercontent.com/Azigaming404/Autoscript-by-azi/main/menu/restart.sh"
-chmod +x /usr/bin/restart
-wget -q -O /usr/bin/bot "https://raw.githubusercontent.com/Azigaming404/Autoscript-by-azi/main/Finaleuy/bot.sh"
-wget -q -O /root/chat "https://raw.githubusercontent.com/Azigaming404/Autoscript-by-azi/main/Finaleuy/chatid.sh"
-chmod 777 /root/chat
-chmod 777 /usr/bin/bot
-
-chmod +x /usr/bin/tendang
-chmod +x /usr/bin/autokill
-chmod +x /usr/bin/menu-ssh
+# Script  By CLOUDVPN
 #setting IPtables
 iptables -I INPUT -p udp --dport 5300 -j ACCEPT
 iptables -t nat -I PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5300
@@ -33,7 +14,8 @@ rm nsdomain
 
 #input nameserver manual to cloudflare
 
-
+clear
+figlet "slowdns" | lolcat
 read -rp "Masukkan Nameserver: " -e sub
 SUB_DOMAIN=${sub}
 NS_DOMAIN=${SUB_DOMAIN}
@@ -42,13 +24,11 @@ echo $NS_DOMAIN > /root/nsdomain
 nameserver=$(cat /root/nsdomain)
 apt update -y
 apt install -y python3 python3-dnslib net-tools
-apt install ncurses-utils -y
 apt install dnsutils -y
 #apt install golang -y
 apt install git -y
 apt install curl -y
 apt install wget -y
-apt install ncurses-utils -y
 apt install screen -y
 apt install cron -y
 apt install iptables -y
@@ -60,16 +40,13 @@ apt install -y dos2unix debconf-utils
 service cron reload
 service cron restart
 
-
-
-
 #konfigurasi slowdns
 rm -rf /etc/slowdns
 mkdir -m 777 /etc/slowdns
-wget -q -O /etc/slowdns/server.key "https://raw.githubusercontent.com/fisabiliyusri/SLDNS/main/slowdns/server.key"
-wget -q -O /etc/slowdns/server.pub "https://raw.githubusercontent.com/fisabiliyusri/SLDNS/main/slowdns/server.pub"
-wget -q -O /etc/slowdns/sldns-server "https://raw.githubusercontent.com/fisabiliyusri/SLDNS/main/slowdns/sldns-server"
-wget -q -O /etc/slowdns/sldns-client "https://raw.githubusercontent.com/fisabiliyusri/SLDNS/main/slowdns/sldns-client"
+wget -q -O /etc/slowdns/server.key "https://raw.githubusercontent.com/awanklod/jual/main/SLDNS/server.key"
+wget -q -O /etc/slowdns/server.pub "https://raw.githubusercontent.com/awanklod/jual/main/SLDNS/server.pub"
+wget -q -O /etc/slowdns/sldns-server "https://raw.githubusercontent.com/awanklod/jual/main/SLDNS/sldns-server"
+wget -q -O /etc/slowdns/sldns-client "https://raw.githubusercontent.com/awanklod/jual/main/SLDNS/sldns-client"
 cd
 chmod +x /etc/slowdns/server.key
 chmod +x /etc/slowdns/server.pub
@@ -77,15 +54,15 @@ chmod +x /etc/slowdns/sldns-server
 chmod +x /etc/slowdns/sldns-client
 
 cd
-#wget -q -O /etc/systemd/system/client-sldns.service "https://raw.githubusercontent.com/fisabiliyusri/SLDNS/main/slowdns/client-sldns.service"
-#wget -q -O /etc/systemd/system/server-sldns.service "https://raw.githubusercontent.com/fisabiliyusri/SLDNS/main/slowdns/server-sldns.service"
+#wget -q -O /etc/systemd/system/client-sldns.service "https://raw.githubusercontent.com/awanklod/jual/main/SLDNS/client-sldns.service"
+#wget -q -O /etc/systemd/system/server-sldns.service "https://raw.githubusercontent.com/awanklod/jual/main/SLDNS/server-sldns.service"
 
 cd
 #install client-sldns.service
 cat > /etc/systemd/system/client-sldns.service << END
 [Unit]
-Description=Client SlowDNS By HideSSH
-Documentation=https://hidessh.com
+Description=Client SlowDNS By CyberVPN
+Documentation=https://www.xnxx.com
 After=network.target nss-lookup.target
 
 [Service]
@@ -105,8 +82,8 @@ cd
 #install server-sldns.service
 cat > /etc/systemd/system/server-sldns.service << END
 [Unit]
-Description=Server SlowDNS By HideSSH
-Documentation=https://hidessh.com
+Description=Server SlowDNS By Cybervpn
+Documentation=https://xhamster.com
 After=network.target nss-lookup.target
 
 [Service]
@@ -141,4 +118,4 @@ systemctl start client-sldns
 systemctl start server-sldns
 
 systemctl restart client-sldns
-systemctl restart server-sldns'
+systemctl restart server-sldns
