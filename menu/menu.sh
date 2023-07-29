@@ -279,7 +279,7 @@ echo -e "${BICyan} ┌───────────────────�
 echo -e "     ${BICyan}[${BIWhite}1]${red}🎮 SSH    " "  ${BICyan}[${BIWhite}6]${red}🎮 SETTING  " " ${BICyan}[${BIWhite}11${red}]🎮 SET REBOOT"
 echo -e "     ${BICyan}[${BIWhite}2]${red}🎮 VMESS  " "  ${BICyan}[${BIWhite}7]${red}🎮 TRIAL    " " ${BICyan}[${BIWhite}12${red}]🔐 SET PW VPS"
 echo -e "     ${BICyan}[${BIWhite}3]${red}🎮 VLESS  " "  ${BICyan}[${BIWhite}8]${red}🎮 BACKUP   " " ${BICyan}[${BIWhite}13${red}]🎮 UPDATE SC "
-echo -e "     ${BICyan}[${BIWhite}4]${red}🎮 TROJAN " "  ${BICyan}[${BIWhite}9]${red}🎮 ADD-HOST " " ${BICyan}[${BIWhite}99${red}]🔐 CLEAR SAMPAH"
+echo -e "     ${BICyan}[${BIWhite}4]${red}🎮 TROJAN " "  ${BICyan}[${BIWhite}9]${red}🎮 ADD-HOST " " ${BICyan}[${BIWhite}99${red}]🎮 CLEAR SAMPAH"
 echo -e "     ${BICyan}[${BIWhite}5]${red}🎮 SHDSCK " "  ${BICyan}[${BIWhite}10]${red}🎮 RUNNING"
 echo -e "${BICyan} ┌─────────────────────────────────────────────────────┐${NC}"
 echo -e "${BICyan} │$NC ${BICyan}HARI ini${NC}: ${red}$ttoday$NC ${BICyan}KEMARIN${NC}: ${red}$tyest$NC ${BICyan}BULAN${NC}: ${red}$tmon$NC $NC"
