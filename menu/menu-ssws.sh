@@ -35,9 +35,11 @@ export CYAN='\033[0;36m'
 export LIGHT='\033[0;37m'
 export NC='\033[0m'
 clear
-echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
-echo -e "${BIWhite}             ⇱ SHADOWSOCKS MENU ⇲           ${NC}"
-echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
+echo -e "\E[44;1;39m     🎮 CLOUDVPN TUNNEL 🎮            \E[0m" | tee -a /etc/log-create-user.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
+echo -e "${BICyan} ┌─────────────────────────────────────────────────────┐${NC}"
+echo -e "       ${BIWhite}${UWhite}SHADOWSOCKS ${NC}"
 echo -e ""
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
 echo -e "${BICyan}[${BIWhite}01${BICyan}]${RED} • ${NC}${BIWhite}ADD SHADOWSOCKS  $NC"
