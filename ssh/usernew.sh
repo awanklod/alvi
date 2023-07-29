@@ -96,7 +96,8 @@ echo -e "Host        : $(cat /etc/xray/domain)" | tee -a /etc/log-create-user.lo
 echo -e "Nameserver  : $sldomain" | tee -a /etc/log-create-user.log
 echo -e "PubKey      : $slkey" | tee -a /etc/log-create-user.log
 echo -e "OpenSSH     : 22" | tee -a /etc/log-create-user.log
-echo -e "SSH-WS      : 80" | tee -a /etc/log-create-user.log
+echo -e "SSH-WS      : 80, 8080" | tee -a /etc/log-create-user.log
+echo -e "SSH-WSDirect  : 8080" | tee -a /etc/log-create-user.log
 echo -e "SSH-SSL-WS  : 443" | tee -a /etc/log-create-user.log
 echo -e "SSL/TLS     : 447 , 777" | tee -a /etc/log-create-user.log
 echo -e "SlowDNS     : 53,5300,443" 
