@@ -16,7 +16,7 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Checking VPS"
 CEKEXPIRED () {
 today=$(date -d +1day +%Y-%m-%d)
-Exp1=$(curl -sS https://raw.githubusercontent.com/awanklod/jual/main/izinnya | grep $MYIP | awk '{print $3}')
+Exp1=$(curl -sS https://raw.githubusercontent.com/awanklod/izin_alvi/main/izin | grep $MYIP | awk '{print $3}')
 if [[ $today < $Exp1 ]]; then
 echo -e "\e[32mSTATUS SCRIPT AKTIF...\e[0m"
 else
@@ -24,7 +24,7 @@ echo -e "\e[31mSCRIPT ANDA EXPIRED!\e[0m";
 exit 0
 fi
 }
-IZIN=$(curl -sS https://raw.githubusercontent.com/awanklod/jual/main/izinnya | awk '{print $4}' | grep $MYIP)
+IZIN=$(curl -sS https://raw.githubusercontent.com/awanklod/izin_alvi/main/izin | awk '{print $4}' | grep $MYIP)
 if [ $MYIP = $IZIN ]; then
 echo -e "\e[32mPermission Accepted...\e[0m"
 CEKEXPIRED
@@ -68,7 +68,6 @@ done
 cipher="aes-128-gcm"
 uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (days): " masaaktif
-read -p "Limit User (GB): " Quota
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#ssws$/a\#ss# '"$user $exp"'\
 },{"password": "'""$uuid""'","method": "'""$cipher""'","email": "'""$user""'"' /etc/xray/config.json
@@ -301,25 +300,7 @@ cat > /home/vps/public_html/ss-$user.txt <<-END
 END
 systemctl restart xray > /dev/null 2>&1
 service cron restart > /dev/null 2>&1
-if [ ! -e /etc/shadowsocks ]; then
-  mkdir -p /etc/shadowsocks
-fi
 
-if [ -z ${Quota} ]; then
-  Quota="0"
-fi
-
-c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
-d=$((${c} * 1024 * 1024 * 1024))
-
-if [[ ${c} != "0" ]]; then
-  echo "${d}" >/etc/shadowsocks/${user}
-fi
-DATADB=$(cat /etc/shadowsocks/.shadowsocks.db | grep "^#ss#" | grep -w "${user}" | awk '{print $2}')
-if [[ "${DATADB}" != '' ]]; then
-  sed -i "/\b${user}\b/d" /etc/shadowsocks/.shadowsocks.db
-fi
-echo "#ss# ${user} ${exp} ${uuid} ${Quota}" >>/etc/shadowsocks/.shadowsocks.db
 clear
 echo -e ""
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}" | tee -a /etc/log-create-user.log 
@@ -327,7 +308,6 @@ echo -e "${BIWhite}            ⇱ SHADOWSOCKS ACCOUNT ⇲            ${NC}" | t
 echo -e "${CYAN}╘════════════════════════════════════════╛${NC}" | tee -a /etc/log-create-user.log
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-user.log
 echo -e "Domain         : ${domain}" | tee -a /etc/log-create-user.log
-echo -e "User Quota     : ${Quota} GB" | tee -a /etc/tr/user.log
 echo -e "Wildcard       : (bug.com).${domain}" | tee -a /etc/log-create-user.log
 echo -e "Port TLS       : ${tls}" | tee -a /etc/log-create-user.log
 echo -e "Port none TLS  : ${ntls}" | tee -a /etc/log-create-user.log
