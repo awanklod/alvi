@@ -38,7 +38,7 @@ clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "\E[44;1;39m     🎮 CLOUDVPN TUNNEL 🎮            \E[0m" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
-echo -e "${BICyan} ┌─────────────────────────────────────────────────────┐${NC}"
+echo -e "${BICyan} ┌────────────────────────────────────┐${NC}"
 echo -e "       ${BIWhite}${UWhite}SHADOWSOCKS ${NC}"
 echo -e ""
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
@@ -65,5 +65,5 @@ case $opt in
 5) clear ; cek-ssws ;;
 0) clear ; menu ;;
 x) exit ;;
-*) echo "Masukkan Angka Yang Benar" ; sleep 1 ; m-ssws ;;
+*) echo "Masukkan Angka Yang Benar" ; sleep 1 ; menu-ssws ;;
 esac
