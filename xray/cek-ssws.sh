@@ -54,7 +54,7 @@ echo "$(( (bytes + 1073741823)/1073741824 ))GB"
 fi
 }
 echo -n > /tmp/other.txt
-data=( `cat /etc/xray/config.json | grep '#ss#' | cut -d ' ' -f 2 | sort | uniq`);
+data=( `cat /etc/xray/config.json | grep '##' | cut -d ' ' -f 2 | sort | uniq`);
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
 echo -e "${BIWhite}        ⇱ SHADOWSOCKS USER LOGIN ⇲      ${NC}"
 echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
