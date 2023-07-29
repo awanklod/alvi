@@ -135,6 +135,7 @@ export UNDERLINE="\e[4m"
 # TOTAL RAM
 total_ram=` grep "MemTotal: " /proc/meminfo | awk '{ print $2}'`
 totalram=$(($total_ram/1024))
+USAGERAM=$(free -m | awk 'NR==2 {print $3}')
 
 persenmemori="$(echo "scale=2; $usmem*100/$tomem" | bc)"
 #persencpu=
@@ -247,23 +248,23 @@ export sem=$( curl -s https://raw.githubusercontent.com/ALVIICELL/permission/mai
 export pak=$( cat /home/.ver)
 IPVPS=$(curl -s ipinfo.io/ip )
 clear
-echo -e "${Red}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
+echo -e "${BIPurple}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
 echo -e "${red}              👾  CLOUDVPN  TUNNEL 👾                          ${NC}"
-echo -e "${Red}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
+echo -e "${BIPurple}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
 
-echo -e "${BIYellow}□ Server Uptime       = ${GREEN}$( uptime -p  | cut -d " " -f 2-10000 ) ${NC}"
-echo -e "${BIYellow}□ Current Time        = ${GREEN}$( date -d "0 days" +"%d-%m-%Y | %X" )${NC}"
-echo -e "${BIYellow}□ Operating System    = ${GREEN}$( cat /etc/os-release | grep -w PRETTY_NAME | sed 's/PRETTY_NAME//g' | sed 's/=//g' | sed 's/"//g' ) ( $( uname -m) )${NC}"
-echo -e "${BIYellow}□ IP VPS              = ${BIYellow}$IPVPS${NC}"
-echo -e "${BIYellow}□ Current Domain      = ${GREEN}$( cat /etc/xray/domain )${NC}"
-echo -e "${BIYellow}□ NS Domain           = ${GREEN}$(cat /root/nsdomain)${NC}"
-echo -e "${BIYellow}□ Jumlah Ram          = ${GREEN}${totalram}MB"
+echo -e "${BIYellow}□ Server Uptime       = ${BIWhite}$( uptime -p  | cut -d " " -f 2-10000 ) ${NC}"
+echo -e "${BIYellow}□ Current Time        = ${BIWhite}$( date -d "0 days" +"%d-%m-%Y | %X" )${NC}"
+echo -e "${BIYellow}□ Operating System    = ${BIWhite}$( cat /etc/os-release | grep -w PRETTY_NAME | sed 's/PRETTY_NAME//g' | sed 's/=//g' | sed 's/"//g' ) ( $( uname -m) )${NC}"
+echo -e "${BIYellow}□ IP VPS              = ${BIWhite}$IPVPS${NC}"
+echo -e "${BIYellow}□ Current Domain      = ${BIWhite}$( cat /etc/xray/domain )${NC}"
+echo -e "${BIYellow}□ NS Domain           = ${BIWhite}$(cat /root/nsdomain)${NC}"
+echo -e "${BIYellow}□ Jumlah / USAGE RAM  = ${BIWhite}${totalram}MB / ${BIBlack}${USAGERAM} MB${NC}"
 echo -e "${BIYellow}□ CPU Usage           = $cpu_usage"
 
-echo -e "${BICyan} ┌─────────────────────────────────────────────────────┐${NC}"
-echo -e " ${BICyan}│  Version       ${NC} : 1.07"  
-echo -e " ${BICyan}│  user          ${NC} : ${GREEN}$Name${NC}"
-echo -e " ${BICyan}│  expired${NC}        : $Exp"
+echo -e " ${BICyan}┌─────────────────────────────────────────────────────┐${NC}"
+echo -e " ${BICyan}│  Order By      ${NC} : ${BIRed}CLOUDVPN${NC}"  
+echo -e " ${BICyan}│  user          ${NC} : ${BIRed}$Name${NC}"
+echo -e " ${BICyan}│  expired       ${NC} : ${BIRed}$Exp${NC}"
 echo -e " ${BICyan}└─────────────────────────────────────────────────────┘${NC}"
 
 echo -e "${GREEN}┌──────────────────────────────────────────────────┐${NC}" 
