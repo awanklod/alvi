@@ -1,4 +1,4 @@
-REPO="https://raw.githubusercontent.com/awanklod/ini/main/"
+REPO="https://raw.githubusercontent.com/awanklod/alvi/main/"
 print_install "Memasang Service Limit Quota"
 wget -q -O /usr/local/sbin/quota "${REPO}limit/quota"
 chmod +x /usr/local/sbin/quota
