@@ -114,6 +114,7 @@ echo -e "     ${BICyan}[${BIWhite}01${BICyan}] Trial Account SSH & OVPN   "
 echo -e "     ${BICyan}[${BIWhite}02${BICyan}] Trial Account VMESS    "
 echo -e "     ${BICyan}[${BIWhite}03${BICyan}] Trial Account VLESS     "
 echo -e "     ${BICyan}[${BIWhite}04${BICyan}] Trial Account TROJAN   "
+echo -e "     ${BICyan}[${BIWhite}05${BICyan}] Trial Account SHADOWSOCKS   "
 
 echo -e " ${BICyan}└─────────────────────────────────────────────────────┘${NC}"
 echo -e "     ${BIYellow}Press x or [ Ctrl+C ] • To-${BIWhite}Exit${NC}"
@@ -125,6 +126,7 @@ case $opt in
 2) clear ; trialvmess ;;
 3) clear ; trialvless ;;
 4) clear ; trialtrojan ;;
+5) clear ; trialssws ;;
 0) clear ; menu ;;
 x) exit ;;
 *) echo "anda salah tekan cok" ; sleep 1 ; menu-trial ;;
