@@ -14,7 +14,7 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Checking VPS"
 CEKEXPIRED () {
     today=$(date -d +1day +%Y-%m-%d)
-    Exp1=$(curl -sS https://raw.githubusercontent.com/awanklod/jual/main/izinnya | grep $MYIP | awk '{print $3}')
+    Exp1=$(curl -sS https://raw.githubusercontent.com/awanklod/izin_alvi/main/izin | grep $MYIP | awk '{print $3}')
     if [[ $today < $Exp1 ]]; then
     echo -e "\e[32mSTATUS SCRIPT AKTIF...\e[0m"
     else
@@ -22,7 +22,7 @@ CEKEXPIRED () {
     exit 0
 fi
 }
-IZIN=$(curl -sS https://raw.githubusercontent.com/awanklod/jual/main/izinnya | awk '{print $4}' | grep $MYIP)
+IZIN=$(curl -sS https://raw.githubusercontent.com/awanklod/izin_alvi/main/izin | awk '{print $4}' | grep $MYIP)
 if [ $MYIP = $IZIN ]; then
 echo -e "\e[32mPermission Accepted...\e[0m"
 CEKEXPIRED
@@ -55,31 +55,13 @@ shadowsockslink1="ss://${shadowsocks_base64e}@${domain}:$tls?mode=gun&security=t
 systemctl restart xray > /dev/null 2>&1
 service cron restart > /dev/null 2>&1
 
-if [ ! -e /etc/shadowsocks ]; then
-  mkdir -p /etc/shadowsocks
-fi
 
-if [ -z ${Quota} ]; then
-  Quota="0"
-fi
-
-c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
-d=$((${c} * 1024 * 1024 * 1024))
-
-if [[ ${c} != "0" ]]; then
-  echo "${d}" >/etc/shadowsocks/${user}
-fi
-DATADB=$(cat /etc/shadowsocks/.shadowsocks.db | grep "^#ss#" | grep -w "${user}" | awk '{print $2}')
-if [[ "${DATADB}" != '' ]]; then
-  sed -i "/\b${user}\b/d" /etc/shadowsocks/.shadowsocks.db
-fi
 clear
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}" 
 echo -e "${BIWhite}            ⇱ SHADOWSOCKS ACCOUNT ⇲            ${NC}"
 echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
-echo -e "User limit     : ${Quota} GB"
 echo -e "Wildcard       : (bug.com).${domain}"
 echo -e "Port TLS       : ${tls}"
 echo -e "Port none TLS  : ${tls}"
