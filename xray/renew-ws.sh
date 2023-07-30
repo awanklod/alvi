@@ -47,7 +47,7 @@ echo ""
 echo -e "${CYAN}══════════════════════════════════════════${NC}"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
-m-vmess
+menu-vmess
 fi
 
 clear
@@ -61,7 +61,7 @@ red "tap enter to go back"
 echo -e "${CYAN}══════════════════════════════════════════${NC}"
 read -rp "Input Username : " user
 if [ -z $user ]; then
-m-vmess
+menu-vmess
 else
 read -p "Expired (days): " masaaktif
 exp=$(grep -wE "^### $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
@@ -84,5 +84,5 @@ echo ""
 echo -e "${CYAN}══════════════════════════════════════════${NC}"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
-m-vmess
+menu-vmess
 fi
