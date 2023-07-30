@@ -33,7 +33,7 @@ exit 0
 fi
 
 clear
-source /var/lib/ipvps.conf
+source /var/lib/SIJA/ipvps.conf
 if [[ "$IP" = "" ]]; then
 domain=$(cat /etc/xray/domain)
 else
