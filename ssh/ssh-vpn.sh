@@ -283,6 +283,7 @@ wget -O menu-trojan "https://raw.githubusercontent.com/awanklod/alvi/main/menu/m
 wget -O up "https://raw.githubusercontent.com/awanklod/alvi/main/up.sh"
 wget -O slow "https://raw.githubusercontent.com/awanklod/alvi/main/slow.sh"
 wget -O cf "https://raw.githubusercontent.com/awanklod/alvi/main/cf.sh"
+wget -O reboot "https://raw.githubusercontent.com/awanklod/alvi/main/menu/reboot.sh"
 
 # menu ssh ovpn
 wget -O menu-ssh "https://raw.githubusercontent.com/awanklod/alvi/main/menu/menu-ssh.sh"
@@ -342,6 +343,8 @@ chmod +x slow
 chmod +x update
 chmod +x genssl
 chmod +x cf
+chmod +x reboot
+
 
 chmod +x menu-ssh
 chmod +x usernew
