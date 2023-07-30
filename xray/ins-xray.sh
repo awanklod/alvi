@@ -79,13 +79,11 @@ rm -rf /etc/vmess/.vmess.db
 rm -rf /etc/vless/.vless.db
 rm -rf /etc/trojan/.trojan.db
 rm -rf /etc/shadowsocks/.shadowsocks.db
-mkdir -p /etc/xray
 mkdir -p /etc/vmess
 mkdir -p /etc/vless
 mkdir -p /etc/trojan
 mkdir -p /etc/shadowsocks
 mkdir -p /usr/bin/xray/
-mkdir -p /var/log/xray/
 mkdir -p /var/www/html
 mkdir -p /etc/kyt/limit/vmess/ip
 mkdir -p /etc/kyt/limit/vless/ip
@@ -95,10 +93,7 @@ mkdir -p /etc/limit/vmess
 mkdir -p /etc/limit/vless
 mkdir -p /etc/limit/trojan
 mkdir -p /etc/limit/shadowsocks
-chmod +x /var/log/xray
 touch /etc/xray/domain
-touch /var/log/xray/access.log
-touch /var/log/xray/error.log
 touch /etc/vmess/.vmess.db
 touch /etc/vless/.vless.db
 touch /etc/trojan/.trojan.db
