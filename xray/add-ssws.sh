@@ -338,9 +338,9 @@ echo -e "Domain         : ${domain}" | tee -a /etc/log-create-user.log
 echo -e "User Quota     : ${Quota} GB" | tee -a /etc/log-create-user.log
 echo -e "User Ip        : ${iplimit} IP" | tee -a /etc/log-create-user.log
 echo -e "Wildcard       : (bug.com).${domain}" | tee -a /etc/log-create-user.log
-echo -e "Port TLS       : ${tls}" | tee -a /etc/log-create-user.log
-echo -e "Port none TLS  : ${ntls}" | tee -a /etc/log-create-user.log
-echo -e "Port gRPC      : ${tls}" | tee -a /etc/log-create-user.log
+echo -e "Port TLS       : 443" | tee -a /etc/log-create-user.log
+echo -e "Port none TLS  : 80" | tee -a /etc/log-create-user.log
+echo -e "Port gRPC      : 443" | tee -a /etc/log-create-user.log
 echo -e "Password       : ${uuid}" | tee -a /etc/log-create-user.log
 echo -e "Ciphers        : ${cipher}" | tee -a /etc/log-create-user.log
 echo -e "Network        : ws/grpc" | tee -a /etc/log-create-user.log
