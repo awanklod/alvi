@@ -268,8 +268,8 @@ echo -e " ${BIPurple}│  expired       ${NC} : ${BIRed}$Exp${NC}"
 echo -e " ${BIPurple}╘═════════════════════════════════════════════════════╛${NC}"
 
 echo -e "${BIBlack}╒════════════════════════════════════════════════════════════╕${NC}" 
-echo -e "${BIBlue}│  \033[0m ${BOLD}${YELLOW}SSH     VMESS       VLESS      TROJAN       SHADOWSOCKS $NC" 
-echo -e "${BIBlue}│  \033[0m ${Blue} $ssh1        $vma           $vla          $tra              $ssa $NC" 
+echo -e "${BIBlack}│  \033[0m ${BOLD}${YELLOW}SSH     VMESS       VLESS      TROJAN       SHADOWSOCKS $NC" 
+echo -e "${BIBlack}│  \033[0m ${Blue} $ssh1        $vma           $vla          $tra              $ssa $NC" 
 echo -e "${BIBlack}╘════════════════════════════════════════════════════════════╛${NC}" 
 
 echo -e "     ${BICyan} SSH ${NC}: $ressh"" ${BICyan} NGINX ${NC}: $resngx"" ${BICyan}  XRAY ${NC}: $resv2r"" ${BICyan} TROJAN ${NC}: $resv2r"
