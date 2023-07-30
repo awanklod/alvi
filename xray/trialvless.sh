@@ -1,14 +1,46 @@
+#!/bin/bash
+dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
+biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
+#########################
+red='\e[1;31m'
+green='\e[0;32m'
+NC='\e[0m'
+green() { echo -e "\\033[32;1m${*}\\033[0m"; }
+red() { echo -e "\\033[31;1m${*}\\033[0m"; }
+
+clear
+# izin
+MYIP=$(wget -qO- ipinfo.io/ip);
+echo "Checking VPS"
+CEKEXPIRED () {
+    today=$(date -d +1day +%Y-%m-%d)
+    Exp1=$(curl -sS https://raw.githubusercontent.com/awanklod/izin_alvi/main/izin | grep $MYIP | awk '{print $3}')
+    if [[ $today < $Exp1 ]]; then
+    echo -e "\e[32mSTATUS SCRIPT AKTIF...\e[0m"
+    else
+    echo -e "\e[31mSCRIPT ANDA EXPIRED!\e[0m";
+    exit 0
+fi
+}
+IZIN=$(curl -sS https://raw.githubusercontent.com/awanklod/izin_alvi/main/izin | awk '{print $4}' | grep $MYIP)
+if [ $MYIP = $IZIN ]; then
+echo -e "\e[32mPermission Accepted...\e[0m"
+CEKEXPIRED
+else
+echo -e "\e[31mPermission Denied!\e[0m";
+exit 0
+fi
+
+clear
 domain=$(cat /etc/xray/domain)
-tls="$(cat ~/log-install.txt | grep -w "Vless TLS" | cut -d: -f2|sed 's/ //g')"
-none="$(cat ~/log-install.txt | grep -w "Vless None TLS" | cut -d: -f2|sed 's/ //g')"
-user=trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
+tls="$(cat ~/log-install.txt | grep -w "Vless WS TLS" | cut -d: -f2|sed 's/ //g')"
+none="$(cat ~/log-install.txt | grep -w "Vless WS none TLS" | cut -d: -f2|sed 's/ //g')"
+user=trial-vl`</dev/urandom tr -dc 0-9 | head -c4`
 uuid=$(cat /proc/sys/kernel/random/uuid)
 masaaktif=1
 Quota=5
 iplimit=1
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
-uuid=$(cat /proc/sys/kernel/random/uuid)
-read -p "Expired (days): " masaaktif
 sed -i '/#vless$/a\#& '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 sed -i '/#vlessgrpc$/a\#& '"$user $exp"'\
@@ -17,6 +49,7 @@ vlesslink1="vless://${uuid}@${domain}:$tls?path=/vless&security=tls&encryption=n
 vlesslink2="vless://${uuid}@${domain}:$none?path=/vless&encryption=none&type=ws#${user}"
 vlesslink3="vless://${uuid}@${domain}:$tls?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=bug.com#${user}"
 systemctl restart xray
+
 if [ ! -e /etc/vless ]; then
   mkdir -p /etc/vless
 fi
@@ -44,31 +77,31 @@ if [[ "${DATADB}" != '' ]]; then
 fi
 echo "### ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vless/.vless.db
 clear
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[40;1;37m        Trial Xray/Vless        \E[0m"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "${CYAN}╒════════════════════════════════════════╕${NC}" 
+echo -e "${BIWhite}            ⇱ VLESS ACCOUNT ⇲            ${NC}"
+echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
-echo -e "User Quota     : ${Quota} GB"
-echo -e "User Ip        : ${iplimit} IP"
-echo -e "port TLS       : $tls"
-echo -e "port none TLS  : $none"
-echo -e "id             : ${uuid}"
+echo -e "User limit     : ${Quota} GB"
+echo -e "Wildcard       : (bug.com).${domain}"
+echo -e "Port TLS       : 443"
+echo -e "Port none TLS  : 80"
+echo -e "Port gRPC      : 443"
+echo -e "ID             : ${uuid}"
 echo -e "Encryption     : none"
 echo -e "Network        : ws"
 echo -e "Path           : /vless"
 echo -e "Path           : vless-grpc"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "${BIWhite}══════════════════════════════════════════${NC}"
 echo -e "Link TLS       : ${vlesslink1}"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "${BIWhite}══════════════════════════════════════════${NC}"
 echo -e "Link none TLS  : ${vlesslink2}"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "Link GRPC      : ${vlesslink3}"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "${BIWhite}══════════════════════════════════════════${NC}"
+echo -e "Link gRPC      : ${vlesslink3}"
+echo -e "${BIWhite}══════════════════════════════════════════${NC}"
 echo -e "Expired On     : $exp"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "${BIWhite}══════════════════════════════════════════${NC}"
 echo ""
-
 read -n 1 -s -r -p "Press any key to back on menu"
-
 menu
+
