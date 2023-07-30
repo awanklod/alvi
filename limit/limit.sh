@@ -63,6 +63,23 @@ EOF
 systemctl daemon-reload
 systemctl restart trip
 systemctl enable trip
+
+cat >/etc/systemd/system/shdip.service << EOF
+[Unit]
+Description=My
+ProjectAfter=network.target
+
+[Service]
+WorkingDirectory=/root
+ExecStart=/usr/bin/limit-ip shdip
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+EOF
+systemctl daemon-reload
+systemctl restart shdip
+systemctl enable shdip
 #SERVICE LIMIT QUOTA
 
 #SERVICE VMESS
@@ -118,3 +135,22 @@ EOF
 systemctl daemon-reload
 systemctl restart qmtr
 systemctl enable qmtr
+
+#SERVICE SHADOWSOCKS
+cat >/etc/systemd/system/qmshd.service << EOF
+[Unit]
+Description=My 
+ProjectAfter=network.target
+
+[Service]
+WorkingDirectory=/root
+ExecStart=/usr/local/sbin/quota shadowsocks
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+EOF
+systemctl daemon-reload
+systemctl restart qmshd
+systemctl enable qmshd
+
