@@ -3,35 +3,38 @@ dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Dat
 biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 #########################
 
-
+red='\e[1;31m'
+green='\e[0;32m'
+NC='\e[0m'
+green() { echo -e "\\033[32;1m${*}\\033[0m"; }
+red() { echo -e "\\033[31;1m${*}\\033[0m"; }
 
 clear
+
 NUMBER_OF_CLIENTS=$(grep -c -E "^#! " "/etc/xray/config.json")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│${NC} ${COLBG1}           • DELETE TROJAN USER •              ${NC} $COLOR1│$NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}  • You Dont have any existing clients!"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
-echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}           ${GREEN} • SCRIPT MULTI PREMIUM •   $NC          $COLOR1│$NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
+echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
+echo -e "${CYAN}           ⇱ DELETE USER TROJAN ⇲        ${NC}"
+echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
 echo ""
-read -n 1 -s -r -p "   Press any key to back on menu"
-menu-trojan
+echo "You have no existing clients!"
+echo ""
+echo -e "${CYAN}══════════════════════════════════════════${NC}"
+read -n 1 -s -r -p "Press any key to back on menu"
+menu
 fi
+
 clear
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│${NC} ${COLBG1}           • DELETE TROJAN USER •              ${NC} $COLOR1│$NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-grep -E "^#! " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | column -t | sort | uniq | nl
-echo -e "$COLOR1│${NC}"
-echo -e "$COLOR1│${NC}  • [NOTE] Press any key to back on menu"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-echo -e "$COLOR1───────────────────────────────────────────────────${NC}"
-read -rp "   Input Username : " user
+echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
+echo -e "${CYAN}          ⇱ DELETE USER TROJAN ⇲         ${NC}"
+echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
+echo "  User       Expired  " 
+echo -e "${CYAN}══════════════════════════════════════════${NC}"
+grep -E "^#! " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | column -t | sort | uniq
+echo ""
+red "tap enter to go back"
+echo -e "${CYAN}══════════════════════════════════════════${NC}"
+read -rp "Input Username : " user
 if [ -z $user ]; then
 menu-trojan
 else
@@ -39,19 +42,13 @@ exp=$(grep -wE "^#! $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | un
 sed -i "/^#! $user $exp/,/^},{/d" /etc/xray/config.json
 systemctl restart xray > /dev/null 2>&1
 clear
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│${NC} ${COLBG1}           • DELETE TROJAN USER •              ${NC} $COLOR1│$NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}   • Accound Delete Successfully"
-echo -e "$COLOR1│${NC}"
-echo -e "$COLOR1│${NC}   • Client Name : $user"
-echo -e "$COLOR1│${NC}   • Expired On  : $exp"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
-echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}           ${GREEN} • SCRIPT MULTI PREMIUM •   $NC          $COLOR1│$NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
+echo -e "${CYAN}══════════════════════════════════════════${NC}"
+echo " VLess Account Deleted Successfully"
+echo -e "${CYAN}══════════════════════════════════════════${NC}"
+echo " Client Name : $user"
+echo " Expired On  : $exp"
+echo -e "${CYAN}══════════════════════════════════════════${NC}"
 echo ""
-read -n 1 -s -r -p "   Press any key to back on menu"
+read -n 1 -s -r -p "Press any key to back on menu"
 menu-trojan
-    fi
+fi
