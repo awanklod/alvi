@@ -6,26 +6,65 @@ chmod + x /usr/local/sbin/quota
 cd /usr/local/sbin/
 sed -i 's/\r//' quota
 cd
-wget -q -O /usr/bin/limit-all-ip "${REPO}limit/limit-all-ip.sh"
+wget -q -O /usr/bin/limit-ip "${REPO}limit/limit-ip"
 chmod +x /usr/bin/*
+cd /usr/bin
+sed -i 's/\r//' limit-ip
+cd
 clear
 #SERVICE LIMIT ALL IP
-cat >/etc/systemd/system/all-ip.service << EOF
+cat >/etc/systemd/system/vmip.service << EOF
 [Unit]
-Description=My 
+Description=My
 ProjectAfter=network.target
 
 [Service]
 WorkingDirectory=/root
-ExecStart=/usr/bin/limit-all-ip
+ExecStart=/usr/bin/limit-ip vmip
 Restart=always
 
 [Install]
 WantedBy=multi-user.target
 EOF
 systemctl daemon-reload
-systemctl restart all-ip
-systemctl enable all-ip
+systemctl restart vmip
+systemctl enable vmip
+
+cat >/etc/systemd/system/vlip.service << EOF
+[Unit]
+Description=My
+ProjectAfter=network.target
+
+[Service]
+WorkingDirectory=/root
+ExecStart=/usr/bin/limit-ip vlip
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+EOF
+systemctl daemon-reload
+systemctl restart vlip
+systemctl enable vlip
+
+cat >/etc/systemd/system/trip.service << EOF
+[Unit]
+Description=My
+ProjectAfter=network.target
+
+[Service]
+WorkingDirectory=/root
+ExecStart=/usr/bin/limit-ip trip
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+EOF
+systemctl daemon-reload
+systemctl restart trip
+systemctl enable trip
+#SERVICE LIMIT QUOTA
+
 #SERVICE VMESS
 cat >/etc/systemd/system/qmv.service << EOF
 [Unit]
