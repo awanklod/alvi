@@ -17,25 +17,49 @@ ORANGE='\033[0;33m'
 LIGHT='\033[0;37m'
 grenbo="\e[92;1m"
 clear
+MYIP=$(wget -qO- ipinfo.io/ip);
+echo "Checking VPS"
+CEKEXPIRED () {
+today=$(date -d +1day +%Y-%m-%d)
+Exp1=$(curl -sS https://raw.githubusercontent.com/awanklod/jual/main/izinnya | grep $MYIP | awk '{print $3}')
+if [[ $today < $Exp1 ]]; then
+echo -e "\e[32mSTATUS SCRIPT AKTIF...\e[0m"
+else
+echo -e "\e[31mSCRIPT ANDA EXPIRED!\e[0m";
+    
+exit 0
+fi
+}
+IZIN=$(curl -sS https://raw.githubusercontent.com/awanklod/jual/main/izinnya | awk '{print $4}' | grep $MYIP)
+if [ $MYIP = $IZIN ]; then
+echo -e "\e[32mPermission Accepted...\e[0m"
+CEKEXPIRED
+else
+echo -e "\e[31mPermission Denied!\e[0m";
+
+exit 0
+fi
+
+clear
 function con() {
-    local -i bytes=$1;
-    if [[ $bytes -lt 1024 ]]; then
-        echo "${bytes}B"
-    elif [[ $bytes -lt 1048576 ]]; then
-        echo "$(( (bytes + 1023)/1024 ))KB"
-    elif [[ $bytes -lt 1073741824 ]]; then
-        echo "$(( (bytes + 1048575)/1048576 ))MB"
-    else
-        echo "$(( (bytes + 1073741823)/1073741824 ))GB"
-    fi
+local -i bytes=$1;
+if [[ $bytes -lt 1024 ]]; then
+echo "${bytes}B"
+elif [[ $bytes -lt 1048576 ]]; then
+echo "$(( (bytes + 1023)/1024 ))KB"
+elif [[ $bytes -lt 1073741824 ]]; then
+echo "$(( (bytes + 1048575)/1048576 ))MB"
+else
+echo "$(( (bytes + 1073741823)/1073741824 ))GB"
+fi
 }
 echo -n > /tmp/other.txt
-data=( `cat /etc/xray/config.json | grep '^#!' | cut -d ' ' -f 2 | sort | uniq`);
-echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
-echo -e "              TROJAN USER LOGIN            $NC"
-echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
+data=( `cat /etc/xray/config.json | grep '#!' | cut -d ' ' -f 2 | sort | uniq`);
+echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
+echo -e "${BIWhite}           ⇱ TROAN USER LOGIN ⇲          ${NC}"
+echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
 echo -e "   User"     "       Last Login"    "  Usage"   " Total IP"
-echo -e "\033[1;91m┌──────────────────────────────────────────┐\033[0m"
+echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
 for akun in "${data[@]}"
 do
 if [[ -z "$akun" ]]; then
@@ -70,10 +94,10 @@ rm -rf /tmp/iptrojan.txt
 done
 rm -rf /tmp/other.txt
 echo ""
-echo -e "\033[1;91m└──────────────────────────────────────────┘\033[0m"
-echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
-echo -e "        Autoscript Mod by CLOUDVPN        "
-echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
+echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
+echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
+echo -e "${BIWhite}          ⇱ SCRIPT BY CLOUDVPN ⇲         ${NC}"
+echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 
