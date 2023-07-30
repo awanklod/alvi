@@ -77,4 +77,4 @@ echo -e "\033[1;93m└───────────────────�
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 
-m-trojan
+menu-ssws
