@@ -17,49 +17,23 @@ ORANGE='\033[0;33m'
 LIGHT='\033[0;37m'
 grenbo="\e[92;1m"
 clear
-MYIP=$(wget -qO- ipinfo.io/ip);
-echo "Checking VPS"
-CEKEXPIRED () {
-today=$(date -d +1day +%Y-%m-%d)
-Exp1=$(curl -sS https://raw.githubusercontent.com/awanklod/izin_alvi/main/izin | grep $MYIP | awk '{print $3}')
-if [[ $today < $Exp1 ]]; then
-echo -e "\e[32mSTATUS SCRIPT AKTIF...\e[0m"
-else
-echo -e "\e[31mSCRIPT ANDA EXPIRED!\e[0m";
-    
-exit 0
-fi
-}
-IZIN=$(curl -sS https://raw.githubusercontent.com/awanklod/izin_alvi/main/izin | awk '{print $4}' | grep $MYIP)
-if [ $MYIP = $IZIN ]; then
-echo -e "\e[32mPermission Accepted...\e[0m"
-CEKEXPIRED
-else
-echo -e "\e[31mPermission Denied!\e[0m";
-
-exit 0
-fi
-
-clear
 function con() {
-local -i bytes=$1;
-if [[ $bytes -lt 1024 ]]; then
-echo "${bytes}B"
-elif [[ $bytes -lt 1048576 ]]; then
-echo "$(( (bytes + 1023)/1024 ))KB"
-elif [[ $bytes -lt 1073741824 ]]; then
-echo "$(( (bytes + 1048575)/1048576 ))MB"
-else
-echo "$(( (bytes + 1073741823)/1073741824 ))GB"
-fi
+    local -i bytes=$1;
+    if [[ $bytes -lt 1024 ]]; then
+        echo "${bytes}B"
+    elif [[ $bytes -lt 1048576 ]]; then
+        echo "$(( (bytes + 1023)/1024 ))KB"
+    elif [[ $bytes -lt 1073741824 ]]; then
+        echo "$(( (bytes + 1048575)/1048576 ))MB"
+    else
+        echo "$(( (bytes + 1073741823)/1073741824 ))GB"
+    fi
 }
 echo -n > /tmp/other.txt
-data=( `cat /etc/xray/config.json | grep '#!' | cut -d ' ' -f 2 | sort | uniq`);
-echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
-echo -e "${BIWhite}           ⇱ TROAN USER LOGIN ⇲          ${NC}"
-echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
-echo -e "   User"     "       Last Login"    "  Usage"   " Total IP"
-echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
+data=( `cat /etc/xray/config.json | grep '^#!' | cut -d ' ' -f 2 | sort | uniq`);
+echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e " \e[1;97;101m           CEK TROJAN ACCOUNT           \e[0m"
+echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 for akun in "${data[@]}"
 do
 if [[ -z "$akun" ]]; then
@@ -82,19 +56,24 @@ jum=$(cat /tmp/iptrojan.txt)
 if [[ -z "$jum" ]]; then
 echo > /dev/null
 else
+iplimit=$(cat /etc/kyt/limit/trojan/ip/${akun})
 jum2=$(cat /tmp/iptrojan.txt | wc -l)
 byte=$(cat /etc/trojan/${akun})
 lim=$(con ${byte})
 wey=$(cat /etc/limit/trojan/${akun})
 gb=$(con ${wey})
 lastlogin=$(cat /var/log/xray/access.log | grep -w "$akun" | tail -n 500 | cut -d " " -f 2 | tail -1)
-printf "  %-13s %-7s %-8s %2s\n"   "${akun}" "$lastlogin"  " ${gb}/${lim}"   "$jum2";
+echo -e " \033[1;36m╒════════════════════════════════════════╕\033[0m"
+printf "  %-13s %-7s %-8s %2s\n"   "  USEENAME : ${akun}" | lolcat
+printf "  %-13s %-7s %-8s %2s\n" "  LOGIN    : $lastlogin" | lolcat 
+printf "  %-13s %-7s %-8s %2s\n" "  LIMIT GB : ${gb}/${lim}" | lolcat  
+printf "  %-13s %-7s %-8s %2s\n" "  LIMIT IP : $jum2/$iplimit" | lolcat;
+echo -e " \033[1;36m╘════════════════════════════════════════╛\033[0m"
 fi 
 rm -rf /tmp/iptrojan.txt
 done
 rm -rf /tmp/other.txt
 echo ""
-echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
 echo -e "${BIWhite}          ⇱ SCRIPT BY CLOUDVPN ⇲         ${NC}"
 echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
