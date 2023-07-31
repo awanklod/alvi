@@ -57,19 +57,13 @@ if [[ -z "$jum" ]]; then
 echo > /dev/null
 else
 iplimit=$(cat /etc/kyt/limit/vmess/ip/${akun})
-jum2=$(cat /tmp/ipvmess.txt | nl)
+jum2=$(cat /tmp/ipvmess.txt | wc -l)
 byte=$(cat /etc/vmess/${akun})
 lim=$(con ${byte})
 wey=$(cat /etc/limit/vmess/${akun})
 gb=$(con ${wey})
 lastlogin=$(cat /var/log/xray/access.log | grep -w "$akun" | tail -n 500 | cut -d " " -f 2 | tail -1)
-echo -e " \033[1;36m╒════════════════════════════════════════╕\033[0m"
-printf "  %-13s %-7s %-8s %2s\n"   "  USEENAME : ${akun}" | lolcat
-printf "  %-13s %-7s %-8s %2s\n" "  LOGIN    : $lastlogin" | lolcat 
-printf "  %-13s %-7s %-8s %2s\n" "  LIMIT GB : ${gb}/${lim}" | lolcat  
-printf "  %-13s %-7s %-8s %2s\n" "  LIMIT IP : ${iplimit}" | lolcat;
-printf "  %-13s %-7s %-8s %2s\n" "  LOGIN IP : ${jum2}" | lolcat;
-echo -e " \033[1;36m╘════════════════════════════════════════╛\033[0m"
+printf "  %-13s %-7s %-8s %2s\n"   "${akun}" "$lastlogin"  " ${gb}/${lim}"   "${jum2}/${iplimit}" | lolcat;
 fi 
 rm -rf /tmp/ipvmess.txt
 done
