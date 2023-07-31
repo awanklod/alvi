@@ -57,7 +57,7 @@ if [[ -z "$jum" ]]; then
 echo > /dev/null
 else
 iplimit=$(cat /etc/kyt/limit/shadowsocks/ip/${akun})
-jum2=$(cat /tmp/ipshadowsocks.txt | wc -l)
+jum2=$(cat /tmp/ipshadowsocks.txt | nl)
 byte=$(cat /etc/shadowsocks/${akun})
 lim=$(con ${byte})
 wey=$(cat /etc/limit/shadowsocks/${akun})
@@ -67,7 +67,8 @@ echo -e " \033[1;36m╒═══════════════════
 printf "  %-13s %-7s %-8s %2s\n"   "  USEENAME : ${akun}" | lolcat
 printf "  %-13s %-7s %-8s %2s\n" "  LOGIN    : $lastlogin" | lolcat 
 printf "  %-13s %-7s %-8s %2s\n" "  LIMIT GB : ${gb}/${lim}" | lolcat  
-printf "  %-13s %-7s %-8s %2s\n" "  LIMIT IP : $jum2/$iplimit" | lolcat;
+printf "  %-13s %-7s %-8s %2s\n" "  LIMIT IP : ${iplimit}" | lolcat;
+printf "  %-13s %-7s %-8s %2s\n" "  LOGIN IP : ${jum2}" | lolcat;
 echo -e " \033[1;36m╘════════════════════════════════════════╛\033[0m"
 fi 
 rm -rf /tmp/ipshadowsocks.txt
