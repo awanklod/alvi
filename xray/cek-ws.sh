@@ -67,15 +67,13 @@ echo -e " \033[1;36m╒═══════════════════
 printf "  %-13s %-7s %-8s %2s\n"   "  USEENAME : ${akun}" | lolcat
 printf "  %-13s %-7s %-8s %2s\n" "  LOGIN    : $lastlogin" | lolcat 
 printf "  %-13s %-7s %-8s %2s\n" "  LIMIT GB : ${gb}/${lim}" | lolcat  
-printf "  %-13s %-7s %-8s %2s\n" "  LIMIT IP : $jum2/$iplimit" | lolcat;
+printf "  %-13s %-7s %-8s %2s\n" "  LIMIT IP : ${iplimit}" | lolcat;
+printf "  %-13s %-7s %-8s %2s\n" "  LOGIN IP : ${jum2}" | lolcat;
 echo -e " \033[1;36m╘════════════════════════════════════════╛\033[0m"
 fi 
 rm -rf /tmp/ipvmess.txt
 done
 rm -rf /tmp/other.txt
-oth=$(cat /tmp/other.txt | sort | uniq | nl)
-echo "other";
-echo "$oth";
 echo ""
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
 echo -e "${CYAN}          ⇱ SCRIPT BY CLOUDVPN ⇲         ${NC}"
