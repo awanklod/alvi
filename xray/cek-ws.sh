@@ -73,6 +73,9 @@ fi
 rm -rf /tmp/ipvmess.txt
 done
 rm -rf /tmp/other.txt
+oth=$(cat /tmp/other.txt | sort | uniq | wc -l)
+echo "other";
+echo "$oth";
 echo ""
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
 echo -e "${CYAN}          ⇱ SCRIPT BY CLOUDVPN ⇲         ${NC}"
