@@ -66,7 +66,10 @@ fi
 done
 
 cipher="aes-128-gcm"
-uuid=$(cat /proc/sys/kernel/random/uuid)
+#uuid=$(cat /proc/sys/kernel/random/uuid)
+read -p " Silakan atur kata sandi (dibuat secara acak jika Anda tidak Mengisi Pasword) :" uuid
+    [[ -z "$uuid" ]] && uuid=`cat /proc/sys/kernel/random/uuid`
+    
 read -p "Expired (days): " masaaktif
 read -p "Limit User (GB): " Quota
 read -p "Limit User (IP): " iplimit
