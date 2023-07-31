@@ -57,7 +57,7 @@ if [[ -z "$jum" ]]; then
 echo > /dev/null
 else
 iplimit=$(cat /etc/kyt/limit/vmess/ip/${akun})
-jum2=$(cat /tmp/ipvmess.txt | wc -l)
+jum2=$(cat /tmp/ipvmess.txt | nl)
 byte=$(cat /etc/vmess/${akun})
 lim=$(con ${byte})
 wey=$(cat /etc/limit/vmess/${akun})
@@ -73,7 +73,7 @@ fi
 rm -rf /tmp/ipvmess.txt
 done
 rm -rf /tmp/other.txt
-oth=$(cat /tmp/other.txt | sort | uniq | wc -l)
+oth=$(cat /tmp/other.txt | sort | uniq | nl)
 echo "other";
 echo "$oth";
 echo ""
