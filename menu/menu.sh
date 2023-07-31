@@ -248,6 +248,7 @@ export sem=$( curl -s https://raw.githubusercontent.com/ALVIICELL/permission/mai
 export pak=$( cat /home/.ver)
 IPVPS=$(curl -s ipinfo.io/ip )
 clear
+figlet  CLOUDVPN  | lolcat
 echo -e "${BIPurple}╒════════════════════════════════════════════════════════════╕\033[0m${NC}"
 echo -e "${BIRed}                     👾  CLOUDVPN  TUNNEL 👾                     ${NC}"
 echo -e "${BIPurple}╘════════════════════════════════════════════════════════════╛\033[0m${NC}"
