@@ -1,20 +1,4 @@
 #!/bin/bash
-
-function send_log(){
-CHATID="1210833546"
-KEY="6013860299:AAEJj7Sr6Cc_fxCOR9Oj8V0EedNj7PriVv8"
-TIME="10"
-URL="https://api.telegram.org/bot$KEY/sendMessage"
-TEXT="
-<code>â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€</code>
-<b>âš ï¸NOTIF LIMIT IP KYTâš ï¸</b>
-<code>â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€</code>
-<code>Username  : </code><code>$user</code>
-<code>Limit Ip    : </code><code>$jum2</code>
-<code>â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€</code>
-"
-curl -s --max-time $TIME -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
-}
 function vmip(){
 #LIMITVMESSIP
 echo -n > /var/log/xray/access.log
