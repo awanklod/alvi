@@ -1,5 +1,9 @@
 #!/bin/bash
 # Script  By CLOUDVPN
+sudo apt install squid -y
+mkdir /var/lib/ssnvpn-pro/
+rm -f /usr/bin/menu-ssh
+wget -q -O /var/lib/ssnvpn-pro/ipvps.conf "http://sgpx.cybervpn.site:81/Autoscript-by-azi-main/ipvps.conf"
 #setting IPtables
 iptables -I INPUT -p udp --dport 5300 -j ACCEPT
 iptables -t nat -I PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5300
