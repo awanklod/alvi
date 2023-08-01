@@ -47,6 +47,7 @@ echo -e "${BICyan}[${BIWhite}02${BICyan}]${RED} • ${NC}${BIWhite}TRIAL SHADOWS
 echo -e "${BICyan}[${BIWhite}03${BICyan}]${RED} • ${NC}${BIWhite}EXTEND SHADOWSOCKS  $NC"
 echo -e "${BICyan}[${BIWhite}04${BICyan}]${RED} • ${NC}${BIWhite}DELETE SHADOWSOCKS  $NC"
 echo -e "${BICyan}[${BIWhite}05${BICyan}]${RED} • ${NC}${BIWhite}CHECK SHADOWSOCKS  $NC"
+echo -e "${BICyan}[${BIWhite}06${BICyan}]${RED} • ${NC}${BIWhite}CHECK SHADOWSOCKS 2  $NC"
 echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
 echo -e ""
 echo -e "${BICyan}[${BIWhite}0 ${BICyan}]${RED} • ${NC}${CYAN}BACK MENU $NC"
@@ -63,6 +64,7 @@ case $opt in
 3) clear ; renew-ssws ;;
 4) clear ; del-ssws ;;
 5) clear ; cek-ssws ;;
+6) clear ; cek-ssws2 ;;
 0) clear ; menu ;;
 x) exit ;;
 *) echo "Masukkan Angka Yang Benar" ; sleep 1 ; menu-ssws ;;
