@@ -44,10 +44,10 @@ wey=$(cat /etc/limit/trojan/${akun})
 gb=$(con ${wey})
 lastlogin=$(cat /var/log/xray/access.log | grep -w "$akun" | tail -n 500 | cut -d " " -f 2 | tail -1)
 echo -e " \033[1;36m┌──────────────────────────────────────┐\033[0m"
-printf "  %-13s %-7s %-8s %2s\n" "  USERNAME : ${akun}" | lolcat
+printf "  %-13s %-7s %-8s %2s\n"   "  USEENAME : ${akun}" | lolcat
 printf "  %-13s %-7s %-8s %2s\n" "  LOGIN    : $lastlogin" | lolcat 
-printf "  %-13s %-7s %-8s %2s\n" "  USAGE    : ${gb}" | lolcat  
-printf "  %-13s %-7s %-8s %2s\n" "  LOGIN    : $jum2" | lolcat;
+printf "  %-13s %-7s %-8s %2s\n" "  LIMIT GB : ${gb}/${lim}" | lolcat  
+printf "  %-13s %-7s %-8s %2s\n" "  LIMIT IP : $jum2/$iplimit" | lolcat;
 echo -e " \033[1;36m└──────────────────────────────────────┘\033[0m"
 fi
 rm -rf /tmp/iptrojan.txt
@@ -56,4 +56,4 @@ rm -rf /tmp/other.txt
 
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
-menu
+menu-trojan
