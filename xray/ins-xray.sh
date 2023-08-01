@@ -697,8 +697,9 @@ wget -O cek-ssws2 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek
 wget -O cek-ssws3 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-ssws3" && chmod +x cek-ssws3
 
 
-# XRAY MOD
+# XRAY MOD and OFFICIAL
 wget -O xraymod "https://raw.githubusercontent.com/awanklod/alvi/main/xray/xraymod.sh" && chmod +x xraymod
+wget -O xrayofficial "https://raw.githubusercontent.com/awanklod/alvi/main/xray/xrayofficial.sh" && chmod +x xrayofficial
 
 
 sleep 1
