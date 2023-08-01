@@ -264,7 +264,7 @@ echo -e "${BIYellow}□ CPU Usage           = ${BIWhite}${cpu_usage}${NC}"
 echo -e "${BIBlack}╘════════════════════════════════════════════════════════════╛\033[0m${NC}"
 echo -e " ${BIPurple}╒═════════════════════════════════════════════════════╕${NC}"
 echo -e " ${BIPurple}│  Order By      ${NC} : ${BIRed}CLOUDVPN${NC}"  
-echo -e " ${BIPurple}│  user          ${NC} : ${BIRed}$Name${NC}"
+echo -e " ${BIPurple}│  user          ${NC} : ${Name}" | lolcat
 echo -e " ${BIPurple}│  expired       ${NC} : ${BIRed}$Exp${NC}"
 echo -e " ${BIPurple}╘═════════════════════════════════════════════════════╛${NC}"
 
