@@ -130,7 +130,7 @@ case $opt in
 3) clear ; renew-ws ; exit ;;
 4) clear ; del-ws ; exit ;;
 5) clear ; cek-ws ; exit ;;
-5) clear ; cek-ws2 ; exit ;;
+6) clear ; cek-ws2 ; exit ;;
 0) clear ; menu ; exit ;;
 x) exit ;;
 *) echo "Anda salah tekan " ; sleep 1 ; menu-ssh ;;
