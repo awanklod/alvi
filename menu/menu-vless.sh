@@ -131,7 +131,7 @@ case $opt in
 3) clear ; renew-vless ; exit ;;
 4) clear ; del-vless ; exit ;;
 5) clear ; cek-vless ; exit ;;
-5) clear ; cek-vless2 ; exit ;;
+6) clear ; cek-vless2 ; exit ;;
 0) clear ; menu ; exit ;;
 x) exit ;;
 *) echo "Anda salah tekan " ; sleep 1 ; menu-ssh ;;
