@@ -118,6 +118,7 @@ echo -e "     ${BICyan}[${BIWhite}03${BICyan}] Extending Account XRAY Vmess Acti
 echo -e "     ${BICyan}[${BIWhite}04${BICyan}] Delete Account XRAY Vmess Websocket  "
 echo -e "     ${BICyan}[${BIWhite}05${BICyan}] Check User Login XRAY Vmess     "
 echo -e "     ${BICyan}[${BIWhite}06${BICyan}] Check User Vmess     "
+echo -e "     ${BICyan}[${BIWhite}07${BICyan}] Check User Vmess 02     "
 
 echo -e " ${BICyan}└─────────────────────────────────────────────────────┘${NC}"
 echo -e "     ${BIYellow}Press x or [ Ctrl+C ] • To-${BIWhite}Exit${NC}"
@@ -131,6 +132,8 @@ case $opt in
 4) clear ; del-ws ; exit ;;
 5) clear ; cek-ws ; exit ;;
 6) clear ; cek-ws2 ; exit ;;
+7) clear ; cek-ws3 ; exit ;;
+
 0) clear ; menu ; exit ;;
 x) exit ;;
 *) echo "Anda salah tekan " ; sleep 1 ; menu-ssh ;;
