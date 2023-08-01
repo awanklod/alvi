@@ -54,6 +54,8 @@ echo -e "     ${BICyan}[${BIWhite}08${BICyan}] Change Banner"
 echo -e "     ${BICyan}[${BIWhite}09${BICyan}] Cek Bandwith"
 echo -e "     ${BICyan}[${BIWhite}10${BICyan}] Setting Auto Reboot"
 echo -e "     ${BICyan}[${BIWhite}11${BICyan}] Reboot"
+echo -e "     ${BICyan}[${BIWhite}12${BICyan}] xray official"
+echo -e "     ${BICyan}[${BIWhite}13${BICyan}] xraymod"
 
 echo -e " ${BICyan}└─────────────────────────────────────────────────────┘${NC}"
 echo -e "     ${BIYellow}Press x or [ Ctrl+C ] • To-${BIWhite}Exit${NC}"
@@ -72,6 +74,8 @@ case $opt in
 9) clear ; bw ; exit ;;
 10) clear ; jam ; exit ;;
 11) clear ; reboot ; exit ;;
+12) clear ; xrayofficial ; exit ;;
+13) clear ; xraymod ; exit ;;
 0) clear ; menu ; exit ;;
 x) exit ;;
 *) echo -e "" ; echo "Anda salah tekan" ; sleep 1 ; menu-set ;;
