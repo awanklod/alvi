@@ -653,6 +653,7 @@ wget -O renew-ws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/rene
 wget -O del-ws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/del-ws.sh" && chmod +x del-ws
 wget -O cek-ws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-ws.sh" && chmod +x cek-ws
 wget -O cek-ws2 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-ws2" && chmod +x cek-ws2
+wget -O cek-ws3 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-ws3" && chmod +x cek-ws3
 
 # vless
 wget -O add-vless "https://raw.githubusercontent.com/awanklod/alvi/main/xray/add-vless.sh" && chmod +x add-vless
@@ -661,6 +662,7 @@ wget -O renew-vless "https://raw.githubusercontent.com/awanklod/alvi/main/xray/r
 wget -O del-vless "https://raw.githubusercontent.com/awanklod/alvi/main/xray/del-vless.sh" && chmod +x del-vless
 wget -O cek-vless "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-vless.sh" && chmod +x cek-vless
 wget -O cek-vless2 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-vless2" && chmod +x cek-vless2
+wget -O cek-vless3 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-vless3" && chmod +x cek-vless3
 
 # trojan
 wget -O add-tr "https://raw.githubusercontent.com/awanklod/alvi/main/xray/add-tr.sh" && chmod +x add-tr
@@ -669,6 +671,7 @@ wget -O del-tr "https://raw.githubusercontent.com/awanklod/alvi/main/xray/del-tr
 wget -O renew-tr "https://raw.githubusercontent.com/awanklod/alvi/main/xray/renew-tr.sh" && chmod +x renew-tr
 wget -O cek-tr "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-tr.sh" && chmod +x cek-tr
 wget -O cek-tr2 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-tr2" && chmod +x cek-tr2
+wget -O cek-tr3 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-tr3" && chmod +x cek-tr3
 
 # trojan go
 wget -O addtrgo "https://raw.githubusercontent.com/awanklod/alvi/main/xray/addtrgo.sh" && chmod +x addtrgo
@@ -684,6 +687,7 @@ wget -O del-ssws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/del-
 wget -O renew-ssws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/renew-ssws.sh" && chmod +x renew-ssws
 wget -O cek-ssws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-ssws.sh" && chmod +x cek-ssws
 wget -O cek-ssws2 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-ssws2" && chmod +x cek-ssws2
+wget -O cek-ssws3 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-ssws3" && chmod +x cek-ssws3
 
 
 sleep 1
