@@ -118,6 +118,7 @@ echo -e "     ${BICyan}[${BIWhite}02${BICyan}] Trial Account Trojan     "
 echo -e "     ${BICyan}[${BIWhite}03${BICyan}] Extending Account Trojan Active Life      "
 echo -e "     ${BICyan}[${BIWhite}04${BICyan}] Delete Account Trojan     "
 echo -e "     ${BICyan}[${BIWhite}05${BICyan}] Check User Login Trojan     "
+echo -e "     ${BICyan}[${BIWhite}06${BICyan}] Check User Trojan     "
 
 echo -e " ${BICyan}└─────────────────────────────────────────────────────┘${NC}"
 echo -e "     ${BIYellow}Press x or [ Ctrl+C ] • To-${BIWhite}Exit${NC}"
@@ -130,6 +131,7 @@ case $opt in
 3) clear ; renew-tr ;;
 4) clear ; del-tr ;;
 5) clear ; cek-tr ;;
+5) clear ; cek-tr2 ;;
 0) clear ; menu ;;
 x) exit ;;
 *) echo "Boh salah tekan, Sayang kedak Babi" ; sleep 1 ; menu-trojan ;;
