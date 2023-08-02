@@ -2,7 +2,6 @@
 # Script  By CLOUDVPN
 sudo apt install squid -y
 mkdir /var/lib/ssnvpn-pro/
-rm -f /usr/bin/menu-ssh
 wget -q -O /var/lib/ssnvpn-pro/ipvps.conf "https://raw.githubusercontent.com/awanklod/alvi/main/SLDNS/ipvps.conf"
 #setting IPtables
 iptables -I INPUT -p udp --dport 5300 -j ACCEPT
