@@ -248,20 +248,20 @@ export sem=$( curl -s https://raw.githubusercontent.com/ALVIICELL/permission/mai
 export pak=$( cat /home/.ver)
 IPVPS=$(curl -s ipinfo.io/ip )
 clear
-figlet  CLOUDVPN  | lolcat
-echo -e "${BIPurple}╒════════════════════════════════════════════════════════════╕\033[0m${NC}"
+ figlet -f 3d CLOUDVPN -t "TUNNEL" | lolcat -p 0.7
+echo -e "${BIPurple}╒════════════════════════════════════════════════════════════╕" | lolcat
 echo -e "${BIRed}                     👾  CLOUDVPN  TUNNEL 👾                     ${NC}"
-echo -e "${BIPurple}╘════════════════════════════════════════════════════════════╛\033[0m${NC}"
-echo -e "${BIBlack}╒════════════════════════════════════════════════════════════╕\033[0m${NC}"
-echo -e "${BIYellow}□ Server Uptime       = ${BIWhite}$( uptime -p  | cut -d " " -f 2-10000 ) ${NC}"
-echo -e "${BIYellow}□ Current Time        = ${BIWhite}$( date -d "0 days" +"%d-%m-%Y | %X" )${NC}"
-echo -e "${BIYellow}□ Operating System    = ${BIWhite}$( cat /etc/os-release | grep -w PRETTY_NAME | sed 's/PRETTY_NAME//g' | sed 's/=//g' | sed 's/"//g' ) ( $( uname -m) )${NC}"
-echo -e "${BIYellow}□ IP VPS              = ${BIWhite}$IPVPS${NC}"
-echo -e "${BIYellow}□ Current Domain      = ${BIWhite}$( cat /etc/xray/domain )${NC}"
-echo -e "${BIYellow}□ NS Domain           = ${BIWhite}$(cat /root/nsdomain)${NC}"
-echo -e "${BIYellow}□ Total / USAGE RAM   = ${BIWhite}${totalram}MB / ${BIBlack}${USAGERAM} MB${NC}"
-echo -e "${BIYellow}□ CPU Usage           = ${BIWhite}${cpu_usage}${NC}"
-echo -e "${BIBlack}╘════════════════════════════════════════════════════════════╛\033[0m${NC}"
+echo -e "${BIPurple}╘════════════════════════════════════════════════════════════╛" | lolcat
+echo -e "${BIBlack}╒════════════════════════════════════════════════════════════╕" | lolcat
+echo -e "${BIYellow}🌀 Server Uptime       = ${BIWhite}$( uptime -p  | cut -d " " -f 2-10000 ) ${NC}"
+echo -e "${BIYellow}🌀 Current Time        = ${BIWhite}$( date -d "0 days" +"%d-%m-%Y | %X" )${NC}"
+echo -e "${BIYellow}🌀 Operating System    = ${BIWhite}$( cat /etc/os-release | grep -w PRETTY_NAME | sed 's/PRETTY_NAME//g' | sed 's/=//g' | sed 's/"//g' ) ( $( uname -m) )${NC}"
+echo -e "${BIYellow}🌀 IP VPS              = ${BIWhite}$IPVPS${NC}"
+echo -e "${BIYellow}🌀 Current Domain      = ${BIWhite}$( cat /etc/xray/domain )${NC}"
+echo -e "${BIYellow}🌀 NS Domain           = ${BIWhite}$(cat /root/nsdomain)${NC}"
+echo -e "${BIYellow}🌀 Total / USAGE RAM   = ${BIWhite}${totalram}MB / ${BIBlack}${USAGERAM} MB${NC}"
+echo -e "${BIYellow}🌀 CPU Usage           = ${BIWhite}${cpu_usage}${NC}"
+echo -e "${BIBlack}╘════════════════════════════════════════════════════════════╛" | lolcat
 echo -e " ${BIPurple}╒═════════════════════════════════════════════════════╕" | lolcat
 echo -e " ${BIPurple}   Order By      ${NC} : ${BIRed}CLOUDVPN${NC}"  
 echo -e " ${BIPurple}   user          ${NC} : ${Name}" | lolcat
@@ -269,8 +269,8 @@ echo -e " ${BIPurple}   expired       ${NC} : ${BIRed}$Exp${NC}"
 echo -e " ${BIPurple}╘═════════════════════════════════════════════════════╛" | lolcat
 
 echo -e "${BIBlack}╒════════════════════════════════════════════════════════════╕" | lolcat 
-echo -e "${BIBlack}│  \033[0m ${BOLD}${YELLOW}SSH     VMESS       VLESS      TROJAN       SHADOWSOCKS " | lolcat
-echo -e "${BIBlack}│  \033[0m ${Blue} $ssh1        $vma           $vla          $tra              $ssa " | lolcat 
+echo -e "${BIBlack}   \033[0m ${BOLD}${BIWhite}SSH     VMESS       VLESS      TROJAN       SHADOWSOCKS $NC"
+echo -e "${BIBlack}   \033[0m ${Blue} $ssh1        $vma           $vla          $tra              $ssa " | lolcat 
 echo -e "${BIBlack}╘════════════════════════════════════════════════════════════╛" | lolcat 
 
 echo -e "     ${BICyan} SSH ${NC}: $ressh"" ${BICyan} NGINX ${NC}: $resngx"" ${BICyan}  XRAY ${NC}: $resv2r"" ${BICyan} TROJAN ${NC}: $resv2r"
