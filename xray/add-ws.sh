@@ -140,6 +140,10 @@ echo -e "$iplimit" > /etc/kyt/limit/vmess/ip/$user
 else
 echo > /dev/null
 fi
+DATADB=$(cat /etc/vmess/.vmess.db | grep "^###" | grep -w "${user}" | awk '{print $2}')
+if [[ "${DATADB}" != '' ]]; then
+  sed -i "/\b${user}\b/d" /etc/vmess/.vmess.db
+fi
 
 if [ -z ${Quota} ]; then
   Quota="0"
