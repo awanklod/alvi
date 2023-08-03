@@ -263,9 +263,9 @@ echo -e "${BIYellow}🌀 Total / USAGE RAM   = ${BIWhite}${totalram}MB / ${BIBla
 echo -e "${BIYellow}🌀 CPU Usage           = ${BIWhite}${cpu_usage}${NC}"
 echo -e "${BIBlack}╘════════════════════════════════════════════════════════════╛\033[0m${NC}"
 echo -e " ${BIPurple}╒═════════════════════════════════════════════════════╕${NC}"
-echo -e " ${BIPurple}│  Order By      ${NC} : ${BIRed}CLOUDVPN${NC}"  
-echo -e " ${BIPurple}│  user          ${NC} : ${ICyan}$Name${NC}"
-echo -e " ${BIPurple}│  expired       ${NC} : ${BIRed}$Exp${NC}"
+echo -e " ${BIPurple}    Order By      ${NC} : ${BIRed}CLOUDVPN${NC}"  
+echo -e " ${BIPurple}    user          ${NC} : ${BICyan}$Name${NC}"
+echo -e " ${BIPurple}    expired       ${NC} : ${BIRed}$Exp${NC}"
 echo -e " ${BIPurple}╘═════════════════════════════════════════════════════╛${NC}"
 
 echo -e "${BIBlack}╒════════════════════════════════════════════════════════════╕${NC}" 
