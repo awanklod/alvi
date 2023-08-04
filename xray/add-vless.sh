@@ -99,11 +99,11 @@ d=$((${c} * 1024 * 1024 * 1024))
 if [[ ${c} != "0" ]]; then
   echo "${d}" >/etc/vless/${user}
 fi
-DATADB=$(cat /etc/vless/.vless.db | grep "^#&" | grep -w "${user}" | awk '{print $2}')
+DATADB=$(cat /etc/vless/.vless.db | grep "^###" | grep -w "${user}" | awk '{print $2}')
 if [[ "${DATADB}" != '' ]]; then
   sed -i "/\b${user}\b/d" /etc/vless/.vless.db
 fi
-echo "#& ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vless/.vless.db
+echo "### ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vless/.vless.db
 clear
 echo -e ""
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}" | tee -a /etc/log-create-user.log 
