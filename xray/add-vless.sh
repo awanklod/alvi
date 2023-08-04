@@ -88,10 +88,6 @@ echo -e "$iplimit" > /etc/kyt/limit/vless/ip/$user
 else
 echo > /dev/null
 fi
-DATADB=$(cat /etc/vless/.vless.db | grep "^#&" | grep -w "${user}" | awk '{print $2}')
-if [[ "${DATADB}" != '' ]]; then
-  sed -i "/\b${user}\b/d" /etc/vless/.vless.db
-fi
 
 if [ -z ${Quota} ]; then
   Quota="0"
