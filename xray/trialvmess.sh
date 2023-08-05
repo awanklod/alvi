@@ -153,6 +153,7 @@ echo -e "${BIWhite}════════════════════�
 echo -e "Link gRPC      : ${vmesslink3}"
 echo -e "${BIWhite}══════════════════════════════════════════${NC}"
 echo -e "Expired On     : $exp"
+echo -e "Regulation     : No ddos No torrent No porn"
 echo -e "${BIWhite}══════════════════════════════════════════${NC}"
 echo ""
 
