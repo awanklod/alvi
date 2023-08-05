@@ -100,6 +100,7 @@ echo -e "${BIWhite}════════════════════�
 echo -e "Link gRPC      : ${vlesslink3}"
 echo -e "${BIWhite}══════════════════════════════════════════${NC}"
 echo -e "Expired On     : $exp"
+echo -e "Regulation     : No ddos No torrent No porn"
 echo -e "${BIWhite}══════════════════════════════════════════${NC}"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
