@@ -41,27 +41,27 @@ do
 if [[ -z "$akun" ]]; then
 akun="tidakada"
 fi
-echo -n > /tmp/ipvmess.txt
+echo -n > /tmp/iptrojan.txt
 data2=( `cat /var/log/xray/access.log | tail -n 500 | cut -d " " -f 3 | sed 's/tcp://g' | cut -d ":" -f 1 | sort | uniq`);
 for ip in "${data2[@]}"
 do
 jum=$(cat /var/log/xray/access.log | grep -w "$akun" | tail -n 500 | cut -d " " -f 3 | sed 's/tcp://g' | cut -d ":" -f 1 | grep -w "$ip" | sort | uniq)
 if [[ "$jum" = "$ip" ]]; then
-echo "$jum" >> /tmp/ipvmess.txt
+echo "$jum" >> /tmp/iptrojan.txt
 else
 echo "$ip" >> /tmp/other.txt
 fi
-jum2=$(cat /tmp/ipvmess.txt)
+jum2=$(cat /tmp/iptrojan.txt)
 sed -i "/$jum2/d" /tmp/other.txt > /dev/null 2>&1
 done
-jum=$(cat /tmp/ipvmess.txt)
+jum=$(cat /tmp/iptrojan.txt)
 if [[ -z "$jum" ]]; then
 echo > /dev/null
 else
-jum2=$(cat /tmp/ipvmess.txt | wc -l)
-byte=$(cat /etc/vmess/${akun})
+jum2=$(cat /tmp/iptrojan.txt | wc -l)
+byte=$(cat /etc/trojan/${akun})
 lim=$(con ${byte})
-wey=$(cat /etc/limit/vmess/${akun})
+wey=$(cat /etc/limit/trojan/${akun})
 gb=$(con ${wey})
 lastlogin=$(cat /var/log/xray/access.log | grep -w "$akun" | tail -n 500 | cut -d " " -f 2 | tail -1)
 printf "  %-13s %-7s %-8s %2s\n"   "${akun}" "$lastlogin"  " ${gb}/${lim}"   "$jum2";
