@@ -56,36 +56,37 @@ function con() {
 }
 echo -n > /tmp/other.txt
 data=( `cat /etc/xray/config.json | grep '#&' | cut -d ' ' -f 2 | sort | uniq`);
-echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e " \e[1;97;101m           CEK VLESS ACCOUNT            \e[0m"
-echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
+echo -e "              VLESS USER LOGIN            $NC"
+echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
+echo -e "   User"     "       Last Login"    "  Usage"   " Total IP"
+echo -e "\033[1;91m┌──────────────────────────────────────────┐\033[0m"
 for akun in "${data[@]}"
 do
 if [[ -z "$akun" ]]; then
 akun="tidakada"
 fi
-echo -n > /tmp/ipvless.txt
+echo -n > /tmp/ipvmess.txt
 data2=( `cat /var/log/xray/access.log | tail -n 500 | cut -d " " -f 3 | sed 's/tcp://g' | cut -d ":" -f 1 | sort | uniq`);
 for ip in "${data2[@]}"
 do
 jum=$(cat /var/log/xray/access.log | grep -w "$akun" | tail -n 500 | cut -d " " -f 3 | sed 's/tcp://g' | cut -d ":" -f 1 | grep -w "$ip" | sort | uniq)
 if [[ "$jum" = "$ip" ]]; then
-echo "$jum" >> /tmp/ipvless.txt
+echo "$jum" >> /tmp/ipvmess.txt
 else
 echo "$ip" >> /tmp/other.txt
 fi
-jum2=$(cat /tmp/ipvless.txt)
+jum2=$(cat /tmp/ipvmess.txt)
 sed -i "/$jum2/d" /tmp/other.txt > /dev/null 2>&1
 done
-jum=$(cat /tmp/ipvless.txt)
+jum=$(cat /tmp/ipvmess.txt)
 if [[ -z "$jum" ]]; then
 echo > /dev/null
 else
-iplimit=$(cat /etc/kyt/limit/vless/ip/${akun})
-jum2=$(cat /tmp/ipvless.txt | wc -l)
-byte=$(cat /etc/vless/${akun})
+jum2=$(cat /tmp/ipvmess.txt | wc -l)
+byte=$(cat /etc/vmess/${akun})
 lim=$(con ${byte})
-wey=$(cat /etc/limit/vless/${akun})
+wey=$(cat /etc/limit/vmess/${akun})
 gb=$(con ${wey})
 lastlogin=$(cat /var/log/xray/access.log | grep -w "$akun" | tail -n 500 | cut -d " " -f 2 | tail -1)
 printf "  %-13s %-7s %-8s %2s\n"   "${akun}" "$lastlogin"  " ${gb}/${lim}"   "$jum2";
