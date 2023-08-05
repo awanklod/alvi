@@ -262,11 +262,11 @@ echo -e "${BIYellow}🌀 NS Domain           = ${BIWhite}$(cat /root/nsdomain)${
 echo -e "${BIYellow}🌀 Total / USAGE RAM   = ${BIWhite}${totalram}MB / ${BIBlack}${USAGERAM} MB${NC}"
 echo -e "${BIYellow}🌀 CPU Usage           = ${BIWhite}${cpu_usage}${NC}"
 echo -e "${BIBlack}╘════════════════════════════════════════════════════════════╛\033[0m${NC}"
-echo -e " ${BIPurple}╒═════════════════════════════════════════════════════╕${NC}"
+echo -e " ${BIPurple}☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷${NC}"
 echo -e " ${BIPurple}    Order By      ${NC} : ${BIRed}CLOUDVPN${NC}"  
 echo -e " ${BIPurple}    user          ${NC} : ${BICyan}$Name${NC}"
 echo -e " ${BIPurple}    expired       ${NC} : ${BIRed}$Exp${NC}"
-echo -e " ${BIPurple}╘═════════════════════════════════════════════════════╛${NC}"
+echo -e " ${BIPurple}☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷☷${NC}"
 
 echo -e "${BIBlack}╒════════════════════════════════════════════════════════════╕${NC}" 
 echo -e "${BIBlack}│  \033[0m ${BOLD}${BIRed}SSH     VMESS       VLESS      TROJAN       SHADOWSOCKS $NC" 
@@ -284,10 +284,10 @@ echo -e "     ${BICyan}[${BIWhite}4]${red}🎮 TROJAN " "  ${BICyan}[${BIWhite}9
 echo -e "     ${BICyan}[${BIWhite}5]${red}🎮 SHDSCK " "  ${BICyan}[${BIWhite}10]${red}🎮 RUNNING"
 echo -e "${BIPurple}   ╘══════════════════════════════════════════════════════╛${NC}"
 echo -e "${BIBlack} ╒═════════════════════════════════════════════════════╕${NC}"
-echo -e "${BIBlack} │$NC ${BICyan}HARI ini${NC}: ${red}$ttoday$NC ${BICyan}KEMARIN${NC}: ${red}$tyest$NC ${BICyan}BULAN${NC}: ${red}$tmon$NC $NC"
+echo -e "${BIBlack} │$NC ${BICyan}TODAY${NC}: ${red}$ttoday$NC ${BICyan}YESTERDAY${NC}: ${red}$tyest$NC ${BICyan}MONTHLY${NC}: ${red}$tmon$NC $NC"
 echo -e "${BIBlack} ╘═════════════════════════════════════════════════════╛${NC}"
 echo
-read -p " Pilih menu bosku : " opt
+read -p " Choose menu Leader : " opt
 echo -e ""
 case $opt in
 1) clear ; menu-ssh ;;
