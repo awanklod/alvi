@@ -107,6 +107,7 @@ echo -e "${BIWhite}════════════════════�
 echo -e "Link gRPC      : ${shadowsockslink1}"
 echo -e "${BIWhite}══════════════════════════════════════════${NC}"
 echo -e "Expired On     : $exp"
+echo -e "Regulation     : No ddos No torrent No porn"
 echo -e "${BIWhite}══════════════════════════════════════════${NC}"
 echo "" | tee -a /etc/log-create-user.log
 read -n 1 -s -r -p "Press any key to back on menu"
