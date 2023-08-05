@@ -100,6 +100,7 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 echo -e "Link gRPC      : ${trojanlink1}"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "Expired On     : $exp"
+echo -e "Regulation     : No ddos No torrent No porn"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
