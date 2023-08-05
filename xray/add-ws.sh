@@ -70,7 +70,7 @@ read -p " Silakan atur kata sandi (dibuat secara acak jika Anda tidak Mengisi Pa
     
 read -p "Expired (days): " masaaktif
 read -p "Limit User (GB): " Quota
-read -p "Limit User (IP): " iplimit
+#read -p "Limit User (IP): " iplimit
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#vmess$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
@@ -134,12 +134,12 @@ if [ ! -e /etc/vmess ]; then
   mkdir -p /etc/vmess
 fi
 
-if [[ $iplimit -gt 0 ]]; then
-mkdir -p /etc/kyt/limit/vmess/ip
-echo -e "$iplimit" > /etc/kyt/limit/vmess/ip/$user
-else
-echo > /dev/null
-fi
+#if [[ $iplimit -gt 0 ]]; then
+#mkdir -p /etc/kyt/limit/vmess/ip
+#echo -e "$iplimit" > /etc/kyt/limit/vmess/ip/$user
+#else
+#echo > /dev/null
+#fi
 
 if [ -z ${Quota} ]; then
   Quota="0"
@@ -164,7 +164,7 @@ echo -e "${CYAN}╘════════════════════�
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-user.log
 echo -e "Domain         : ${domain}" | tee -a /etc/log-create-user.log
 echo -e "User Quota     : ${Quota} GB" | tee -a /etc/log-create-user.log
-echo -e "User Ip        : ${iplimit} IP" | tee -a /etc/log-create-user.log
+#echo -e "User Ip        : ${iplimit} IP" | tee -a /etc/log-create-user.log
 echo -e "Wildcard       : (bug.com).${domain}" | tee -a /etc/log-create-user.log
 echo -e "Port TLS       : 443" | tee -a /etc/log-create-user.log
 echo -e "Port none TLS  : 80" | tee -a /etc/log-create-user.log
@@ -184,6 +184,7 @@ echo -e "Link gRPC      : ${vmesslink3}" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Expired On     : $exp" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
+echo -e "Regulation     : No ddos No torrent No porn" | tee -a /etc/log-create-user.log
 echo "" | tee -a /etc/log-create-user.log
 read -n 1 -s -r -p "Press any key to back on menu"
 
