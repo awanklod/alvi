@@ -87,10 +87,10 @@ mkdir -p /etc/shadowsocks
 mkdir -p /usr/bin/xray/
 mkdir -p /var/log/xray/
 mkdir -p /var/www/html
-#mkdir -p /etc/kyt/limit/vmess/ip
-#mkdir -p /etc/kyt/limit/vless/ip
-#mkdir -p /etc/kyt/limit/trojan/ip
-#mkdir -p /etc/kyt/limit/shadowsocks/ip
+mkdir -p /etc/kyt/limit/vmess/ip
+mkdir -p /etc/kyt/limit/vless/ip
+mkdir -p /etc/kyt/limit/trojan/ip
+mkdir -p /etc/kyt/limit/shadowsocks/ip
 mkdir -p /etc/limit/vmess
 mkdir -p /etc/limit/vless
 mkdir -p /etc/limit/trojan
