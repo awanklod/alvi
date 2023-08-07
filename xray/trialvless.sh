@@ -39,7 +39,7 @@ user=trial-vl`</dev/urandom tr -dc 0-9 | head -c4`
 uuid=$(cat /proc/sys/kernel/random/uuid)
 masaaktif=1
 Quota=5
-#iplimit=1
+iplimit=1
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#vless$/a\#& '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
@@ -54,12 +54,12 @@ if [ ! -e /etc/vless ]; then
   mkdir -p /etc/vless
 fi
 
-#if [[ $iplimit -gt 0 ]]; then
-#mkdir -p /etc/kyt/limit/vless/ip
-#echo -e "$iplimit" > /etc/kyt/limit/vless/ip/$user
-#else
-#echo > /dev/null
-#fi
+if [[ $iplimit -gt 0 ]]; then
+mkdir -p /etc/kyt/limit/vless/ip
+echo -e "$iplimit" > /etc/kyt/limit/vless/ip/$user
+else
+echo > /dev/null
+fi
 
 if [ -z ${Quota} ]; then
   Quota="0"
@@ -71,11 +71,11 @@ d=$((${c} * 1024 * 1024 * 1024))
 if [[ ${c} != "0" ]]; then
   echo "${d}" >/etc/vless/${user}
 fi
-DATADB=$(cat /etc/vless/.vless.db | grep "^###" | grep -w "${user}" | awk '{print $2}')
+DATADB=$(cat /etc/vless/.vless.db | grep "^#&" | grep -w "${user}" | awk '{print $2}')
 if [[ "${DATADB}" != '' ]]; then
   sed -i "/\b${user}\b/d" /etc/vless/.vless.db
 fi
-echo "### ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vless/.vless.db
+echo "#& ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vless/.vless.db
 clear
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}" 
 echo -e "${BIWhite}            ⇱ VLESS ACCOUNT ⇲            ${NC}"
@@ -83,6 +83,7 @@ echo -e "${CYAN}╘════════════════════�
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
 echo -e "User limit     : ${Quota} GB"
+echo -e "Ip   limit     : ${iplimit} Ip"
 echo -e "Wildcard       : (bug.com).${domain}"
 echo -e "Port TLS       : 443"
 echo -e "Port none TLS  : 80"
