@@ -99,11 +99,11 @@ d=$((${c} * 1024 * 1024 * 1024))
 if [[ ${c} != "0" ]]; then
   echo "${d}" >/etc/vless/${user}
 fi
-DATADB=$(cat /etc/vless/.vless.db | grep "^###" | grep -w "${user}" | awk '{print $2}')
+DATADB=$(cat /etc/vless/.vless.db | grep "^#&" | grep -w "${user}" | awk '{print $2}')
 if [[ "${DATADB}" != '' ]]; then
   sed -i "/\b${user}\b/d" /etc/vless/.vless.db
 fi
-echo "### ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vless/.vless.db
+echo "#& ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vless/.vless.db
 clear
 echo -e ""
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}" | tee -a /etc/log-create-user.log 
@@ -112,7 +112,7 @@ echo -e "${CYAN}╘════════════════════�
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-user.log
 echo -e "Domain         : ${domain}" | tee -a /etc/log-create-user.log
 echo -e "User Quota     : ${Quota} GB" | tee -a /etc/log-create-user.log
-#echo -e "User Ip        : ${iplimit} IP" | tee -a /etc/log-create-user.log
+echo -e "User Ip        : ${iplimit} IP" | tee -a /etc/log-create-user.log
 echo -e "Wildcard       : (bug.com).${domain}" | tee -a /etc/log-create-user.log
 echo -e "Port TLS       : 443" | tee -a /etc/log-create-user.log
 echo -e "Port none TLS  : 80" | tee -a /etc/log-create-user.log
@@ -130,8 +130,8 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 echo -e "Link gRPC      : ${vlesslink3}" | tee -a /etc/log-create-user.log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Expired On     : $exp" | tee -a /etc/log-create-user.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Regulation     : No ddos No torrent No porn" | tee -a /etc/log-create-user.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo "" | tee -a /etc/log-create-user.log
 read -n 1 -s -r -p "Press any key to back on menu"
 
