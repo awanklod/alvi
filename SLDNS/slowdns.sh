@@ -64,7 +64,7 @@ cd
 #install client-sldns.service
 cat > /etc/systemd/system/client-sldns.service << END
 [Unit]
-Description=Client SlowDNS By CyberVPN
+Description=Client SlowDNS By cloudvpn
 Documentation=https://www.xnxx.com
 After=network.target nss-lookup.target
 
@@ -85,7 +85,7 @@ cd
 #install server-sldns.service
 cat > /etc/systemd/system/server-sldns.service << END
 [Unit]
-Description=Server SlowDNS By Cybervpn
+Description=Server SlowDNS By cloudvpn
 Documentation=https://xhamster.com
 After=network.target nss-lookup.target
 
