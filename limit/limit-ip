@@ -13,7 +13,6 @@ data=( `ls /etc/kyt/limit/vmess/ip`);
         if [[ $cekcek -gt $iplimit ]]; then
             exp=$(grep -w "^### $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
                   sed -i "/^### $user $exp/,/^},{/d" /etc/xray/config.json
-                  sed -i "/^### $user $exp/d" /etc/vmess/.vmess.db
                   systemctl restart xray >> /dev/null 2>&1
                   jum2=$(cat /tmp/ipvmess.txt | wc -l)
                   rm -rf /etc/kyt/limit/vmess/ip/$user
@@ -62,7 +61,6 @@ data=( `ls /etc/kyt/limit/trojan/ip`);
         if [[ $cekcek -gt $iplimit ]]; then
             exp=$(grep -w "^#! $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
                   sed -i "/^#! $user $exp/,/^},{/d" /etc/xray/config.json
-                  sed -i "/^#! $user $exp/d" /etc/trojan/.trojan.db
                   systemctl restart xray >> /dev/null 2>&1
                   jum2=$(cat /tmp/iptrojan.txt | wc -l)
                   rm -rf /etc/kyt/limit/trojan/ip/$user
@@ -87,7 +85,6 @@ data=( `ls /etc/kyt/limit/shadowsocks/ip`);
         if [[ $cekcek -gt $iplimit ]]; then
             exp=$(grep -w "^## $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
                   sed -i "/^## $user $exp/,/^},{/d" /etc/xray/config.json
-                  sed -i "/^## $user $exp/d" /etc/shadowsocks/.shadowsocks.db
                   systemctl restart xray >> /dev/null 2>&1
                   jum2=$(cat /tmp/ipshadowsocks.txt | wc -l)
                   rm -rf /etc/kyt/limit/shadowsocks/ip/$user
