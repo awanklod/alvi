@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script Mod by ALVI CELL
+# Script Mod by CLOUDVPN
 #!/bin/bash
 clear
 MAX=1
