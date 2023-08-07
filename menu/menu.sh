@@ -205,7 +205,7 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 read -n 1 -s -r -p "Press any key to back on menu"
 setting-menu
 else
-echo "IP=$host" > /var/lib/scrz-prem/ipvps.conf
+echo "IP=$host" > /var/lib/SIJA/ipvps.conf
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo "Dont forget to renew cert"
 echo ""
@@ -216,7 +216,7 @@ fi
 function genssl(){
 clear
 systemctl stop nginx
-domain=$(cat /var/lib/scrz-prem/ipvps.conf | cut -d'=' -f2)
+domain=$(cat /vvar/lib/SIJA/ipvps.conf | cut -d'=' -f2)
 Cek=$(lsof -i:80 | cut -d' ' -f1 | awk 'NR==2 {print $1}')
 if [[ ! -z "$Cek" ]]; then
 sleep 1
@@ -249,10 +249,10 @@ export pak=$( cat /home/.ver)
 IPVPS=$(curl -s ipinfo.io/ip )
 clear
 figlet  PREMIUM  | lolcat
-echo -e "${BIPurple}╒════════════════════════════════════════════════════════════╕\033[0m${NC}"
+echo -e "${BIPurple}╔════════════════════════════════════════════════════════════╗\033[0m${NC}"
 echo -e "${BIRed}                     👾  CLOUDVPN  TUNNEL 👾                     ${NC}"
-echo -e "${BIPurple}╘════════════════════════════════════════════════════════════╛\033[0m${NC}"
-echo -e "${BIBlack}╒════════════════════════════════════════════════════════════╕\033[0m${NC}"
+echo -e "${BIPurple}╚════════════════════════════════════════════════════════════╝\033[0m${NC}"
+echo -e "${BIBlack}╔════════════════════════════════════════════════════════════╗\033[0m${NC}"
 echo -e "${BIYellow}🌀 Server Uptime       = ${BIWhite}$( uptime -p  | cut -d " " -f 2-10000 ) ${NC}"
 echo -e "${BIYellow}🌀 Current Time        = ${BIWhite}$( date -d "0 days" +"%d-%m-%Y | %X" )${NC}"
 echo -e "${BIYellow}🌀 Operating System    = ${BIWhite}$( cat /etc/os-release | grep -w PRETTY_NAME | sed 's/PRETTY_NAME//g' | sed 's/=//g' | sed 's/"//g' ) ( $( uname -m) )${NC}"
@@ -261,31 +261,31 @@ echo -e "${BIYellow}🌀 Current Domain      = ${BIWhite}$( cat /etc/xray/domain
 echo -e "${BIYellow}🌀 NS Domain           = ${BIWhite}$(cat /root/nsdomain)${NC}"
 echo -e "${BIYellow}🌀 Total / USAGE RAM   = ${BIWhite}${totalram}MB / ${BIBlack}${USAGERAM} MB${NC}"
 echo -e "${BIYellow}🌀 CPU Usage           = ${BIWhite}${cpu_usage}${NC}"
-echo -e "${BIBlack}╘════════════════════════════════════════════════════════════╛\033[0m${NC}"
+echo -e "${BIBlack}╚════════════════════════════════════════════════════════════╝\033[0m${NC}"
 echo -e " ${BIPurple}  ╔═══════════════════════════════════════════════${NC}"
 echo -e " ${BIPurple}  ║  Order By      ${NC} : ${BIRed}CLOUDVPN${NC}"  
 echo -e " ${BIPurple}  ║  user          ${NC} : ${BICyan}$Name${NC}"
 echo -e " ${BIPurple}  ║  expired       ${NC} : ${BIRed}$Exp${NC}"
 echo -e " ${BIPurple}  ╚═══════════════════════════════════════════════${NC}"
 
-echo -e "${BIBlack}╒════════════════════════════════════════════════════════════╕${NC}" 
-echo -e "${BIBlack}│  \033[0m ${BOLD}${BIRed}SSH     VMESS       VLESS      TROJAN       SHADOWSOCKS $NC" 
-echo -e "${BIBlack}│  \033[0m ${BIWhite} $ssh1        $vma           $vla          $tra              $ssa $NC" 
-echo -e "${BIBlack}╘════════════════════════════════════════════════════════════╛${NC}" 
+echo -e "${BIBlack}╔════════════════════════════════════════════════════════════╗${NC}" 
+echo -e "${BIBlack}║  \033[0m ${BOLD}${BIRed}SSH     VMESS       VLESS      TROJAN       SHADOWSOCKS $NC" 
+echo -e "${BIBlack}║  \033[0m ${BIWhite} $ssh1        $vma           $vla          $tra              $ssa $NC" 
+echo -e "${BIBlack}╚════════════════════════════════════════════════════════════╝${NC}" 
 
 echo -e "     ${BICyan} SSH ${NC}: $ressh"" ${BICyan} NGINX ${NC}: $resngx"" ${BICyan}  XRAY ${NC}: $resv2r"" ${BICyan} TROJAN ${NC}: $resv2r"
 echo -e "   ${BICyan}     STUNNEL ${NC}: $resst" "${BICyan} DROPBEAR ${NC}: $resdbr" "${BICyan} SSH-WS ${NC}: $ressshws"
 
-echo -e "${BIPurple}   ╒══════════════════════════════════════════════════════╕${NC}"
+echo -e "${BIPurple}   ╔══════════════════════════════════════════════════════╗${NC}"
 echo -e "     ${BICyan}[${BIWhite}1]${red}🌦 SSH    " "  ${BICyan}[${BIWhite}6]${red}🌦 SETTING  " " ${BICyan}[${BIWhite}11${red}]🌦 SET REBOOT"
 echo -e "     ${BICyan}[${BIWhite}2]${red}🌦 VMESS  " "  ${BICyan}[${BIWhite}7]${red}🌦 TRIAL    " " ${BICyan}[${BIWhite}12${red}]🔐 SET PW VPS"
 echo -e "     ${BICyan}[${BIWhite}3]${red}🌦 VLESS  " "  ${BICyan}[${BIWhite}8]${red}🌦 BACKUP   " " ${BICyan}[${BIWhite}13${red}]🌦 UPDATE SC "
 echo -e "     ${BICyan}[${BIWhite}4]${red}🌦 TROJAN " "  ${BICyan}[${BIWhite}9]${red}🌦 ADD-HOST " " ${BICyan}[${BIWhite}99${red}]🌦 CLEAR SAMPAH"
 echo -e "     ${BICyan}[${BIWhite}5]${red}🌦 SHDSCK " "  ${BICyan}[${BIWhite}10]${red}🌦 RUNNING"
-echo -e "${BIPurple}   ╘══════════════════════════════════════════════════════╛${NC}"
-echo -e "${BIBlack} ╒═════════════════════════════════════════════════════╕${NC}"
-echo -e "${BIBlack} │$NC ${BICyan}TODAY${NC}: ${red}$ttoday$NC ${BICyan}YESTERDAY${NC}: ${red}$tyest$NC ${BICyan}MONTHLY${NC}: ${red}$tmon$NC $NC"
-echo -e "${BIBlack} ╘═════════════════════════════════════════════════════╛${NC}"
+echo -e "${BIPurple}   ╚══════════════════════════════════════════════════════╝${NC}"
+echo -e "${BIBlack} ╔═════════════════════════════════════════════════════╗${NC}"
+echo -e "${BIBlack} ║$NC ${BICyan}TODAY${NC}: ${red}$ttoday$NC ${BICyan}YESTERDAY${NC}: ${red}$tyest$NC ${BICyan}MONTHLY${NC}: ${red}$tmon$NC $NC"
+echo -e "${BIBlack} ╚═════════════════════════════════════════════════════╝${NC}"
 echo
 read -p " Choose menu Leader : " opt
 echo -e ""
