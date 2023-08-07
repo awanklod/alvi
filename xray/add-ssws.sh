@@ -326,11 +326,11 @@ d=$((${c} * 1024 * 1024 * 1024))
 if [[ ${c} != "0" ]]; then
   echo "${d}" >/etc/shadowsocks/${user}
 fi
-DATADB=$(cat /etc/shadowsocks/.shadowsocks.db | grep "^###" | grep -w "${user}" | awk '{print $2}')
+DATADB=$(cat /etc/shadowsocks/.shadowsocks.db | grep "^##" | grep -w "${user}" | awk '{print $2}')
 if [[ "${DATADB}" != '' ]]; then
   sed -i "/\b${user}\b/d" /etc/shadowsocks/.shadowsocks.db
 fi
-echo "### ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/shadowsocks/.shadowsocks.db
+echo "## ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/shadowsocks/.shadowsocks.db
 clear
 echo -e ""
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}" | tee -a /etc/log-create-user.log 
