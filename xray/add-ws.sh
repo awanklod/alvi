@@ -70,7 +70,7 @@ read -p " Silakan atur kata sandi (dibuat secara acak jika Anda tidak Mengisi Pa
     
 read -p "Expired (days): " masaaktif
 read -p "Limit User (GB): " Quota
-#\read -p "Limit User (IP): " iplimit
+read -p "Limit User (IP): " iplimit
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#vmess$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
