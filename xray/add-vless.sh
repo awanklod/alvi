@@ -82,12 +82,12 @@ if [ ! -e /etc/vless ]; then
   mkdir -p /etc/vless
 fi
 
-#if [[ $iplimit -gt 0 ]]; then
-#mkdir -p /etc/kyt/limit/vless/ip
-#echo -e "$iplimit" > /etc/kyt/limit/vless/ip/$user
-#else
-#echo > /dev/null
-#fi
+if [[ $iplimit -gt 0 ]]; then
+mkdir -p /etc/kyt/limit/vless/ip
+echo -e "$iplimit" > /etc/kyt/limit/vless/ip/$user
+else
+echo > /dev/null
+fi
 
 if [ -z ${Quota} ]; then
   Quota="0"
