@@ -1,8 +1,8 @@
 #!/bin/bash
 # Script  By CLOUDVPN
 sudo apt install squid -y
-mkdir /var/lib/ssnvpn-pro/
-wget -q -O /var/lib/ssnvpn-pro/ipvps.conf "https://raw.githubusercontent.com/awanklod/alvi/main/SLDNS/ipvps.conf"
+mkdir /var/lib/SIJA/ipvps.conf/
+wget -q -O /var/lib/SIJA/ipvps.conf "https://raw.githubusercontent.com/awanklod/alvi/main/SLDNS/ipvps.conf"
 #setting IPtables
 iptables -I INPUT -p udp --dport 5300 -j ACCEPT
 iptables -t nat -I PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5300
