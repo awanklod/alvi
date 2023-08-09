@@ -101,7 +101,7 @@ read -p " Silakan atur kata sandi (dibuat secara acak jika Anda tidak Mengisi Pa
     
 read -p "Expired (days): " masaaktif
 read -p "Limit User (GB): " Quota
-read -p "Limit User (IP): " iplimit
+#read -p "Limit User (IP): " iplimit
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#vless$/a\#& '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
@@ -116,12 +116,12 @@ if [ ! -e /etc/vless ]; then
   mkdir -p /etc/vless
 fi
 
-if [[ $iplimit -gt 0 ]]; then
-mkdir -p /etc/kyt/limit/vless/ip
-echo -e "$iplimit" > /etc/kyt/limit/vless/ip/$user
-else
-echo > /dev/null
-fi
+#if [[ $iplimit -gt 0 ]]; then
+#mkdir -p /etc/kyt/limit/vless/ip
+#echo -e "$iplimit" > /etc/kyt/limit/vless/ip/$user
+#else
+#echo > /dev/null
+#fi
 
 if [ -z ${Quota} ]; then
   Quota="0"
@@ -137,7 +137,8 @@ DATADB=$(cat /etc/vless/.vless.db | grep "^#&" | grep -w "${user}" | awk '{print
 if [[ "${DATADB}" != '' ]]; then
   sed -i "/\b${user}\b/d" /etc/vless/.vless.db
 fi
-echo "#& ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vless/.vless.db
+echo "#& ${user} ${exp} ${uuid} ${Quota}" >>/etc/vless/.vless.db
+#echo "#& ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vless/.vless.db
 clear
 echo -e ""
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}" | tee -a /etc/log-create-user.log 
@@ -146,7 +147,7 @@ echo -e "${CYAN}╘════════════════════�
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-user.log
 echo -e "Domain         : ${domain}" | tee -a /etc/log-create-user.log
 echo -e "User Quota     : ${Quota} GB" | tee -a /etc/log-create-user.log
-echo -e "User Ip        : ${iplimit} IP" | tee -a /etc/log-create-user.log
+#echo -e "User Ip        : ${iplimit} IP" | tee -a /etc/log-create-user.log
 echo -e "Wildcard       : (bug.com).${domain}" | tee -a /etc/log-create-user.log
 echo -e "Port TLS       : 443" | tee -a /etc/log-create-user.log
 echo -e "Port none TLS  : 80" | tee -a /etc/log-create-user.log
@@ -169,4 +170,4 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 echo "" | tee -a /etc/log-create-user.log
 read -n 1 -s -r -p "Press any key to back on menu"
 
-menu
+menu-vless
