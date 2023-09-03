@@ -28,7 +28,7 @@ wget -O /etc/systemd/system/ws-dropbear.service https://raw.githubusercontent.co
 wget -O /etc/systemd/system/ws-stunnel.service https://raw.githubusercontent.com/awanklod/alvi/main/sshws/ws-stunnel.service && chmod +x /etc/systemd/system/ws-stunnel.service
 
 #System SSL/TLS Websocket-SSH Python
-wget -O /etc/systemd/system/edu-proxy.service.service https://raw.githubusercontent.com/awanklod/alvi/main/sshws/https.service && chmod +x /etc/systemd/system/edu-proxy.service.service
+wget -O /etc/systemd/system/edu-proxy.service https://raw.githubusercontent.com/awanklod/alvi/main/sshws/https.service && chmod +x /etc/systemd/system/edu-proxy.service.service
 
 ##System Websocket-OpenVPN Python
 #wget -O /etc/systemd/system/ws-ovpn.service https://raw.githubusercontent.com/${GitUser}/test1/${namafolder}/main/ws-ovpn.service && chmod +x /etc/systemd/system/ws-ovpn.service
@@ -37,9 +37,9 @@ wget -O /etc/systemd/system/edu-proxy.service.service https://raw.githubusercont
 #
 systemctl daemon-reload
 #Enable & Start & Restart ws-openssh service
-#systemctl enable ws-openssh.service
-#systemctl start ws-openssh.service
-#systemctl restart ws-openssh.service
+systemctl enable ws-openssh.service
+systemctl start ws-openssh.service
+systemctl restart ws-openssh.service
 
 #Enable & Start & Restart ws-dropbear service
 systemctl enable ws-dropbear.service
