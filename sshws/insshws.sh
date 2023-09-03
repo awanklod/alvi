@@ -4,10 +4,10 @@
 cd
 
 #Install Script Websocket-SSH Python
-#wget -O /usr/local/bin/ws-openssh https://raw.githubusercontent.com/awanklod/alvi/main/sshws/openssh-socket.py
-wget -O /usr/local/bin/ws-dropbear https://raw.githubusercontent.com/awanklod/alvi/main/sshws/dropbear-ws.py
-wget -O /usr/local/bin/ws-stunnel https://raw.githubusercontent.com/awanklod/alvi/main/sshws/ws-stunnel
-wget -O /usr/local/bin/edu-proxy https://raw.githubusercontent.com/awanklod/alvi/main/sshws/https.py
+#wget -O /usr/local/bin/ws-openssh https://raw.githubusercontent.com/awanklod/alvi/main/sshws/openssh-socket2.py
+wget -O /usr/local/bin/ws-dropbear https://raw.githubusercontent.com/awanklod/alvi/main/sshws/dropbear-ws2.py
+wget -O /usr/local/bin/ws-stunnel https://raw.githubusercontent.com/awanklod/alvi/main/sshws/ws-stunnel2
+wget -O /usr/local/bin/edu-proxy https://raw.githubusercontent.com/awanklod/alvi/main/sshws/https2.py
 #wget -O /usr/local/bin/ws-ovpn https://raw.githubusercontent.com/${GitUser}/test1/${namafolder}/main/ws-ovpn && chmod +x /usr/local/bin/ws-ovpn
 
 #izin permision
