@@ -35,11 +35,11 @@ wget -O /etc/systemd/system/edu-proxy.service https://raw.githubusercontent.com/
 
 #restart service
 #
-systemctl daemon-reload
+#systemctl daemon-reload
 #Enable & Start & Restart ws-openssh service
-systemctl enable ws-openssh.service
-systemctl start ws-openssh.service
-systemctl restart ws-openssh.service
+#systemctl enable ws-openssh.service
+#systemctl start ws-openssh.service
+#systemctl restart ws-openssh.service
 
 #Enable & Start & Restart ws-dropbear service
 systemctl enable ws-dropbear.service
