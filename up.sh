@@ -19,16 +19,16 @@ rm -rf /etc/systemd/system/edu-proxy.service
 
 curl "https://raw.githubusercontent.com/awanklod/alvi/main/sshws/insshws.sh" | bash
 
-wget -O /usr/local/bin/ws-openssh https://raw.githubusercontent.com/awanklod/alvi/main/sshws/openssh-socket2.py
+#wget -O /usr/local/bin/ws-openssh https://raw.githubusercontent.com/awanklod/alvi/main/sshws/openssh-socket2.py
 wget -O /usr/local/bin/ws-dropbear https://raw.githubusercontent.com/awanklod/alvi/main/sshws/dropbear-ws2.py
 wget -O /usr/local/bin/ws-stunnel https://raw.githubusercontent.com/awanklod/alvi/main/sshws/ws-stunnel2
 wget -O /usr/local/bin/edu-proxy https://raw.githubusercontent.com/awanklod/alvi/main/sshws/https.py
 
 systemctl daemon-reload
 #Enable & Start & Restart ws-openssh service
-systemctl enable ws-openssh.service
-systemctl start ws-openssh.service
-systemctl restart ws-openssh.service
+#systemctl enable ws-openssh.service
+#systemctl start ws-openssh.service
+#systemctl restart ws-openssh.service
 
 #Enable & Start & Restart ws-dropbear service
 systemctl enable ws-dropbear.service
