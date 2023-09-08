@@ -25,7 +25,7 @@ wget -O /usr/local/bin/ws-stunnel https://raw.githubusercontent.com/awanklod/alv
 wget -O /usr/local/bin/edu-proxy https://raw.githubusercontent.com/awanklod/alvi/main/sshws/https.py
 
 systemctl daemon-reload
-Enable & Start & Restart ws-openssh service
+#Enable & Start & Restart ws-openssh service
 systemctl enable ws-openssh.service
 systemctl start ws-openssh.service
 systemctl restart ws-openssh.service
