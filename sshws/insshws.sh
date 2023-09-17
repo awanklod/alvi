@@ -1,45 +1,41 @@
 #!/bin/bash
 #installer Websocker tunneling 
-
+url="https://raw.githubusercontent.com/awanklod/alvi/main"
 cd
 
 #Install Script Websocket-SSH Python
-#wget -O /usr/local/bin/ws-openssh https://raw.githubusercontent.com/awanklod/alvi/main/sshws/openssh-socket2.py
-wget -O /usr/local/bin/ws-dropbear https://raw.githubusercontent.com/awanklod/alvi/main/sshws/dropbear-ws2.py
-wget -O /usr/local/bin/ws-stunnel https://raw.githubusercontent.com/awanklod/alvi/main/sshws/ws-stunnel2
-wget -O /usr/local/bin/edu-proxy https://raw.githubusercontent.com/awanklod/alvi/main/sshws/https2.py
-#wget -O /usr/local/bin/ws-ovpn https://raw.githubusercontent.com/${GitUser}/test1/${namafolder}/main/ws-ovpn && chmod +x /usr/local/bin/ws-ovpn
+wget -O /usr/local/bin/edu-proxy ${url}/sshws/https.py
+wget -O /usr/local/bin/ws-dropbear ${url}/sshws/dropbear-ws.py.txt
+wget -O /usr/local/bin/ws-stunnel ${url}/sshws/ws-stunnel.txt
+wget -O /usr/local/bin/edu-proxyovpn ${url}/sshws/ovpn.py
 
 #izin permision
-#chmod +x /usr/local/bin/ws-openssh
+chmod +x /usr/local/bin/edu-proxy
 chmod +x /usr/local/bin/ws-dropbear
 chmod +x /usr/local/bin/ws-stunnel
-chmod +x /usr/local/bin/edu-proxy
-#chmod +x /usr/local/bin/ws-ovpn
+chmod +x /usr/local/bin/edu-proxyovpn
 
-
-#System OpenSSH Websocket-SSH Python
-#wget -O /etc/systemd/system/ws-openssh.service https://raw.githubusercontent.com/sallxd/sl/main/sshws/service-wsopenssh && chmod +x /etc/systemd/system/ws-openssh.service
+#System Direcly dropbear Websocket-SSH Python
+wget -O /etc/systemd/system/edu-proxy.service ${url}/sshws/http.service && chmod +x /etc/systemd/system/edu-proxy.service
 
 #System Dropbear Websocket-SSH Python
-wget -O /etc/systemd/system/ws-dropbear.service https://raw.githubusercontent.com/awanklod/alvi/main/sshws/service-wsdropbear && chmod +x /etc/systemd/system/ws-dropbear.service
+wget -O /etc/systemd/system/ws-dropbear.service ${url}/sshws/service-wsdropbear.txt && chmod +x /etc/systemd/system/ws-dropbear.service
 
 #System SSL/TLS Websocket-SSH Python
-wget -O /etc/systemd/system/ws-stunnel.service https://raw.githubusercontent.com/awanklod/alvi/main/sshws/ws-stunnel.service && chmod +x /etc/systemd/system/ws-stunnel.service
+wget -O /etc/systemd/system/ws-stunnel.service ${url}/sshws/ws-stunnel.service.txt && chmod +x /etc/systemd/system/ws-stunnel.service
 
-#System SSL/TLS Websocket-SSH Python
-wget -O /etc/systemd/system/edu-proxy.service https://raw.githubusercontent.com/awanklod/alvi/main/sshws/https.service && chmod +x /etc/systemd/system/edu-proxy.service.service
+#System Websocket-OpenVPN Python
+wget -O /etc/systemd/system/edu-proxyovpn.service ${url}/sshws/ovpn.service && chmod +x /etc/systemd/system/edu-proxyovpn.service
 
-##System Websocket-OpenVPN Python
-#wget -O /etc/systemd/system/ws-ovpn.service https://raw.githubusercontent.com/${GitUser}/test1/${namafolder}/main/ws-ovpn.service && chmod +x /etc/systemd/system/ws-ovpn.service
 
 #restart service
-#
 systemctl daemon-reload
-#Enable & Start & Restart ws-openssh service
-systemctl enable ws-openssh.service
-systemctl start ws-openssh.service
-systemctl restart ws-openssh.service
+
+#Enable & Start & Restart directly dropbear
+systemctl daemon-reload
+systemctl enable edu-proxy.service
+systemctl start edu-proxy.service
+systemctl restart edu-proxy.service
 
 #Enable & Start & Restart ws-dropbear service
 systemctl enable ws-dropbear.service
@@ -51,13 +47,8 @@ systemctl enable ws-stunnel.service
 systemctl start ws-stunnel.service
 systemctl restart ws-stunnel.service
 
-#Enable & Start & Restart directly dropbear
 systemctl daemon-reload
-systemctl enable edu-proxy.service
-systemctl start edu-proxy.service
-systemctl restart edu-proxy.service
-
-#Enable & Start ws-ovpn service
-#systemctl enable ws-ovpn.service
-#systemctl start ws-ovpn.service
-#systemctl restart ws-ovpn.service
+systemctl enable edu-proxyovpn.service
+systemctl start edu-proxyovpn.service
+systemctl restart edu-proxyovpn.service
+clear
