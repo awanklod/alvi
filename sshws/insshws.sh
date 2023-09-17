@@ -4,28 +4,28 @@ url="https://raw.githubusercontent.com/awanklod/alvi/main"
 cd
 
 #Install Script Websocket-SSH Python
-wget -O /usr/local/bin/edu-proxy ${url}/sshws/https.py
-wget -O /usr/local/bin/ws-dropbear ${url}/sshws/dropbear-ws.py.txt
-wget -O /usr/local/bin/ws-stunnel ${url}/sshws/ws-stunnel.txt
-wget -O /usr/local/bin/edu-proxyovpn ${url}/sshws/ovpn.py
+wget -O /usr/local/bin/https ${url}/sshws/https
+wget -O /usr/local/bin/ws-dropbear ${url}/sshws/ws-dropbear
+wget -O /usr/local/bin/ws-stunnel ${url}/sshws/ws-stunnel
+wget -O /usr/local/bin/openssh-socket ${url}/sshws/openssh-socket
 
 #izin permision
-chmod +x /usr/local/bin/edu-proxy
+chmod +x /usr/local/bin/https
 chmod +x /usr/local/bin/ws-dropbear
 chmod +x /usr/local/bin/ws-stunnel
-chmod +x /usr/local/bin/edu-proxyovpn
+chmod +x /usr/local/bin/openssh-socket
 
 #System Direcly dropbear Websocket-SSH Python
-wget -O /etc/systemd/system/edu-proxy.service ${url}/sshws/http.service && chmod +x /etc/systemd/system/edu-proxy.service
+wget -O /etc/systemd/system/https.service ${url}/sshws/https.service && chmod +x /etc/systemd/system/https.service
 
 #System Dropbear Websocket-SSH Python
-wget -O /etc/systemd/system/ws-dropbear.service ${url}/sshws/service-wsdropbear.txt && chmod +x /etc/systemd/system/ws-dropbear.service
+wget -O /etc/systemd/system/ws-dropbear.service ${url}/sshws/ws-dropbear.service && chmod +x /etc/systemd/system/ws-dropbear.service
 
 #System SSL/TLS Websocket-SSH Python
 wget -O /etc/systemd/system/ws-stunnel.service ${url}/sshws/ws-stunnel.service.txt && chmod +x /etc/systemd/system/ws-stunnel.service
 
-#System Websocket-OpenVPN Python
-wget -O /etc/systemd/system/edu-proxyovpn.service ${url}/sshws/ovpn.service && chmod +x /etc/systemd/system/edu-proxyovpn.service
+#System Websocket-Openssh Python
+wget -O /etc/systemd/system/openssh-socket.service ${url}/sshws/openssh-socket.service && chmod +x /etc/systemd/system/openssh-socket.service
 
 
 #restart service
@@ -33,22 +33,25 @@ systemctl daemon-reload
 
 #Enable & Start & Restart directly dropbear
 systemctl daemon-reload
-systemctl enable edu-proxy.service
-systemctl start edu-proxy.service
-systemctl restart edu-proxy.service
+systemctl enable https.service
+systemctl start https.service
+systemctl restart https.service
 
 #Enable & Start & Restart ws-dropbear service
+systemctl daemon-reload
 systemctl enable ws-dropbear.service
 systemctl start ws-dropbear.service
 systemctl restart ws-dropbear.service
 
-#Enable & Start & Restart ws-openssh service
+#Enable & Start & Restart ws-stunel service
+systemctl daemon-reload
 systemctl enable ws-stunnel.service
 systemctl start ws-stunnel.service
 systemctl restart ws-stunnel.service
 
+#Enable & Start & Restart ws-openssh service
 systemctl daemon-reload
-systemctl enable edu-proxyovpn.service
-systemctl start edu-proxyovpn.service
-systemctl restart edu-proxyovpn.service
+systemctl enable openssh-socket.service
+systemctl start openssh-socket.service
+systemctl restart openssh-socket.service
 clear
