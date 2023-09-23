@@ -248,7 +248,7 @@ export sem=$( curl -s https://raw.githubusercontent.com/ALVIICELL/permission/mai
 export pak=$( cat /home/.ver)
 IPVPS=$(curl -s ipinfo.io/ip )
 clear
-figlet  PREMIUM  | lolcat
+#figlet  PREMIUM  | lolcat
 echo -e "${BIPurple}╔════════════════════════════════════════════════════════════╗\033[0m${NC}"
 echo -e "${BIRed}                     👾  CLOUDVPN  TUNNEL 👾                     ${NC}"
 echo -e "${BIPurple}╚════════════════════════════════════════════════════════════╝\033[0m${NC}"
@@ -259,19 +259,34 @@ echo -e "${BIYellow}🌀 Operating System    = ${BIWhite}$( cat /etc/os-release 
 echo -e "${BIYellow}🌀 IP VPS              = ${BIWhite}$IPVPS${NC}"
 echo -e "${BIYellow}🌀 Current Domain      = ${BIWhite}$( cat /etc/xray/domain )${NC}"
 echo -e "${BIYellow}🌀 NS Domain           = ${BIWhite}$(cat /root/nsdomain)${NC}"
-echo -e "${BIYellow}🌀 Total / USAGE RAM   = ${BIWhite}${totalram}MB / ${BIBlack}${USAGERAM} MB${NC}"
-echo -e "${BIYellow}🌀 CPU Usage           = ${BIWhite}${cpu_usage}${NC}"
+echo -e "${BIYellow}🌀 RAM/USE RAM % CPU   = ${BIWhite}${totalram}MB / ${BIRed}${USAGERAM} MB & ${BIWhite}${cpu_usage}${NC}"
+#echo -e "${BIYellow}🌀 CPU Usage           = ${BIWhite}${cpu_usage}${NC}"
 echo -e "${BIBlack}╚════════════════════════════════════════════════════════════╝\033[0m${NC}"
+DATE=$(date +'%d %B %Y')
+datediff() {
+    d1=$(date -d "$1" +%s)
+    d2=$(date -d "$2" +%s)
+echo -e " ${BIPurple}  ║  DAYS LEFT    ${NC} : ${IYellow}$(( (d1 - d2) / 86400 )) Days $NC"
+}
+mai="datediff "$Exp" "$DATE""
 echo -e " ${BIPurple}  ╔═══════════════════════════════════════════════${NC}"
-echo -e " ${BIPurple}  ║  Order By      ${NC} : ${BIRed}CLOUDVPN${NC}"  
-echo -e " ${BIPurple}  ║  user          ${NC} : ${BICyan}$Name${NC}"
-echo -e " ${BIPurple}  ║  expired       ${NC} : ${BIRed}$Exp${NC}"
+echo -e " ${BIPurple}  ║  OWNER SCRIPT ${NC} : ${BIRed}CLOUDVPN${NC}"  
+echo -e " ${BIPurple}  ║  User ORDER   ${NC} : ${IYellow}$Name${NC}"
+echo -e " ${BIPurple}  ║  Date EXP     ${NC} : ${BIRed}$Exp${NC}"
+if [ $exp \< 1000 ]; 
+then
+echo -e " ${IWhite}│$NC     License      : ${IBlue}$sisa_hari$NC Days Tersisa $NC"
+else
+    datediff "$Exp" "$DATE"
+fi;
 echo -e " ${BIPurple}  ╚═══════════════════════════════════════════════${NC}"
-
-echo -e "${BIBlack}╔════════════════════════════════════════════════════════════╗${NC}" 
-echo -e "${BIBlack}║  \033[0m ${BOLD}${BIRed}SSH     VMESS       VLESS      TROJAN       SHADOWSOCKS $NC" 
-echo -e "${BIBlack}║  \033[0m ${BIWhite} $ssh1        $vma           $vla          $tra              $ssa $NC" 
-echo -e "${BIBlack}╚════════════════════════════════════════════════════════════╝${NC}" 
+echo -e "\e[36m            ╔══════════════════════════╗\033[0m"
+echo -e "${BIWhite}             SSH/UDP/DNS    :${NC} $ssh1 ACCOUNT"
+echo -e "${BIWhite}             SOCKS/WS/WSS   :${NC} $ssa ACCOUNT"
+echo -e "${BIWhite}             VMESS/WS/GRPC  :${NC} $vma ACCOUNT"
+echo -e "${BIWhite}             VLESS/WS/GRPC  :${NC} $vla ACCOUNT"
+echo -e "${BIWhite}             TROJAN/WS/GRPC :${NC} $tra ACCOUNT"
+echo -e "\e[36m            ╚══════════════════════════╝\033[0m"
 
 echo -e "     ${BICyan} SSH ${NC}: $ressh"" ${BICyan} NGINX ${NC}: $resngx"" ${BICyan}  XRAY ${NC}: $resv2r"" ${BICyan} TROJAN ${NC}: $resv2r"
 echo -e "   ${BICyan}     STUNNEL ${NC}: $resst" "${BICyan} DROPBEAR ${NC}: $resdbr" "${BICyan} SSH-WS ${NC}: $ressshws"
