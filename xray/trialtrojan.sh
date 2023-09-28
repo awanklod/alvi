@@ -111,7 +111,7 @@ DATADB=$(cat /etc/trojan/.trojan.db | grep "^###" | grep -w "${user}" | awk '{pr
 if [[ "${DATADB}" != '' ]]; then
   sed -i "/\b${user}\b/d" /etc/trojan/.trojan.db
 fi
-echo "### ${user} ${exp} ${uuid} ${Quota}" >>/etc/trojan/.trojan.db
+echo "### ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/trojan/.trojan.db
 #echo "#! ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/trojan/.trojan.db
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
