@@ -99,26 +99,6 @@ data=( `ls /etc/kyt/limit/shadowsocks/ip`);
         sleep 0.1
     done
 }
-function sship(){
-mulog=$(cek)
-date=$(date)
-data=( `ls /etc/kyt/limit/ssh/ip`);
-for user in "${data[@]}"
-do
-iplimit=$(cat /etc/kyt/limit/ssh/ip/$user)
-cekcek=$(echo -e "$mulog" | grep $user | wc -l);
-if [[ $cekcek -gt $iplimit ]]; then
-    userdel -f -r $user
-    nais=3
-    echo -e "$waktu\nRemoved User: $user Login: $cekcek IP Max: $ip IP \n" >> /etc/kyt/log/ssh/ssh.log
-    # Hapus file username dari daftar
-    rm -fr /etc/kyt/limit/ssh/ip/$user
-else
-    echo > /dev/null
-fi
-sleep 0.1
-done
-}
 if [[ ${1} == "vmip" ]]; then
 vmip
 elif [[ ${1} == "vlip" ]]; then
@@ -127,6 +107,4 @@ elif [[ ${1} == "trip" ]]; then
 trip
 elif [[ ${1} == "shdip" ]]; then
 shdip
-elif [[ ${1} == "sship" ]]; then
-sship
 fi
