@@ -17,7 +17,7 @@ data=( `ls /etc/kyt/limit/vmess/ip`);
                   systemctl restart xray >> /dev/null 2>&1
                   jum2=$(cat /tmp/ipvmess.txt | wc -l)
                   rm -rf /etc/kyt/limit/vmess/ip/$user
-                  rm -rf /etc/kyt/limit/vmess/quota/$user
+                 # rm -rf /etc/kyt/limit/vmess/quota/$user
                   send_log
                 else
             echo ""
@@ -43,7 +43,7 @@ data=( `ls /etc/kyt/limit/vless/ip`);
                   systemctl restart xray >> /dev/null 2>&1
                   jum2=$(cat /tmp/ipvless.txt | wc -l)
                   rm -rf /etc/kyt/limit/vless/ip/$user
-                  rm -rf /etc/kyt/limit/vless/quota/$user
+                #  rm -rf /etc/kyt/limit/vless/quota/$user
                   send_log
                 else
             echo ""
@@ -69,7 +69,7 @@ data=( `ls /etc/kyt/limit/trojan/ip`);
                   systemctl restart xray >> /dev/null 2>&1
                   jum2=$(cat /tmp/iptrojan.txt | wc -l)
                   rm -rf /etc/kyt/limit/trojan/ip/$user
-                  rm -rf /etc/kyt/limit/trojan/quota/$user
+                #  rm -rf /etc/kyt/limit/trojan/quota/$user
                   send_log
                 else
             echo ""
@@ -96,7 +96,7 @@ data=( `ls /etc/kyt/limit/shadowsocks/ip`);
                   systemctl restart xray >> /dev/null 2>&1
                   jum2=$(cat /tmp/ipshadowsocks.txt | wc -l)
                   rm -rf /etc/kyt/limit/shadowsocks/ip/$user
-                  rm -rf /etc/kyt/limit/shadowsocks/quota/$user
+               #   rm -rf /etc/kyt/limit/shadowsocks/quota/$user
                   send_log
                 else
             echo ""
