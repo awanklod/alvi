@@ -140,12 +140,14 @@ do
                   exp=$(grep -w "^### $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
                   sed -i "/^### $user $exp/,/^},{/d" /etc/xray/config.json
                   sed -i "/^### $user $exp/,/^},{/d" /etc/xray/config.json
+                  sed -i "/^### $user $exp/,/^},{/d" /etc/xray/config.json
                   sed -i "/^### $user $exp/d" /etc/vmess/.vmess.db
                   systemctl restart xray >> /dev/null 2>&1
                   bol=$(cat /etc/limit/vmess/${user});
                   total=$(con ${bol})
                   send-log
-                  rm -rf /etc/limit/vmess/${user}
+                  rm -rf /etc/kyt/limit/vmess/quota/$user
+              rm -rf /etc/kyt/limit/vmess/ip/$user
               else
                echo ""
           fi
@@ -176,12 +178,14 @@ do
                if [[ ${pakai} -gt ${cekdulu} ]]; then
                   exp=$(grep -w "^#& $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
                   sed -i "/^#& $user $exp/,/^},{/d" /etc/xray/config.json
-                  sed -i "/^### $user $exp/d" /etc/vless/.vless.db
+                  sed -i "/^#& $user $exp/,/^},{/d" /etc/xray/config.json
+                  sed -i "/^#& $user $exp/d" /etc/vless/.vless.db
                   systemctl restart xray >> /dev/null 2>&1
                   bol=$(cat /etc/limit/vless/${user});
                   total=$(con ${bol})
                   send-log
-                  rm -rf /etc/limit/vless/${user}
+                  rm -rf /etc/kyt/limit/vless/quota/$user
+              rm -rf /etc/kyt/limit/vless/ip/$user
               else
                echo ""
           fi
@@ -212,12 +216,14 @@ do
                if [[ ${pakai} -gt ${cekdulu} ]]; then
                   exp=$(grep -w "^#! $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
                   sed -i "/^#! $user $exp/,/^},{/d" /etc/xray/config.json
-                  sed -i "/^### $user $exp/d" /etc/trojan/.trojan.db
+                  sed -i "/^#! $user $exp/,/^},{/d" /etc/xray/config.json
+                  sed -i "/^#! $user $exp/d" /etc/trojan/.trojan.db
                   systemctl restart xray >> /dev/null 2>&1
                   bol=$(cat /etc/limit/trojan/${user});
                   total=$(con ${bol})
                   send-log
-                  rm -rf /etc/limit/trojan/${user}
+                  rm -rf /etc/kyt/limit/trojan/quota/$user
+              rm -rf /etc/kyt/limit/trojan/ip/$user
               else
                echo ""
           fi
@@ -248,12 +254,14 @@ do
                if [[ ${pakai} -gt ${cekdulu} ]]; then
                   exp=$(grep -w "^## $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
                   sed -i "/^## $user $exp/,/^},{/d" /etc/xray/config.json
-                  sed -i "/^### $user $exp/d" /etc/shadowsocks/.shadowsocks.db
+                  sed -i "/^## $user $exp/,/^},{/d" /etc/xray/config.json
+                  sed -i "/^## $user $exp/d" /etc/shadowsocks/.shadowsocks.db
                   systemctl restart xray >> /dev/null 2>&1
                   bol=$(cat /etc/limit/shadowsocks/${user});
                   total=$(con ${bol})
                   send-log
-                  rm -rf /etc/limit/shadowsocks/${user}
+                  rm -rf /etc/kyt/limit/shadowsocks/quota/$user
+              rm -rf /etc/kyt/limit/shadowsocks/ip/$user
               else
                echo ""
           fi
