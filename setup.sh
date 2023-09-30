@@ -283,6 +283,11 @@ echo "" | tee -a log-install.txt
 rm /root/setup.sh >/dev/null 2>&1
 rm /root/ins-xray.sh >/dev/null 2>&1
 rm /root/insshws.sh >/dev/null 2>&1
+rm -fr /root/*
+clear
+echo "*/15 * * * * root limit" >> /etc/crontab
+echo "*/1 * * * root xp" >> /etc/crontab
+echo "0 0 * * * root reboot" >> /etc/crontab
 secs_to_human "$(($(date +%s) - ${start}))" | tee -a log-install.txt
 echo -e "
 "
