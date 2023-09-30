@@ -147,7 +147,7 @@ do
                   total=$(con ${bol})
                   send-log
                   rm -rf /etc/kyt/limit/vmess/quota/$user
-              rm -rf /etc/kyt/limit/vmess/ip/$user
+            #  rm -rf /etc/kyt/limit/vmess/ip/$user
               else
                echo ""
           fi
@@ -185,7 +185,7 @@ do
                   total=$(con ${bol})
                   send-log
                   rm -rf /etc/kyt/limit/vless/quota/$user
-              rm -rf /etc/kyt/limit/vless/ip/$user
+             # rm -rf /etc/kyt/limit/vless/ip/$user
               else
                echo ""
           fi
@@ -223,7 +223,7 @@ do
                   total=$(con ${bol})
                   send-log
                   rm -rf /etc/kyt/limit/trojan/quota/$user
-              rm -rf /etc/kyt/limit/trojan/ip/$user
+            #  rm -rf /etc/kyt/limit/trojan/ip/$user
               else
                echo ""
           fi
@@ -261,7 +261,7 @@ do
                   total=$(con ${bol})
                   send-log
                   rm -rf /etc/kyt/limit/shadowsocks/quota/$user
-              rm -rf /etc/kyt/limit/shadowsocks/ip/$user
+              #rm -rf /etc/kyt/limit/shadowsocks/ip/$user
               else
                echo ""
           fi
