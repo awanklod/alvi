@@ -30,13 +30,13 @@ function cekvmess(){
                 quota2=$(( ${quota0} + ${quota1} ));
                 echo "${quota2}" > /etc/limit/vmess/"${user}"
                 xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
-              else
-                  echo "${quota0}" > /etc/limit/vmess/"${user}"
-                  xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
-                fi
-           else
-               echo "${quota0}" > /etc/limit/vmess/"${user}"
-               xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
+              #else
+                  #echo "${quota0}" > /etc/limit/vmess/"${user}"
+                  #xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
+                #fi
+           #else
+               #echo "${quota0}" > /etc/limit/vmess/"${user}"
+               #xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
             fi
      done
 }
@@ -58,12 +58,12 @@ function cekvless(){
                 quota2=$(( ${quota0} + ${quota1} ));
                 echo "${quota2}" > /etc/limit/vless/"${user}"
                 xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
-              else
-                  echo "${quota0}" > /etc/limit/vless/"${user}"
-                  xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
-                fi
-           else
-               echo "${quota0}" > /etc/limit/vless/"${user}"
+              #else
+                  #echo "${quota0}" > /etc/limit/vless/"${user}"
+                  #xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
+                #fi
+           #else
+               #echo "${quota0}" > /etc/limit/vless/"${user}"
                xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
             fi
      done
@@ -86,13 +86,13 @@ function cektrojan(){
                 quota2=$(( ${quota0} + ${quota1} ));
                 echo "${quota2}" > /etc/limit/trojan/"${user}"
                 xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
-              else
-                  echo "${quota0}" > /etc/limit/trojan/"${user}"
-                  xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
-                fi
-           else
-               echo "${quota0}" > /etc/limit/trojan/"${user}"
-               xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
+              #else
+                  #echo "${quota0}" > /etc/limit/trojan/"${user}"
+                  #xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
+                #fi
+           #else
+               #echo "${quota0}" > /etc/limit/trojan/"${user}"
+               #xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
             fi
      done
 }
@@ -114,13 +114,13 @@ function cekshadowsocks(){
                 quota2=$(( ${quota0} + ${quota1} ));
                 echo "${quota2}" > /etc/limit/shadowsocks/"${user}"
                 xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
-              else
-                  echo "${quota0}" > /etc/limit/shadowsocks/"${user}"
-                  xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
-                fi
-           else
-               echo "${quota0}" > /etc/limit/shadowsocks/"${user}"
-               xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
+              #else
+                  #echo "${quota0}" > /etc/limit/shadowsocks/"${user}"
+                  #xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
+                #fi
+           #else
+               #echo "${quota0}" > /etc/limit/shadowsocks/"${user}"
+               #xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
             fi
      done
 }
