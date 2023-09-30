@@ -4,7 +4,6 @@ function vmip(){
 echo -n > /var/log/xray/access.log
 sleep 4
 data=( `ls /etc/kyt/limit/vmess/ip`);
-#Decrypted By YADDY D PHREAKER
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/vmess/ip/$user)
@@ -29,7 +28,6 @@ function vlip(){
 echo -n > /var/log/xray/access.log
 sleep 4
 data=( `ls /etc/kyt/limit/vless/ip`);
-#Decrypted By YADDY D PHREAKER
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/vless/ip/$user)
@@ -54,7 +52,6 @@ function trip(){
 echo -n > /var/log/xray/access.log
 sleep 4
 data=( `ls /etc/kyt/limit/trojan/ip`);
-#Decrypted By YADDY D PHREAKER
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/trojan/ip/$user)
@@ -62,7 +59,7 @@ data=( `ls /etc/kyt/limit/trojan/ip`);
         cekcek=$(echo -e "$ehh" | wc -l);
         if [[ $cekcek -gt $iplimit ]]; then
             exp=$(grep -w "^#! $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
-                  #sed -i "/^#! $user $exp/,/^},{/d" /etc/xray/config.json
+                  sed -i "/^#! $user $exp/,/^},{/d" /etc/xray/config.json
                   sed -i "/^### $user $exp/d" /etc/trojan/.trojan.db
                   systemctl restart xray >> /dev/null 2>&1
                   jum2=$(cat /tmp/iptrojan.txt | wc -l)
@@ -87,7 +84,7 @@ data=( `ls /etc/kyt/limit/shadowsocks/ip`);
         cekcek=$(echo -e "$ehh" | wc -l);
         if [[ $cekcek -gt $iplimit ]]; then
             exp=$(grep -w "^## $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
-                  #sed -i "/^## $user $exp/,/^},{/d" /etc/xray/config.json
+                  sed -i "/^## $user $exp/,/^},{/d" /etc/xray/config.json
                   sed -i "/^### $user $exp/d" /etc/shadowsocks/.shadowsocks.db
                   systemctl restart xray >> /dev/null 2>&1
                   jum2=$(cat /tmp/ipshadowsocks.txt | wc -l)
