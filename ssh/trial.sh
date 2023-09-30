@@ -93,11 +93,11 @@ echo Setting Password: $Pass
 sleep 0.5
 clear
 #limitip
-if [[ $iplimit -gt 0 ]]; then
-echo -e "$iplimit" > /etc/kyt/limit/ssh/ip/$Login
-else
-echo > /dev/null
-fi
+#if [[ $iplimit -gt 0 ]]; then
+#echo -e "$iplimit" > /etc/kyt/limit/ssh/ip/$Login
+#else
+#echo > /dev/null
+#fi
 
 useradd -e `date -d "$masaaktif days" +"%Y-%m-%d"` -s /bin/false -M $Login
 exp="$(chage -l $Login | grep "Account expires" | awk -F": " '{print $2}')"
