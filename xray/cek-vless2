@@ -82,7 +82,7 @@ if [[ -z "$jum" ]]; then
 echo > /dev/null
 else
 jum2=$(cat /tmp/ipvless.txt | wc -l)
-wey=$(cat /etc/limit/vless/quota/${akun})
+wey=$(cat /etc/limit/vless/${akun})
 gb=$(con ${wey})
 lastlogin=$(cat /var/log/xray/access.log | grep -w "$akun" | tail -n 500 | cut -d " " -f 2 | tail -1)
 echo -e " \033[1;36m┌──────────────────────────────────────┐\033[0m"
