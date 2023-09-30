@@ -85,7 +85,7 @@ wsssl=`cat /root/log-install.txt | grep -w "SSH SSL Websocket" | cut -d: -f2 | a
 Login=trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
 hari="1"
 Pass=1
-iplimit=1
+#iplimit=1
 echo Ping Host
 echo Create Akun: $Login
 sleep 0.5
