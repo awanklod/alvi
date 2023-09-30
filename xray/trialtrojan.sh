@@ -86,15 +86,15 @@ trojanlink1="trojan://${uuid}@isi_bug_disini:${tls}?mode=gun&security=tls&type=g
 trojanlink="trojan://${uuid}@isi_bug_disini:${tls}?path=%2Ftrojan-ws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
 trojanlink2="trojan://${uuid}@isi_bug_disini:${ntls}?path=%2Ftrojan-ws&security=tls&host=${domain}&type=ws#${user}"
 
-#if [ ! -e /etc/trojan ]; then
-#  mkdir -p /etc/trojan
-#fi
-
-if [[ $quota -gt 0 ]]; then
-echo -e "$[$quota * 1024 * 1024 * 1024]" > /etc/kyt/limit/trojan/quota/$user
-else
-echo > /dev/null
+if [ ! -e /etc/trojan ]; then
+mkdir -p /etc/trojan
 fi
+
+#if [[ $quota -gt 0 ]]; then
+#echo -e "$[$quota * 1024 * 1024 * 1024]" > /etc/kyt/limit/trojan/quota/$user
+#else
+#echo > /dev/null
+#fi
 
 if [[ $iplimit -gt 0 ]]; then
 mkdir -p /etc/kyt/limit/trojan/ip
@@ -103,22 +103,22 @@ else
 echo > /dev/null
 fi
 
-#if [ -z ${Quota} ]; then
- # Quota="0"
-#fi
+if [ -z ${Quota} ]; then
+Quota="0"
+fi
 
-#c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
-#d=$((${c} * 1024 * 1024 * 1024))
+c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
+d=$((${c} * 1024 * 1024 * 1024))
 
-#if [[ ${c} != "0" ]]; then
-#  echo "${d}" >/etc/trojan/${user}
-#fi
-#DATADB=$(cat /etc/trojan/.trojan.db | grep "^###" | grep -w "${user}" | awk '{print $2}')
-#if [[ "${DATADB}" != '' ]]; then
-#  sed -i "/\b${user}\b/d" /etc/trojan/.trojan.db
-#fi
+if [[ ${c} != "0" ]]; then
+echo "${d}" >/etc/trojan/${user}
+fi
+DATADB=$(cat /etc/trojan/.trojan.db | grep "^#!" | grep -w "${user}" | awk '{print $2}')
+if [[ "${DATADB}" != '' ]]; then
+sed -i "/\b${user}\b/d" /etc/trojan/.trojan.db
+fi
 #echo "### ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/trojan/.trojan.db
-#echo "#! ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/trojan/.trojan.db
+echo "#! ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/trojan/.trojan.db
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[0;41;36m           TRIAL TROJAN          \E[0m"
