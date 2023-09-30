@@ -104,9 +104,6 @@ touch /etc/vmess/.vmess.db
 touch /etc/vless/.vless.db
 touch /etc/trojan/.trojan.db
 touch /etc/shadowsocks/.shadowsocks.db
-touch /root/.system
-touch /root/.log-limit
-touch /root/.log-limit.txt
 echo "& plughin Account" >>/etc/vmess/.vmess.db
 echo "& plughin Account" >>/etc/vless/.vless.db
 echo "& plughin Account" >>/etc/trojan/.trojan.db
