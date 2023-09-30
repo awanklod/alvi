@@ -86,16 +86,16 @@ echo -e "\E[40;1;37m            SSH Account            \E[0m"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 read -p "Username : " Login
 read -p "Password : " Pass
-read -p "Max IP   : " iplimit
+#read -p "Max IP   : " iplimit
 read -p "Expired (hari): " masaaktif
 sleep 1
 clear
 #limitip
-if [[ $iplimit -gt 0 ]]; then
-echo -e "$iplimit" > /etc/kyt/limit/ssh/ip/$Login
-else
-echo > /dev/null
-fi
+#if [[ $iplimit -gt 0 ]]; then
+#echo -e "$iplimit" > /etc/kyt/limit/ssh/ip/$Login
+#else
+#echo > /dev/null
+#fi
 
 IP=$(curl -sS ifconfig.me);
 ossl=`cat /root/log-install.txt | grep -w "OpenVPN" | cut -f2 -d: | awk '{print $6}'`
