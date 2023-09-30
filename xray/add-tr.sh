@@ -114,8 +114,13 @@ trojanlink="trojan://${uuid}@isi_bug_disini:443?path=%2Ftrojan-ws&security=tls&h
 trojanlink2="trojan://${uuid}@isi_bug_disini:80?path=%2Ftrojan-ws&security=none&host=${domain}&type=ws#${user}"
 systemctl restart xray
 
-if [ ! -e /etc/trojan ]; then
-  mkdir -p /etc/trojan
+#if [ ! -e /etc/trojan ]; then
+ # mkdir -p /etc/trojan
+#fi
+if [[ $quota -gt 0 ]]; then
+echo -e "$[$quota * 1024 * 1024 * 1024]" > /etc/kyt/limit/trojan/quota/$user
+else
+echo > /dev/null
 fi
 
 if [[ $iplimit -gt 0 ]]; then
@@ -125,21 +130,21 @@ else
 echo > /dev/null
 fi
 
-if [ -z ${Quota} ]; then
-  Quota="0"
-fi
+#if [ -z ${Quota} ]; then
+#  Quota="0"
+#fi
 
-c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
-d=$((${c} * 1024 * 1024 * 1024))
+#c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
+#d=$((${c} * 1024 * 1024 * 1024))
 
-if [[ ${c} != "0" ]]; then
-  echo "${d}" >/etc/trojan/${user}
-fi
-DATADB=$(cat /etc/trojan/.trojan.db | grep "^###" | grep -w "${user}" | awk '{print $2}')
-if [[ "${DATADB}" != '' ]]; then
-  sed -i "/\b${user}\b/d" /etc/trojan/.trojan.db
-fi
-echo "### ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/trojan/.trojan.db
+#if [[ ${c} != "0" ]]; then
+#  echo "${d}" >/etc/trojan/${user}
+#fi
+#DATADB=$(cat /etc/trojan/.trojan.db | grep "^###" | grep -w "${user}" | awk '{print $2}')
+#if [[ "${DATADB}" != '' ]]; then
+#  sed -i "/\b${user}\b/d" /etc/trojan/.trojan.db
+#fi
+#echo "### ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/trojan/.trojan.db
 #echo "#! ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/trojan/.trojan.db
 clear
 echo -e ""
