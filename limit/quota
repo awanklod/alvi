@@ -146,7 +146,7 @@ do
                   bol=$(cat /etc/limit/vmess/quota/${user});
                   total=$(con ${bol})
                   send-log
-                  rm -rf /etc/kyt/limit/vmess/quota/$user
+                  rm -rf /etc/limit/vmess/${user}
             #  rm -rf /etc/kyt/limit/vmess/ip/$user
               else
                echo ""
@@ -184,7 +184,7 @@ do
                   bol=$(cat /etc/limit/vless/quota/${user});
                   total=$(con ${bol})
                   send-log
-                  rm -rf /etc/kyt/limit/vless/quota/$user
+                 rm -rf /etc/limit/vless/${user}
              # rm -rf /etc/kyt/limit/vless/ip/$user
               else
                echo ""
@@ -222,7 +222,7 @@ do
                   bol=$(cat /etc/limit/trojan/quota/${user});
                   total=$(con ${bol})
                   send-log
-                  rm -rf /etc/kyt/limit/trojan/quota/$user
+                  rm -rf /etc/limit/trojan/${user}
             #  rm -rf /etc/kyt/limit/trojan/ip/$user
               else
                echo ""
@@ -260,7 +260,7 @@ do
                   bol=$(cat /etc/limit/shadowsocks/quota/${user});
                   total=$(con ${bol})
                   send-log
-                  rm -rf /etc/kyt/limit/shadowsocks/quota/$user
+                  rm -rf /etc/limit/shadowsocks/${user}
               #rm -rf /etc/kyt/limit/shadowsocks/ip/$user
               else
                echo ""
