@@ -111,7 +111,7 @@ else
 jum2=$(cat /tmp/ipvless.txt | wc -l)
 byte=$(cat /etc/vless/${akun})
 lim=$(con ${byte})
-wey=$(cat /etc/limit/vless/quota/${akun})
+wey=$(cat /etc/limit/vless/${akun})
 gb=$(con ${wey})
 lastlogin=$(cat /var/log/xray/access.log | grep -w "$akun" | tail -n 500 | cut -d " " -f 2 | tail -1)
 printf "  %-13s %-7s %-8s %2s\n"   "${akun}" "$lastlogin"  " ${gb}/${lim}"   "$jum2";
