@@ -90,12 +90,11 @@ mkdir -p /var/www/html
 mkdir -p /etc/kyt/limit/vmess/ip
 mkdir -p /etc/kyt/limit/vless/ip
 mkdir -p /etc/kyt/limit/trojan/ip
-mkdir -p /etc/kyt/limit/ssh/ip
 mkdir -p /etc/kyt/limit/shadowsocks/ip
-mkdir -p /etc/limit/vmess/quota
-mkdir -p /etc/limit/vless/quota
-mkdir -p /etc/limit/trojan/quota
-mkdir -p /etc/limit/shadowsocks/quota
+mkdir -p /etc/limit/vmess
+mkdir -p /etc/limit/vless
+mkdir -p /etc/limit/trojan
+mkdir -p /etc/limit/shadowsocks
 chmod +x /var/log/xray
 touch /etc/xray/domain
 touch /var/log/xray/access.log
