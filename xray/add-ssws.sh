@@ -99,7 +99,7 @@ done
 
 cipher="aes-128-gcm"
 #uuid=$(cat /proc/sys/kernel/random/uuid)
-read -p " Silakan atur kata sandi (dibuat secara acak jika Anda tidak Mengisi Pasword) :" uuid
+read -p " CREAT PW (OTOMATIC RANDOM PW) :" uuid
     [[ -z "$uuid" ]] && uuid=`cat /proc/sys/kernel/random/uuid`
     
 read -p "Expired (days): " masaaktif
