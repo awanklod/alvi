@@ -84,7 +84,7 @@ iplimit=$(cat /etc/kyt/limit/shadowsocks/ip/${akun})
 jum2=$(cat /tmp/ipshadowsocks.txt | wc -l)
 byte=$(cat /etc/shadowsocks/${akun})
 lim=$(con ${byte})
-wey=$(cat /etc/limit/shadowsocks/${akun})
+wey=$(cat /etc/limit/shadowsocks/quota/${akun})
 gb=$(con ${wey})
 lastlogin=$(cat /var/log/xray/access.log | grep -w "$akun" | tail -n 500 | cut -d " " -f 2 | tail -1)
 echo -e " \033[1;36m┌──────────────────────────────────────┐\033[0m"
