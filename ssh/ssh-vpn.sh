@@ -311,10 +311,7 @@ sudo iptables -A OUTPUT -p tcp -m string --string "www.xhofficial.com" --algo km
 sudo iptables -A INPUT -p tcp --dport 22 -s <104.19.137.100> -j DROP
 sudo iptables -A INPUT -p tcp --dport 109 -s <104.19.137.100> -j DROP
 sudo iptables -A OUTPUT -p tcp -m string --string "spankbang.com" --algo kmp -j REJECT
-iptables-save > /etc/iptables.up.rules
-iptables-restore -t < /etc/iptables.up.rules
-netfilter-persistent save
-netfilter-persistent reload
+service iptables save
 
 # download script
 cd /usr/bin
