@@ -77,9 +77,9 @@ masaaktif=1
 Quota=5
 iplimit=1
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
-sed -i '/#ssws$/a\## '"$user $exp"'\
+sed -i '/#ssws$/a\#ss# '"$user $exp"'\
 },{"password": "'""$uuid""'","method": "'""$cipher""'","email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#ssgrpc$/a\## '"$user $exp"'\
+sed -i '/#ssgrpc$/a\#ss# '"$user $exp"'\
 },{"password": "'""$uuid""'","method": "'""$cipher""'","email": "'""$user""'"' /etc/xray/config.json
 echo $cipher:$uuid > /tmp/log
 shadowsocks_base64=$(cat /tmp/log)
@@ -117,12 +117,12 @@ d=$((${c} * 1024 * 1024 * 1024))
 if [[ ${c} != "0" ]]; then
 echo "${d}" >/etc/shadowsocks/${user}
 fi
-DATADB=$(cat /etc/shadowsocks/.shadowsocks.db | grep "^##" | grep -w "${user}" | awk '{print $2}')
+DATADB=$(cat /etc/shadowsocks/.shadowsocks.db | grep "^#ss#" | grep -w "${user}" | awk '{print $2}')
 if [[ "${DATADB}" != '' ]]; then
 sed -i "/\b${user}\b/d" /etc/shadowsocks/.shadowsocks.db
 fi
 #echo "### ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/shadowsocks/.shadowsocks.db
-echo "## ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/shadowsocks/.shadowsocks.db
+echo "#ss# ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/shadowsocks/.shadowsocks.db
 
 clear
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}" 
