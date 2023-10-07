@@ -140,7 +140,7 @@ systemctl restart qmtr
 systemctl enable qmtr
 
 #SERVICE SHADOWSOCKS
-cat >/etc/systemd/system/qmshd.service << EOF
+cat >/etc/systemd/system/qmss.service << EOF
 [Unit]
 Description=My 
 ProjectAfter=network.target
@@ -154,6 +154,6 @@ Restart=always
 WantedBy=multi-user.target
 EOF
 systemctl daemon-reload
-systemctl restart qmshd
-systemctl enable qmshd
+systemctl restart qmss
+systemctl enable qmss
 
