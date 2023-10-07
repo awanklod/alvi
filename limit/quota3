@@ -143,7 +143,7 @@ do
                   sed -i "/^### $user $exp/,/^},{/d" /etc/xray/config.json
                   sed -i "/^### $user $exp/d" /etc/vmess/.vmess.db
                   systemctl restart xray >> /dev/null 2>&1
-                  bol=$(cat /etc/limit/vmess/quota/${user});
+                  bol=$(cat /etc/limit/vmess/${user});
                   total=$(con ${bol})
                   send-log
                   rm -rf /etc/limit/vmess/${user}
@@ -181,7 +181,7 @@ do
                   sed -i "/^#& $user $exp/,/^},{/d" /etc/xray/config.json
                   sed -i "/^#& $user $exp/d" /etc/vless/.vless.db
                   systemctl restart xray >> /dev/null 2>&1
-                  bol=$(cat /etc/limit/vless/quota/${user});
+                  bol=$(cat /etc/limit/vless/${user});
                   total=$(con ${bol})
                   send-log
                  rm -rf /etc/limit/vless/${user}
@@ -219,7 +219,7 @@ do
                   sed -i "/^#! $user $exp/,/^},{/d" /etc/xray/config.json
                   sed -i "/^#! $user $exp/d" /etc/trojan/.trojan.db
                   systemctl restart xray >> /dev/null 2>&1
-                  bol=$(cat /etc/limit/trojan/quota/${user});
+                  bol=$(cat /etc/limit/trojan/${user});
                   total=$(con ${bol})
                   send-log
                   rm -rf /etc/limit/trojan/${user}
@@ -257,7 +257,7 @@ do
                   sed -i "/^#ss# $user $exp/,/^},{/d" /etc/xray/config.json
                   sed -i "/^#ss# $user $exp/d" /etc/shadowsocks/.shadowsocks.db
                   systemctl restart xray >> /dev/null 2>&1
-                  bol=$(cat /etc/limit/shadowsocks/quota/${user});
+                  bol=$(cat /etc/limit/shadowsocks/${user});
                   total=$(con ${bol})
                   send-log
                   rm -rf /etc/limit/shadowsocks/${user}
