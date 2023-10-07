@@ -252,16 +252,16 @@ sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dr
 wget https://raw.githubusercontent.com/awanklod/alvi/main/ssh/bbr.sh && chmod +x bbr.sh && ./bbr.sh
 
 #run_ip
-#iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
-#iptables -I INPUT -m state --state NEW -m udp -p udp --dport 80 -j ACCEPT
-#iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
-#iptables -I INPUT -m state --state NEW -m udp -p udp --dport 443 -j ACCEPT
-#iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
-#iptables -I INPUT -m state --state NEW -m udp -p udp --dport 8080 -j ACCEPT
-#iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2082 -j ACCEPT
-#iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2082 -j ACCEPT
-#iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2096 -j ACCEPT
-#iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2096 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 80 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 443 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 8080 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2082 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2082 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2096 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2096 -j ACCEPT
 
 # blockir torrent
 iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
@@ -281,6 +281,7 @@ netfilter-persistent save
 netfilter-persistent reload
 
 # blockir SITUS
+sudo iptables -L
 sudo iptables -A INPUT -p tcp --dport 22 -s <185.88.181.56> -j DROP
 sudo iptables -A INPUT -p tcp --dport 109 -s <185.88.181.56> -j DROP
 sudo iptables -A OUTPUT -p tcp -m string --string "www.xnxx.com" --algo kmp -j REJECT
@@ -311,7 +312,7 @@ sudo iptables -A OUTPUT -p tcp -m string --string "www.xhofficial.com" --algo km
 sudo iptables -A INPUT -p tcp --dport 22 -s <104.19.137.100> -j DROP
 sudo iptables -A INPUT -p tcp --dport 109 -s <104.19.137.100> -j DROP
 sudo iptables -A OUTPUT -p tcp -m string --string "spankbang.com" --algo kmp -j REJECT
-service iptables save
+sudo iptables-save > /etc/iptables/rules.v4
 
 # download script
 cd /usr/bin
