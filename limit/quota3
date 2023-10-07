@@ -242,7 +242,7 @@ done
 function shadowsocks(){
 while true; do
 sleep 30
-cektrojan
+cekshadowsocks
 data=($(cat /etc/xray/config.json | grep '^#ss#' | cut -d ' ' -f 2 | sort | uniq))
 for user in ${data[@]}
 do
