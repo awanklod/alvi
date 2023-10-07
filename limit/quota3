@@ -261,7 +261,6 @@ do
                   total=$(con ${bol})
                   send-log
                   rm -rf /etc/limit/shadowsocks/${user}
-              #rm -rf /etc/kyt/limit/shadowsocks/ip/$user
               else
                echo ""
           fi
@@ -275,7 +274,6 @@ do
         echo ""
     fi
   done
-done
 }
 if [[ ${1} == "vmess" ]]; then
 vmess
