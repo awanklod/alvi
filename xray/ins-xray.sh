@@ -508,6 +508,21 @@ END
 
 #nginx config
 cat >/etc/nginx/conf.d/xray.conf <<EOF
+http {
+    upstream myapp1 {
+        server 114.124.133.205;
+        server 103.159.195.156;
+        server 103.144.181.77;
+    }
+
+    server {
+        listen 80;
+
+        location / {
+            proxy_pass http://myapp1;
+        }
+    }
+}
     server {
              listen 80;
              listen [::]:80;
