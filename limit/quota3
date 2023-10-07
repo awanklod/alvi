@@ -254,7 +254,6 @@ do
                if [[ ${pakai} -gt ${cekdulu} ]]; then
                   exp=$(grep -w "^#ss# $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
                   sed -i "/^#ss# $user $exp/,/^},{/d" /etc/xray/config.json
-                  sed -i "/^#ss# $user $exp/,/^},{/d" /etc/xray/config.json
                   sed -i "/^#ss# $user $exp/d" /etc/shadowsocks/.shadowsocks.db
                   systemctl restart xray >> /dev/null 2>&1
                   bol=$(cat /etc/limit/shadowsocks/${user});
@@ -274,7 +273,9 @@ do
         echo ""
     fi
   done
+done
 }
+
 if [[ ${1} == "vmess" ]]; then
 vmess
 elif [[ ${1} == "vless" ]]; then
