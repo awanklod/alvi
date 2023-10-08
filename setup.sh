@@ -201,6 +201,16 @@ sleep 2
 clear
 wget https://raw.githubusercontent.com/awanklod/alvi/main/limit/limit.sh && chmod +x limit.sh && ./limit.sh
 clear
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "$green          Install SWAP 4GB              $NC"
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+dd if=/dev/zero of=/swapfile bs=1024 count=1048576
+mkswap /swapfile
+chown root:root /swapfile
+chmod 0600 /swapfile >/dev/null 2>&1
+swapon /swapfile >/dev/null 2>&1
+sed -i '$ i\/swapfile      swap swap   defaults    0 0' /etc/fstab
+clear
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
 if [ "$BASH" ]; then
