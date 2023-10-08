@@ -202,7 +202,7 @@ clear
 wget https://raw.githubusercontent.com/awanklod/alvi/main/limit/limit.sh && chmod +x limit.sh && ./limit.sh
 clear
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "$green          Install SWAP 4GB              $NC"
+echo -e "$green          Install SWAP 10GB              $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 dd if=/dev/zero of=/swapfile bs=1024 count=1048576
 mkswap /swapfile
