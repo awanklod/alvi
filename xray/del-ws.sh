@@ -67,7 +67,7 @@ fi
 
 clear
 
-NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/xray/config.json")
+NUMBER_OF_CLIENTS=$(grep -c -E "^#vm# " "/etc/xray/config.json")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
 echo -e "${CYAN}           ⇱ DELETE USER VMESS ⇲         ${NC}"
@@ -86,7 +86,7 @@ echo -e "${CYAN}           ⇱ DELETE USER VMESS ⇲         ${NC}"
 echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
 echo "  User       Expired  " 
 echo -e "${CYAN}══════════════════════════════════════════${NC}"
-grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | column -t | sort | uniq
+grep -E "^#vm# " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | column -t | sort | uniq
 echo ""
 red "tap enter to go back"
 echo -e "${CYAN}══════════════════════════════════════════${NC}"
@@ -94,8 +94,8 @@ read -rp "Input Username : " user
 if [ -z $user ]; then
 m-vmess
 else
-exp=$(grep -wE "^### $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
-sed -i "/^### $user $exp/,/^},{/d" /etc/xray/config.json
+exp=$(grep -wE "^#vm# $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
+sed -i "/^#vm# $user $exp/,/^},{/d" /etc/xray/config.json
 systemctl restart xray > /dev/null 2>&1
 clear
 echo -e "${CYAN}══════════════════════════════════════════${NC}"
