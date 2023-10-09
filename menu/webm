@@ -27,7 +27,7 @@ echo "  Done Install Webmin  "
 echo "======================="
 echo "http://$(cat /etc/xray/domain):10000"
 echo "======================="
-echo "Script By Rere05"
+echo "Script By cloudvpn"
 read -n 1 -s -r -p "Press any key to back on menu"
 menu
 }
@@ -41,7 +41,7 @@ echo ""
 echo "======================="
 echo "  Done Restart Webmin  "
 echo "======================="
-echo "Script By Rere05"
+echo "Script By cloudvpn"
 read -n 1 -s -r -p "Press any key to back on menu"
 menu
 }
