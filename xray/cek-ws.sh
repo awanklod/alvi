@@ -79,7 +79,7 @@ function con() {
     fi
 }
 echo -n > /tmp/other.txt
-data=( `cat /etc/xray/config.json | grep '###' | cut -d ' ' -f 2 | sort | uniq`);
+data=( `cat /etc/xray/config.json | grep '#vm#' | cut -d ' ' -f 2 | sort | uniq`);
 echo -e "\033[1;93m┌──────────────────────────────────────────┐\033[0m"
 echo -e "              VMESS USER LOGIN            $NC"
 echo -e "\033[1;93m└──────────────────────────────────────────┘\033[0m"
