@@ -1,12 +1,34 @@
 #!/bin/bash
+# SL
 # ==========================================
+# Color
+RED='\033[0;31m'
+NC='\033[0m'
+GREEN='\033[0;32m'
+ORANGE='\033[0;33m'
+BLUE='\033[0;34m'
+PURPLE='\033[0;35m'
+CYAN='\033[0;36m'
+LIGHT='\033[0;37m'
+# ==========================================
+# Getting
+MYIP=$(wget -qO- ipinfo.io/ip);
+echo "Checking VPS"
+IZIN=$( curl ipinfo.io/ip | grep $MYIP )
+if [ $MYIP = $MYIP ]; then
+echo -e "${NC}${GREEN}Permission Accepted...${NC}"
+else
+echo -e "${NC}${RED}Permission Denied!${NC}";
+echo -e "${NC}${LIGHT}Fuck You!!"
+exit 0
+fi
 clear
 Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[41;37m" && Font_color_suffix="\033[0m"
 Info="${Green_font_prefix}[Installed]${Font_color_suffix}"
 Error="${Red_font_prefix}[Not Installed]${Font_color_suffix}"
 cek=$(netstat -ntlp | grep 10000 | awk '{print $7}' | cut -d'/' -f2)
 function install () {
-IP=$(curl -s ipinfo.io/ip);
+IP=$(wget -qO- ifconfig.co);
 echo " Adding Repositori Webmin"
 sh -c 'echo "deb http://download.webmin.com/download/repository sarge contrib" > /etc/apt/sources.list.d/webmin.list'
 apt install gnupg gnupg1 gnupg2 -y
@@ -25,11 +47,9 @@ echo ""
 echo "======================="
 echo "  Done Install Webmin  "
 echo "======================="
-echo "http://$(cat /etc/xray/domain):10000"
+echo "http://$IP:10000"
 echo "======================="
 echo "Script By cloudvpn"
-read -n 1 -s -r -p "Press any key to back on menu"
-menu
 }
 function restart () {
 echo " Restarting Webmin"
@@ -42,8 +62,6 @@ echo "======================="
 echo "  Done Restart Webmin  "
 echo "======================="
 echo "Script By cloudvpn"
-read -n 1 -s -r -p "Press any key to back on menu"
-menu
 }
 function uninstall () {
 echo " Removing Repositori Webmin"
@@ -59,8 +77,6 @@ echo "========================="
 echo "  Done Uninstall Webmin  "
 echo "========================="
 echo "Script By cloudvpn"
-read -n 1 -s -r -p "Press any key to back on menu"
-menu
 }
 if [[ "$cek" = "perl" ]]; then
 sts="${Info}"
@@ -87,3 +103,4 @@ else
 clear
 echo " You Entered The Wrong Number"
 menu
+fi
