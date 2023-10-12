@@ -80,7 +80,7 @@ case $opt in
 12) clear ; tcpv ; exit ;;
 13) clear ; webm ; exit ;;
 14) clear ; trafik ; exit ;;
-14) clear ; media ; exit ;;
+15) clear ; media ; exit ;;
 0) clear ; menu ; exit ;;
 x) exit ;;
 *) echo -e "" ; echo "Anda salah tekan" ; sleep 1 ; menu-set ;;
