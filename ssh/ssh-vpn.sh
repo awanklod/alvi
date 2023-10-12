@@ -327,11 +327,14 @@ wget -O clearcache "https://raw.githubusercontent.com/awanklod/alvi/main/menu/cl
 wget -O menu-trgo "https://raw.githubusercontent.com/awanklod/alvi/main/menu/menu-trgo.sh"
 wget -O menu-trojan "https://raw.githubusercontent.com/awanklod/alvi/main/menu/menu-trojan.sh"
 wget -O up "https://raw.githubusercontent.com/awanklod/alvi/main/up.sh"
-wget -O slow "https://raw.githubusercontent.com/awanklod/alvi/main/slow.sh"
+#wget -O slow "https://raw.githubusercontent.com/awanklod/alvi/main/slow.sh"
 wget -O cf "https://raw.githubusercontent.com/awanklod/alvi/main/cf.sh"
 wget -O reboot "https://raw.githubusercontent.com/awanklod/alvi/main/menu/reboot.sh"
 wget -O tcpv "https://raw.githubusercontent.com/awanklod/alvi/main/menu/tcpv.sh"
-wget -O webm "https://raw.githubusercontent.com/awanklod/alvi/main/menu/webm.sh"
+wget -O webm "https://raw.githubusercontent.com/awanklod/alvi/main/menu/webm"
+wget -O trafik "https://raw.githubusercontent.com/awanklod/alvi/main/menu/trafik"
+wget -O media "https://raw.githubusercontent.com/awanklod/alvi/main/menu/media"
+
 
 # menu ssh ovpn
 wget -O menu-ssh "https://raw.githubusercontent.com/awanklod/alvi/main/menu/menu-ssh.sh"
@@ -394,6 +397,8 @@ chmod +x cf
 chmod +x reboot
 chmod +x tcpv
 chmod +x webm
+chmod +x trafik
+chmod +x media
 
 chmod +x menu-ssh
 chmod +x usernew
