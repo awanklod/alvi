@@ -5,8 +5,8 @@ cd
 apt install python -y
 
 #Install Script Websocket-SSH Python
-wget -O /usr/local/bin/ws-dropbear http://sgpx.cybervpn.site:81/Autoscript-by-azi-main/Insshws/dropbear-ws.py.txt
-wget -O /usr/local/bin/ws-stunnel http://sgpx.cybervpn.site:81/Autoscript-by-azi-main/Insshws/ws-stunnel.txt
+wget -O /usr/local/bin/ws-dropbear https://raw.githubusercontent.com/awanklod/alvi/main/sshws/dropbear-ws2.py
+wget -O /usr/local/bin/ws-stunnel https://raw.githubusercontent.com/awanklod/alvi/main/sshws/ws-stunnel2
 
 #izin permision
 chmod +x /usr/local/bin/ws-dropbear
@@ -14,10 +14,10 @@ chmod +x /usr/local/bin/ws-stunnel
 
 
 #System Dropbear Websocket-SSH Python
-wget -O /etc/systemd/system/ws-dropbear.service http://sgpx.cybervpn.site:81/Autoscript-by-azi-main/Insshws/service-wsdropbear.txt && chmod +x /etc/systemd/system/ws-dropbear.service
+wget -O /etc/systemd/system/ws-dropbear.service https://raw.githubusercontent.com/awanklod/alvi/main/sshws/service-wsdropbear2 && chmod +x /etc/systemd/system/ws-dropbear.service
 
 #System SSL/TLS Websocket-SSH Python
-wget -O /etc/systemd/system/ws-stunnel.service http://sgpx.cybervpn.site:81/Autoscript-by-azi-main/Insshws/ws-stunnel.service.txt && chmod +x /etc/systemd/system/ws-stunnel.service
+wget -O /etc/systemd/system/ws-stunnel.service https://raw.githubusercontent.com/awanklod/alvi/main/sshws/ws-stunnel2.service && chmod +x /etc/systemd/system/ws-stunnel.service
 
 #restart service
 #
