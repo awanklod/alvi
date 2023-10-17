@@ -93,7 +93,7 @@ echo "A client with the specified name was already created, please choose anothe
 echo ""
 echo -e "${CYAN}══════════════════════════════════════════${NC}"
 read -n 1 -s -r -p "Press any key to back on menu"
-m-vmess
+menu-vmess
 fi
 done
 
@@ -103,7 +103,7 @@ read -p " CREAT PW (OTOMATIC RANDOM PW) :" uuid
     
 read -p "Expired (days): " masaaktif
 read -p "Limit User (GB): " Quota
-read -p "Limit User (IP): " iplimit
+#read -p "Limit User (IP): " iplimit
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#vmess$/a\#vm# '"$user $exp"'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
@@ -173,12 +173,12 @@ fi
 #echo > /dev/null
 #fi
 
-if [[ $iplimit -gt 0 ]]; then
-mkdir -p /etc/kyt/limit/vmess/ip
-echo -e "$iplimit" > /etc/kyt/limit/vmess/ip/$user
-else
-echo > /dev/null
-fi
+#if [[ $iplimit -gt 0 ]]; then
+#mkdir -p /etc/kyt/limit/vmess/ip
+#echo -e "$iplimit" > /etc/kyt/limit/vmess/ip/$user
+#else
+#echo > /dev/null
+#fi
 
 if [ -z ${Quota} ]; then
 Quota="0"
@@ -194,8 +194,8 @@ DATADB=$(cat /etc/vmess/.vmess.db | grep "^#vm#" | grep -w "${user}" | awk '{pri
 if [[ "${DATADB}" != '' ]]; then
 sed -i "/\b${user}\b/d" /etc/vmess/.vmess.db
 fi
-echo "#vm# ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vmess/.vmess.db
-#echo "### ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vmess/.vmess.db
+echo "#vm# ${user} ${exp} ${uuid} ${Quota}" >>/etc/vmess/.vmess.db
+#echo "#vm# ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vmess/.vmess.db
 clear
 echo -e ""
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}" | tee -a /etc/log-create-user.log 
@@ -204,7 +204,7 @@ echo -e "${CYAN}╘════════════════════�
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-user.log
 echo -e "Domain         : ${domain}" | tee -a /etc/log-create-user.log
 echo -e "User Quota     : ${Quota} GB" | tee -a /etc/log-create-user.log
-echo -e "User Ip        : ${iplimit} IP" | tee -a /etc/log-create-user.log
+#echo -e "User Ip        : ${iplimit} IP" | tee -a /etc/log-create-user.log
 echo -e "Wildcard       : (bug.com).${domain}" | tee -a /etc/log-create-user.log
 echo -e "Port TLS       : 443" | tee -a /etc/log-create-user.log
 echo -e "Port none TLS  : 80" | tee -a /etc/log-create-user.log
