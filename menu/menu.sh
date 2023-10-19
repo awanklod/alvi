@@ -163,7 +163,7 @@ ressh="${green}ON${NC}"
 else
 ressh="${red}OFF${NC}"
 fi
-sshstunel=$(service stunnel4 status | grep active | cut -d ' ' $stat)
+sshstunel=$(service stunnel5 status | grep active | cut -d ' ' $stat)
 if [ "$sshstunel" = "active" ]; then
 resst="${green}ON${NC}"
 else
@@ -289,7 +289,7 @@ echo -e "${BIWhite}             TROJAN/WS/GRPC :${NC} $tra ACCOUNT"
 echo -e "\e[36m            ╚══════════════════════════╝\033[0m"
 
 echo -e "     ${BICyan} SSH ${NC}: $ressh"" ${BICyan} NGINX ${NC}: $resngx"" ${BICyan}  XRAY ${NC}: $resv2r"" ${BICyan} TROJAN ${NC}: $resv2r"
-echo -e "   ${BICyan}     STUNNEL ${NC}: $resst" "${BICyan} DROPBEAR ${NC}: $resdbr" "${BICyan} SSH-WS ${NC}: $ressshws"
+echo -e "   ${BICyan}     STUNNEL5 ${NC}: $resst" "${BICyan} DROPBEAR ${NC}: $resdbr" "${BICyan} SSH-WS ${NC}: $ressshws"
 
 echo -e "${BIPurple}   ╔══════════════════════════════════════════════════════╗${NC}"
 echo -e "     ${BICyan}[${BIWhite}1]${red}🌦 SSH    " "  ${BICyan}[${BIWhite}6]${red}🌦 SETTING  " " ${BICyan}[${BIWhite}11${red}]🌦 SET REBOOT"
