@@ -107,11 +107,11 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Checking VPS"
 
 clear
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
-echo -e "\E[44;1;39m     🎮 CLOUDVPN TUNNEL 🎮            \E[0m" | tee -a /etc/log-create-user.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
-echo -e "${BICyan} ┌─────────────────────────────────────────────────────┐${NC}"
-echo -e "       ${BIWhite}${UWhite}TROJAN ${NC}"
+echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
+echo -e "${BIWhite}              ⇱ TROJAN MENU ⇲            ${NC}"
+echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
+echo -e ""
+echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
 echo -e ""
 echo -e "     ${BICyan}[${BIWhite}01${BICyan}] Create Account Trojan    "
 echo -e "     ${BICyan}[${BIWhite}02${BICyan}] Trial Account Trojan     "
@@ -121,7 +121,7 @@ echo -e "     ${BICyan}[${BIWhite}04${BICyan}] Delete Account Trojan     "
 echo -e "     ${BICyan}[${BIWhite}06${BICyan}] Check User Trojan     "
 #echo -e "     ${BICyan}[${BIWhite}07${BICyan}] Check User Trojan 02     "
 
-echo -e " ${BICyan}└─────────────────────────────────────────────────────┘${NC}"
+echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
 echo -e "     ${BIYellow}Press x or [ Ctrl+C ] • To-${BIWhite}Exit${NC}"
 echo ""
 read -p " Select menu : " opt
