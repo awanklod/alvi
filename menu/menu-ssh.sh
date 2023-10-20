@@ -106,7 +106,7 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Checking VPS"
 
 clear
-cho -e "${CYAN}╒════════════════════════════════════════╕${NC}"
+echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
 echo -e "${BIWhite}                ⇱ SSH MENU ⇲             ${NC}"
 echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
 echo -e ""
