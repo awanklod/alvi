@@ -106,11 +106,11 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Checking VPS"
 
 clear
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
-echo -e "\E[44;1;39m     👑 CLOUDVPN TUNNEL 👑            \E[0m" | tee -a /etc/log-create-user.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
-echo -e "${BICyan} ┌─────────────────────────────────────────────────────┐${NC}"
-echo -e "       ${BIWhite}${UWhite}SSH by CLOUDVPN${NC}"
+cho -e "${CYAN}╒════════════════════════════════════════╕${NC}"
+echo -e "${BIWhite}                ⇱ SSH MENU ⇲             ${NC}"
+echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
+echo -e ""
+echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
 echo -e ""
 echo -e "     ${BICyan}[${BIWhite}01${BICyan}] Create SSH & OpenVPN Account      "
 echo -e "     ${BICyan}[${BIWhite}02${BICyan}] Trial Account SSH & OpenVPN      "
@@ -123,7 +123,7 @@ echo -e "     ${BICyan}[${BIWhite}08${BICyan}] Set up Autokill SSH"
 echo -e "     ${BICyan}[${BIWhite}09${BICyan}] Cek Users Who Do Multi Login SSH"
 echo -e "     ${BICyan}[${BIWhite}10${BICyan}] lock user ssh"
 echo -e "     ${BICyan}[${BIWhite}11${BICyan}] unlock user ssh"
-echo -e " ${BICyan}└─────────────────────────────────────────────────────┘${NC}"
+echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
 echo -e "     ${BIYellow}Press x or [ Ctrl+C ] • To-${BIWhite}Exit${NC}"
 echo ""
 read -p " Select menu :  "  opt
