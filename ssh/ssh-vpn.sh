@@ -280,39 +280,7 @@ iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save
 netfilter-persistent reload
 
-# blockir SITUS
-sudo iptables -L
-sudo iptables -A INPUT -p tcp --dport 22 -s <185.88.181.56> -j DROP
-sudo iptables -A INPUT -p tcp --dport 109 -s <185.88.181.56> -j DROP
-sudo iptables -A OUTPUT -p tcp -m string --string "www.xnxx.com" --algo kmp -j REJECT
-sudo iptables -A INPUT -p tcp --dport 22 -s <66.254.114.41> -j DROP
-sudo iptables -A INPUT -p tcp --dport 109 -s <66.254.114.41> -j DROP
-sudo iptables -A OUTPUT -p tcp -m string --string "www.pornhub.com" --algo kmp -j REJECT
-sudo iptables -A INPUT -p tcp --dport 22 -s <172.67.24.91> -j DROP
-sudo iptables -A INPUT -p tcp --dport 109 -s <172.67.24.91> -j DROP
-sudo iptables -A OUTPUT -p tcp -m string --string "www.ijavhd.com" --algo kmp -j REJECT
-sudo iptables -A INPUT -p tcp --dport 22 -s <104.18.50.179> -j DROP
-sudo iptables -A INPUT -p tcp --dport 109 -s <104.18.50.179> -j DROP
-sudo iptables -A OUTPUT -p tcp -m string --string "www.xvideos2.com" --algo kmp -j REJECT
-sudo iptables -A INPUT -p tcp --dport 22 -s <88.208.60.136> -j DROP
-sudo iptables -A INPUT -p tcp --dport 109 -s <88.208.60.136> -j DROP
-sudo iptables -A OUTPUT -p tcp -m string --string "id.xhamster.com" --algo kmp -j REJECT
-sudo iptables -A INPUT -p tcp --dport 22 -s <104.21.39.230> -j DROP
-sudo iptables -A INPUT -p tcp --dport 109 -s <104.21.39.230> -j DROP
-sudo iptables -A OUTPUT -p tcp -m string --string "pornogramxxx.com" --algo kmp -j REJECT
-sudo iptables -A INPUT -p tcp --dport 22 -s <104.21.41.93> -j DROP
-sudo iptables -A INPUT -p tcp --dport 109 -s <104.21.41.93> -j DROP
-sudo iptables -A OUTPUT -p tcp -m string --string "www.porno-zona.com" --algo kmp -j REJECT
-sudo iptables -A INPUT -p tcp --dport 22 -s <213.174.158.218> -j DROP
-sudo iptables -A INPUT -p tcp --dport 109 -s <213.174.158.218> -j DROP
-sudo iptables -A OUTPUT -p tcp -m string --string "www.sexvid.porn" --algo kmp -j REJECT
-sudo iptables -A INPUT -p tcp --dport 22 -s <185.207.236.95> -j DROP
-sudo iptables -A INPUT -p tcp --dport 109 -s <185.207.236.95> -j DROP
-sudo iptables -A OUTPUT -p tcp -m string --string "www.xhofficial.com" --algo kmp -j REJECT
-sudo iptables -A INPUT -p tcp --dport 22 -s <104.19.137.100> -j DROP
-sudo iptables -A INPUT -p tcp --dport 109 -s <104.19.137.100> -j DROP
-sudo iptables -A OUTPUT -p tcp -m string --string "spankbang.com" --algo kmp -j REJECT
-sudo iptables-save > /etc/iptables/rules.v4
+
 
 # download script
 cd /usr/bin
