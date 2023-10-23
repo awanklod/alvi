@@ -55,10 +55,9 @@ fi
 }
 echo -n > /tmp/other.txt
 data=( `cat /etc/xray/config.json | grep '#ss#' | cut -d ' ' -f 2 | sort | uniq`);
-echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
-echo -e "${BIWhite}           ⇱ SSWS USER LOGIN ⇲          ${NC}"
-echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
-echo -e "   User"     "       Last Login"    "  Usage"   " Total IP"
+echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+  echo -e " \e[1;97;101m       SSWS USER LOGIN ACCOUNTS        \E[0m"
+  echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
 for akun in "${data[@]}"
 do
@@ -106,4 +105,4 @@ echo -e "${CYAN}╘════════════════════�
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 
-menu-ssws
+menu-shadowsocks
