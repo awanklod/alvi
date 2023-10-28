@@ -214,6 +214,8 @@ sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 apt -y install fail2ban'
 
 # Instal DDOS Flate
+apt install zip -y
+apt install unzip -y
 sudo apt install dnsutils -y
 sudo apt-get install net-tools -y
 sudo apt-get install tcpdump -y
