@@ -220,7 +220,7 @@ sudo apt-get install tcpdump -y
 sudo apt-get install dsniff -y
 sudo apt install grepcidr -y
 
-wget https://raw.githubusercontent.com/awanklod/alvi/main/DDOS//dosflate.zip
+wget https://raw.githubusercontent.com/awanklod/alvi/main/DDOS/dosflate.zip
 unzip dosflate.zip
 
 # Check if the script is executed as root
