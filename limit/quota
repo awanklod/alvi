@@ -21,9 +21,9 @@ function cekvmess(){
   do
   mkdir -p /tmp/quota
   download=$(xray api statsquery --server=127.0.0.1:10000 | grep -C 2 $user | sed /"}"/d | sed /"{"/d | grep value | awk '{print $2}' | sed 's/,//g; s/"//g' | sort)
-  #inb=$(echo "$data" | sed -n 1p)
+  inb=$(echo "$download" | sed -n 1p)
   #outb=$(echo "$data" | sed -n 2p) 
-  quota0=$(echo -e "$[ $download ]")
+  quota0=$(echo -e "$[ $inb ]")
         if [ -e /etc/limit/vmess/${user} ]; then
         quota1=$(cat /etc/limit/vmess/${user});
              if [[ ${#quota1} -gt 0 ]]; then
@@ -49,9 +49,9 @@ function cekvless(){
   do
   mkdir -p /tmp/quota
   download=$(xray api statsquery --server=127.0.0.1:10000 | grep -C 2 $user | sed /"}"/d | sed /"{"/d | grep value | awk '{print $2}' | sed 's/,//g; s/"//g' | sort)
-  #inb=$(echo "$data" | sed -n 1p)
+  inb=$(echo "$download" | sed -n 1p)
   #outb=$(echo "$data" | sed -n 2p) 
-  quota0=$(echo -e "$[ $download ]")
+  quota0=$(echo -e "$[ $inb ]")
         if [ -e /etc/limit/vless/${user} ]; then
         quota1=$(cat /etc/limit/vless/${user});
              if [[ ${#quota1} -gt 0 ]]; then
@@ -77,9 +77,9 @@ function cektrojan(){
   do
   mkdir -p /tmp/quota
   download=$(xray api statsquery --server=127.0.0.1:10000 | grep -C 2 $user | sed /"}"/d | sed /"{"/d | grep value | awk '{print $2}' | sed 's/,//g; s/"//g' | sort)
-  #inb=$(echo "$data" | sed -n 1p)
+  inb=$(echo "$download" | sed -n 1p)
   #outb=$(echo "$data" | sed -n 2p) 
-  quota0=$(echo -e "$[ $download ]")
+  quota0=$(echo -e "$[ $inb ]")
         if [ -e /etc/limit/trojan/${user} ]; then
         quota1=$(cat /etc/limit/trojan/${user});
              if [[ ${#quota1} -gt 0 ]]; then
@@ -105,9 +105,9 @@ function cekshadowsocks(){
   do
   mkdir -p /tmp/quota
   download=$(xray api statsquery --server=127.0.0.1:10000 | grep -C 2 $user | sed /"}"/d | sed /"{"/d | grep value | awk '{print $2}' | sed 's/,//g; s/"//g' | sort)
-  #inb=$(echo "$data" | sed -n 1p)
+  inb=$(echo "$download" | sed -n 1p)
   #outb=$(echo "$data" | sed -n 2p) 
-  quota0=$(echo -e "$[ $download ]")
+  quota0=$(echo -e "$[ $inb ]")
         if [ -e /etc/limit/shadowsocks/${user} ]; then
         quota1=$(cat /etc/limit/shadowsocks/${user});
              if [[ ${#quota1} -gt 0 ]]; then
