@@ -112,12 +112,12 @@ echo -e "${CYAN}╘════════════════════�
 echo -e ""
 echo -e "${BIWhite}╒════════════════════════════════════════╕${NC}"
 echo -e ""
-echo -e "     ${BICyan}[${BIWhite}01${BICyan}] Create Account XRAY Vmess Websocket "
-echo -e "     ${BICyan}[${BIWhite}02${BICyan}] Trial Account XRAY Vmess     "
-echo -e "     ${BICyan}[${BIWhite}03${BICyan}] Extending Account XRAY Vmess Active "
-echo -e "     ${BICyan}[${BIWhite}04${BICyan}] Delete Account XRAY Vmess Websocket  "
-#echo -e "     ${BICyan}[${BIWhite}05${BICyan}] Check User Login XRAY Vmess     "
-echo -e "     ${BICyan}[${BIWhite}06${BICyan}] Check User Vmess     "
+echo -e "${BICyan}[${BIWhite}01${BICyan}] Create Account XRAY Vmess Websocket "
+echo -e "${BICyan}[${BIWhite}02${BICyan}] Trial Account XRAY Vmess     "
+echo -e "${BICyan}[${BIWhite}03${BICyan}] Extending Account XRAY Vmess Active "
+echo -e "${BICyan}[${BIWhite}04${BICyan}] Delete Account XRAY Vmess Websocket  "
+echo -e "${BICyan}[${BIWhite}05${BICyan}] Edit Quota Vmess     "
+echo -e "${BICyan}[${BIWhite}06${BICyan}] Check User Vmess     "
 #echo -e "     ${BICyan}[${BIWhite}07${BICyan}] Check User Vmess 02     "
 
 echo -e "${BIWhite}╘════════════════════════════════════════╛${NC}"
@@ -130,7 +130,7 @@ case $opt in
 2) clear ; trialvmess ; exit ;;
 3) clear ; renew-ws ; exit ;;
 4) clear ; del-ws ; exit ;;
-#5) clear ; cek-ws ; exit ;;
+5) clear ; quotavmess ; exit ;;
 6) clear ; cek-ws2 ; exit ;;
 #7) clear ; cek-ws3 ; exit ;;
 
