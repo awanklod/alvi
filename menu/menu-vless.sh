@@ -113,12 +113,12 @@ echo -e "${CYAN}╘════════════════════�
 echo -e ""
 echo -e "${BIWhite}╒════════════════════════════════════════╕${NC}"
 echo -e ""
-echo -e "     ${BICyan}[${BIWhite}01${BICyan}] Create Account XRAY Vless Websocket  "
-echo -e "     ${BICyan}[${BIWhite}02${BICyan}] Trial Account XRAY Vless   "
-echo -e "     ${BICyan}[${BIWhite}03${BICyan}] Extending Account XRAY Vless Active "
-echo -e "     ${BICyan}[${BIWhite}04${BICyan}] Delete Account XRAY Vless Websocket    "
-#echo -e "     ${BICyan}[${BIWhite}05${BICyan}] Check User Login XRAY Vless     "
-echo -e "     ${BICyan}[${BIWhite}06${BICyan}] Check User  Vless     "
+echo -e "${BICyan}[${BIWhite}01${BICyan}] Create Account XRAY Vless Websocket  "
+echo -e "${BICyan}[${BIWhite}02${BICyan}] Trial Account XRAY Vless   "
+echo -e "${BICyan}[${BIWhite}03${BICyan}] Extending Account XRAY Vless Active "
+echo -e "${BICyan}[${BIWhite}04${BICyan}] Delete Account XRAY Vless Websocket    "
+echo -e "${BICyan}[${BIWhite}05${BICyan}] Edit Quota Vless     "
+echo -e "${BICyan}[${BIWhite}06${BICyan}] Check User  Vless     "
 #echo -e "     ${BICyan}[${BIWhite}07${BICyan}] Check User  Vless 02    "
 
 echo -e "${BIWhite}╘════════════════════════════════════════╛${NC}"
@@ -131,7 +131,7 @@ case $opt in
 2) clear ; trialvless ; exit ;;
 3) clear ; renew-vless ; exit ;;
 4) clear ; del-vless ; exit ;;
-#5) clear ; cek-vless ; exit ;;
+5) clear ; quotavless ; exit ;;
 6) clear ; cek-vless2 ; exit ;;
 #7) clear ; cek-vless3 ; exit ;;
 
