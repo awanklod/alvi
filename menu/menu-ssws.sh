@@ -38,7 +38,6 @@ clear
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
 echo -e "${BIWhite}             ⇱ SHADOWSOCKS MENU ⇲           ${NC}"
 echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
-echo -e ""
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
 echo -e "${BICyan}[${BIWhite}01${BICyan}]${RED} • ${NC}${BIWhite}ADD SHADOWSOCKS  $NC"
 echo -e "${BICyan}[${BIWhite}02${BICyan}]${RED} • ${NC}${BIWhite}TRIAL SHADOWSOCKS  $NC"
@@ -47,7 +46,6 @@ echo -e "${BICyan}[${BIWhite}04${BICyan}]${RED} • ${NC}${BIWhite}DELETE SHADOW
 echo -e "${BICyan}[${BIWhite}05${BICyan}]${RED} • ${NC}${BIWhite}EDIT QUOTA SHADOWSOCKS  $NC"
 echo -e "${BICyan}[${BIWhite}06${BICyan}]${RED} • ${NC}${BIWhite}CHECK SHADOWSOCKS 2  $NC"
 #echo -e "${BICyan}[${BIWhite}07${BICyan}]${RED} • ${NC}${BIWhite}CHECK SHADOWSOCKS 3  $NC"
-
 echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
 echo -e ""
 echo -e "${BICyan}[${BIWhite}0 ${BICyan}]${RED} • ${NC}${CYAN}BACK MENU $NC"
