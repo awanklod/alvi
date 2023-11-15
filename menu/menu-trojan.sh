@@ -117,7 +117,7 @@ echo -e "     ${BICyan}[${BIWhite}01${BICyan}] Create Account Trojan    "
 echo -e "     ${BICyan}[${BIWhite}02${BICyan}] Trial Account Trojan     "
 echo -e "     ${BICyan}[${BIWhite}03${BICyan}] Extending Account Trojan Active Life      "
 echo -e "     ${BICyan}[${BIWhite}04${BICyan}] Delete Account Trojan     "
-#echo -e "     ${BICyan}[${BIWhite}05${BICyan}] Check User Login Trojan     "
+echo -e "     ${BICyan}[${BIWhite}05${BICyan}] EDIT QUOTA Trojan     "
 echo -e "     ${BICyan}[${BIWhite}06${BICyan}] Check User Trojan     "
 #echo -e "     ${BICyan}[${BIWhite}07${BICyan}] Check User Trojan 02     "
 
@@ -131,7 +131,7 @@ case $opt in
 2) clear ; trialtrojan ;;
 3) clear ; renew-tr ;;
 4) clear ; del-tr ;;
-#5) clear ; cek-tr ;;
+5) clear ; quotatrojan ;;
 6) clear ; cek-tr2 ;;
 #7) clear ; cek-tr3 ;;
 
