@@ -69,7 +69,7 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^#vm# " "/etc/vmess/.vmess.db")
         if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
                 clear
         echo -e "\033[35m━━━━━━━━━━━━━━━━━━━━━━क⊹⊱ꕥ⊰⊹क━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-        echo -e "           Edit Quota Vmess          \E[0m"
+        echo -e "                        Edit Quota Vmess          \E[0m"
         echo -e "\033[35m━━━━━━━━━━━━━━━━━━━━━━क⊹⊱ꕥ⊰⊹क━━━━━━━━━━━━━━━━━━━━━━\e[0m"
                 echo ""
                 echo "You have no existing clients!"
@@ -81,8 +81,8 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^#vm# " "/etc/vmess/.vmess.db")
         fi
 
         clear
-        echo -e "\033[35m━━━━━━━━━━━━━━━━━━━━━━क⊹⊱ꕥ⊰⊹क━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-    echo -e "           Edit Quota Vmess          \E[0m"
+    echo -e "\033[35m━━━━━━━━━━━━━━━━━━━━━━क⊹⊱ꕥ⊰⊹क━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+    echo -e "                          Edit Quota Vmess          \E[0m"
     echo -e "\033[35m━━━━━━━━━━━━━━━━━━━━━━क⊹⊱ꕥ⊰⊹क━━━━━━━━━━━━━━━━━━━━━━\e[0m"
     echo ""
         grep -E "^#vm# " "/etc/vmess/.vmess.db" | cut -d ' ' -f 2 | column -t | sort | uniq
