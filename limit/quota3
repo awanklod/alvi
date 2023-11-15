@@ -20,10 +20,10 @@ function cekvmess(){
   for user in ${data[@]}
   do
   mkdir -p /tmp/quota
-  data=$(xray api statsquery --server=127.0.0.1:10000 | grep -C 2 $user | sed /"}"/d | sed /"{"/d | grep value | awk '{print $2}' | sed 's/,//g; s/"//g' | sort)
+  download=$(xray api statsquery --server=127.0.0.1:10000 | grep -C 2 $user | sed /"}"/d | sed /"{"/d | grep value | awk '{print $2}' | sed 's/,//g; s/"//g' | sort)
   #inb=$(echo "$data" | sed -n 1p)
-  outb=$(echo "$data" | sed -n 2p) 
-  quota0=$(echo -e "$[ $outb ]")
+  #outb=$(echo "$data" | sed -n 2p) 
+  quota0=$(echo -e "$[ $download ]")
         if [ -e /etc/limit/vmess/${user} ]; then
         quota1=$(cat /etc/limit/vmess/${user});
              if [[ ${#quota1} -gt 0 ]]; then
@@ -48,10 +48,10 @@ function cekvless(){
   for user in ${data[@]}
   do
   mkdir -p /tmp/quota
-  data=$(xray api statsquery --server=127.0.0.1:10000 | grep -C 2 $user | sed /"}"/d | sed /"{"/d | grep value | awk '{print $2}' | sed 's/,//g; s/"//g' | sort)
+  download=$(xray api statsquery --server=127.0.0.1:10000 | grep -C 2 $user | sed /"}"/d | sed /"{"/d | grep value | awk '{print $2}' | sed 's/,//g; s/"//g' | sort)
   #inb=$(echo "$data" | sed -n 1p)
-  outb=$(echo "$data" | sed -n 2p) 
-  quota0=$(echo -e "$[ $outb ]")
+  #outb=$(echo "$data" | sed -n 2p) 
+  quota0=$(echo -e "$[ $download ]")
         if [ -e /etc/limit/vless/${user} ]; then
         quota1=$(cat /etc/limit/vless/${user});
              if [[ ${#quota1} -gt 0 ]]; then
@@ -76,10 +76,10 @@ function cektrojan(){
   for user in ${data[@]}
   do
   mkdir -p /tmp/quota
-  data=$(xray api statsquery --server=127.0.0.1:10000 | grep -C 2 $user | sed /"}"/d | sed /"{"/d | grep value | awk '{print $2}' | sed 's/,//g; s/"//g' | sort)
+  download=$(xray api statsquery --server=127.0.0.1:10000 | grep -C 2 $user | sed /"}"/d | sed /"{"/d | grep value | awk '{print $2}' | sed 's/,//g; s/"//g' | sort)
   #inb=$(echo "$data" | sed -n 1p)
-  outb=$(echo "$data" | sed -n 2p) 
-  quota0=$(echo -e "$[ $outb ]")
+  #outb=$(echo "$data" | sed -n 2p) 
+  quota0=$(echo -e "$[ $download ]")
         if [ -e /etc/limit/trojan/${user} ]; then
         quota1=$(cat /etc/limit/trojan/${user});
              if [[ ${#quota1} -gt 0 ]]; then
@@ -104,10 +104,10 @@ function cekshadowsocks(){
   for user in ${data[@]}
   do
   mkdir -p /tmp/quota
-  data=$(xray api statsquery --server=127.0.0.1:10000 | grep -C 2 $user | sed /"}"/d | sed /"{"/d | grep value | awk '{print $2}' | sed 's/,//g; s/"//g' | sort)
+  download=$(xray api statsquery --server=127.0.0.1:10000 | grep -C 2 $user | sed /"}"/d | sed /"{"/d | grep value | awk '{print $2}' | sed 's/,//g; s/"//g' | sort)
   #inb=$(echo "$data" | sed -n 1p)
-  outb=$(echo "$data" | sed -n 2p) 
-  quota0=$(echo -e "$[ $outb ]")
+  #outb=$(echo "$data" | sed -n 2p) 
+  quota0=$(echo -e "$[ $download ]")
         if [ -e /etc/limit/shadowsocks/${user} ]; then
         quota1=$(cat /etc/limit/shadowsocks/${user});
              if [[ ${#quota1} -gt 0 ]]; then
@@ -138,7 +138,6 @@ do
              pakai=$(cat /etc/limit/vmess/${user});
                if [[ ${pakai} -gt ${cekdulu} ]]; then
                   exp=$(grep -w "^#vm# $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
-                  sed -i "/^#vm# $user $exp/,/^},{/d" /etc/xray/config.json
                   sed -i "/^#vm# $user $exp/,/^},{/d" /etc/xray/config.json
                   sed -i "/^#vm# $user $exp/d" /etc/vmess/.vmess.db
                   systemctl restart xray >> /dev/null 2>&1
@@ -177,7 +176,6 @@ do
                if [[ ${pakai} -gt ${cekdulu} ]]; then
                   exp=$(grep -w "^#& $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
                   sed -i "/^#& $user $exp/,/^},{/d" /etc/xray/config.json
-                  sed -i "/^#& $user $exp/,/^},{/d" /etc/xray/config.json
                   sed -i "/^#& $user $exp/d" /etc/vless/.vless.db
                   systemctl restart xray >> /dev/null 2>&1
                   bol=$(cat /etc/limit/vless/${user});
@@ -215,7 +213,6 @@ do
                if [[ ${pakai} -gt ${cekdulu} ]]; then
                   exp=$(grep -w "^#! $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
                   sed -i "/^#! $user $exp/,/^},{/d" /etc/xray/config.json
-                  sed -i "/^#! $user $exp/,/^},{/d" /etc/xray/config.json
                   sed -i "/^#! $user $exp/d" /etc/trojan/.trojan.db
                   systemctl restart xray >> /dev/null 2>&1
                   bol=$(cat /etc/limit/trojan/${user});
@@ -252,7 +249,6 @@ do
              pakai=$(cat /etc/limit/shadowsocks/${user});
                if [[ ${pakai} -gt ${cekdulu} ]]; then
                   exp=$(grep -w "^#ss# $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
-                  sed -i "/^#ss# $user $exp/,/^},{/d" /etc/xray/config.json
                   sed -i "/^#ss# $user $exp/,/^},{/d" /etc/xray/config.json
                   sed -i "/^#ss# $user $exp/d" /etc/shadowsocks/.shadowsocks.db
                   systemctl restart xray >> /dev/null 2>&1
