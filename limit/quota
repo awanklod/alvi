@@ -19,25 +19,23 @@ function cekvmess(){
   fi
   for user in ${data[@]}
   do
-  xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" >& /tmp/${user}
-  getThis=$(cat /tmp/${user} | awk '{print $1}');
-  if [[ ${getThis} != "failed" ]]; then
+  mkdir -p /tmp/quota
   download=$(xray api statsquery --server=127.0.0.1:10000 | grep -C 2 $user | sed /"}"/d | sed /"{"/d | grep value | awk '{print $2}' | sed 's/,//g; s/"//g' | sort)
-  inb=$(echo "$download" | sed -n 1p)
+  #inb=$(echo "$download" | sed -n 1p)
   #outb=$(echo "$data" | sed -n 2p) 
-  quota0=$(echo -e "$[ $inb ]")
+  #quota0=$(echo -e "$[ $inb ]")
         if [ -e /etc/limit/vmess/${user} ]; then
         quota1=$(cat /etc/limit/vmess/${user});
              if [[ ${#quota1} -gt 0 ]]; then
-                quota2=$(( ${quota0} + ${quota1} ));
+                quota2=$(( ${download} + ${quota1} ));
                 echo "${quota2}" > /etc/limit/vmess/"${user}"
                 xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
               else
-                  echo "${quota0}" > /etc/limit/vmess/"${user}"
+                  echo "${download}" > /etc/limit/vmess/"${user}"
                   xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
                 fi
            else
-               echo "${quota0}" > /etc/limit/vmess/"${user}"
+               echo "${download}" > /etc/limit/vmess/"${user}"
                xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
             fi
      done
@@ -49,25 +47,23 @@ function cekvless(){
   fi
   for user in ${data[@]}
   do
-  xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" >& /tmp/${user}
-  getThis=$(cat /tmp/${user} | awk '{print $1}');
-  if [[ ${getThis} != "failed" ]]; then
+  mkdir -p /tmp/quota
   download=$(xray api statsquery --server=127.0.0.1:10000 | grep -C 2 $user | sed /"}"/d | sed /"{"/d | grep value | awk '{print $2}' | sed 's/,//g; s/"//g' | sort)
-  inb=$(echo "$download" | sed -n 1p)
+  #inb=$(echo "$download" | sed -n 1p)
   #outb=$(echo "$data" | sed -n 2p) 
-  quota0=$(echo -e "$[ $inb ]")
+  #quota0=$(echo -e "$[ $inb ]")
         if [ -e /etc/limit/vless/${user} ]; then
         quota1=$(cat /etc/limit/vless/${user});
              if [[ ${#quota1} -gt 0 ]]; then
-                quota2=$(( ${quota0} + ${quota1} ));
+                quota2=$(( ${download} + ${quota1} ));
                 echo "${quota2}" > /etc/limit/vless/"${user}"
                 xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
               else
-                  echo "${quota0}" > /etc/limit/vless/"${user}"
+                  echo "${download}" > /etc/limit/vless/"${user}"
                   xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
                 fi
            else
-               echo "${quota0}" > /etc/limit/vless/"${user}"
+               echo "${download}" > /etc/limit/vless/"${user}"
                xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
             fi
      done
@@ -79,25 +75,23 @@ function cektrojan(){
   fi
   for user in ${data[@]}
   do
-  xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" >& /tmp/${user}
-  getThis=$(cat /tmp/${user} | awk '{print $1}');
-  if [[ ${getThis} != "failed" ]]; then
+  mkdir -p /tmp/quota
   download=$(xray api statsquery --server=127.0.0.1:10000 | grep -C 2 $user | sed /"}"/d | sed /"{"/d | grep value | awk '{print $2}' | sed 's/,//g; s/"//g' | sort)
-  inb=$(echo "$download" | sed -n 1p)
+  #inb=$(echo "$download" | sed -n 1p)
   #outb=$(echo "$data" | sed -n 2p) 
-  quota0=$(echo -e "$[ $inb ]")
+  #quota0=$(echo -e "$[ $inb ]")
         if [ -e /etc/limit/trojan/${user} ]; then
         quota1=$(cat /etc/limit/trojan/${user});
              if [[ ${#quota1} -gt 0 ]]; then
-                quota2=$(( ${quota0} + ${quota1} ));
+                quota2=$(( ${download} + ${quota1} ));
                 echo "${quota2}" > /etc/limit/trojan/"${user}"
                 xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
               else
-                  echo "${quota0}" > /etc/limit/trojan/"${user}"
+                  echo "${download}" > /etc/limit/trojan/"${user}"
                   xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
                 fi
            else
-               echo "${quota0}" > /etc/limit/trojan/"${user}"
+               echo "${download}" > /etc/limit/trojan/"${user}"
                xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
             fi
      done
@@ -109,25 +103,23 @@ function cekshadowsocks(){
   fi
   for user in ${data[@]}
   do
-  xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" >& /tmp/${user}
-  getThis=$(cat /tmp/${user} | awk '{print $1}');
-  if [[ ${getThis} != "failed" ]]; then
+  mkdir -p /tmp/quota
   download=$(xray api statsquery --server=127.0.0.1:10000 | grep -C 2 $user | sed /"}"/d | sed /"{"/d | grep value | awk '{print $2}' | sed 's/,//g; s/"//g' | sort)
-  inb=$(echo "$download" | sed -n 1p)
+  #inb=$(echo "$download" | sed -n 1p)
   #outb=$(echo "$data" | sed -n 2p) 
-  quota0=$(echo -e "$[ $inb ]")
+  #quota0=$(echo -e "$[ $inb ]")
         if [ -e /etc/limit/shadowsocks/${user} ]; then
         quota1=$(cat /etc/limit/shadowsocks/${user});
              if [[ ${#quota1} -gt 0 ]]; then
-                quota2=$(( ${quota0} + ${quota1} ));
+                quota2=$(( ${download} + ${quota1} ));
                 echo "${quota2}" > /etc/limit/vmess/"${user}"
                 xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
               else
-                  echo "${quota0}" > /etc/limit/vmess/"${user}"
+                  echo "${download}" > /etc/limit/vmess/"${user}"
                   xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
                 fi
            else
-               echo "${quota0}" > /etc/limit/vmess/"${user}"
+               echo "${download}" > /etc/limit/vmess/"${user}"
                xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
             fi
      done
