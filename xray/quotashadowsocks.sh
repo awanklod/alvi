@@ -68,27 +68,27 @@ clear
 NUMBER_OF_CLIENTS=$(grep -c -E "^#ss# " "/etc/shadowsocks/.shadowsocks.db")
         if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
                 clear
-        echo -e "\033[35m━━━━━━━━━━━━━━━━━━━━━━क⊹⊱ꕥ⊰⊹क━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-        echo -e "           Edit Quota shadowsocks          \E[0m"
-        echo -e "\033[35m━━━━━━━━━━━━━━━━━━━━━━क⊹⊱ꕥ⊰⊹क━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
+echo -e "${BIWhite}             ⇱ SHADOWSOCKS MENU ⇲           ${NC}"
+echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
                 echo ""
                 echo "You have no existing clients!"
                 echo ""
-                echo -e "\033[35m━━━━━━━━━━━━━━━━━━━━━━क⊹⊱ꕥ⊰⊹क━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+                echo -e "\033[35m══════════════════════════════════════════\e[0m"
         echo ""
         read -n 1 -s -r -p "Press any key to back on menu"
         menu
         fi
 
         clear
-        echo -e "\033[35m━━━━━━━━━━━━━━━━━━━━━━क⊹⊱ꕥ⊰⊹क━━━━━━━━━━━━━━━━━━━━━━\e[0m"
-    echo -e "           Edit Quota shadowsocks          \E[0m"
-    echo -e "\033[35m━━━━━━━━━━━━━━━━━━━━━━क⊹⊱ꕥ⊰⊹क━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
+echo -e "${BIWhite}             ⇱ SHADOWSOCKS MENU ⇲           ${NC}"
+echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
     echo ""
         grep -E "^#ss# " "/etc/shadowsocks/.shadowsocks.db" | cut -d ' ' -f 2 | column -t | sort | uniq
     echo ""
     red "tap enter to go back"
-    echo -e "\033[35m━━━━━━━━━━━━━━━━━━━━━━क⊹⊱ꕥ⊰⊹क━━━━━━━━━━━━━━━━━━━━━━\e[0m"
+    echo -e "\033[35m══════════════════════════════════════════\e[0m"
         read -rp "Input Username : " user
     if [ -z $user ]; then
     menu
