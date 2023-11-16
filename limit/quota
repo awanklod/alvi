@@ -98,8 +98,8 @@ function cektrojan(){
 }
 function cekshadowsocks(){
   data=($(cat /etc/xray/config.json | grep '^#ss#' | cut -d ' ' -f 2 | sort | uniq))
-  if [[ ! -e /etc/limit/shadowsocks ]]; then
-  mkdir -p /etc/limit/shadowsocks
+  if [[ ! -e /etc/limit/vmess ]]; then
+  mkdir -p /etc/limit/vmess
   fi
   for user in ${data[@]}
   do
@@ -112,14 +112,14 @@ function cekshadowsocks(){
         quota1=$(cat /etc/limit/shadowsocks/${user});
              if [[ ${#quota1} -gt 0 ]]; then
                 quota2=$(( ${quota0} + ${quota1} ));
-                echo "${quota2}" > /etc/limit/shadowsocks/"${user}"
+                echo "${quota2}" > /etc/limit/vmess/"${user}"
                 xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
               else
-                  echo "${quota0}" > /etc/limit/shadowsocks/"${user}"
+                  echo "${quota0}" > /etc/limit/vmess/"${user}"
                   xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
                 fi
            else
-               echo "${quota0}" > /etc/limit/shadowsocks/"${user}"
+               echo "${quota0}" > /etc/limit/vmess/"${user}"
                xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
             fi
      done
@@ -238,7 +238,7 @@ done
 function shadowsocks(){
 while true; do
 sleep 30
-cektrojan
+cekvmess
 data=($(cat /etc/xray/config.json | grep '^#ss#' | cut -d ' ' -f 2 | sort | uniq))
 for user in ${data[@]}
 do
@@ -256,7 +256,7 @@ do
                   total=$(con ${bol})
                   send-log
                   rm -rf /etc/limit/shadowsocks/${user}
-              #rm -rf /etc/kyt/limit/shadowsocks/ip/$user
+            #  rm -rf /etc/kyt/limit/shadowsocks/ip/$user
               else
                echo ""
           fi
