@@ -249,9 +249,9 @@ export pak=$( cat /home/.ver)
 IPVPS=$(curl -s ipinfo.io/ip )
 clear
 #figlet  PREMIUM  | lolcat
-echo -e "${BIPurple}╔════════════════════════════════════════════════════════════╗\033[0m${NC}"
-echo -e "${BIRed}                     👾  CLOUDVPN  TUNNEL 👾                     ${NC}"
-echo -e "${BIPurple}╚════════════════════════════════════════════════════════════╝\033[0m${NC}"
+echo -e "${BIPurple}╔══════════════════════════════════════════════════════════╗\033[0m${NC}"
+echo -e "${BIRed}                       CLOUDVPN  TUNNEL                      ${NC}"
+echo -e "${BIPurple}╚══════════════════════════════════════════════════════════╝\033[0m${NC}"
 echo -e "${BIBlack}╔════════════════════════════════════════════════════════════╗\033[0m${NC}"
 echo -e "${BIYellow}🌀 Server Uptime       = ${BIWhite}$( uptime -p  | cut -d " " -f 2-10000 ) ${NC}"
 echo -e "${BIYellow}🌀 Current Time        = ${BIWhite}$( date -d "0 days" +"%d-%m-%Y | %X" )${NC}"
