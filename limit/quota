@@ -19,7 +19,9 @@ function cekvmess(){
   fi
   for user in ${data[@]}
   do
-  mkdir -p /tmp/quota
+  xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" >& /tmp/${user}
+  getThis=$(cat /tmp/${user} | awk '{print $1}');
+  if [[ ${getThis} != "failed" ]]; then
   download=$(xray api statsquery --server=127.0.0.1:10000 | grep -C 2 $user | sed /"}"/d | sed /"{"/d | grep value | awk '{print $2}' | sed 's/,//g; s/"//g' | sort)
   inb=$(echo "$download" | sed -n 1p)
   #outb=$(echo "$data" | sed -n 2p) 
@@ -47,7 +49,9 @@ function cekvless(){
   fi
   for user in ${data[@]}
   do
-  mkdir -p /tmp/quota
+  xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" >& /tmp/${user}
+  getThis=$(cat /tmp/${user} | awk '{print $1}');
+  if [[ ${getThis} != "failed" ]]; then
   download=$(xray api statsquery --server=127.0.0.1:10000 | grep -C 2 $user | sed /"}"/d | sed /"{"/d | grep value | awk '{print $2}' | sed 's/,//g; s/"//g' | sort)
   inb=$(echo "$download" | sed -n 1p)
   #outb=$(echo "$data" | sed -n 2p) 
@@ -75,7 +79,9 @@ function cektrojan(){
   fi
   for user in ${data[@]}
   do
-  mkdir -p /tmp/quota
+  xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" >& /tmp/${user}
+  getThis=$(cat /tmp/${user} | awk '{print $1}');
+  if [[ ${getThis} != "failed" ]]; then
   download=$(xray api statsquery --server=127.0.0.1:10000 | grep -C 2 $user | sed /"}"/d | sed /"{"/d | grep value | awk '{print $2}' | sed 's/,//g; s/"//g' | sort)
   inb=$(echo "$download" | sed -n 1p)
   #outb=$(echo "$data" | sed -n 2p) 
@@ -103,7 +109,9 @@ function cekshadowsocks(){
   fi
   for user in ${data[@]}
   do
-  mkdir -p /tmp/quota
+  xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" >& /tmp/${user}
+  getThis=$(cat /tmp/${user} | awk '{print $1}');
+  if [[ ${getThis} != "failed" ]]; then
   download=$(xray api statsquery --server=127.0.0.1:10000 | grep -C 2 $user | sed /"}"/d | sed /"{"/d | grep value | awk '{print $2}' | sed 's/,//g; s/"//g' | sort)
   inb=$(echo "$download" | sed -n 1p)
   #outb=$(echo "$data" | sed -n 2p) 
