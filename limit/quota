@@ -115,11 +115,11 @@ function cekshadowsocks(){
                 echo "${quota2}" > /etc/limit/shadowsocks/"${user}"
                 xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
               else
-                  echo "${quota0}" > /etc/limit/trojan/"${user}"
+                  echo "${quota0}" > /etc/limit/shadowsocks/"${user}"
                   xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
                 fi
            else
-               echo "${quota0}" > /etc/limit/trojan/"${user}"
+               echo "${quota0}" > /etc/limit/shadowsocks/"${user}"
                xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
             fi
      done
@@ -256,7 +256,7 @@ do
                   total=$(con ${bol})
                   send-log
                  rm -rf /etc/limit/shadowsocks/${user}
-             # rm -rf /etc/kyt/limit/vless/ip/$user
+             # rm -rf /etc/kyt/limit/shadowsocks/ip/$user
               else
                echo ""
           fi
