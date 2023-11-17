@@ -1,9 +1,9 @@
 #!/bin/bash
 function vmip(){
 #LIMITVMESSIP
-echo -n > /var/log/xray/access.log
+echo -n > /tmp/ipxray.txt
 sleep 4
-data=( `ls /etc/kyt/limit/vmess/ip`);
+data=( `cat /etc/xray/config.json | grep '#vm#' | cut -d ' ' -f 2 | sort | uniq`);
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/vmess/ip/$user)
@@ -11,7 +11,6 @@ data=( `ls /etc/kyt/limit/vmess/ip`);
         cekcek=$(echo -e "$ehh" | wc -l);
         if [[ $cekcek -gt $iplimit ]]; then
             exp=$(grep -w "^#vm# $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
-                 sed -i "/^#vm# $user $exp/,/^},{/d" /etc/xray/config.json
                  sed -i "/^#vm# $user $exp/,/^},{/d" /etc/xray/config.json
                  sed -i "/^#vm# $user $exp/d" /etc/vmess/.vmess.db
                   systemctl restart xray >> /dev/null 2>&1
@@ -27,9 +26,9 @@ data=( `ls /etc/kyt/limit/vmess/ip`);
 }
 function vlip(){
 #LIMITVLESSIP
-echo -n > /var/log/xray/access.log
+echo -n > /tmp/ipxray.txt
 sleep 4
-data=( `ls /etc/kyt/limit/vless/ip`);
+data=( `cat /etc/xray/config.json | grep '#&' | cut -d ' ' -f 2 | sort | uniq`);
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/vless/ip/$user)
@@ -53,9 +52,9 @@ data=( `ls /etc/kyt/limit/vless/ip`);
 }
 function trip(){
 #LIMITIPTROJAN
-echo -n > /var/log/xray/access.log
+echo -n > /tmp/ipxray.txt
 sleep 4
-data=( `ls /etc/kyt/limit/trojan/ip`);
+data=( `cat /etc/xray/config.json | grep '#!' | cut -d ' ' -f 2 | sort | uniq`);
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/trojan/ip/$user)
@@ -79,9 +78,9 @@ data=( `ls /etc/kyt/limit/trojan/ip`);
 }
 function shdip(){
 #LIMITIPSHADOWSOCKS
-echo -n > /var/log/xray/access.log
+echo -n > /tmp/ipxray.txt
 sleep 4
-data=( `ls /etc/kyt/limit/shadowsocks/ip`);
+data=( `cat /etc/xray/config.json | grep '#ss#' | cut -d ' ' -f 2 | sort | uniq`);
 #Decrypted By YADDY D PHREAKER
     for user in "${data[@]}"
     do
