@@ -81,7 +81,7 @@ fi
 echo -n > /tmp/other.txt
 data=( `cat /etc/xray/config.json | grep '#ss#' | cut -d ' ' -f 2 | sort | uniq`);
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-  echo -e " \e[1;97;101m    SHADOWSCKS USER LOGIN ACCOUNT     \E[0m"
+  echo -e " \e[1;97;101m     SHADOWSCKS USER LOGIN ACCOUNT      \E[0m"
   echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
 for akun in "${data[@]}"
