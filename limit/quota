@@ -252,10 +252,10 @@ do
                   sed -i "/^#ss# $user $exp/,/^},{/d" /etc/xray/config.json
                   sed -i "/^#ss# $user $exp/d" /etc/shadowsocks/.shadowsocks.db
                   systemctl restart xray >> /dev/null 2>&1
-                  bol=$(cat /etc/limit/vless/quota/${user});
+                  bol=$(cat /etc/limit/shadowsocks/quota/${user});
                   total=$(con ${bol})
                   send-log
-                 rm -rf /etc/limit/vless/${user}
+                 rm -rf /etc/limit/shadowsocks/${user}
              # rm -rf /etc/kyt/limit/vless/ip/$user
               else
                echo ""
