@@ -1,7 +1,7 @@
 #!/bin/bash
 function vmip(){
 #LIMITVMESSIP
-echo -n > /tmp/ipxray.txt
+echo -n > /var/log/xray/access.log
 sleep 4
 data=( `cat /etc/xray/config.json | grep '#vm#' | cut -d ' ' -f 2 | sort | uniq`);
     for user in "${data[@]}"
@@ -26,7 +26,7 @@ data=( `cat /etc/xray/config.json | grep '#vm#' | cut -d ' ' -f 2 | sort | uniq`
 }
 function vlip(){
 #LIMITVLESSIP
-echo -n > /tmp/ipxray.txt
+echo -n > /var/log/xray/access.log
 sleep 4
 data=( `cat /etc/xray/config.json | grep '#&' | cut -d ' ' -f 2 | sort | uniq`);
     for user in "${data[@]}"
@@ -52,7 +52,7 @@ data=( `cat /etc/xray/config.json | grep '#&' | cut -d ' ' -f 2 | sort | uniq`);
 }
 function trip(){
 #LIMITIPTROJAN
-echo -n > /tmp/ipxray.txt
+echo -n > /var/log/xray/access.log
 sleep 4
 data=( `cat /etc/xray/config.json | grep '#!' | cut -d ' ' -f 2 | sort | uniq`);
     for user in "${data[@]}"
@@ -78,7 +78,7 @@ data=( `cat /etc/xray/config.json | grep '#!' | cut -d ' ' -f 2 | sort | uniq`);
 }
 function shdip(){
 #LIMITIPSHADOWSOCKS
-echo -n > /tmp/ipxray.txt
+echo -n > /var/log/xray/access.log
 sleep 4
 data=( `cat /etc/xray/config.json | grep '#ss#' | cut -d ' ' -f 2 | sort | uniq`);
 #Decrypted By YADDY D PHREAKER
