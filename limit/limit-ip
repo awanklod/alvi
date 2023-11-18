@@ -1,9 +1,9 @@
 #!/bin/bash
 function vmip(){
 #LIMITVMESSIP
-echo -n > /var/log/xray/access.log
+echo -n > /tmp/ipxray.txt
 sleep 4
-data=( `ls /etc/kyt/limit/vmess/ip`);
+data=( `cat /etc/xray/config.json | grep '#vm#' | cut -d ' ' -f 2 | sort | uniq`);
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/vmess/ip/$user)
