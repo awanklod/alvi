@@ -3,7 +3,7 @@ function vmip(){
 #LIMITVMESSIP
 echo -n > /var/log/xray/access.log
 sleep 4
-data=( `cat /etc/xray/config.json | grep '#vm#' | cut -d ' ' -f 2 | sort | uniq`);
+data=( `ls /etc/kyt/limit/vmess/ip`);
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/vmess/ip/$user)
@@ -28,7 +28,7 @@ function vlip(){
 #LIMITVLESSIP
 echo -n > /var/log/xray/access.log
 sleep 4
-data=( `cat /etc/xray/config.json | grep '#&' | cut -d ' ' -f 2 | sort | uniq`);
+data=( `ls /etc/kyt/limit/vless/ip`);
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/vless/ip/$user)
@@ -36,7 +36,6 @@ data=( `cat /etc/xray/config.json | grep '#&' | cut -d ' ' -f 2 | sort | uniq`);
         cekcek=$(echo -e "$ehh" | wc -l);
         if [[ $cekcek -gt $iplimit ]]; then
             exp=$(grep -w "^#& $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
-                sed -i "/^#& $user $exp/,/^},{/d" /etc/xray/config.json
                 sed -i "/^#& $user $exp/,/^},{/d" /etc/xray/config.json
                 sed -i "/^#& $user $exp/d" /etc/vless/.vless.db
                   systemctl restart xray >> /dev/null 2>&1
@@ -54,7 +53,7 @@ function trip(){
 #LIMITIPTROJAN
 echo -n > /var/log/xray/access.log
 sleep 4
-data=( `cat /etc/xray/config.json | grep '#!' | cut -d ' ' -f 2 | sort | uniq`);
+data=( `ls /etc/kyt/limit/trojan/ip`);
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/trojan/ip/$user)
@@ -62,7 +61,6 @@ data=( `cat /etc/xray/config.json | grep '#!' | cut -d ' ' -f 2 | sort | uniq`);
         cekcek=$(echo -e "$ehh" | wc -l);
         if [[ $cekcek -gt $iplimit ]]; then
             exp=$(grep -w "^#! $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
-                 sed -i "/^#! $user $exp/,/^},{/d" /etc/xray/config.json
                  sed -i "/^#! $user $exp/,/^},{/d" /etc/xray/config.json
                  sed -i "/^#! $user $exp/d" /etc/trojan/.trojan.db
                   systemctl restart xray >> /dev/null 2>&1
@@ -80,7 +78,7 @@ function shdip(){
 #LIMITIPSHADOWSOCKS
 echo -n > /var/log/xray/access.log
 sleep 4
-data=( `cat /etc/xray/config.json | grep '#ss#' | cut -d ' ' -f 2 | sort | uniq`);
+data=( `ls /etc/kyt/limit/shadowsocks/ip`);
 #Decrypted By YADDY D PHREAKER
     for user in "${data[@]}"
     do
@@ -89,7 +87,6 @@ data=( `cat /etc/xray/config.json | grep '#ss#' | cut -d ' ' -f 2 | sort | uniq`
         cekcek=$(echo -e "$ehh" | wc -l);
         if [[ $cekcek -gt $iplimit ]]; then
             exp=$(grep -w "^#ss# $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
-                sed -i "/^#ss# $user $exp/,/^},{/d" /etc/xray/config.json
                 sed -i "/^#ss# $user $exp/,/^},{/d" /etc/xray/config.json
                 sed -i "/^#ss# $user $exp/d" /etc/shadowsocks/.shadowsocks.db
                   systemctl restart xray >> /dev/null 2>&1
