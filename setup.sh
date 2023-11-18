@@ -199,7 +199,7 @@ echo -e "$green          Install LIMIT              $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
 clear
-wget https://raw.githubusercontent.com/awanklod/alvi/main/limit/limit.sh && chmod +x limit.sh && ./limit.sh
+wget https://raw.githubusercontent.com/awanklod/alvi/main/limit3/quota.sh && chmod +x quota.sh && ./quota.sh
 clear
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green          Install SWAP 04GB              $NC"
