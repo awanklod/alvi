@@ -58,11 +58,9 @@ for user in ${data[@]}
       sed -i "/^#vm# $user $exp/,/^},{/d" /etc/xray/config.json
       sed -i "/^#vm# $user $exp/d" /etc/vmess/.vmess.db
       send-log
-      rm -rf /etc/limit/vmess/${user}
-	  rm -f /etc/vmess/$user
-	  rm -f /etc/limit/vmess/$user
-	  rm -f /etc/limit/vmess/quota/$user
-	  rm -f /var/www/html/vmess-$user.txt
+       rm -f /etc/limit/vmess/$user
+       rm -f /etc/limit/vmess/quota/$user
+       rm -f /etc/vmess/$user
       systemctl restart xray >> /dev/null 2>&1
       else
       echo ""
