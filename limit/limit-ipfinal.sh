@@ -1,3 +1,5 @@
+REPO="https://raw.githubusercontent.com/awanklod/alvi/main/"
+print_install "Memasang Service Limit IP"
 wget -q -O /usr/bin/limit-ip "${REPO}limit/limit-ip"
 chmod +x /usr/bin/*
 cd /usr/bin
