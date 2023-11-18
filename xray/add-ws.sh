@@ -174,11 +174,15 @@ fi
 #fi
 
 if [[ $iplimit -gt 0 ]]; then
-mkdir -p /etc/kyt/limit/vmess/ip
 echo -e "$iplimit" > /etc/kyt/limit/vmess/ip/$user
 else
-echo > /dev/null
-fi
+
+#if [[ $iplimit -gt 0 ]]; then
+#mkdir -p /etc/kyt/limit/vmess/ip
+#echo -e "$iplimit" > /etc/kyt/limit/vmess/ip/$user
+#else
+#echo > /dev/null
+#fi
 
 if [ -z ${Quota} ]; then
 Quota="0"
