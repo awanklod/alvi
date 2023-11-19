@@ -252,10 +252,10 @@ clear
 #echo -e "${BIPurple}╔══════════════════════════════════════════════════════════╗\033[0m${NC}"
 #echo -e "${BIRed}                       CLOUDVPN  TUNNEL                      ${NC}"
 #echo -e "${BIPurple}╚══════════════════════════════════════════════════════════╝\033[0m${NC}"
-echo -e " ${BIYellow}╭══════════════════════════════════════════════════════════╮${NC}"
-echo -e " ${BIYellow}│$NC\033[41m         Welcome To Script Premium CLOUDVPNStore           $NC${z}│$NC"
-echo -e " ${BIYellow}╰══════════════════════════════════════════════════════════╯${NC}"
-echo -e "${BIYellow}╔════════════════════════════════════════════════════════════╗\033[0m${NC}"
+echo -e "${BIYellow}╔═══════════════════════════════════════════════════════════╗${NC}"
+echo -e "${BIYellow}║$NC\033[41m         Welcome To Script Premium CLOUDVPNStore           $NC${z}│$NC"
+echo -e "${BIYellow}╚═══════════════════════════════════════════════════════════╝${NC}"
+echo -e "${BIYellow}╔═══════════════════════════════════════════════════════════╗\033[0m${NC}"
 echo -e "${BIYellow}║ Server Uptime       = ${BIWhite}$( uptime -p  | cut -d " " -f 2-10000 ) ${NC}"
 echo -e "${BIYellow}║ Current Time        = ${BIWhite}$( date -d "0 days" +"%d-%m-%Y | %X" )${NC}"
 echo -e "${BIYellow}║ Operating System    = ${BIWhite}$( cat /etc/os-release | grep -w PRETTY_NAME | sed 's/PRETTY_NAME//g' | sed 's/=//g' | sed 's/"//g' ) ( $( uname -m) )${NC}"
@@ -264,7 +264,7 @@ echo -e "${BIYellow}║ Current Domain      = ${BIWhite}$( cat /etc/xray/domain 
 echo -e "${BIYellow}║ NS Domain           = ${BIWhite}$(cat /root/nsdomain)${NC}"
 echo -e "${BIYellow}║ RAM/USE RAM % CPU   = ${BIWhite}${totalram}MB / ${BIWhite}${USAGERAM} MB & ${BIWhite}${cpu_usage}${NC}"
 #echo -e "${BIYellow}║ CPU Usage           = ${BIWhite}${cpu_usage}${NC}"
-echo -e "${BIYellow}╚════════════════════════════════════════════════════════════╝\033[0m${NC}"
+echo -e "${BIYellow}╚═══════════════════════════════════════════════════════════╝\033[0m${NC}"
 DATE=$(date +'%d %B %Y')
 datediff() {
     d1=$(date -d "$1" +%s)
