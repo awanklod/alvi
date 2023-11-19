@@ -252,33 +252,32 @@ sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dr
 wget https://raw.githubusercontent.com/awanklod/alvi/main/ssh/bbr.sh && chmod +x bbr.sh && ./bbr.sh
 
 #run_ip
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 80 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 443 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 8080 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2082 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2082 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2096 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2096 -j ACCEPT
-
+#iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+#iptables -I INPUT -m state --state NEW -m udp -p udp --dport 80 -j ACCEPT
+#iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
+#iptables -I INPUT -m state --state NEW -m udp -p udp --dport 443 -j ACCEPT
+#iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
+#iptables -I INPUT -m state --state NEW -m udp -p udp --dport 8080 -j ACCEPT
+#iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2082 -j ACCEPT
+#iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2082 -j ACCEPT
+#iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2096 -j ACCEPT
+#iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2096 -j ACCEPT
 # blockir torrent
-iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
-iptables -A FORWARD -m string --string "announce_peer" --algo bm -j DROP
-iptables -A FORWARD -m string --string "find_node" --algo bm -j DROP
-iptables -A FORWARD -m string --algo bm --string "BitTorrent" -j DROP
-iptables -A FORWARD -m string --algo bm --string "BitTorrent protocol" -j DROP
-iptables -A FORWARD -m string --algo bm --string "peer_id=" -j DROP
-iptables -A FORWARD -m string --algo bm --string ".torrent" -j DROP
-iptables -A FORWARD -m string --algo bm --string "announce.php?passkey=" -j DROP
-iptables -A FORWARD -m string --algo bm --string "torrent" -j DROP
-iptables -A FORWARD -m string --algo bm --string "announce" -j DROP
-iptables -A FORWARD -m string --algo bm --string "info_hash" -j DROP
-iptables-save > /etc/iptables.up.rules
-iptables-restore -t < /etc/iptables.up.rules
-netfilter-persistent save
-netfilter-persistent reload
+#iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
+#iptables -A FORWARD -m string --string "announce_peer" --algo bm -j DROP
+#iptables -A FORWARD -m string --string "find_node" --algo bm -j DROP
+#iptables -A FORWARD -m string --algo bm --string "BitTorrent" -j DROP
+#iptables -A FORWARD -m string --algo bm --string "BitTorrent protocol" -j DROP
+#iptables -A FORWARD -m string --algo bm --string "peer_id=" -j DROP
+#iptables -A FORWARD -m string --algo bm --string ".torrent" -j DROP
+#iptables -A FORWARD -m string --algo bm --string "announce.php?passkey=" -j DROP
+#iptables -A FORWARD -m string --algo bm --string "torrent" -j DROP
+#iptables -A FORWARD -m string --algo bm --string "announce" -j DROP
+#iptables -A FORWARD -m string --algo bm --string "info_hash" -j DROP
+#iptables-save > /etc/iptables.up.rules
+#iptables-restore -t < /etc/iptables.up.rules
+#netfilter-persistent save
+#netfilter-persistent reload
 
 
 
