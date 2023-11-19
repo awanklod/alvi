@@ -251,7 +251,17 @@ sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dr
 #install bbr dan optimasi kernel
 wget https://raw.githubusercontent.com/awanklod/alvi/main/ssh/bbr.sh && chmod +x bbr.sh && ./bbr.sh
 
-
+#run_ip
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 80 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 443 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 8080 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2082 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2082 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2096 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2096 -j ACCEPT
 # blockir torrent
 iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
 iptables -A FORWARD -m string --string "announce_peer" --algo bm -j DROP
