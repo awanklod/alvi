@@ -104,7 +104,7 @@ read -p " CREAT PW (OTOMATIC RANDOM PW) :" uuid
     
 read -p "Expired (days): " masaaktif
 read -p "Limit User (GB): " Quota
-#read -p "Limit User (IP): " iplimit
+read -p "Limit User (IP): " iplimit
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#ssws$/a\#ss# '"$user $exp"'\
 },{"password": "'""$uuid""'","method": "'""$cipher""'","email": "'""$user""'"' /etc/xray/config.json
@@ -347,12 +347,12 @@ fi
 #echo > /dev/null
 #fi
 
-#if [[ $iplimit -gt 0 ]]; then
-#mkdir -p /etc/kyt/limit/shadowsocks/ip
-#echo -e "$iplimit" > /etc/kyt/limit/shadowsocks/ip/$user
-#else
-#echo > /dev/null
-#fi
+if [[ $iplimit -gt 0 ]]; then
+mkdir -p /etc/kyt/limit/shadowsocks/ip
+echo -e "$iplimit" > /etc/kyt/limit/shadowsocks/ip/$user
+else
+echo > /dev/null
+fi
 
 if [ -z ${Quota} ]; then
 Quota="0"
@@ -368,8 +368,8 @@ DATADB=$(cat /etc/shadowsocks/.shadowsocks.db | grep "^#ss#" | grep -w "${user}"
 if [[ "${DATADB}" != '' ]]; then
 sed -i "/\b${user}\b/d" /etc/shadowsocks/.shadowsocks.db
 fi
-#echo "#ss# ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/shadowsocks/.shadowsocks.db
-echo "#ss# ${user} ${exp} ${uuid} ${Quota}" >>/etc/shadowsocks/.shadowsocks.db
+echo "#ss# ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/shadowsocks/.shadowsocks.db
+#echo "#ss# ${user} ${exp} ${uuid} ${Quota}" >>/etc/shadowsocks/.shadowsocks.db
 clear
 echo -e ""
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}" | tee -a /etc/log-create-user.log 
@@ -378,7 +378,7 @@ echo -e "${CYAN}╘════════════════════�
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-user.log
 echo -e "Domain         : ${domain}" | tee -a /etc/log-create-user.log
 echo -e "User Quota     : ${Quota} GB" | tee -a /etc/log-create-user.log
-#echo -e "User Ip        : ${iplimit} IP" | tee -a /etc/log-create-user.log
+echo -e "User Ip        : ${iplimit} IP" | tee -a /etc/log-create-user.log
 echo -e "Wildcard       : (bug.com).${domain}" | tee -a /etc/log-create-user.log
 echo -e "Port TLS       : 443" | tee -a /etc/log-create-user.log
 echo -e "Port none TLS  : 80" | tee -a /etc/log-create-user.log
