@@ -102,7 +102,7 @@ read -p " CREAT PW (OTOMATIC RANDOM PW) :" uuid
     
 read -p "Expired (days): " masaaktif
 read -p "Limit User (GB): " Quota
-#read -p "Limit User (IP): " iplimit
+read -p "Limit User (IP): " iplimit
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#trojanws$/a\#! '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
@@ -122,12 +122,12 @@ fi
 #echo > /dev/null
 #fi
 
-#if [[ $iplimit -gt 0 ]]; then
-#mkdir -p /etc/kyt/limit/trojan/ip
-#echo -e "$iplimit" > /etc/kyt/limit/trojan/ip/$user
-#else
-#echo > /dev/null
-#fi
+if [[ $iplimit -gt 0 ]]; then
+mkdir -p /etc/kyt/limit/trojan/ip
+echo -e "$iplimit" > /etc/kyt/limit/trojan/ip/$user
+else
+echo > /dev/null
+fi
 
 if [ -z ${Quota} ]; then
 Quota="0"
@@ -143,8 +143,8 @@ DATADB=$(cat /etc/trojan/.trojan.db | grep "^#!" | grep -w "${user}" | awk '{pri
 if [[ "${DATADB}" != '' ]]; then
 sed -i "/\b${user}\b/d" /etc/trojan/.trojan.db
 fi
-#echo "#! ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/trojan/.trojan.db
-echo "#! ${user} ${exp} ${uuid} ${Quota}" >>/etc/trojan/.trojan.db
+echo "#! ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/trojan/.trojan.db
+#echo "#! ${user} ${exp} ${uuid} ${Quota}" >>/etc/trojan/.trojan.db
 clear
 echo -e ""
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
@@ -153,7 +153,7 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-user.log
 echo -e "Host/IP        : ${domain}" | tee -a /etc/log-create-user.log
 echo -e "User Quota     : ${Quota} GB" | tee -a /etc/log-create-user.log
-#echo -e "User Ip        : ${iplimit} IP" | tee -a /etc/log-create-user.log
+echo -e "User Ip        : ${iplimit} IP" | tee -a /etc/log-create-user.log
 echo -e "Wildcard       : (bug.com).${domain}" | tee -a /etc/log-create-user.log
 echo -e "Port TLS       : 443" | tee -a /etc/log-create-user.log
 echo -e "Port none TLS  : 80" | tee -a /etc/log-create-user.log
