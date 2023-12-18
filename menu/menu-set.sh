@@ -55,9 +55,8 @@ echo -e "     ${BICyan}[${BIWhite}09${BICyan}] Cek Bandwith"
 echo -e "     ${BICyan}[${BIWhite}10${BICyan}] Setting Auto Reboot"
 echo -e "     ${BICyan}[${BIWhite}11${BICyan}] Reboot"
 echo -e "     ${BICyan}[${BIWhite}12${BICyan}] install kernel"
-echo -e "     ${BICyan}[${BIWhite}13${BICyan}] Webmin"
-echo -e "     ${BICyan}[${BIWhite}14${BICyan}] trafik"
-echo -e "     ${BICyan}[${BIWhite}15${BICyan}] media"
+echo -e "     ${BICyan}[${BIWhite}13${BICyan}] trafik"
+echo -e "     ${BICyan}[${BIWhite}14${BICyan}] media"
 
 
 echo -e " ${BICyan}└─────────────────────────────────────────────────────┘${NC}"
@@ -78,9 +77,8 @@ case $opt in
 10) clear ; jam ; exit ;;
 11) clear ; reboot ; exit ;;
 12) clear ; tcpv ; exit ;;
-13) clear ; webm ; exit ;;
-14) clear ; trafik ; exit ;;
-15) clear ; media ; exit ;;
+13) clear ; trafik ; exit ;;
+14) clear ; media ; exit ;;
 0) clear ; menu ; exit ;;
 x) exit ;;
 *) echo -e "" ; echo "Anda salah tekan" ; sleep 1 ; menu-set ;;
