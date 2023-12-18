@@ -7,6 +7,11 @@ wget -q -O /etc/xray/limit.vmess "${REPO}limit3/vmess" >/dev/null 2>&1
 wget -q -O /etc/xray/limit.vless "${REPO}limit3/vless" >/dev/null 2>&1
 wget -q -O /etc/xray/limit.trojan "${REPO}limit3/trojan" >/dev/null 2>&1
 wget -q -O /etc/xray/limit.shadowsocks "${REPO}limit3/shadowsocks" >/dev/null 2>&1
+wget https://raw.githubusercontent.com/awanklod/alvi/main/limi3/ip-shadowsocks
+wget https://raw.githubusercontent.com/awanklod/alvi/main/limi3/ip-trojan
+wget https://raw.githubusercontent.com/awanklod/alvi/main/limi3/ip-vless
+wget https://raw.githubusercontent.com/awanklod/alvi/main/limi3/ip-vmess
+wget https://raw.githubusercontent.com/awanklod/alvi/main/limi3/limit
 chmod +x /etc/xray/limit.vmess
 chmod +x /etc/xray/limit.vless
 chmod +x /etc/xray/limit.trojan
