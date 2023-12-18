@@ -74,7 +74,7 @@ user=trial-vm`</dev/urandom tr -dc 0-9 | head -c4`
 uuid=$(cat /proc/sys/kernel/random/uuid)
 masaaktif=1
 Quota=5
-#iplimit=1
+iplimit=1
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#vmess$/a\#vm# '"$user $exp"'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
@@ -144,12 +144,12 @@ fi
 #echo > /dev/null
 #fi
 
-#if [[ $iplimit -gt 0 ]]; then
-#mkdir -p /etc/kyt/limit/vmess/ip
-#echo -e "$iplimit" > /etc/kyt/limit/vmess/ip/$user
-#else
-#echo > /dev/null
-#fi
+if [[ $iplimit -gt 0 ]]; then
+mkdir -p /etc/kyt/limit/vmess/ip
+echo -e "$iplimit" > /etc/kyt/limit/vmess/ip/$user
+else
+echo > /dev/null
+fi
 
 if [ -z ${Quota} ]; then
 Quota="0"
@@ -165,8 +165,8 @@ DATADB=$(cat /etc/vmess/.vmess.db | grep "^#vm#" | grep -w "${user}" | awk '{pri
 if [[ "${DATADB}" != '' ]]; then
 sed -i "/\b${user}\b/d" /etc/vmess/.vmess.db
 fi
-echo "#vm# ${user} ${exp} ${uuid} ${Quota}" >>/etc/vmess/.vmess.db
-#echo "#vm# ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vmess/.vmess.db
+#echo "#vm# ${user} ${exp} ${uuid} ${Quota}" >>/etc/vmess/.vmess.db
+echo "#vm# ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vmess/.vmess.db
 clear
 
 
@@ -176,7 +176,7 @@ echo -e "${CYAN}╘════════════════════�
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
 echo -e "User Quota     : ${Quota} GB"
-#echo -e "User Ip        : ${iplimit} IP"
+echo -e "User Ip        : ${iplimit} IP"
 echo -e "Wildcard       : (bug.com).${domain}"
 echo -e "Port TLS       : 443"
 echo -e "Port none TLS  : 80"
