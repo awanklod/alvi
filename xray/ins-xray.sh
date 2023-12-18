@@ -696,6 +696,8 @@ wget -O cek-ssws2 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek
 #wget -O cek-ssws3 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-ssws3" && chmod +x cek-ssws3
 wget -O quotashadowsocks "https://raw.githubusercontent.com/awanklod/alvi/main/xray/quotashadowsocks.sh" && chmod +x quotashadowsocks
 
+#Sistem Tambahan
+wget -O menu-tambah "https://raw.githubusercontent.com/Andyyuda/begeg/main/menu-tambah.sh" && chmod +x menu-tambah
 
 sleep 1
 yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
