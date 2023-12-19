@@ -697,11 +697,11 @@ wget -O cek-ssws2 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek
 wget -O quotashadowsocks "https://raw.githubusercontent.com/awanklod/alvi/main/xray/quotashadowsocks.sh" && chmod +x quotashadowsocks
 
 #Sistem Tambahan
-wget -O ip-shadowsocks "https://raw.githubusercontent.com/awanklod/alvi/main/limit3/ip-shadowsocks" && chmod +x ip-shadowsocks
-wget -O ip-trojan "https://raw.githubusercontent.com/awanklod/alvi/main/limit3/ip-trojan" && chmod +x ip-trojan
-wget -O ip-vless "https://raw.githubusercontent.com/awanklod/alvi/main/limit3/ip-vless" && chmod +x ip-vless
-wget -O ip-vmess "https://raw.githubusercontent.com/awanklod/alvi/main/limit3/ip-vmess" && chmod +x ip-vmess
-wget -O limit "https://raw.githubusercontent.com/awanklod/alvi/main/limit3/limit" && chmod +x limit
+#wget -O ip-shadowsocks "https://raw.githubusercontent.com/awanklod/alvi/main/limit3/ip-shadowsocks" && chmod +x ip-shadowsocks
+#wget -O ip-trojan "https://raw.githubusercontent.com/awanklod/alvi/main/limit3/ip-trojan" && chmod +x ip-trojan
+#wget -O ip-vless "https://raw.githubusercontent.com/awanklod/alvi/main/limit3/ip-vless" && chmod +x ip-vless
+#wget -O ip-vmess "https://raw.githubusercontent.com/awanklod/alvi/main/limit3/ip-vmess" && chmod +x ip-vmess
+#wget -O limit "https://raw.githubusercontent.com/awanklod/alvi/main/limit3/limit" && chmod +x limit
 
 sleep 1
 yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
