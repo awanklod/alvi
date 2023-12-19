@@ -69,7 +69,7 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^#ss# " "/etc/shadowsocks/.shadowsocks.db")
         if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
                 clear
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
-echo -e "${BIWhite}             ⇱ SHADOWSOCKS MENU ⇲           ${NC}"
+echo -e "${BIWhite}               ⇱ shadowsocks MENU ⇲            ${NC}"
 echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
                 echo ""
                 echo "You have no existing clients!"
@@ -82,7 +82,7 @@ echo -e "${CYAN}╘════════════════════�
 
         clear
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
-echo -e "${BIWhite}             ⇱ SHADOWSOCKS MENU ⇲           ${NC}"
+echo -e "${BIWhite}               ⇱ shadowsocks MENU ⇲            ${NC}"
 echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
     echo ""
         grep -E "^#ss# " "/etc/shadowsocks/.shadowsocks.db" | cut -d ' ' -f 2 | column -t | sort | uniq
