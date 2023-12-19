@@ -44,7 +44,8 @@ echo -e "${BICyan}[${BIWhite}02${BICyan}]${RED} • ${NC}${BIWhite}TRIAL SHADOWS
 echo -e "${BICyan}[${BIWhite}03${BICyan}]${RED} • ${NC}${BIWhite}EXTEND SHADOWSOCKS  $NC"
 echo -e "${BICyan}[${BIWhite}04${BICyan}]${RED} • ${NC}${BIWhite}DELETE SHADOWSOCKS  $NC"
 echo -e "${BICyan}[${BIWhite}05${BICyan}]${RED} • ${NC}${BIWhite}EDIT QUOTA SHADOWSOCKS  $NC"
-echo -e "${BICyan}[${BIWhite}06${BICyan}]${RED} • ${NC}${BIWhite}CHECK SHADOWSOCKS 2  $NC"
+echo -e "${BICyan}[${BIWhite}06${BICyan}]${RED} • ${NC}${BIWhite}EDIT IP SHADOWSOCKS  $NC"
+echo -e "${BICyan}[${BIWhite}07${BICyan}]${RED} • ${NC}${BIWhite}CHECK SHADOWSOCKS 2  $NC"
 #echo -e "${BICyan}[${BIWhite}07${BICyan}]${RED} • ${NC}${BIWhite}CHECK SHADOWSOCKS 3  $NC"
 echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
 echo -e ""
@@ -62,7 +63,8 @@ case $opt in
 3) clear ; renew-ssws ;;
 4) clear ; del-ssws ;;
 5) clear ; quotashadowsocks ;;
-6) clear ; cek-ssws2 ;;
+6) clear ; editip-shadowsocks ;;
+7) clear ; cek-ssws2 ;;
 #7) clear ; cek-ssws3 ;;
 
 0) clear ; menu ;;
