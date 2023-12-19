@@ -27,7 +27,7 @@ sleep 4
 function vlip(){
 #LIMITVLESSIP
 echo -n > /tmp/other.txt
-data=( `cat /etc/xray/config.json | grep '#vm#' | cut -d ' ' -f 2 | sort | uniq`);
+data=( `cat /etc/xray/config.json | grep '#&' | cut -d ' ' -f 2 | sort | uniq`);
 sleep 4
     for user in "${data[@]}"
     do
@@ -51,9 +51,9 @@ sleep 4
 }
 function trip(){
 #LIMITIPTROJAN
-echo -n > /var/log/xray/access.log
+echo -n > /tmp/other.txt
+data=( `cat /etc/xray/config.json | grep '#!' | cut -d ' ' -f 2 | sort | uniq`);
 sleep 4
-data=( `ls /etc/kyt/limit/trojan/ip`);
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/trojan/ip/$user)
@@ -76,10 +76,9 @@ data=( `ls /etc/kyt/limit/trojan/ip`);
 }
 function shdip(){
 #LIMITIPSHADOWSOCKS
-echo -n > /var/log/xray/access.log
+echo -n > /tmp/other.txt
+data=( `cat /etc/xray/config.json | grep '#ss#' | cut -d ' ' -f 2 | sort | uniq`);
 sleep 4
-data=( `ls /etc/kyt/limit/shadowsocks/ip`);
-#Decrypted By YADDY D PHREAKER
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/shadowsocks/ip/$user)
