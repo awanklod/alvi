@@ -79,12 +79,10 @@ function con() {
     fi
 }
 echo -n > /tmp/other.txt
-data=( `cat /etc/xray/config.json | grep '^#ss#' | cut -d ' ' -f 2 | sort | uniq`);
-echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e " \e[1;97;101m     SHADOWSCKS USER LOGIN ACCOUNT      \E[0m"
-echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "   User"     "        Last Login"     "  Usage"   " Total IP"
-echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
+data=( `cat /etc/xray/config.json | grep '#ss#' | cut -d ' ' -f 2 | sort | uniq`);
+echo -e "  ${OR}──────────────────────────────────────${NC}"
+echo -e "       ${grenbo} .::.${NC}${gg} USER LOGIN shadowsocks ${grenbo}.::.${NC}"
+echo -e "  ${OR}──────────────────────────────────────${NC}"
 for akun in "${data[@]}"
 do
 if [[ -z "$akun" ]]; then
@@ -107,22 +105,27 @@ jum=$(cat /tmp/ipshadowsocks.txt)
 if [[ -z "$jum" ]]; then
 echo > /dev/null
 else
+iplimit=$(cat /etc/kyt/limit/shadowsocks/ip/${akun})
 jum2=$(cat /tmp/ipshadowsocks.txt | wc -l)
 byte=$(cat /etc/shadowsocks/${akun})
 lim=$(con ${byte})
 wey=$(cat /etc/limit/shadowsocks/${akun})
 gb=$(con ${wey})
 lastlogin=$(cat /var/log/xray/access.log | grep -w "$akun" | tail -n 500 | cut -d " " -f 2 | tail -1)
-printf "  %-13s %-7s %-8s %2s\n"   "${akun}" "$lastlogin"  " ${gb}/${lim}"   "$jum2";
+echo -e " \033[1;36m┌──────────────────────────────────────┐\033[0m"
+printf "  %-13s %-7s %-8s %2s\n" "  Username    : ${akun}"
+printf "  %-13s %-7s %-8s %2s\n" "  Lastlogin   : $lastlogin"
+printf "  %-13s %-7s %-8s %2s\n" "  Usage Quota : ${gb}" 
+printf "  %-13s %-7s %-8s %2s\n" "  Limit Quota : ${lim}" 
+printf "  %-13s %-7s %-8s %2s\n" "  Limit IP    : $iplimit" 
+printf "  %-13s %-7s %-8s %2s\n" "  User Login  : $jum2" 
+echo -e " \033[1;36m└──────────────────────────────────────┘\033[0m"
 fi 
 rm -rf /tmp/ipshadowsocks.txt
 done
 rm -rf /tmp/other.txt
 echo ""
-echo -e "${CYAN}╒════════════════════════════════════════╕${NC}"
-echo -e "${BIWhite}          ⇱ SCRIPT BY CLOUDVPN ⇲         ${NC}"
-echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
+echo -e "  ${OR}──────────────────────────────────────${NC}"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
-
 menu-ssws
