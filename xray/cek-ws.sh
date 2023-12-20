@@ -66,18 +66,7 @@ exit 0
 fi
 
 clear
-function con() {
-    local -i bytes=$1;
-    if [[ $bytes -lt 1024 ]]; then
-        echo "${bytes}B"
-    elif [[ $bytes -lt 1048576 ]]; then
-        echo "$(( (bytes + 1023)/1024 ))KB"
-    elif [[ $bytes -lt 1073741824 ]]; then
-        echo "$(( (bytes + 1048575)/1048576 ))MB"
-    else
-        echo "$(( (bytes + 1073741823)/1073741824 ))GB"
-    fi
-}
+
 echo -n > /tmp/other.txt
 data=( `cat /etc/xray/config.json | grep '^#vm#' | cut -d ' ' -f 2`);
 echo "----------------------------------------";
