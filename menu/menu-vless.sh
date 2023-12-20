@@ -119,6 +119,7 @@ echo -e "${BICyan}[${BIWhite}04${BICyan}] Delete Account XRAY Vless Websocket   
 echo -e "${BICyan}[${BIWhite}05${BICyan}] Edit Quota Vless     "
 echo -e "${BICyan}[${BIWhite}06${BICyan}] Edit ip Vless     "
 echo -e "${BICyan}[${BIWhite}07${BICyan}] Check User  Vless     "
+echo -e "${BICyan}[${BIWhite}08${BICyan}] Check login  Vless     "
 #echo -e "     ${BICyan}[${BIWhite}07${BICyan}] Check User  Vless 02    "
 echo -e "${BIWhite}╘════════════════════════════════════════╛${NC}"
 echo -e "     ${BIYellow}Press x or [ Ctrl+C ] • To-${BIWhite}Exit${NC}"
@@ -133,7 +134,7 @@ case $opt in
 5) clear ; quotavless ; exit ;;
 6) clear ; editip-vless ; exit ;;
 7) clear ; cek-vless2 ; exit ;;
-
+8) clear ; cek-vless ; exit ;;
 0) clear ; menu ; exit ;;
 x) exit ;;
 *) echo "Anda salah tekan " ; sleep 1 ; menu-ssh ;;
