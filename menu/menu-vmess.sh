@@ -118,6 +118,7 @@ echo -e "${BICyan}[${BIWhite}04${BICyan}] Delete Account XRAY Vmess Websocket  "
 echo -e "${BICyan}[${BIWhite}05${BICyan}] Edit Quota Vmess     "
 echo -e "${BICyan}[${BIWhite}06${BICyan}] Edit ip Vmess     "
 echo -e "${BICyan}[${BIWhite}07${BICyan}] Check User Vmess     "
+echo -e "${BICyan}[${BIWhite}08${BICyan}] Check login Vmess     "
 #echo -e "     ${BICyan}[${BIWhite}07${BICyan}] Check User Vmess 02     "
 echo -e "${BIWhite}╘════════════════════════════════════════╛${NC}"
 echo -e "     ${BIYellow}Press x or [ Ctrl+C ] • To-${BIWhite}Exit${NC}"
@@ -132,7 +133,7 @@ case $opt in
 5) clear ; quotavmess ; exit ;;
 6) clear ; editip-vmess ; exit ;;
 7) clear ; cek-ws2 ; exit ;;
-#7) clear ; cek-ws3 ; exit ;;
+8) clear ; cek-ws ; exit ;;
 
 0) clear ; menu ; exit ;;
 x) exit ;;
