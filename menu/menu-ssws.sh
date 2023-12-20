@@ -45,8 +45,8 @@ echo -e "${BICyan}[${BIWhite}03${BICyan}]${RED} • ${NC}${BIWhite}EXTEND SHADOW
 echo -e "${BICyan}[${BIWhite}04${BICyan}]${RED} • ${NC}${BIWhite}DELETE SHADOWSOCKS  $NC"
 echo -e "${BICyan}[${BIWhite}05${BICyan}]${RED} • ${NC}${BIWhite}EDIT QUOTA SHADOWSOCKS  $NC"
 echo -e "${BICyan}[${BIWhite}06${BICyan}]${RED} • ${NC}${BIWhite}EDIT IP SHADOWSOCKS  $NC"
-echo -e "${BICyan}[${BIWhite}07${BICyan}]${RED} • ${NC}${BIWhite}CHECK SHADOWSOCKS 2  $NC"
-#echo -e "${BICyan}[${BIWhite}07${BICyan}]${RED} • ${NC}${BIWhite}CHECK SHADOWSOCKS 3  $NC"
+echo -e "${BICyan}[${BIWhite}07${BICyan}]${RED} • ${NC}${BIWhite}CHECK SHADOWSOCKS   $NC"
+echo -e "${BICyan}[${BIWhite}08${BICyan}]${RED} • ${NC}${BIWhite}CHECK login SHADOWSOCKS   $NC"
 echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
 echo -e ""
 echo -e "${BICyan}[${BIWhite}0 ${BICyan}]${RED} • ${NC}${CYAN}BACK MENU $NC"
@@ -65,7 +65,7 @@ case $opt in
 5) clear ; quotashadowsocks ;;
 6) clear ; editip-shadowsocks ;;
 7) clear ; cek-ssws2 ;;
-#7) clear ; cek-ssws3 ;;
+8) clear ; cek-ssws ;;
 
 0) clear ; menu ;;
 x) exit ;;
