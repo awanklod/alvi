@@ -65,7 +65,7 @@ red "Permission Denied!"
 exit 0
 fi
 clear
-NUMBER_OF_CLIENTS=$(grep -c -E "^#vmn# " "/etc/vmess/.vmess.db")
+NUMBER_OF_CLIENTS=$(grep -c -E "^#vm# " "/etc/vmess/.vmess.db")
         if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
                 clear
         echo -e "\033[0;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
