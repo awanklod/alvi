@@ -1,8 +1,8 @@
 #!/bin/bash
 function vmip(){
 #LIMITVMESSIP
-echo -n > /tmp/other.txt
-data=( `cat /etc/xray/config.json | grep '#vm#' | cut -d ' ' -f 2 | sort | uniq`);
+echo -n > /var/log/xray/access.log
+data=( `ls /etc/kyt/limit/vmess/ip`);
 sleep 4
     for user in "${data[@]}"
     do
@@ -26,8 +26,8 @@ sleep 4
 }
 function vlip(){
 #LIMITVLESSIP
-echo -n > /tmp/other.txt
-data=( `cat /etc/xray/config.json | grep '#&' | cut -d ' ' -f 2 | sort | uniq`);
+echo -n > /var/log/xray/access.log
+data=( `ls /etc/kyt/limit/vless/ip`);
 sleep 4
     for user in "${data[@]}"
     do
@@ -51,8 +51,8 @@ sleep 4
 }
 function trip(){
 #LIMITIPTROJAN
-echo -n > /tmp/other.txt
-data=( `cat /etc/xray/config.json | grep '#!' | cut -d ' ' -f 2 | sort | uniq`);
+echo -n > /var/log/xray/access.log
+data=( `ls /etc/kyt/limit/trojan/ip`);
 sleep 4
     for user in "${data[@]}"
     do
@@ -76,8 +76,8 @@ sleep 4
 }
 function shdip(){
 #LIMITIPSHADOWSOCKS
-echo -n > /tmp/other.txt
-data=( `cat /etc/xray/config.json | grep '#ss#' | cut -d ' ' -f 2 | sort | uniq`);
+echo -n > /var/log/xray/access.log
+data=( `ls /etc/kyt/limit/shadowsocks/ip`);
 sleep 4
     for user in "${data[@]}"
     do
