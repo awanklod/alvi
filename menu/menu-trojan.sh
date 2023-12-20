@@ -119,7 +119,7 @@ echo -e "     ${BICyan}[${BIWhite}04${BICyan}] Delete Account Trojan     "
 echo -e "     ${BICyan}[${BIWhite}05${BICyan}] EDIT QUOTA Trojan     "
 echo -e "     ${BICyan}[${BIWhite}06${BICyan}] EDIT IP Trojan     "
 echo -e "     ${BICyan}[${BIWhite}07${BICyan}] Check User Trojan     "
-#echo -e "     ${BICyan}[${BIWhite}07${BICyan}] Check User Trojan 02     "
+echo -e "     ${BICyan}[${BIWhite}08${BICyan}] Check login Trojan      "
 echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
 echo -e "     ${BIYellow}Press x or [ Ctrl+C ] • To-${BIWhite}Exit${NC}"
 echo ""
@@ -133,7 +133,7 @@ case $opt in
 5) clear ; quotatrojan ;;
 6) clear ; editip-trojan ;;
 7) clear ; cek-tr2 ;;
-#7) clear ; cek-tr3 ;;
+8) clear ; cek-tr ;;
 
 0) clear ; menu ;;
 x) exit ;;
