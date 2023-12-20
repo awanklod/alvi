@@ -2,8 +2,8 @@
 function vmip(){
 #LIMITVMESSIP
 echo -n > /var/log/xray/access.log
-data=( `ls /etc/kyt/limit/vmess/ip`);
 sleep 4
+data=( `ls /etc/kyt/limit/vmess/ip`);
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/vmess/ip/$user)
@@ -27,8 +27,8 @@ sleep 4
 function vlip(){
 #LIMITVLESSIP
 echo -n > /var/log/xray/access.log
-data=( `ls /etc/kyt/limit/vless/ip`);
 sleep 4
+data=( `ls /etc/kyt/limit/vless/ip`);
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/vless/ip/$user)
@@ -52,8 +52,8 @@ sleep 4
 function trip(){
 #LIMITIPTROJAN
 echo -n > /var/log/xray/access.log
-data=( `ls /etc/kyt/limit/trojan/ip`);
 sleep 4
+data=( `ls /etc/kyt/limit/trojan/ip`);
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/trojan/ip/$user)
@@ -77,8 +77,8 @@ sleep 4
 function shdip(){
 #LIMITIPSHADOWSOCKS
 echo -n > /var/log/xray/access.log
-data=( `ls /etc/kyt/limit/shadowsocks/ip`);
 sleep 4
+data=( `ls /etc/kyt/limit/shadowsocks/ip`);
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/shadowsocks/ip/$user)
