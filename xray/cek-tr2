@@ -78,8 +78,8 @@ function con() {
         echo "$(( (bytes + 1073741823)/1073741824 ))GB"
     fi
 }
-echo -n > /tmp/other.txt
-data=( `cat /etc/xray/config.json | grep '#!' | cut -d ' ' -f 2 | sort | uniq`);
+echo -n > /var/log/xray/access.log
+data=( `ls /etc/kyt/limit/trojan/ip`);
 echo -e "  ${OR}──────────────────────────────────────${NC}"
 echo -e "       ${grenbo} .::.${NC}${gg} USER LOGIN trojan ${grenbo}.::.${NC}"
 echo -e "  ${OR}──────────────────────────────────────${NC}"
