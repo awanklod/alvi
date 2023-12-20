@@ -78,8 +78,8 @@ function con() {
         echo "$(( (bytes + 1073741823)/1073741824 ))GB"
     fi
 }
-echo -n > /var/log/xray/access.log
-data=( `ls /etc/kyt/limit/vless/ip`);
+echo -n > /tmp/other.txt
+data=( `cat /etc/xray/config.json | grep '#&' | cut -d ' ' -f 2 | sort | uniq`);
 echo -e "  ${OR}──────────────────────────────────────${NC}"
 echo -e "       ${grenbo} .::.${NC}${gg} USER LOGIN vless ${grenbo}.::.${NC}"
 echo -e "  ${OR}──────────────────────────────────────${NC}"
