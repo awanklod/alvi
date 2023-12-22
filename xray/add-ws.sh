@@ -193,17 +193,13 @@ if [ ! -e /etc/vmess ]; then
 mkdir -p /etc/vmess
 fi
 
-if [[ $quota -gt 0 ]]; then
-echo -e "$[$quota * 1024 * 1024 * 1024]" > /etc/kyt/limit/vmess/quota/$user
-else
-echo > /dev/null
-fi
+#if [[ $quota -gt 0 ]]; then
+#echo -e "$[$quota * 1024 * 1024 * 1024]" > /etc/kyt/limit/vmess/quota/$user
+#else
+#echo > /dev/null
+#fi
 
-if [[ $iplimit -gt 0 ]]; then
-echo -e "$iplimit" > /etc/kyt/limit/vmess/ip/$user
-else
-echo > /dev/null
-fi
+
 
 if [[ $iplimit -gt 0 ]]; then
 mkdir -p /etc/kyt/limit/vmess/ip
