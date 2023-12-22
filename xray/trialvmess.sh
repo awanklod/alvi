@@ -134,29 +134,29 @@ vmesslink2="vmess://$(echo $ask | base64 -w 0)"
 vmesslink3="vmess://$(echo $grpc | base64 -w 0)"
 systemctl restart xray > /dev/null 2>&1
 service cron restart > /dev/null 2>&1
-if [ ! -e /etc/vmess ]; then
-  mkdir -p /etc/vmess
-fi
-if [ -z ${iplimit} ]; then
-  iplimit="0"
-fi
-if [ -z ${Quota} ]; then
-  Quota="0"
-fi
-c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
-d=$((${c} * 1024 * 1024 * 1024))
-if [[ ${c} != "0" ]]; then
-  echo "${d}" >/etc/vmess/${user}
-  echo "${iplimit}" >/etc/kyt/limit/vmess/ip/$user
-fi
-DATADB=$(cat /etc/vmess/.vmess.db | grep "^#vm#" | grep -w "${user}" | awk '{print $2}')
-if [[ "${DATADB}" != '' ]]; then
-  sed -i "/\b${user}\b/d" /etc/vmess/.vmess.db
-fi
-echo "#vm# ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vmess/.vmess.db
 #if [ ! -e /etc/vmess ]; then
-#mkdir -p /etc/vmess
+#  mkdir -p /etc/vmess
 #fi
+#if [ -z ${iplimit} ]; then
+#  iplimit="0"
+#fi
+#if [ -z ${Quota} ]; then
+#  Quota="0"
+#fi
+#c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
+#d=$((${c} * 1024 * 1024 * 1024))
+#if [[ ${c} != "0" ]]; then
+#  echo "${d}" >/etc/vmess/${user}
+#  echo "${iplimit}" >/etc/kyt/limit/vmess/ip/$user
+#fi
+#DATADB=$(cat /etc/vmess/.vmess.db | grep "^#vm#" | grep -w "${user}" | awk '{print $2}')
+#if [[ "${DATADB}" != '' ]]; then
+#  sed -i "/\b${user}\b/d" /etc/vmess/.vmess.db
+#fi
+#echo "#vm# ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vmess/.vmess.db
+if [ ! -e /etc/vmess ]; then
+mkdir -p /etc/vmess
+fi
 
 #if [[ $quota -gt 0 ]]; then
 #echo -e "$[$quota * 1024 * 1024 * 1024]" > /etc/kyt/limit/vmess/quota/$user
@@ -164,29 +164,29 @@ echo "#vm# ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vmess/.vmess.db
 #echo > /dev/null
 #fi
 
-#if [[ $iplimit -gt 0 ]]; then
-#mkdir -p /etc/kyt/limit/vmess/ip
-#echo -e "$iplimit" > /etc/kyt/limit/vmess/ip/$user
-#else
-#echo > /dev/null
-#fi
+if [[ $iplimit -gt 0 ]]; then
+mkdir -p /etc/kyt/limit/vmess/ip
+echo -e "$iplimit" > /etc/kyt/limit/vmess/ip/$user
+else
+echo > /dev/null
+fi
 
-#if [ -z ${Quota} ]; then
-#Quota="0"
-#fi
+if [ -z ${Quota} ]; then
+Quota="0"
+fi
 
-#c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
-#d=$((${c} * 1024 * 1024 * 1024))
+c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
+d=$((${c} * 1024 * 1024 * 1024))
 
-#if [[ ${c} != "0" ]]; then
-#echo "${d}" >/etc/vmess/${user}
-#fi
-#DATADB=$(cat /etc/vmess/.vmess.db | grep "^#vm#" | grep -w "${user}" | awk '{print $2}')
-#if [[ "${DATADB}" != '' ]]; then
-#sed -i "/\b${user}\b/d" /etc/vmess/.vmess.db
-#fi
+if [[ ${c} != "0" ]]; then
+echo "${d}" >/etc/vmess/${user}
+fi
+DATADB=$(cat /etc/vmess/.vmess.db | grep "^#vm#" | grep -w "${user}" | awk '{print $2}')
+if [[ "${DATADB}" != '' ]]; then
+sed -i "/\b${user}\b/d" /etc/vmess/.vmess.db
+fi
 #echo "#vm# ${user} ${exp} ${uuid} ${Quota}" >>/etc/vmess/.vmess.db
-#echo "#vm# ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vmess/.vmess.db
+echo "#vm# ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vmess/.vmess.db
 clear
 
 
