@@ -51,11 +51,12 @@ for user in ${data[@]}
       if [[ ${#checkLimit} -gt 1 ]]; then
       if [ -e /etc/limit/trojan/${user} ]; then
       Usage=$(cat /etc/limit/trojan/${user});
+      total=$(con ${Usage})
+      total2=$(con ${checkLimit})
       if [[ ${Usage} -gt ${checkLimit} ]]; then
       exp=$(grep -w "^#! $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
       sed -i "/^#! $user $exp/,/^},{/d" /etc/xray/config.json
       sed -i "/^#! $user $exp/d" /etc/trojan/.trojan.db
-       total=$(con ${Usage})
        send-log
        rm -f /etc/limit/trojan/$user
        rm -f /etc/limit/trojan/quota/$user
