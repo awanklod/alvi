@@ -19,7 +19,7 @@ Restart=always
 
 [Install]
 WantedBy=multi-user.target
-#EOF
+EOF
 systemctl daemon-reload
 systemctl restart vmip
 systemctl enable vmip
