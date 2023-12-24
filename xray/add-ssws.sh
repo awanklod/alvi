@@ -120,10 +120,10 @@ clear
 #echo "   Username : $user"
 #until [[ $masaaktif =~ ^[0-9]+$ ]]; do
 #  read -p "   Expired (days): " masaaktif
-3done
+#done
 #until [[ $Quota =~ ^[0-9]+$ ]]; do
 #  read -p "   Limit User (GB): " Quota
-3done
+#done
 #until [[ $iplimit =~ ^[0-9]+$ ]]; do
 #  mkdir -p /etc/kyt/limit/shadowsocks/ip
 #  read -p "   Limit User (IP): " iplimit
