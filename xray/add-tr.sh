@@ -144,7 +144,7 @@ systemctl restart xray
 #fi
 
 #if [ -z ${Quota} ]; then
-  Quota="0"
+  #Quota="0"
 #fi
 #if [ -z ${iplimit} ]; then
 #  iplimit="0"
