@@ -80,9 +80,9 @@ function con() {
 }
 echo -n > /tmp/other.txt
 data=( `cat /etc/xray/config.json | grep '#ss#' | cut -d ' ' -f 2 | sort | uniq`);
-echo -e "  ${OR}──────────────────────────────────────${NC}"
-echo -e "       ${grenbo} .::.${NC}${gg} USER LOGIN shadowsocks ${grenbo}.::.${NC}"
-echo -e "  ${OR}──────────────────────────────────────${NC}"
+echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e " \e[1;97;101m           CEK SSWS ACCOUNT           \e[0m"
+echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 for akun in "${data[@]}"
 do
 if [[ -z "$akun" ]]; then
