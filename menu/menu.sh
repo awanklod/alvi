@@ -272,17 +272,16 @@ datediff() {
 echo -e " ${BIPurple}  ║  DAYS LEFT    ${NC} : ${IYellow}$(( (d1 - d2) / 86400 )) Days $NC"
 }
 mai="datediff "$Exp" "$DATE""
-echo -e " ${BIPurple}  ╔═══════════════════════════════════════════════${NC}"
-echo -e " ${BIPurple}  ║  OWNER SCRIPT ${NC} : ${BIRed}CLOUDVPN${NC}"  
-echo -e " ${BIPurple}  ║  User ORDER   ${NC} : ${IYellow}$Name${NC}"
-echo -e " ${BIPurple}  ║  Date EXP     ${NC} : ${BIRed}$Exp${NC}"
+echo -e " ${BIRed}  ╔═══════════════════════════════════════════════${NC}"
+echo -e " ${BIRed}  ║  User ORDER   ${NC} : ${IWhite}$Name${NC}"
+echo -e " ${BIRed}  ║  Date EXP     ${NC} : ${IWhite}$Exp${NC}"
 if [ $exp \< 1000 ]; 
 then
-echo -e " ${IWhite}│$NC     License      : ${IBlue}$sisa_hari$NC Days Tersisa $NC"
+echo -e " ${BIRed}│$NC     License      : ${IWhite}$sisa_hari$NC Days Tersisa $NC"
 else
     datediff "$Exp" "$DATE"
 fi;
-echo -e " ${BIPurple}  ╚═══════════════════════════════════════════════${NC}"
+echo -e " ${BIRed}  ╚═══════════════════════════════════════════════${NC}"
 echo -e "\e[36m            ╔══════════════════════════╗\033[0m"
 echo -e "${BIWhite}             SSH/UDP/DNS    :${NC} $ssh1 ACCOUNT"
 echo -e "${BIWhite}             SOCKS/WS/WSS   :${NC} $ssa ACCOUNT"
@@ -296,15 +295,15 @@ echo -e "${BIBlack}╚═══════════════════�
 #echo -e "     ${BICyan} SSH ${NC}: $ressh"" ${BICyan} NGINX ${NC}: $resngx"" ${BICyan}  XRAY ${NC}: $resv2r"" ${BICyan} TROJAN ${NC}: $resv2r"
 #echo -e "   ${BICyan}     STUNNEL4 ${NC}: $resst" "${BICyan} DROPBEAR ${NC}: $resdbr" "${BICyan} SSH-WS ${NC}: $ressshws"
 
-echo -e "${BIPurple}   ╔══════════════════════════════════════════════════════╗${NC}"
-echo -e "     ${BICyan}[${BIWhite}1]${red}🌦 SSH    " "  ${BICyan}[${BIWhite}6]${red}🌦 SETTING  " " ${BICyan}[${BIWhite}11${red}]🌦 SET REBOOT"
-echo -e "     ${BICyan}[${BIWhite}2]${red}🌦 VMESS  " "  ${BICyan}[${BIWhite}7]${red}🌦 TRIAL    " " ${BICyan}[${BIWhite}12${red}]🔐 SET PW VPS"
-echo -e "     ${BICyan}[${BIWhite}3]${red}🌦 VLESS  " "  ${BICyan}[${BIWhite}8]${red}🌦 BACKUP   " " ${BICyan}[${BIWhite}13${red}]🌦 UPDATE SC "
-echo -e "     ${BICyan}[${BIWhite}4]${red}🌦 TROJAN " "  ${BICyan}[${BIWhite}9]${red}🌦 ADD-HOST " " ${BICyan}[${BIWhite}99${red}]🌦 CLEAR SAMPAH"
-echo -e "     ${BICyan}[${BIWhite}5]${red}🌦 SHDSCK " "  ${BICyan}[${BIWhite}10]${red}🌦 RUNNING"
+echo -e "${BIYellow}   ╔══════════════════════════════════════════════════════╗${NC}"
+echo -e "     ${BIYellow}[${BIWhite}1]${red}🌦 SSH    " "  ${BICyan}[${BIWhite}6]${red}🌦 SETTING  " " ${BICyan}[${BIWhite}11${red}]🌦 SET REBOOT"
+echo -e "     ${BIYellow}[${BIWhite}2]${red}🌦 VMESS  " "  ${BICyan}[${BIWhite}7]${red}🌦 TRIAL    " " ${BICyan}[${BIWhite}12${red}]🔐 SET PW VPS"
+echo -e "     ${BIYellow}[${BIWhite}3]${red}🌦 VLESS  " "  ${BICyan}[${BIWhite}8]${red}🌦 BACKUP   " " ${BICyan}[${BIWhite}13${red}]🌦 UPDATE SC "
+echo -e "     ${BIYellow}[${BIWhite}4]${red}🌦 TROJAN " "  ${BICyan}[${BIWhite}9]${red}🌦 ADD-HOST " " ${BICyan}[${BIWhite}99${red}]🌦 CLEAR SAMPAH"
+echo -e "     ${BIYellow}[${BIWhite}5]${red}🌦 SHDSCK " "  ${BICyan}[${BIWhite}10]${red}🌦 RUNNING"
 echo -e "${BIPurple}   ╚══════════════════════════════════════════════════════╝${NC}"
 echo -e "${BIBlack} ╔═════════════════════════════════════════════════════╗${NC}"
-echo -e "${BIBlack} ║$NC ${BICyan}TODAY${NC}: ${red}$ttoday$NC ${BICyan}YESTERDAY${NC}: ${red}$tyest$NC ${BICyan}MONTHLY${NC}: ${red}$tmon$NC $NC"
+echo -e "${BIBlack} ║$NC ${IWhite}TODAY${NC}: ${red}$ttoday$NC ${IWhite}YESTERDAY${NC}: ${red}$tyest$NC ${IWhite}MONTHLY${NC}: ${red}$tmon$NC $NC"
 echo -e "${BIBlack} ╚═════════════════════════════════════════════════════╝${NC}"
 echo
 read -p " Choose menu Leader : " opt
