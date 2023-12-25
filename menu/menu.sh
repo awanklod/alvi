@@ -269,7 +269,7 @@ DATE=$(date +'%d %B %Y')
 datediff() {
     d1=$(date -d "$1" +%s)
     d2=$(date -d "$2" +%s)
-echo -e " ${BIPurple}  ║  DAYS LEFT    ${NC} : ${IYellow}$(( (d1 - d2) / 86400 )) Days $NC"
+echo -e " ${BIRed}  ║  DAYS LEFT    ${NC} : ${IYellow}$(( (d1 - d2) / 86400 )) Days $NC"
 }
 mai="datediff "$Exp" "$DATE""
 echo -e " ${BIRed}  ╔═══════════════════════════════════════════════${NC}"
@@ -301,7 +301,7 @@ echo -e "     ${BIYellow}[${BIWhite}2]${red}🌦 VMESS  " "  ${BICyan}[${BIWhite
 echo -e "     ${BIYellow}[${BIWhite}3]${red}🌦 VLESS  " "  ${BICyan}[${BIWhite}8]${red}🌦 BACKUP   " " ${BICyan}[${BIWhite}13${red}]🌦 UPDATE SC "
 echo -e "     ${BIYellow}[${BIWhite}4]${red}🌦 TROJAN " "  ${BICyan}[${BIWhite}9]${red}🌦 ADD-HOST " " ${BICyan}[${BIWhite}99${red}]🌦 CLEAR SAMPAH"
 echo -e "     ${BIYellow}[${BIWhite}5]${red}🌦 SHDSCK " "  ${BICyan}[${BIWhite}10]${red}🌦 RUNNING"
-echo -e "${BIPurple}   ╚══════════════════════════════════════════════════════╝${NC}"
+echo -e "${BIYellow}   ╚══════════════════════════════════════════════════════╝${NC}"
 echo -e "${BIBlack} ╔═════════════════════════════════════════════════════╗${NC}"
 echo -e "${BIBlack} ║$NC ${IWhite}TODAY${NC}: ${red}$ttoday$NC ${IWhite}YESTERDAY${NC}: ${red}$tyest$NC ${IWhite}MONTHLY${NC}: ${red}$tmon$NC $NC"
 echo -e "${BIBlack} ╚═════════════════════════════════════════════════════╝${NC}"
