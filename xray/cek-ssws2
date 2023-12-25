@@ -113,12 +113,10 @@ wey=$(cat /etc/limit/shadowsocks/${akun})
 gb=$(con ${wey})
 lastlogin=$(cat /var/log/xray/access.log | grep -w "$akun" | tail -n 500 | cut -d " " -f 2 | tail -1)
 echo -e " \033[1;36m┌──────────────────────────────────────┐\033[0m"
-printf "  %-13s %-7s %-8s %2s\n" "  Username    : ${akun}"
-printf "  %-13s %-7s %-8s %2s\n" "  Lastlogin   : $lastlogin"
-printf "  %-13s %-7s %-8s %2s\n" "  Usage Quota : ${gb}" 
-printf "  %-13s %-7s %-8s %2s\n" "  Limit Quota : ${lim}" 
-printf "  %-13s %-7s %-8s %2s\n" "  Limit IP    : $iplimit" 
-printf "  %-13s %-7s %-8s %2s\n" "  User Login  : $jum2" 
+printf "  %-13s %-7s %-8s %2s\n" "  USERNAME : ${akun}" | lolcat
+printf "  %-13s %-7s %-8s %2s\n" "  LOGIN    : $lastlogin" | lolcat 
+printf "  %-13s %-7s %-8s %2s\n" "  LIMIT GB : ${gb}/${lim}" | lolcat  
+printf "  %-13s %-7s %-8s %2s\n" "  LIMIT IP : $jum2/$iplimit" | lolcat;
 echo -e " \033[1;36m└──────────────────────────────────────┘\033[0m"
 fi 
 rm -rf /tmp/ipshadowsocks.txt
