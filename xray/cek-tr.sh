@@ -19,7 +19,7 @@ grenbo="\e[92;1m"
 clear
 
 echo -n >/tmp/other.txt
-data=($(cat /etc/xray/config.json | grep '^#&' | cut -d ' ' -f 2 | sort | uniq))
+data=($(cat /etc/xray/config.json | grep '^#!' | cut -d ' ' -f 2 | sort | uniq))
 
     echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
     echo -e " \e[1;97;101m           CEK TROJAN ACCOUNT           \e[0m"
