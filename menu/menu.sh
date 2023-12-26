@@ -269,21 +269,21 @@ DATE=$(date +'%d %B %Y')
 datediff() {
     d1=$(date -d "$1" +%s)
     d2=$(date -d "$2" +%s)
-echo -e " ${BIRed}  ║  DAYS LEFT    ${NC} : ${IYellow}$(( (d1 - d2) / 86400 )) Days $NC"
+echo -e " ${BIRed}║  DAYS LEFT    ${NC} : ${IYellow}$(( (d1 - d2) / 86400 )) Days $NC"
 }
 mai="datediff "$Exp" "$DATE""
-echo -e " ${BIRed}  ╔═══════════════════════════════════════════════${NC}"
-echo -e " ${BIRed}  ║  User ORDER   ${NC} : ${IWhite}$Name${NC}"
-echo -e " ${BIRed}  ║  Date EXP     ${NC} : ${IWhite}$Exp${NC}"
+echo -e " ${BIRed}╔══════════════════════════════════════════════════════════${NC}"
+echo -e " ${BIRed}║  User ORDER   ${NC} : ${IWhite}$Name${NC}"
+echo -e " ${BIRed}║  Date EXP     ${NC} : ${IWhite}$Exp${NC}"
 if [ $exp \< 1000 ]; 
 then
 echo -e " ${BIRed}│$NC     License      : ${IWhite}$sisa_hari$NC Days Tersisa $NC"
 else
     datediff "$Exp" "$DATE"
 fi;
-echo -e " ${BIRed}  ╚═══════════════════════════════════════════════${NC}"
-echo -e " ${BIWhite}                     SSH OVPN: $ssh1  VMESS: $vma $NC"
-echo -e " ${BIWhite}                VLESS: $vla TROJAN: $tra SHADWSK: $ssa $NC"
+echo -e " ${BIRed}╚══════════════════════════════════════════════════════════${NC}"
+echo -e " ${BIWhite}                 SSH OVPN: $ssh1  VMESS: $vma $NC"
+echo -e " ${BIWhite}              VLESS: $vla TROJAN: $tra SHADWSK: $ssa $NC"
 echo -e "${BIBlack}╔═════════════════════════════════════════════════════════╗${NC}"
 echo -e "      ${red}SSH Websocket${NC} : $ressshws""   ${red}NGINX${NC} : $resngx""  ${red}XRAY${NC} : $resv2r"
 echo -e "${BIBlack}╚═════════════════════════════════════════════════════════╝${NC}"
