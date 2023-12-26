@@ -21,14 +21,13 @@ function cekvmess(){
   do
   mkdir -p /tmp/quota
   download=$(xray api statsquery --server=127.0.0.1:10000 | grep -C 2 $user | sed /"}"/d | sed /"{"/d | grep value | awk '{print $2}' | sed 's/,//g; s/"//g' | sort)
-  #inb=$(echo "$data" | sed -n 1p)
-  #outb=$(echo "$data" | sed -n 2p) 
-  #quota0=$(echo -e "$[ $download ]")
+  inb=$(echo "$data" | sed -n 1p)
+  outb=$(echo "$data" | sed -n 2p) 
+  quota0=$(echo -e "$[ $inb + $outb ]")
         if [ -e /etc/limit/vmess/${user} ]; then
         quota1=$(cat /etc/limit/vmess/${user});
              if [[ ${#quota1} -gt 0 ]]; then
-                #quota2=$(( ${quota0} + ${quota1} ));
-                quota2=$(( ${download} + ${quota1} ));
+                quota2=$(( ${quota0} + ${quota1} ));
                 echo "${quota2}" > /etc/limit/vmess/"${user}"
                 xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
               else
@@ -50,14 +49,13 @@ function cekvless(){
   do
   mkdir -p /tmp/quota
   download=$(xray api statsquery --server=127.0.0.1:10000 | grep -C 2 $user | sed /"}"/d | sed /"{"/d | grep value | awk '{print $2}' | sed 's/,//g; s/"//g' | sort)
-  #inb=$(echo "$data" | sed -n 1p)
-  #outb=$(echo "$data" | sed -n 2p) 
-  #quota0=$(echo -e "$[ $download ]")
+  inb=$(echo "$data" | sed -n 1p)
+  outb=$(echo "$data" | sed -n 2p) 
+  quota0=$(echo -e "$[ $inb + $outb ]")
         if [ -e /etc/limit/vless/${user} ]; then
         quota1=$(cat /etc/limit/vless/${user});
              if [[ ${#quota1} -gt 0 ]]; then
-                #quota2=$(( ${quota0} + ${quota1} ));
-                quota2=$(( ${download} + ${quota1} ));
+                quota2=$(( ${quota0} + ${quota1} ));
                 echo "${quota2}" > /etc/limit/vless/"${user}"
                 xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
               else
@@ -79,14 +77,13 @@ function cektrojan(){
   do
   mkdir -p /tmp/quota
   download=$(xray api statsquery --server=127.0.0.1:10000 | grep -C 2 $user | sed /"}"/d | sed /"{"/d | grep value | awk '{print $2}' | sed 's/,//g; s/"//g' | sort)
-  #inb=$(echo "$data" | sed -n 1p)
-  #outb=$(echo "$data" | sed -n 2p) 
-  #quota0=$(echo -e "$[ $download ]")
+  inb=$(echo "$data" | sed -n 1p)
+  outb=$(echo "$data" | sed -n 2p) 
+  quota0=$(echo -e "$[ $inb + $outb ]")
         if [ -e /etc/limit/trojan/${user} ]; then
         quota1=$(cat /etc/limit/trojan/${user});
              if [[ ${#quota1} -gt 0 ]]; then
-                #quota2=$(( ${quota0} + ${quota1} ));
-                quota2=$(( ${download} + ${quota1} ));
+                quota2=$(( ${quota0} + ${quota1} ));
                 echo "${quota2}" > /etc/limit/trojan/"${user}"
                 xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
               else
@@ -108,14 +105,13 @@ function cekshadowsocks(){
   do
   mkdir -p /tmp/quota
   download=$(xray api statsquery --server=127.0.0.1:10000 | grep -C 2 $user | sed /"}"/d | sed /"{"/d | grep value | awk '{print $2}' | sed 's/,//g; s/"//g' | sort)
-  #inb=$(echo "$data" | sed -n 1p)
-  #outb=$(echo "$data" | sed -n 2p) 
-  #quota0=$(echo -e "$[ $download ]")
+  inb=$(echo "$data" | sed -n 1p)
+  outb=$(echo "$data" | sed -n 2p) 
+  quota0=$(echo -e "$[ $inb + $outb ]")
         if [ -e /etc/limit/shadowsocks/${user} ]; then
         quota1=$(cat /etc/limit/shadowsocks/${user});
              if [[ ${#quota1} -gt 0 ]]; then
-                #quota2=$(( ${quota0} + ${quota1} ));
-                quota2=$(( ${download} + ${quota1} ));
+                quota2=$(( ${quota0} + ${quota1} ));
                 echo "${quota2}" > /etc/limit/shadowsocks/"${user}"
                 xray api stats --server=127.0.0.1:10000 -name "user>>>${user}>>>traffic>>>downlink" -reset > /dev/null 2>&1
               else
