@@ -200,8 +200,9 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━�
 sleep 2
 clear
 #wget https://raw.githubusercontent.com/awanklod/alvi/main/limit3/quota.sh && chmod +x quota.sh && ./quota.sh
-wget https://raw.githubusercontent.com/awanklod/alvi/main/limit/limit-ipfinal.sh && chmod +x limit-ipfinal.sh && ./limit-ipfinal.sh
-wget https://raw.githubusercontent.com/awanklod/alvi/main/limit/limit-quotafinal.sh && chmod +x limit-quotafinal.sh && ./limit-quotafinal.sh
+#wget https://raw.githubusercontent.com/awanklod/alvi/main/limit/limit-ipfinal.sh && chmod +x limit-ipfinal.sh && ./limit-ipfinal.sh
+#wget https://raw.githubusercontent.com/awanklod/alvi/main/limit/limit-quotafinal.sh && chmod +x limit-quotafinal.sh && ./limit-quotafinal.sh
+wget https://raw.githubusercontent.com/awanklod/alvi/main/limit/limit.sh && chmod +x limit.sh && ./limit.sh
 
 clear
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
