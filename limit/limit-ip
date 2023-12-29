@@ -15,7 +15,11 @@ data=( `cat /etc/xray/config.json | grep '#vm#' | cut -d ' ' -f 2 | sort | uniq`
                  sed -i "/^#vm# $user $exp/d" /etc/vmess/.vmess.db
                   systemctl restart xray >> /dev/null 2>&1
                   jum2=$(cat /tmp/ipvmess.txt | wc -l)
-                  rm -rf /etc/kyt/limit/vmess/ip/$user
+                  #rm -rf /etc/kyt/limit/vmess/ip/$user
+rm -f /etc/kyt/limit/vmess/ip/$user
+       rm -f /etc/limit/vmess/$user
+       rm -f /etc/limit/vmess/quota/$user
+       rm -f /etc/vmess/$user
                  # rm -rf /etc/kyt/limit/vmess/quota/$user
                   send_log
                 else
@@ -40,7 +44,11 @@ data=( `cat /etc/xray/config.json | grep '#&' | cut -d ' ' -f 2 | sort | uniq`);
                 sed -i "/^#& $user $exp/d" /etc/vless/.vless.db
                   systemctl restart xray >> /dev/null 2>&1
                   jum2=$(cat /tmp/ipvless.txt | wc -l)
-                  rm -rf /etc/kyt/limit/vless/ip/$user
+                  #rm -rf /etc/kyt/limit/vless/ip/$user
+rm -f /etc/kyt/limit/vless/ip/$user
+       rm -f /etc/limit/vless/$user
+       rm -f /etc/limit/vless/quota/$user
+       rm -f /etc/vless/$user
                 #  rm -rf /etc/kyt/limit/vless/quota/$user
                   send_log
                 else
@@ -65,7 +73,11 @@ data=( `cat /etc/xray/config.json | grep '#!' | cut -d ' ' -f 2 | sort | uniq`);
                  sed -i "/^#! $user $exp/d" /etc/trojan/.trojan.db
                   systemctl restart xray >> /dev/null 2>&1
                   jum2=$(cat /tmp/iptrojan.txt | wc -l)
-                  rm -rf /etc/kyt/limit/trojan/ip/$user
+                  #rm -rf /etc/kyt/limit/trojan/ip/$user
+rm -f /etc/kyt/limit/trojan/ip/$user
+       rm -f /etc/limit/trojan/$user
+       rm -f /etc/limit/trojan/quota/$user
+       rm -f /etc/trojan/$user
                 #  rm -rf /etc/kyt/limit/trojan/quota/$user
                   send_log
                 else
@@ -90,7 +102,11 @@ data=( `cat /etc/xray/config.json | grep '#ss#' | cut -d ' ' -f 2 | sort | uniq`
                 sed -i "/^#ss# $user $exp/d" /etc/shadowsocks/.shadowsocks.db
                   systemctl restart xray >> /dev/null 2>&1
                   jum2=$(cat /tmp/ipshadowsocks.txt | wc -l)
-                  rm -rf /etc/kyt/limit/shadowsocks/ip/$user
+                  #rm -rf /etc/kyt/limit/shadowsocks/ip/$user
+rm -f /etc/kyt/limit/shadowsocks/ip/$user
+       rm -f /etc/limit/shadowsocks/$user
+       rm -f /etc/limit/shadowsocks/quota/$user
+       rm -f /etc/shadowsocks/$user
                #   rm -rf /etc/kyt/limit/shadowsocks/quota/$user
                   send_log
                 else
