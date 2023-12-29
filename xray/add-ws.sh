@@ -189,6 +189,8 @@ vmesslink2="vmess://$(echo $ask | base64 -w 0)"
 vmesslink3="vmess://$(echo $grpc | base64 -w 0)"
 systemctl restart xray > /dev/null 2>&1
 service cron restart > /dev/null 2>&1
+mkdir -p /etc/kyt/limit/vmess/ip
+echo "${iplimit}" >>/etc/kyt/limit/vmess/ip/${user}
 if [ ! -e /etc/vmess ]; then
 mkdir -p /etc/vmess
 fi
@@ -201,12 +203,12 @@ fi
 
 
 
-if [[ $iplimit -gt 0 ]]; then
-mkdir -p /etc/kyt/limit/vmess/ip
-echo -e "$iplimit" > /etc/kyt/limit/vmess/ip/$user
-else
-echo > /dev/null
-fi
+#if [[ $iplimit -gt 0 ]]; then
+#mkdir -p /etc/kyt/limit/vmess/ip
+#echo -e "$iplimit" > /etc/kyt/limit/vmess/ip/$user
+#else
+#echo > /dev/null
+#fi
 
 if [ -z ${Quota} ]; then
 Quota="0"
