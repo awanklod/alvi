@@ -109,27 +109,27 @@ while [ $sec -gt 0 ]; do
   sec=$(($sec - 1))
 done
 clear
-#echo ""
-#echo -e "\e[1;32m   input dependecies account $user\e[0m\n"
-#echo -e "\033[0;33m .::.  Script by CLOUDVPN  .::.\e[0m\n"
-#echo ""
-#echo "   Setup Limit Quota/ip for Account"
-#echo "       0 For Unlimited/No Limit"
-#echo ""
-#echo "   Username : $user"
-#until [[ $masaaktif =~ ^[0-9]+$ ]]; do
-  #read -p "   Expired (days): " masaaktif
-#done
-#until [[ $Quota =~ ^[0-9]+$ ]]; do
-  #read -p "   Limit User (GB): " Quota
-#done
-#until [[ $iplimit =~ ^[0-9]+$ ]]; do
-  #mkdir -p /etc/kyt/limit/vmess/ip
-  #read -p "   Limit User (IP): " iplimit
-#done
-read -p "Expired (days): " masaaktif
-read -p "Limit User (GB): " Quota
-read -p "Limit User (IP): " iplimit
+echo ""
+echo -e "\e[1;32m   input dependecies account $user\e[0m\n"
+echo -e "\033[0;33m .::.  Script by CLOUDVPN  .::.\e[0m\n"
+echo ""
+echo "   Setup Limit Quota/ip for Account"
+echo "       0 For Unlimited/No Limit"
+echo ""
+echo "   Username : $user"
+until [[ $masaaktif =~ ^[0-9]+$ ]]; do
+  read -p "   Expired (days): " masaaktif
+done
+until [[ $Quota =~ ^[0-9]+$ ]]; do
+  read -p "   Limit User (GB): " Quota
+done
+until [[ $iplimit =~ ^[0-9]+$ ]]; do
+  mkdir -p /etc/kyt/limit/vmess/ip
+  read -p "   Limit User (IP): " iplimit
+done
+#read -p "Expired (days): " masaaktif
+#read -p "Limit User (GB): " Quota
+#read -p "Limit User (IP): " iplimit
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#vmess$/a\#vm# '"$user $exp"'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
@@ -189,11 +189,11 @@ vmesslink2="vmess://$(echo $ask | base64 -w 0)"
 vmesslink3="vmess://$(echo $grpc | base64 -w 0)"
 systemctl restart xray > /dev/null 2>&1
 service cron restart > /dev/null 2>&1
-mkdir -p /etc/kyt/limit/vmess/ip
-echo "${iplimit}" >>/etc/kyt/limit/vmess/ip/${user}
-if [ ! -e /etc/vmess ]; then
-mkdir -p /etc/vmess
-fi
+#mkdir -p /etc/kyt/limit/vmess/ip
+#echo "${iplimit}" >>/etc/kyt/limit/vmess/ip/${user}
+#if [ ! -e /etc/vmess ]; then
+#mkdir -p /etc/vmess
+#fi
 
 #if [[ $quota -gt 0 ]]; then
 #echo -e "$[$quota * 1024 * 1024 * 1024]" > /etc/kyt/limit/vmess/quota/$user
@@ -210,21 +210,41 @@ fi
 #echo > /dev/null
 #fi
 
-if [ -z ${Quota} ]; then
-Quota="0"
-fi
+#if [ -z ${Quota} ]; then
+#Quota="0"
+#fi
 
+#c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
+#d=$((${c} * 1024 * 1024 * 1024))
+
+#if [[ ${c} != "0" ]]; then
+#echo "${d}" >/etc/vmess/${user}
+#fi
+#DATADB=$(cat /etc/vmess/.vmess.db | grep "^#vm#" | grep -w "${user}" | awk '{print $2}')
+#if [[ "${DATADB}" != '' ]]; then
+#sed -i "/\b${user}\b/d" /etc/vmess/.vmess.db
+#fi
+#echo "#vm# ${user} ${exp} ${uuid} ${Quota}" >>/etc/vmess/.vmess.db
+
+if [ ! -e /etc/vmess ]; then
+  mkdir -p /etc/vmess
+fi
+if [ -z ${iplimit} ]; then
+  iplimit="0"
+fi
+if [ -z ${Quota} ]; then
+  Quota="0"
+fi
 c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
 d=$((${c} * 1024 * 1024 * 1024))
-
 if [[ ${c} != "0" ]]; then
-echo "${d}" >/etc/vmess/${user}
+  echo "${d}" >/etc/vmess/${user}
+  echo "${iplimit}" >/etc/kyt/limit/vmess/ip/$user
 fi
 DATADB=$(cat /etc/vmess/.vmess.db | grep "^#vm#" | grep -w "${user}" | awk '{print $2}')
 if [[ "${DATADB}" != '' ]]; then
-sed -i "/\b${user}\b/d" /etc/vmess/.vmess.db
+  sed -i "/\b${user}\b/d" /etc/vmess/.vmess.db
 fi
-#echo "#vm# ${user} ${exp} ${uuid} ${Quota}" >>/etc/vmess/.vmess.db
 echo "#vm# ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vmess/.vmess.db
 clear
 echo -e ""
