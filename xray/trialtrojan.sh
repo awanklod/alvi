@@ -74,7 +74,7 @@ user=trial-tr`</dev/urandom tr -dc 0-9 | head -c4`
 uuid=$(cat /proc/sys/kernel/random/uuid)
 masaaktif=1
 Quota=5
-iplimit=1
+iplimit=2
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#trojanws$/a\#! '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
@@ -85,31 +85,33 @@ systemctl restart xray
 trojanlink1="trojan://${uuid}@isi_bug_disini:${tls}?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=${domain}#${user}"
 trojanlink="trojan://${uuid}@isi_bug_disini:${tls}?path=%2Ftrojan-ws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
 trojanlink2="trojan://${uuid}@isi_bug_disini:${ntls}?path=%2Ftrojan-ws&security=tls&host=${domain}&type=ws#${user}"
-#if [ ! -e /etc/trojan ]; then
-#  mkdir -p /etc/trojan
-#fi
-
-#if [ -z ${Quota} ]; then
-#  Quota="0"
-#fi
-#if [ -z ${iplimit} ]; then
-#  iplimit="0"
-#fi
-#c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
-#d=$((${c} * 1024 * 1024 * 1024))
-
-#if [[ ${c} != "0" ]]; then
-#  echo "${d}" >/etc/trojan/${user}
-#  echo "${iplimit}" >/etc/kyt/limit/trojan/ip/$user
-#fi
-#DATADB=$(cat /etc/trojan/.trojan.db | grep "^#!" | grep -w "${user}" | awk '{print $2}')
-#if [[ "${DATADB}" != '' ]]; then
-#  sed -i "/\b${user}\b/d" /etc/trojan/.trojan.db
-#fi
-#echo "#! ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/trojan/.trojan.db
 if [ ! -e /etc/trojan ]; then
-mkdir -p /etc/trojan
+  mkdir -p /etc/trojan
 fi
+
+if [ -z ${Quota} ]; then
+  Quota="0"
+fi
+if [ -z ${iplimit} ]; then
+  iplimit="0"
+fi
+c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
+d=$((${c} * 1024 * 1024 * 1024))
+
+if [[ ${c} != "0" ]]; then
+ echo "${d}" >/etc/trojan/${user}
+ echo "${iplimit}" >/etc/kyt/limit/trojan/ip/$user
+fi
+DATADB=$(cat /etc/trojan/.trojan.db | grep "^#!" | grep -w "${user}" | awk '{print $2}')
+if [[ "${DATADB}" != '' ]]; then
+  sed -i "/\b${user}\b/d" /etc/trojan/.trojan.db
+fi
+echo "#! ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/trojan/.trojan.db
+clear
+
+#if [ ! -e /etc/trojan ]; then
+#mkdir -p /etc/trojan
+#fi
 
 #if [[ $quota -gt 0 ]]; then
 #echo -e "$[$quota * 1024 * 1024 * 1024]" > /etc/kyt/limit/trojan/quota/$user
@@ -117,30 +119,30 @@ fi
 #echo > /dev/null
 #fi
 
-if [[ $iplimit -gt 0 ]]; then
-mkdir -p /etc/kyt/limit/trojan/ip
-echo -e "$iplimit" > /etc/kyt/limit/trojan/ip/$user
-else
-echo > /dev/null
-fi
+#if [[ $iplimit -gt 0 ]]; then
+#mkdir -p /etc/kyt/limit/trojan/ip
+#echo -e "$iplimit" > /etc/kyt/limit/trojan/ip/$user
+#else
+#echo > /dev/null
+#fi
 
-if [ -z ${Quota} ]; then
-Quota="0"
-fi
+#if [ -z ${Quota} ]; then
+#Quota="0"
+#fi
 
-c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
-d=$((${c} * 1024 * 1024 * 1024))
+#c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
+#d=$((${c} * 1024 * 1024 * 1024))
 
-if [[ ${c} != "0" ]]; then
-echo "${d}" >/etc/trojan/${user}
-fi
-DATADB=$(cat /etc/trojan/.trojan.db | grep "^#!" | grep -w "${user}" | awk '{print $2}')
-if [[ "${DATADB}" != '' ]]; then
-sed -i "/\b${user}\b/d" /etc/trojan/.trojan.db
-fi
-echo "#! ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/trojan/.trojan.db
+#if [[ ${c} != "0" ]]; then
+#echo "${d}" >/etc/trojan/${user}
+#fi
+#DATADB=$(cat /etc/trojan/.trojan.db | grep "^#!" | grep -w "${user}" | awk '{print $2}')
+#if [[ "${DATADB}" != '' ]]; then
+#sed -i "/\b${user}\b/d" /etc/trojan/.trojan.db
+#fi
+#echo "#! ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/trojan/.trojan.db
 #echo "#! ${user} ${exp} ${uuid} ${Quota}" >>/etc/trojan/.trojan.db
-clear
+#clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[0;41;36m           TRIAL TROJAN          \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
