@@ -14,7 +14,6 @@ data=( `ls /etc/kyt/limit/vmess/ip`);
                  sed -i "/^#vm# $user $exp/,/^},{/d" /etc/xray/config.json
                  sed -i "/^#vm# $user $exp/d" /etc/vmess/.vmess.db
                   systemctl restart xray >> /dev/null 2>&1
-                  jum2=$(cat /tmp/ipvmess.txt | wc -l)
                   #rm -rf /etc/kyt/limit/vmess/ip/$user
 rm -f /etc/kyt/limit/vmess/ip/$user
                  # rm -rf /etc/kyt/limit/vmess/quota/$user
@@ -40,7 +39,6 @@ data=( `ls /etc/kyt/limit/vless/ip`);
                 sed -i "/^#& $user $exp/,/^},{/d" /etc/xray/config.json
                 sed -i "/^#& $user $exp/d" /etc/vless/.vless.db
                   systemctl restart xray >> /dev/null 2>&1
-                  jum2=$(cat /tmp/ipvless.txt | wc -l)
                   #rm -rf /etc/kyt/limit/vless/ip/$user
 rm -f /etc/kyt/limit/vless/ip/$user
                 #  rm -rf /etc/kyt/limit/vless/quota/$user
@@ -66,7 +64,6 @@ data=( `ls /etc/kyt/limit/trojan/ip`);
                  sed -i "/^#! $user $exp/,/^},{/d" /etc/xray/config.json
                  sed -i "/^#! $user $exp/d" /etc/trojan/.trojan.db
                   systemctl restart xray >> /dev/null 2>&1
-                  jum2=$(cat /tmp/iptrojan.txt | wc -l)
                   #rm -rf /etc/kyt/limit/trojan/ip/$user
 rm -f /etc/kyt/limit/trojan/ip/$user
                 #  rm -rf /etc/kyt/limit/trojan/quota/$user
@@ -92,7 +89,6 @@ data=( `ls /etc/kyt/limit/shadowsocks/ip`);
                 sed -i "/^#ss# $user $exp/,/^},{/d" /etc/xray/config.json
                 sed -i "/^#ss# $user $exp/d" /etc/shadowsocks/.shadowsocks.db
                   systemctl restart xray >> /dev/null 2>&1
-                  jum2=$(cat /tmp/ipshadowsocks.txt | wc -l)
                   #rm -rf /etc/kyt/limit/shadowsocks/ip/$user
 rm -f /etc/kyt/limit/shadowsocks/ip/$user
                #   rm -rf /etc/kyt/limit/shadowsocks/quota/$user
