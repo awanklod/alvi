@@ -3,7 +3,7 @@ function vmip(){
 #LIMITVMESSIP
 echo -n > /tmp/ipvmess.txt
 sleep 4
-data=( `cat /var/log/xray/access.log | tail -n 500 | cut -d " " -f 3 | sed 's/tcp://g' | cut -d ":" -f 1 | sort | uniq`);
+data=( `ls /etc/kyt/limit/vmess/ip`);
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/vmess/ip/$user)
@@ -28,7 +28,7 @@ function vlip(){
 #LIMITVLESSIP
 echo -n > /tmp/ipvless.txt
 sleep 4
-data=( `cat /var/log/xray/access.log | tail -n 500 | cut -d " " -f 3 | sed 's/tcp://g' | cut -d ":" -f 1 | sort | uniq`);
+data=( `ls /etc/kyt/limit/vless/ip`);
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/vless/ip/$user)
@@ -53,7 +53,7 @@ function trip(){
 #LIMITIPTROJAN
 echo -n > /tmp/iptrojan.txt
 sleep 4
-data=( `cat /var/log/xray/access.log | tail -n 500 | cut -d " " -f 3 | sed 's/tcp://g' | cut -d ":" -f 1 | sort | uniq`);
+data=( `ls /etc/kyt/limit/trojan/ip`);
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/trojan/ip/$user)
@@ -78,7 +78,7 @@ function shdip(){
 #LIMITIPSHADOWSOCKS
 echo -n > /tmp/ipshadowsocks.txt
 sleep 4
-data=( `cat /var/log/xray/access.log | tail -n 500 | cut -d " " -f 3 | sed 's/tcp://g' | cut -d ":" -f 1 | sort | uniq`);
+data=( `ls /etc/kyt/limit/shadowsocks/ip`);
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/shadowsocks/ip/$user)
