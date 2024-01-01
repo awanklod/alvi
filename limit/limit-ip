@@ -1,9 +1,9 @@
 #!/bin/bash
 function vmip(){
 #LIMITVMESSIP
-echo -n > /tmp/other.txt
+echo -n > /tmp/ipvmess.txt
 sleep 4
-data=( `cat /etc/xray/config.json | grep '#vm#' | cut -d ' ' -f 2 | sort | uniq`);
+data=( `cat /var/log/xray/access.log | tail -n 500 | cut -d " " -f 3 | sed 's/tcp://g' | cut -d ":" -f 1 | sort | uniq`);
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/vmess/ip/$user)
@@ -26,9 +26,9 @@ rm -f /etc/kyt/limit/vmess/ip/$user
 }
 function vlip(){
 #LIMITVLESSIP
-echo -n > /tmp/other.txt
+echo -n > /tmp/ipvless.txt
 sleep 4
-data=( `cat /etc/xray/config.json | grep '#&' | cut -d ' ' -f 2 | sort | uniq`);
+data=( `cat /var/log/xray/access.log | tail -n 500 | cut -d " " -f 3 | sed 's/tcp://g' | cut -d ":" -f 1 | sort | uniq`);
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/vless/ip/$user)
@@ -51,9 +51,9 @@ rm -f /etc/kyt/limit/vless/ip/$user
 }
 function trip(){
 #LIMITIPTROJAN
-echo -n > /tmp/other.txt
+echo -n > /tmp/iptrojan.txt
 sleep 4
-data=( `cat /etc/xray/config.json | grep '#!' | cut -d ' ' -f 2 | sort | uniq`);
+data=( `cat /var/log/xray/access.log | tail -n 500 | cut -d " " -f 3 | sed 's/tcp://g' | cut -d ":" -f 1 | sort | uniq`);
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/trojan/ip/$user)
@@ -76,9 +76,9 @@ rm -f /etc/kyt/limit/trojan/ip/$user
 }
 function shdip(){
 #LIMITIPSHADOWSOCKS
-echo -n > /tmp/other.txt
+echo -n > /tmp/ipshadowsocks.txt
 sleep 4
-data=( `cat /etc/xray/config.json | grep '#ss#' | cut -d ' ' -f 2 | sort | uniq`);
+data=( `cat /var/log/xray/access.log | tail -n 500 | cut -d " " -f 3 | sed 's/tcp://g' | cut -d ":" -f 1 | sort | uniq`);
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/shadowsocks/ip/$user)
