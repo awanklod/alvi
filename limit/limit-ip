@@ -3,19 +3,19 @@ function vmip(){
 #LIMITVMESSIP
 echo -n > /tmp/ipvmess.txt
 sleep 4
-data=( `ls /etc/kyt/limit/vmess/ip`);
+data=( `cat /etc/xray/config.json | grep '#vm#' | cut -d ' ' -f 2 | sort | uniq`);
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/vmess/ip/$user)
-ehh=$(cat /tmp/ipvmess.txt)
+        ehh=$(cat /var/log/xray/access.log | grep "$user" | cut -d " " -f 3 | sed 's/tcp://g' | cut -d ":" -f 1 | sort | uniq);
         cekcek=$(echo -e "$ehh" | wc -l);
         if [[ $cekcek -gt $iplimit ]]; then
             exp=$(grep -w "^#vm# $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
                  sed -i "/^#vm# $user $exp/,/^},{/d" /etc/xray/config.json
                  sed -i "/^#vm# $user $exp/d" /etc/vmess/.vmess.db
                   systemctl restart xray >> /dev/null 2>&1
-                  #rm -rf /etc/kyt/limit/vmess/ip/$user
-rm -f /etc/kyt/limit/vmess/ip/$user
+                  jum2=$(cat /tmp/ipvmess.txt | wc -l)
+                  rm -rf /etc/kyt/limit/vmess/ip/$user
                  # rm -rf /etc/kyt/limit/vmess/quota/$user
                   send_log
                 else
@@ -28,19 +28,19 @@ function vlip(){
 #LIMITVLESSIP
 echo -n > /tmp/ipvless.txt
 sleep 4
-data=( `ls /etc/kyt/limit/vless/ip`);
+data=( `cat /etc/xray/config.json | grep '#&' | cut -d ' ' -f 2 | sort | uniq`);
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/vless/ip/$user)
-ehh=$(cat /tmp/vless.txt)
+        ehh=$(cat /var/log/xray/access.log | grep "$user" | cut -d " " -f 3 | sed 's/tcp://g' | cut -d ":" -f 1 | sort | uniq);
         cekcek=$(echo -e "$ehh" | wc -l);
         if [[ $cekcek -gt $iplimit ]]; then
             exp=$(grep -w "^#& $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
                 sed -i "/^#& $user $exp/,/^},{/d" /etc/xray/config.json
                 sed -i "/^#& $user $exp/d" /etc/vless/.vless.db
                   systemctl restart xray >> /dev/null 2>&1
-                  #rm -rf /etc/kyt/limit/vless/ip/$user
-rm -f /etc/kyt/limit/vless/ip/$user
+                  jum2=$(cat /tmp/ipvless.txt | wc -l)
+                  rm -rf /etc/kyt/limit/vless/ip/$user
                 #  rm -rf /etc/kyt/limit/vless/quota/$user
                   send_log
                 else
@@ -53,19 +53,19 @@ function trip(){
 #LIMITIPTROJAN
 echo -n > /tmp/iptrojan.txt
 sleep 4
-data=( `ls /etc/kyt/limit/trojan/ip`);
+data=( `cat /etc/xray/config.json | grep '#!' | cut -d ' ' -f 2 | sort | uniq`);
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/trojan/ip/$user)
-ehh=$(cat /tmp/trojan.txt)
+        ehh=$(cat /var/log/xray/access.log | grep "$user" | cut -d " " -f 3 | sed 's/tcp://g' | cut -d ":" -f 1 | sort | uniq);
         cekcek=$(echo -e "$ehh" | wc -l);
         if [[ $cekcek -gt $iplimit ]]; then
             exp=$(grep -w "^#! $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
                  sed -i "/^#! $user $exp/,/^},{/d" /etc/xray/config.json
                  sed -i "/^#! $user $exp/d" /etc/trojan/.trojan.db
                   systemctl restart xray >> /dev/null 2>&1
-                  #rm -rf /etc/kyt/limit/trojan/ip/$user
-rm -f /etc/kyt/limit/trojan/ip/$user
+                  jum2=$(cat /tmp/iptrojan.txt | wc -l)
+                  rm -rf /etc/kyt/limit/trojan/ip/$user
                 #  rm -rf /etc/kyt/limit/trojan/quota/$user
                   send_log
                 else
@@ -78,19 +78,19 @@ function shdip(){
 #LIMITIPSHADOWSOCKS
 echo -n > /tmp/ipshadowsocks.txt
 sleep 4
-data=( `ls /etc/kyt/limit/shadowsocks/ip`);
+data=( `cat /etc/xray/config.json | grep '#ss#' | cut -d ' ' -f 2 | sort | uniq`);
     for user in "${data[@]}"
     do
         iplimit=$(cat /etc/kyt/limit/shadowsocks/ip/$user)
-ehh=$(cat /tmp/shadowsocks.txt)
+        ehh=$(cat /var/log/xray/access.log | grep "$user" | cut -d " " -f 3 | sed 's/tcp://g' | cut -d ":" -f 1 | sort | uniq);
         cekcek=$(echo -e "$ehh" | wc -l);
         if [[ $cekcek -gt $iplimit ]]; then
             exp=$(grep -w "^#ss# $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
                 sed -i "/^#ss# $user $exp/,/^},{/d" /etc/xray/config.json
                 sed -i "/^#ss# $user $exp/d" /etc/shadowsocks/.shadowsocks.db
                   systemctl restart xray >> /dev/null 2>&1
-                  #rm -rf /etc/kyt/limit/shadowsocks/ip/$user
-rm -f /etc/kyt/limit/shadowsocks/ip/$user
+                  jum2=$(cat /tmp/ipshadowsocks.txt | wc -l)
+                  rm -rf /etc/kyt/limit/shadowsocks/ip/$user
                #   rm -rf /etc/kyt/limit/shadowsocks/quota/$user
                   send_log
                 else
