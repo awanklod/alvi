@@ -2,7 +2,7 @@
 function vmip(){
 #LIMITVMESSIP
 echo -n > /tmp/ipvmess.txt
-sleep 4
+sleep 440
 data=( `cat /etc/xray/config.json | grep '#vm#' | cut -d ' ' -f 2 | sort | uniq`);
     for user in "${data[@]}"
     do
@@ -27,7 +27,7 @@ ehh=$(cat /var/log/xray/access.log | grep "$user" | cut -d " " -f 3 | sed 's/tcp
 function vlip(){
 #LIMITVLESSIP
 echo -n > /tmp/ipvless.txt
-sleep 4
+sleep 440
 data=( `cat /etc/xray/config.json | grep '#&' | cut -d ' ' -f 2 | sort | uniq`);
     for user in "${data[@]}"
     do
@@ -52,7 +52,7 @@ ehh=$(cat /var/log/xray/access.log | grep "$user" | cut -d " " -f 3 | sed 's/tcp
 function trip(){
 #LIMITIPTROJAN
 echo -n > /tmp/iptrojan.txt
-sleep 4
+sleep 440
 data=( `cat /etc/xray/config.json | grep '#!' | cut -d ' ' -f 2 | sort | uniq`);
     for user in "${data[@]}"
     do
@@ -77,7 +77,7 @@ ehh=$(cat /var/log/xray/access.log | grep "$user" | cut -d " " -f 3 | sed 's/tcp
 function shdip(){
 #LIMITIPSHADOWSOCKS
 echo -n > /tmp/ipshadowsocks.txt
-sleep 4
+sleep 440
 data=( `cat /etc/xray/config.json | grep '#ss#' | cut -d ' ' -f 2 | sort | uniq`);
     for user in "${data[@]}"
     do
