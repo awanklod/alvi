@@ -301,7 +301,6 @@ wget -O tcpv "https://raw.githubusercontent.com/awanklod/alvi/main/menu/tcpv.sh"
 wget -O webm "https://raw.githubusercontent.com/awanklod/alvi/main/menu/webm"
 wget -O trafik "https://raw.githubusercontent.com/awanklod/alvi/main/menu/trafik"
 wget -O media "https://raw.githubusercontent.com/awanklod/alvi/main/menu/media"
-wget -O monitor "https://raw.githubusercontent.com/awanklod/alvi/main/menu/gotop"
 
 # menu ssh ovpn
 wget -O menu-ssh "https://raw.githubusercontent.com/awanklod/alvi/main/menu/menu-ssh.sh"
@@ -366,7 +365,6 @@ chmod +x tcpv
 chmod +x webm
 chmod +x trafik
 chmod +x media
-chmod +x monitor
 
 chmod +x menu-ssh
 chmod +x usernew
