@@ -4,7 +4,6 @@ biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 ###########- COLOR CODE -##############
 NC="\e[0m"
 RED="\033[0;31m" 
-#!/bin/bash
 DF='\e[39m'
 Bold='\e[1m'
 Blink='\e[5m'
