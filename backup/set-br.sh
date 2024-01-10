@@ -36,9 +36,9 @@ account default
 host smtp.gmail.com
 port 587
 auth on
-user alvibackup9@gmail.com
-from alvibackup9@gmail.com
-password wbgqpokjbkkjjiet
+user sc.fightertunnel@gmail.com
+from sc.fightertunnel@gmail.com
+password uxiwsmmaladzsywx
 logfile ~/.msmtp.log
 EOF
 chown -R www-data:www-data /etc/msmtprc
