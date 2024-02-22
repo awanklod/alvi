@@ -75,7 +75,7 @@ cipher="aes-128-gcm"
 uuid=$(cat /proc/sys/kernel/random/uuid)
 masaaktif=1
 Quota=5
-iplimit=2
+#iplimit=2
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#ssws$/a\#ss# '"$user $exp"'\
 },{"password": "'""$uuid""'","method": "'""$cipher""'","email": "'""$user""'"' /etc/xray/config.json
@@ -155,7 +155,7 @@ echo -e "${CYAN}╘════════════════════�
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
 echo -e "User Quota     : ${Quota} GB"
-echo -e "User Ip        : ${iplimit} IP"
+#echo -e "User Ip        : ${iplimit} IP"
 echo -e "Wildcard       : (bug.com).${domain}"
 echo -e "Port TLS       : 443"
 echo -e "Port none TLS  : 80"
