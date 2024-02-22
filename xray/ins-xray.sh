@@ -658,7 +658,7 @@ wget -O cek-ws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-ws
 wget -O cek-ws2 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-ws2" && chmod +x cek-ws2
 #wget -O cek-ws3 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-ws3" && chmod +x cek-ws3
 wget -O quotavmess "https://raw.githubusercontent.com/awanklod/alvi/main/xray/quotavmess.sh" && chmod +x quotavmess
-wget -O editip-vmess "https://raw.githubusercontent.com/awanklod/alvi/main/xray/editip-vmess.sh" && chmod +x editip-vmess
+#wget -O editip-vmess "https://raw.githubusercontent.com/awanklod/alvi/main/xray/editip-vmess.sh" && chmod +x editip-vmess
 
 # vless
 wget -O add-vless "https://raw.githubusercontent.com/awanklod/alvi/main/xray/add-vless.sh" && chmod +x add-vless
@@ -669,7 +669,7 @@ wget -O cek-vless "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek
 wget -O cek-vless2 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-vless2" && chmod +x cek-vless2
 #wget -O cek-vless3 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-vless3" && chmod +x cek-vless3
 wget -O quotavless "https://raw.githubusercontent.com/awanklod/alvi/main/xray/quotavless.sh" && chmod +x quotavless
-wget -O editip-vless "https://raw.githubusercontent.com/awanklod/alvi/main/xray/editip-vless.sh" && chmod +x editip-vless
+#wget -O editip-vless "https://raw.githubusercontent.com/awanklod/alvi/main/xray/editip-vless.sh" && chmod +x editip-vless
 
 # trojan
 wget -O add-tr "https://raw.githubusercontent.com/awanklod/alvi/main/xray/add-tr.sh" && chmod +x add-tr
@@ -680,7 +680,7 @@ wget -O cek-tr "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-tr
 wget -O cek-tr2 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-tr2" && chmod +x cek-tr2
 #wget -O cek-tr3 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-tr3" && chmod +x cek-tr3
 wget -O quotatrojan "https://raw.githubusercontent.com/awanklod/alvi/main/xray/quotatrojan.sh" && chmod +x quotatrojan
-wget -O editip-trojan "https://raw.githubusercontent.com/awanklod/alvi/main/xray/editip-trojan.sh" && chmod +x editip-trojan
+#wget -O editip-trojan "https://raw.githubusercontent.com/awanklod/alvi/main/xray/editip-trojan.sh" && chmod +x editip-trojan
 
 # trojan go
 wget -O addtrgo "https://raw.githubusercontent.com/awanklod/alvi/main/xray/addtrgo.sh" && chmod +x addtrgo
@@ -698,7 +698,7 @@ wget -O cek-ssws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-
 wget -O cek-ssws2 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-ssws2" && chmod +x cek-ssws2
 #wget -O cek-ssws3 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-ssws3" && chmod +x cek-ssws3
 wget -O quotashadowsocks "https://raw.githubusercontent.com/awanklod/alvi/main/xray/quotashadowsocks.sh" && chmod +x quotashadowsocks
-wget -O editip-shadowsocks "https://raw.githubusercontent.com/awanklod/alvi/main/xray/editip-shadowsocks.sh" && chmod +x editip-shadowsocks
+#wget -O editip-shadowsocks "https://raw.githubusercontent.com/awanklod/alvi/main/xray/editip-shadowsocks.sh" && chmod +x editip-shadowsocks
 
 #Sistem Tambahan
 #wget -O ip-shadowsocks "https://raw.githubusercontent.com/awanklod/alvi/main/limit3/ip-shadowsocks" && chmod +x ip-shadowsocks
