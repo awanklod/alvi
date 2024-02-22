@@ -124,10 +124,10 @@ done
 until [[ $Quota =~ ^[0-9]+$ ]]; do
   read -p "   Limit User (GB): " Quota
 done
-until [[ $iplimit =~ ^[0-9]+$ ]]; do
-  mkdir -p /etc/kyt/limit/shadowsocks/ip
-  read -p "   Limit User (IP): " iplimit
-done    
+#until [[ $iplimit =~ ^[0-9]+$ ]]; do
+#  mkdir -p /etc/kyt/limit/shadowsocks/ip
+#  read -p "   Limit User (IP): " iplimit
+#done    
 #read -p "Expired (days): " masaaktif
 #read -p "Limit User (GB): " Quota
 #read -p "Limit User (IP): " iplimit
@@ -428,7 +428,7 @@ echo -e "${CYAN}╘════════════════════�
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-user.log
 echo -e "Domain         : ${domain}" | tee -a /etc/log-create-user.log
 echo -e "User Quota     : ${Quota} GB" | tee -a /etc/log-create-user.log
-echo -e "User Ip        : ${iplimit} IP" | tee -a /etc/log-create-user.log
+#echo -e "User Ip        : ${iplimit} IP" | tee -a /etc/log-create-user.log
 echo -e "Wildcard       : (bug.com).${domain}" | tee -a /etc/log-create-user.log
 echo -e "Port TLS       : 443" | tee -a /etc/log-create-user.log
 echo -e "Port none TLS  : 80" | tee -a /etc/log-create-user.log
