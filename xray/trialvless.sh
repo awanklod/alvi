@@ -73,7 +73,7 @@ user=trial-vl`</dev/urandom tr -dc 0-9 | head -c4`
 uuid=$(cat /proc/sys/kernel/random/uuid)
 masaaktif=1
 Quota=5
-iplimit=2
+#iplimit=2
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#vless$/a\#& '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
@@ -145,7 +145,7 @@ echo -e "${CYAN}╘════════════════════�
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
 echo -e "User limit     : ${Quota} GB"
-echo -e "Ip   limit     : ${iplimit} Ip"
+#echo -e "Ip   limit     : ${iplimit} Ip"
 echo -e "Wildcard       : (bug.com).${domain}"
 echo -e "Port TLS       : 443"
 echo -e "Port none TLS  : 80"
