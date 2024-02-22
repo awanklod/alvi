@@ -86,9 +86,9 @@ systemctl restart xray
 if [ ! -e /etc/vless ]; then
   mkdir -p /etc/vless
 fi
-if [ -z ${iplimit} ]; then
-  iplimit="0"
-fi
+#if [ -z ${iplimit} ]; then
+#  iplimit="0"
+#fi
 if [ -z ${Quota} ]; then
   Quota="0"
 fi
@@ -96,7 +96,7 @@ c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
 d=$((${c} * 1024 * 1024 * 1024))
 if [[ ${c} != "0" ]]; then
   echo "${d}" >/etc/vless/${user}
-  echo "${iplimit}" >/etc/kyt/limit/vless/ip/$user
+#  echo "${iplimit}" >/etc/kyt/limit/vless/ip/$user
 fi
 DATADB=$(cat /etc/vless/.vless.db | grep "^#&" | grep -w "${user}" | awk '{print $2}')
 if [[ "${DATADB}" != '' ]]; then
