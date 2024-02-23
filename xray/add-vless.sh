@@ -98,34 +98,34 @@ done
 #uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p " CREAT PW (OTOMATIC RANDOM PW) :" uuid
     [[ -z "$uuid" ]] && uuid=`cat /proc/sys/kernel/random/uuid`
-sec=3
-echo ""
-spinner=(⣻ ⢿ ⡿ ⣟ ⣯ ⣷)
-while [ $sec -gt 0 ]; do
-  echo -ne "\e[33m ${spinner[sec]} Setting up a Premium Account $sec seconds...\r"
-  sleep 1
-  sec=$(($sec - 1))
-done
-clear
-echo ""
-echo -e "\e[1;32m   input dependecies account $user\e[0m\n"
-echo -e "\033[0;33m .::.  Script by CLOUDVPN  .::.\e[0m\n"
-echo ""
-echo "   Setup Limit Quota/ip for Account"
-echo "       0 For Unlimited/No Limit"
-echo ""
-echo "   Username : $user"
-until [[ $masaaktif =~ ^[0-9]+$ ]]; do
-read -p "   Expired (days): " masaaktif
-done
-until [[ $Quota =~ ^[0-9]+$ ]]; do
-  read -p "   Limit User (GB): " Quota
-done
+#sec=3
+#echo ""
+#spinner=(⣻ ⢿ ⡿ ⣟ ⣯ ⣷)
+#while [ $sec -gt 0 ]; do
+#  echo -ne "\e[33m ${spinner[sec]} Setting up a Premium Account $sec seconds...\r"
+#  sleep 1
+#  sec=$(($sec - 1))
+#done
+#clear
+#echo ""
+#echo -e "\e[1;32m   input dependecies account $user\e[0m\n"
+#echo -e "\033[0;33m .::.  Script by CLOUDVPN  .::.\e[0m\n"
+#echo ""
+#echo "   Setup Limit Quota/ip for Account"
+#echo "       0 For Unlimited/No Limit"
+#echo ""
+#echo "   Username : $user"
+#until [[ $masaaktif =~ ^[0-9]+$ ]]; do
+#read -p "   Expired (days): " masaaktif
+#done
+#until [[ $Quota =~ ^[0-9]+$ ]]; do
+#  read -p "   Limit User (GB): " Quota
+#done
 #until [[ $iplimit =~ ^[0-9]+$ ]]; do
 #  mkdir -p /etc/kyt/limit/vless/ip
 #  read -p "   Limit User (IP): " iplimit
 #done    
-#read -p "Expired (days): " masaaktif
+read -p "Expired (days): " masaaktif
 #read -p "Limit User (GB): " Quota
 #read -p "Limit User (IP): " iplimit
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
@@ -138,10 +138,10 @@ vlesslink2="vless://${uuid}@${domain}:80?path=/vless&encryption=none&type=ws#${u
 vlesslink3="vless://${uuid}@${domain}:443?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=${domain}#${user}"
 systemctl restart xray
 #if [ ! -e /etc/vless ]; then
-  #mkdir -p /etc/vless
+#  mkdir -p /etc/vless
 #fi
 #if [ -z ${iplimit} ]; then
- # iplimit="0"
+#  iplimit="0"
 #fi
 #if [ -z ${Quota} ]; then
 #  Quota="0"
@@ -188,26 +188,26 @@ systemctl restart xray
 #sed -i "/\b${user}\b/d" /etc/vless/.vless.db
 #fi
 
-if [ ! -e /etc/vless ]; then
-  mkdir -p /etc/vless
-fi
+#if [ ! -e /etc/vless ]; then
+#  mkdir -p /etc/vless
+#fi
 #if [ -z ${iplimit} ]; then
 #  iplimit="0"
 #fi
-if [ -z ${Quota} ]; then
-  Quota="0"
-fi
-c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
-d=$((${c} * 1024 * 1024 * 1024))
-if [[ ${c} != "0" ]]; then
-  echo "${d}" >/etc/vless/${user}
+#if [ -z ${Quota} ]; then
+#  Quota="0"
+#fi
+#c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
+#d=$((${c} * 1024 * 1024 * 1024))
+#if [[ ${c} != "0" ]]; then
+#  echo "${d}" >/etc/vless/${user}
 #  echo "${iplimit}" >/etc/kyt/limit/vless/ip/$user
-fi
-DATADB=$(cat /etc/vless/.vless.db | grep "^###" | grep -w "${user}" | awk '{print $2}')
-if [[ "${DATADB}" != '' ]]; then
-  sed -i "/\b${user}\b/d" /etc/vless/.vless.db
-fi
-echo "#& ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vless/.vless.db
+#fi
+#DATADB=$(cat /etc/vless/.vless.db | grep "^###" | grep -w "${user}" | awk '{print $2}')
+#if [[ "${DATADB}" != '' ]]; then
+#  sed -i "/\b${user}\b/d" /etc/vless/.vless.db
+#fi
+#echo "#& ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vless/.vless.db
 #echo "#& ${user} ${exp} ${uuid} ${Quota}" >>/etc/vless/.vless.db
 clear
 echo -e ""
