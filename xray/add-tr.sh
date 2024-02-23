@@ -202,9 +202,9 @@ echo -e "\E[0;41;36m           TROJAN ACCOUNT           \E[0m" | tee -a /etc/log
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-user.log
 echo -e "Host/IP        : ${domain}" | tee -a /etc/log-create-user.log
-echo -e "User Quota     : ${Quota} GB" | tee -a /etc/log-create-user.log
+#echo -e "User Quota     : ${Quota} GB" | tee -a /etc/log-create-user.log
 #echo -e "User Ip        : ${iplimit} IP" | tee -a /etc/log-create-user.log
-echo -e "Wildcard       : (bug.com).${domain}" | tee -a /etc/log-create-user.log
+#echo -e "Wildcard       : (bug.com).${domain}" | tee -a /etc/log-create-user.log
 echo -e "Port TLS       : 443" | tee -a /etc/log-create-user.log
 echo -e "Port none TLS  : 80" | tee -a /etc/log-create-user.log
 echo -e "Port  GRPC     : 443" | tee -a /etc/log-create-user.log
