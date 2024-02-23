@@ -72,7 +72,7 @@ none="$(cat ~/log-install.txt | grep -w "Vless WS none TLS" | cut -d: -f2|sed 's
 user=trial-vl`</dev/urandom tr -dc 0-9 | head -c4`
 uuid=$(cat /proc/sys/kernel/random/uuid)
 masaaktif=1
-Quota=5
+#Quota=5
 #iplimit=2
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#vless$/a\#& '"$user $exp"'\
@@ -83,27 +83,27 @@ vlesslink1="vless://${uuid}@${domain}:$tls?path=/vless&security=tls&encryption=n
 vlesslink2="vless://${uuid}@${domain}:$none?path=/vless&encryption=none&type=ws#${user}"
 vlesslink3="vless://${uuid}@${domain}:$tls?mode=gun&security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=bug.com#${user}"
 systemctl restart xray
-if [ ! -e /etc/vless ]; then
-  mkdir -p /etc/vless
-fi
+#if [ ! -e /etc/vless ]; then
+#  mkdir -p /etc/vless
+#fi
 #if [ -z ${iplimit} ]; then
 #  iplimit="0"
 #fi
-if [ -z ${Quota} ]; then
-  Quota="0"
-fi
-c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
-d=$((${c} * 1024 * 1024 * 1024))
-if [[ ${c} != "0" ]]; then
-  echo "${d}" >/etc/vless/${user}
+#if [ -z ${Quota} ]; then
+#  Quota="0"
+#fi
+#c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
+#d=$((${c} * 1024 * 1024 * 1024))
+#if [[ ${c} != "0" ]]; then
+#  echo "${d}" >/etc/vless/${user}
 #  echo "${iplimit}" >/etc/kyt/limit/vless/ip/$user
-fi
-DATADB=$(cat /etc/vless/.vless.db | grep "^#&" | grep -w "${user}" | awk '{print $2}')
-if [[ "${DATADB}" != '' ]]; then
-  sed -i "/\b${user}\b/d" /etc/vless/.vless.db
-fi
-echo "#& ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vless/.vless.db
-clear
+#fi
+#DATADB=$(cat /etc/vless/.vless.db | grep "^#&" | grep -w "${user}" | awk '{print $2}')
+#if [[ "${DATADB}" != '' ]]; then
+#  sed -i "/\b${user}\b/d" /etc/vless/.vless.db
+#fi
+#echo "#& ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vless/.vless.db
+#clear
 
 #if [ ! -e /etc/vless ]; then
 #mkdir -p /etc/vless
@@ -138,15 +138,15 @@ clear
 #fi
 #echo "#& ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vless/.vless.db
 #echo "#& ${user} ${exp} ${uuid} ${Quota}" >>/etc/vless/.vless.db
-#clear
+clear
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}" 
 echo -e "${BIWhite}            ⇱ VLESS ACCOUNT ⇲            ${NC}"
 echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
-echo -e "User limit     : ${Quota} GB"
+#echo -e "User limit     : ${Quota} GB"
 #echo -e "Ip   limit     : ${iplimit} Ip"
-echo -e "Wildcard       : (bug.com).${domain}"
+#echo -e "Wildcard       : (bug.com).${domain}"
 echo -e "Port TLS       : 443"
 echo -e "Port none TLS  : 80"
 echo -e "Port gRPC      : 443"
