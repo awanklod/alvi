@@ -73,7 +73,7 @@ none="$(cat ~/log-install.txt | grep -w "Vmess WS none TLS" | cut -d: -f2|sed 's
 user=trial-vm`</dev/urandom tr -dc 0-9 | head -c4`
 uuid=$(cat /proc/sys/kernel/random/uuid)
 masaaktif=1
-Quota=5
+#Quota=5
 #iplimit=2
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#vmess$/a\#vm# '"$user $exp"'\
@@ -134,27 +134,27 @@ vmesslink2="vmess://$(echo $ask | base64 -w 0)"
 vmesslink3="vmess://$(echo $grpc | base64 -w 0)"
 systemctl restart xray > /dev/null 2>&1
 service cron restart > /dev/null 2>&1
-if [ ! -e /etc/vmess ]; then
-  mkdir -p /etc/vmess
-fi
+#if [ ! -e /etc/vmess ]; then
+#  mkdir -p /etc/vmess
+#fi
 #if [ -z ${iplimit} ]; then
 #  iplimit="0"
 #fi
-if [ -z ${Quota} ]; then
-  Quota="0"
-fi
-c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
-d=$((${c} * 1024 * 1024 * 1024))
-if [[ ${c} != "0" ]]; then
-  echo "${d}" >/etc/vmess/${user}
+#if [ -z ${Quota} ]; then
+#  Quota="0"
+#fi
+#c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
+#d=$((${c} * 1024 * 1024 * 1024))
+#if [[ ${c} != "0" ]]; then
+#  echo "${d}" >/etc/vmess/${user}
 #  echo "${iplimit}" >/etc/kyt/limit/vmess/ip/$user
-fi
-DATADB=$(cat /etc/vmess/.vmess.db | grep "^#vm#" | grep -w "${user}" | awk '{print $2}')
-if [[ "${DATADB}" != '' ]]; then
-  sed -i "/\b${user}\b/d" /etc/vmess/.vmess.db
-fi
-echo "#vm# ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vmess/.vmess.db
-clear
+#fi
+#DATADB=$(cat /etc/vmess/.vmess.db | grep "^#vm#" | grep -w "${user}" | awk '{print $2}')
+#if [[ "${DATADB}" != '' ]]; then
+#  sed -i "/\b${user}\b/d" /etc/vmess/.vmess.db
+#fi
+#echo "#vm# ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vmess/.vmess.db
+#clear
 
 #if [ ! -e /etc/vmess ]; then
 #mkdir -p /etc/vmess
@@ -189,7 +189,7 @@ clear
 #fi
 #echo "#vm# ${user} ${exp} ${uuid} ${Quota}" >>/etc/vmess/.vmess.db
 #echo "#vm# ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vmess/.vmess.db
-#clear
+clear
 
 
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}" 
@@ -197,9 +197,9 @@ echo -e "${BIWhite}            ⇱ VMESS ACCOUNT ⇲            ${NC}"
 echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
-echo -e "User Quota     : ${Quota} GB"
+#echo -e "User Quota     : ${Quota} GB"
 #echo -e "User Ip        : ${iplimit} IP"
-echo -e "Wildcard       : (bug.com).${domain}"
+#echo -e "Wildcard       : (bug.com).${domain}"
 echo -e "Port TLS       : 443"
 echo -e "Port none TLS  : 80"
 echo -e "Port gRPC      : 443"
