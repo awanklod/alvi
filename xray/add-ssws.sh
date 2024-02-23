@@ -98,37 +98,37 @@ fi
 done
 
 cipher="aes-128-gcm"
-#uuid=$(cat /proc/sys/kernel/random/uuid)
+uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p " CREAT PW (OTOMATIC RANDOM PW) :" uuid
     [[ -z "$uuid" ]] && uuid=`cat /proc/sys/kernel/random/uuid`
-sec=3
-echo ""
-spinner=(⣻ ⢿ ⡿ ⣟ ⣯ ⣷)
-while [ $sec -gt 0 ]; do
-  echo -ne "\e[33m ${spinner[sec]} Setting up a Premium Account $sec seconds...\r"
-  sleep 1
-  sec=$(($sec - 1))
-done
-clear
-echo ""
-echo -e "\e[1;32m   input dependecies account $user\e[0m\n"
-echo -e "\033[0;33m .::.  Script by CLOUDVPN  .::.\e[0m\n"
-echo ""
-echo "   Setup Limit Quota/ip for Account"
-echo "       0 For Unlimited/No Limit"
-echo ""
-echo "   Username : $user"
-until [[ $masaaktif =~ ^[0-9]+$ ]]; do
-  read -p "   Expired (days): " masaaktif
-done
-until [[ $Quota =~ ^[0-9]+$ ]]; do
-  read -p "   Limit User (GB): " Quota
-done
+#sec=3
+#echo ""
+#spinner=(⣻ ⢿ ⡿ ⣟ ⣯ ⣷)
+#while [ $sec -gt 0 ]; do
+#  echo -ne "\e[33m ${spinner[sec]} Setting up a Premium Account $sec seconds...\r"
+#  sleep 1
+#  sec=$(($sec - 1))
+#done
+#clear
+#echo ""
+#echo -e "\e[1;32m   input dependecies account $user\e[0m\n"
+#echo -e "\033[0;33m .::.  Script by CLOUDVPN  .::.\e[0m\n"
+#echo ""
+#echo "   Setup Limit Quota/ip for Account"
+#echo "       0 For Unlimited/No Limit"
+#echo ""
+#echo "   Username : $user"
+#until [[ $masaaktif =~ ^[0-9]+$ ]]; do
+#  read -p "   Expired (days): " masaaktif
+#done
+#until [[ $Quota =~ ^[0-9]+$ ]]; do
+#  read -p "   Limit User (GB): " Quota
+#done
 #until [[ $iplimit =~ ^[0-9]+$ ]]; do
 #  mkdir -p /etc/kyt/limit/shadowsocks/ip
 #  read -p "   Limit User (IP): " iplimit
 #done    
-#read -p "Expired (days): " masaaktif
+read -p "Expired (days): " masaaktif
 #read -p "Limit User (GB): " Quota
 #read -p "Limit User (IP): " iplimit
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
@@ -363,29 +363,29 @@ cat > /home/vps/public_html/ss-$user.txt <<-END
 END
 systemctl restart xray > /dev/null 2>&1
 service cron restart > /dev/null 2>&1
-if [ ! -e /etc/shadowsocks ]; then
-  mkdir -p /etc/shadowsocks
-fi
+#if [ ! -e /etc/shadowsocks ]; then
+#  mkdir -p /etc/shadowsocks
+#fi
 
-if [ -z ${Quota} ]; then
-  Quota="0"
-fi
+#if [ -z ${Quota} ]; then
+#  Quota="0"
+#fi
 #if [ -z ${iplimit} ]; then
 #  iplimit="0"
 #fi
-c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
-d=$((${c} * 1024 * 1024 * 1024))
+#c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
+#d=$((${c} * 1024 * 1024 * 1024))
 
-if [[ ${c} != "0" ]]; then
-  echo "${d}" >/etc/shadowsocks/${user}
+#if [[ ${c} != "0" ]]; then
+#  echo "${d}" >/etc/shadowsocks/${user}
 #  echo "${iplimit}" >/etc/kyt/limit/shadowsocks/ip/$user
-fi
-DATADB=$(cat /etc/shadowsocks/.shadowsocks.db | grep "^#ss#" | grep -w "${user}" | awk '{print $2}')
-if [[ "${DATADB}" != '' ]]; then
-  sed -i "/\b${user}\b/d" /etc/shadowsocks/.shadowsocks.db
-fi
-echo "#ss# ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/shadowsocks/.shadowsocks.db
-clear
+#fi
+#DATADB=$(cat /etc/shadowsocks/.shadowsocks.db | grep "^#ss#" | grep -w "${user}" | awk '{print $2}')
+#if [[ "${DATADB}" != '' ]]; then
+#  sed -i "/\b${user}\b/d" /etc/shadowsocks/.shadowsocks.db
+#fi
+#echo "#ss# ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/shadowsocks/.shadowsocks.db
+#clear
 
 #if [ ! -e /etc/shadowsocks ]; then
 #mkdir -p /etc/shadowsocks
@@ -420,7 +420,7 @@ clear
 #fi
 #echo "#ss# ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/shadowsocks/.shadowsocks.db
 #echo "#ss# ${user} ${exp} ${uuid} ${Quota}" >>/etc/shadowsocks/.shadowsocks.db
-#clear
+clear
 echo -e ""
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}" | tee -a /etc/log-create-user.log 
 echo -e "${BIWhite}            ⇱ SHADOWSOCKS ACCOUNT ⇲            ${NC}" | tee -a /etc/log-create-user.log
