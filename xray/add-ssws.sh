@@ -98,7 +98,7 @@ fi
 done
 
 cipher="aes-128-gcm"
-uuid=$(cat /proc/sys/kernel/random/uuid)
+#uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p " CREAT PW (OTOMATIC RANDOM PW) :" uuid
     [[ -z "$uuid" ]] && uuid=`cat /proc/sys/kernel/random/uuid`
 #sec=3
