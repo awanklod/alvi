@@ -100,34 +100,34 @@ done
 #uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p " CREAT PW (OTOMATIC RANDOM PW) :" uuid
     [[ -z "$uuid" ]] && uuid=`cat /proc/sys/kernel/random/uuid`
-sec=3
-echo ""
-spinner=(⣻ ⢿ ⡿ ⣟ ⣯ ⣷)
-while [ $sec -gt 0 ]; do
-  echo -ne "\e[33m ${spinner[sec]} Setting up a Premium Account $sec seconds...\r"
-  sleep 1
-  sec=$(($sec - 1))
-done
-clear
-echo ""
-echo -e "\e[1;32m   input dependecies account $user\e[0m\n"
-echo -e "\033[0;33m .::.  Script by CLOUDVPN  .::.\e[0m\n"
-echo ""
-echo "   Setup Limit Quota/ip for Account"
-echo "       0 For Unlimited/No Limit"
-echo ""
-echo "   Username : $user"
-until [[ $masaaktif =~ ^[0-9]+$ ]]; do
-  read -p "   Expired (days): " masaaktif
-done
-until [[ $Quota =~ ^[0-9]+$ ]]; do
-  read -p "   Limit User (GB): " Quota
-done
+#sec=3
+#echo ""
+#spinner=(⣻ ⢿ ⡿ ⣟ ⣯ ⣷)
+#while [ $sec -gt 0 ]; do
+#  echo -ne "\e[33m ${spinner[sec]} Setting up a Premium Account $sec seconds...\r"
+#  sleep 1
+#  sec=$(($sec - 1))
+#done
+#clear
+#echo ""
+#echo -e "\e[1;32m   input dependecies account $user\e[0m\n"
+#echo -e "\033[0;33m .::.  Script by CLOUDVPN  .::.\e[0m\n"
+#echo ""
+#echo "   Setup Limit Quota/ip for Account"
+#echo "       0 For Unlimited/No Limit"
+#echo ""
+#echo "   Username : $user"
+#until [[ $masaaktif =~ ^[0-9]+$ ]]; do
+#  read -p "   Expired (days): " masaaktif
+#done
+#until [[ $Quota =~ ^[0-9]+$ ]]; do
+#  read -p "   Limit User (GB): " Quota
+#done
 #until [[ $iplimit =~ ^[0-9]+$ ]]; do
 #  mkdir -p /etc/kyt/limit/vmess/ip
 #  read -p "   Limit User (IP): " iplimit
 #done
-#read -p "Expired (days): " masaaktif
+read -p "Expired (days): " masaaktif
 #read -p "Limit User (GB): " Quota
 #read -p "Limit User (IP): " iplimit
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
@@ -226,26 +226,26 @@ service cron restart > /dev/null 2>&1
 #fi
 #echo "#vm# ${user} ${exp} ${uuid} ${Quota}" >>/etc/vmess/.vmess.db
 
-if [ ! -e /etc/vmess ]; then
-  mkdir -p /etc/vmess
-fi
+#if [ ! -e /etc/vmess ]; then
+#  mkdir -p /etc/vmess
+#fi
 #if [ -z ${iplimit} ]; then
 #  iplimit="0"
 #fi
-if [ -z ${Quota} ]; then
-  Quota="0"
-fi
-c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
-d=$((${c} * 1024 * 1024 * 1024))
-if [[ ${c} != "0" ]]; then
-  echo "${d}" >/etc/vmess/${user}
+#if [ -z ${Quota} ]; then
+#  Quota="0"
+#fi
+#c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
+#d=$((${c} * 1024 * 1024 * 1024))
+#if [[ ${c} != "0" ]]; then
+#  echo "${d}" >/etc/vmess/${user}
 #  echo "${iplimit}" >/etc/kyt/limit/vmess/ip/$user
-fi
-DATADB=$(cat /etc/vmess/.vmess.db | grep "^#vm#" | grep -w "${user}" | awk '{print $2}')
-if [[ "${DATADB}" != '' ]]; then
-  sed -i "/\b${user}\b/d" /etc/vmess/.vmess.db
-fi
-echo "#vm# ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vmess/.vmess.db
+#fi
+#DATADB=$(cat /etc/vmess/.vmess.db | grep "^#vm#" | grep -w "${user}" | awk '{print $2}')
+#if [[ "${DATADB}" != '' ]]; then
+#  sed -i "/\b${user}\b/d" /etc/vmess/.vmess.db
+#fi
+#echo "#vm# ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/vmess/.vmess.db
 clear
 echo -e ""
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}" | tee -a /etc/log-create-user.log 
@@ -253,9 +253,9 @@ echo -e "${BIWhite}            ⇱ VMESS ACCOUNT ⇲            ${NC}" | tee -a 
 echo -e "${CYAN}╘════════════════════════════════════════╛${NC}" | tee -a /etc/log-create-user.log
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-user.log
 echo -e "Domain         : ${domain}" | tee -a /etc/log-create-user.log
-echo -e "User Quota     : ${Quota} GB" | tee -a /etc/log-create-user.log
+#echo -e "User Quota     : ${Quota} GB" | tee -a /etc/log-create-user.log
 #echo -e "User Ip        : ${iplimit} IP" | tee -a /etc/log-create-user.log
-echo -e "Wildcard       : (bug.com).${domain}" | tee -a /etc/log-create-user.log
+#echo -e "Wildcard       : (bug.com).${domain}" | tee -a /etc/log-create-user.log
 echo -e "Port TLS       : 443" | tee -a /etc/log-create-user.log
 echo -e "Port none TLS  : 80" | tee -a /etc/log-create-user.log
 echo -e "Port  GRPC     : 443" | tee -a /etc/log-create-user.log
