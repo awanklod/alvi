@@ -216,7 +216,7 @@ echo -e "${BIWhite}            ⇱ VLESS ACCOUNT ⇲            ${NC}" | tee -a 
 echo -e "${CYAN}╘════════════════════════════════════════╛${NC}" | tee -a /etc/log-create-user.log
 echo -e "Remarks        : ${user}" | tee -a /etc/log-create-user.log
 echo -e "Domain         : ${domain}" | tee -a /etc/log-create-user.log
-echo -e "User Quota     : ${Quota} GB" | tee -a /etc/log-create-user.log
+#echo -e "User Quota     : ${Quota} GB" | tee -a /etc/log-create-user.log
 #echo -e "User Ip        : ${iplimit} IP" | tee -a /etc/log-create-user.log
 echo -e "Wildcard       : (bug.com).${domain}" | tee -a /etc/log-create-user.log
 echo -e "Port TLS       : 443" | tee -a /etc/log-create-user.log
