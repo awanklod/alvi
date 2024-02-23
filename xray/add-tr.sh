@@ -99,34 +99,34 @@ clear
 #uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p " CREAT PW (OTOMATIC RANDOM PW) :" uuid
     [[ -z "$uuid" ]] && uuid=`cat /proc/sys/kernel/random/uuid`
-sec=3
-echo ""
-spinner=(⣻ ⢿ ⡿ ⣟ ⣯ ⣷)
-while [ $sec -gt 0 ]; do
-  echo -ne "\e[33m ${spinner[sec]} Setting up a Premium Account $sec seconds...\r"
-  sleep 1
-  sec=$(($sec - 1))
-done
-clear
-echo ""
-echo -e "\e[1;32m   input dependecies account $user\e[0m\n"
-echo -e "\033[0;33m .::.  Script by CLOUDVPN  .::.\e[0m\n"
-echo ""
-echo "   Setup Limit Quota/ip for Account"
-echo "       0 For Unlimited/No Limit"
-echo ""
-echo "   Username : $user"
-until [[ $masaaktif =~ ^[0-9]+$ ]]; do
-  read -p "   Expired (days): " masaaktif
-done
-until [[ $Quota =~ ^[0-9]+$ ]]; do
-  read -p "   Limit User (GB): " Quota
-done
+#sec=3
+#echo ""
+#spinner=(⣻ ⢿ ⡿ ⣟ ⣯ ⣷)
+#while [ $sec -gt 0 ]; do
+#  echo -ne "\e[33m ${spinner[sec]} Setting up a Premium Account $sec seconds...\r"
+#  sleep 1
+#  sec=$(($sec - 1))
+#done
+#clear
+#echo ""
+#echo -e "\e[1;32m   input dependecies account $user\e[0m\n"
+#echo -e "\033[0;33m .::.  Script by CLOUDVPN  .::.\e[0m\n"
+#echo ""
+#echo "   Setup Limit Quota/ip for Account"
+#echo "       0 For Unlimited/No Limit"
+#echo ""
+#echo "   Username : $user"
+#until [[ $masaaktif =~ ^[0-9]+$ ]]; do
+#  read -p "   Expired (days): " masaaktif
+#done
+#until [[ $Quota =~ ^[0-9]+$ ]]; do
+#  read -p "   Limit User (GB): " Quota
+#done
 #until [[ $iplimit =~ ^[0-9]+$ ]]; do
 #  mkdir -p /etc/kyt/limit/trojan/ip
 #  read -p "   Limit User (IP): " iplimit
 #done    
-#read -p "Expired (days): " masaaktif
+read -p "Expired (days): " masaaktif
 #read -p "Limit User (GB): " Quota
 #read -p "Limit User (IP): " iplimit
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
@@ -139,29 +139,29 @@ trojanlink1="trojan://${uuid}@isi_bug_disini:443?mode=gun&security=tls&type=grpc
 trojanlink="trojan://${uuid}@isi_bug_disini:443?path=%2Ftrojan-ws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
 trojanlink2="trojan://${uuid}@isi_bug_disini:80?path=%2Ftrojan-ws&security=none&host=${domain}&type=ws#${user}"
 systemctl restart xray
-if [ ! -e /etc/trojan ]; then
-  mkdir -p /etc/trojan
-fi
+#if [ ! -e /etc/trojan ]; then
+#  mkdir -p /etc/trojan
+#fi
 
-if [ -z ${Quota} ]; then
-  Quota="0"
-fi
+#if [ -z ${Quota} ]; then
+#  Quota="0"
+#fi
 #if [ -z ${iplimit} ]; then
 #  iplimit="0"
 #fi
-c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
-d=$((${c} * 1024 * 1024 * 1024))
+#c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
+#d=$((${c} * 1024 * 1024 * 1024))
 
-if [[ ${c} != "0" ]]; then
-  echo "${d}" >/etc/trojan/${user}
+#if [[ ${c} != "0" ]]; then
+#  echo "${d}" >/etc/trojan/${user}
 #  echo "${iplimit}" >/etc/kyt/limit/trojan/ip/$user
-fi
-DATADB=$(cat /etc/trojan/.trojan.db | grep "^#!" | grep -w "${user}" | awk '{print $2}')
-if [[ "${DATADB}" != '' ]]; then
-  sed -i "/\b${user}\b/d" /etc/trojan/.trojan.db
-fi
-echo "#! ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/trojan/.trojan.db
-clear
+#fi
+#DATADB=$(cat /etc/trojan/.trojan.db | grep "^#!" | grep -w "${user}" | awk '{print $2}')
+#if [[ "${DATADB}" != '' ]]; then
+#  sed -i "/\b${user}\b/d" /etc/trojan/.trojan.db
+#fi
+#echo "#! ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/trojan/.trojan.db
+#clear
 
 #if [ ! -e /etc/trojan ]; then
 #mkdir -p /etc/trojan
@@ -195,7 +195,7 @@ clear
 #fi
 #echo "#! ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/trojan/.trojan.db
 #echo "#! ${user} ${exp} ${uuid} ${Quota}" >>/etc/trojan/.trojan.db
-#clear
+clear
 echo -e ""
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /etc/log-create-user.log
 echo -e "\E[0;41;36m           TROJAN ACCOUNT           \E[0m" | tee -a /etc/log-create-user.log
