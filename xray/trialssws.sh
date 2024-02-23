@@ -74,7 +74,7 @@ user=trial-ss`</dev/urandom tr -dc 0-9 | head -c4`
 cipher="aes-128-gcm"
 uuid=$(cat /proc/sys/kernel/random/uuid)
 masaaktif=1
-Quota=5
+#Quota=5
 #iplimit=2
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#ssws$/a\#ss# '"$user $exp"'\
@@ -90,29 +90,29 @@ shadowsockslink2="ss://${shadowsocks_base64e}@isi_bug_disini:$ntls?path=ss-ws&se
 shadowsockslink1="ss://${shadowsocks_base64e}@${domain}:$tls?mode=gun&security=tls&type=grpc&serviceName=ss-grpc&sni=bug.com#${user}"
 systemctl restart xray > /dev/null 2>&1
 service cron restart > /dev/null 2>&1
-if [ ! -e /etc/shadowsocks ]; then
-  mkdir -p /etc/shadowsocks
-fi
+#if [ ! -e /etc/shadowsocks ]; then
+#  mkdir -p /etc/shadowsocks
+#fi
 
-if [ -z ${Quota} ]; then
-  Quota="0"
-fi
+#if [ -z ${Quota} ]; then
+#  Quota="0"
+#fi
 #if [ -z ${iplimit} ]; then
 #  iplimit="0"
 #fi
-c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
-d=$((${c} * 1024 * 1024 * 1024))
+#c=$(echo "${Quota}" | sed 's/[^0-9]*//g')
+#d=$((${c} * 1024 * 1024 * 1024))
 
-if [[ ${c} != "0" ]]; then
-  echo "${d}" >/etc/shadowsocks/${user}
+#if [[ ${c} != "0" ]]; then
+#  echo "${d}" >/etc/shadowsocks/${user}
 #  echo "${iplimit}" >/etc/kyt/limit/shadowsocks/ip/$user
-fi
-DATADB=$(cat /etc/shadowsocks/.shadowsocks.db | grep "^#ss#" | grep -w "${user}" | awk '{print $2}')
-if [[ "${DATADB}" != '' ]]; then
-  sed -i "/\b${user}\b/d" /etc/shadowsocks/.shadowsocks.db
-fi
-echo "#ss# ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/shadowsocks/.shadowsocks.db
-clear
+#fi
+#DATADB=$(cat /etc/shadowsocks/.shadowsocks.db | grep "^#ss#" | grep -w "${user}" | awk '{print $2}')
+#if [[ "${DATADB}" != '' ]]; then
+#  sed -i "/\b${user}\b/d" /etc/shadowsocks/.shadowsocks.db
+#fi
+#echo "#ss# ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/shadowsocks/.shadowsocks.db
+#clear
 
 #if [ ! -e /etc/shadowsocks ]; then
 #mkdir -p /etc/shadowsocks
@@ -148,15 +148,15 @@ clear
 #echo "#ss# ${user} ${exp} ${uuid} ${Quota} ${iplimit}" >>/etc/shadowsocks/.shadowsocks.db
 #echo "#ss# ${user} ${exp} ${uuid} ${Quota}" >>/etc/shadowsocks/.shadowsocks.db
 
-#clear
+clear
 echo -e "${CYAN}╒════════════════════════════════════════╕${NC}" 
 echo -e "${BIWhite}            ⇱ SHADOWSOCKS ACCOUNT ⇲            ${NC}"
 echo -e "${CYAN}╘════════════════════════════════════════╛${NC}"
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
-echo -e "User Quota     : ${Quota} GB"
+#echo -e "User Quota     : ${Quota} GB"
 #echo -e "User Ip        : ${iplimit} IP"
-echo -e "Wildcard       : (bug.com).${domain}"
+#echo -e "Wildcard       : (bug.com).${domain}"
 echo -e "Port TLS       : 443"
 echo -e "Port none TLS  : 80"
 echo -e "Port gRPC      : 443"
