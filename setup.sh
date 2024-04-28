@@ -183,16 +183,16 @@ echo -e "$green          Install UDP              $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
 clear
-#wget https://raw.githubusercontent.com/awanklod/alvi/main/tunnel/udp.sh && bash udp.sh
+wget https://raw.githubusercontent.com/awanklod/alvi/main/tunnel/udp.sh && bash udp.sh
 clear
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green       INSTALL SSH UDP             $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-wget https://raw.githubusercontent.com/awanklod/udpc/main/udp.sh && chmod +x udp.sh && ./udp.sh
-wget https://raw.githubusercontent.com/awanklod/udpc/main/zi.sh && chmod +x zi.sh && ./zi.sh
-wget https://raw.githubusercontent.com/awanklod/udpc/main/req.sh && chmod +x req.sh && ./req.sh
-rm -fr udp.sh zi.sh req.sh
-clear
+#wget https://raw.githubusercontent.com/awanklod/udpc/main/udp.sh && chmod +x udp.sh && ./udp.sh
+#wget https://raw.githubusercontent.com/awanklod/udpc/main/zi.sh && chmod +x zi.sh && ./zi.sh
+#wget https://raw.githubusercontent.com/awanklod/udpc/main/req.sh && chmod +x req.sh && ./req.sh
+#rm -fr udp.sh zi.sh req.sh
+#clear
 #Instal LIMIT
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green          Install LIMIT              $NC"
