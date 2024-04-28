@@ -648,54 +648,54 @@ systemctl start trojan-go
 systemctl enable trojan-go
 systemctl restart trojan-go
 
-cd /usr/bin/
+#cd /usr/bin/
 # vmess
-wget -O add-ws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/add-ws.sh" && chmod +x add-ws
-wget -O trialvmess "https://raw.githubusercontent.com/awanklod/alvi/main/xray/trialvmess.sh" && chmod +x trialvmess
-wget -O renew-ws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/renew-ws.sh" && chmod +x renew-ws
-wget -O del-ws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/del-ws.sh" && chmod +x del-ws
-wget -O cek-ws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-ws.sh" && chmod +x cek-ws
-wget -O cek-ws2 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-ws2" && chmod +x cek-ws2
+#wget -O add-ws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/add-ws.sh" && chmod +x add-ws
+#wget -O trialvmess "https://raw.githubusercontent.com/awanklod/alvi/main/xray/trialvmess.sh" && chmod +x trialvmess
+#wget -O renew-ws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/renew-ws.sh" && chmod +x renew-ws
+#wget -O del-ws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/del-ws.sh" && chmod +x del-ws
+#wget -O cek-ws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-ws.sh" && chmod +x cek-ws
+#wget -O cek-ws2 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-ws2" && chmod +x cek-ws2
 #wget -O cek-ws3 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-ws3" && chmod +x cek-ws3
 #wget -O quotavmess "https://raw.githubusercontent.com/awanklod/alvi/main/xray/quotavmess.sh" && chmod +x quotavmess
 #wget -O editip-vmess "https://raw.githubusercontent.com/awanklod/alvi/main/xray/editip-vmess.sh" && chmod +x editip-vmess
 
 # vless
-wget -O add-vless "https://raw.githubusercontent.com/awanklod/alvi/main/xray/add-vless.sh" && chmod +x add-vless
-wget -O trialvless "https://raw.githubusercontent.com/awanklod/alvi/main/xray/trialvless.sh" && chmod +x trialvless
-wget -O renew-vless "https://raw.githubusercontent.com/awanklod/alvi/main/xray/renew-vless.sh" && chmod +x renew-vless
-wget -O del-vless "https://raw.githubusercontent.com/awanklod/alvi/main/xray/del-vless.sh" && chmod +x del-vless
-wget -O cek-vless "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-vless.sh" && chmod +x cek-vless
-wget -O cek-vless2 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-vless2" && chmod +x cek-vless2
+#wget -O add-vless "https://raw.githubusercontent.com/awanklod/alvi/main/xray/add-vless.sh" && chmod +x add-vless
+#wget -O trialvless "https://raw.githubusercontent.com/awanklod/alvi/main/xray/trialvless.sh" && chmod +x trialvless
+#wget -O renew-vless "https://raw.githubusercontent.com/awanklod/alvi/main/xray/renew-vless.sh" && chmod +x renew-vless
+#wget -O del-vless "https://raw.githubusercontent.com/awanklod/alvi/main/xray/del-vless.sh" && chmod +x del-vless
+#wget -O cek-vless "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-vless.sh" && chmod +x cek-vless
+#wget -O cek-vless2 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-vless2" && chmod +x cek-vless2
 #wget -O cek-vless3 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-vless3" && chmod +x cek-vless3
 #wget -O quotavless "https://raw.githubusercontent.com/awanklod/alvi/main/xray/quotavless.sh" && chmod +x quotavless
 #wget -O editip-vless "https://raw.githubusercontent.com/awanklod/alvi/main/xray/editip-vless.sh" && chmod +x editip-vless
 
 # trojan
-wget -O add-tr "https://raw.githubusercontent.com/awanklod/alvi/main/xray/add-tr.sh" && chmod +x add-tr
-wget -O trialtrojan "https://raw.githubusercontent.com/awanklod/alvi/main/xray/trialtrojan.sh" && chmod +x trialtrojan
-wget -O del-tr "https://raw.githubusercontent.com/awanklod/alvi/main/xray/del-tr.sh" && chmod +x del-tr
-wget -O renew-tr "https://raw.githubusercontent.com/awanklod/alvi/main/xray/renew-tr.sh" && chmod +x renew-tr
-wget -O cek-tr "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-tr.sh" && chmod +x cek-tr
-wget -O cek-tr2 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-tr2" && chmod +x cek-tr2
+#wget -O add-tr "https://raw.githubusercontent.com/awanklod/alvi/main/xray/add-tr.sh" && chmod +x add-tr
+#wget -O trialtrojan "https://raw.githubusercontent.com/awanklod/alvi/main/xray/trialtrojan.sh" && chmod +x trialtrojan
+#wget -O del-tr "https://raw.githubusercontent.com/awanklod/alvi/main/xray/del-tr.sh" && chmod +x del-tr
+#wget -O renew-tr "https://raw.githubusercontent.com/awanklod/alvi/main/xray/renew-tr.sh" && chmod +x renew-tr
+#wget -O cek-tr "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-tr.sh" && chmod +x cek-tr
+#wget -O cek-tr2 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-tr2" && chmod +x cek-tr2
 #wget -O cek-tr3 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-tr3" && chmod +x cek-tr3
 #wget -O quotatrojan "https://raw.githubusercontent.com/awanklod/alvi/main/xray/quotatrojan.sh" && chmod +x quotatrojan
 #wget -O editip-trojan "https://raw.githubusercontent.com/awanklod/alvi/main/xray/editip-trojan.sh" && chmod +x editip-trojan
 
 # trojan go
-wget -O addtrgo "https://raw.githubusercontent.com/awanklod/alvi/main/xray/addtrgo.sh" && chmod +x addtrgo
-wget -O trialtrojango "https://raw.githubusercontent.com/awanklod/alvi/main/xray/trialtrojango.sh" && chmod +x trialtrojango
-wget -O deltrgo "https://raw.githubusercontent.com/awanklod/alvi/main/xray/deltrgo.sh" && chmod +x deltrgo
-wget -O renewtrgo "https://raw.githubusercontent.com/awanklod/alvi/main/xray/renewtrgo.sh" && chmod +x renewtrgo
-wget -O cektrgo "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cektrgo.sh" && chmod +x cektrgo
+#wget -O addtrgo "https://raw.githubusercontent.com/awanklod/alvi/main/xray/addtrgo.sh" && chmod +x addtrgo
+#wget -O trialtrojango "https://raw.githubusercontent.com/awanklod/alvi/main/xray/trialtrojango.sh" && chmod +x trialtrojango
+#wget -O deltrgo "https://raw.githubusercontent.com/awanklod/alvi/main/xray/deltrgo.sh" && chmod +x deltrgo
+#wget -O renewtrgo "https://raw.githubusercontent.com/awanklod/alvi/main/xray/renewtrgo.sh" && chmod +x renewtrgo
+#wget -O cektrgo "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cektrgo.sh" && chmod +x cektrgo
 
 # shadowsocks
-wget -O add-ssws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/add-ssws.sh" && chmod +x add-ssws
-wget -O trialssws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/trialssws.sh" && chmod +x trialssws
-wget -O del-ssws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/del-ssws.sh" && chmod +x del-ssws
-wget -O renew-ssws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/renew-ssws.sh" && chmod +x renew-ssws
-wget -O cek-ssws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-ssws.sh" && chmod +x cek-ssws
-wget -O cek-ssws2 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-ssws2" && chmod +x cek-ssws2
+#wget -O add-ssws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/add-ssws.sh" && chmod +x add-ssws
+#wget -O trialssws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/trialssws.sh" && chmod +x trialssws
+#wget -O del-ssws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/del-ssws.sh" && chmod +x del-ssws
+#wget -O renew-ssws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/renew-ssws.sh" && chmod +x renew-ssws
+#wget -O cek-ssws "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-ssws.sh" && chmod +x cek-ssws
+#wget -O cek-ssws2 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-ssws2" && chmod +x cek-ssws2
 #wget -O cek-ssws3 "https://raw.githubusercontent.com/awanklod/alvi/main/xray/cek-ssws3" && chmod +x cek-ssws3
 #wget -O quotashadowsocks "https://raw.githubusercontent.com/awanklod/alvi/main/xray/quotashadowsocks.sh" && chmod +x quotashadowsocks
 #wget -O editip-shadowsocks "https://raw.githubusercontent.com/awanklod/alvi/main/xray/editip-shadowsocks.sh" && chmod +x editip-shadowsocks
