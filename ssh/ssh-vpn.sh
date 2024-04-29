@@ -304,16 +304,16 @@ wget -O media "https://raw.githubusercontent.com/awanklod/alvi/main/menu/media"
 
 # menu ssh ovpn
 wget -O menu-ssh "https://raw.githubusercontent.com/awanklod/alvi/main/menu/menu-ssh.sh"
-wget -O usernew "https://raw.githubusercontent.com/awanklod/alvi/main/ssh/usernew.sh"
-wget -O trial "https://raw.githubusercontent.com/awanklod/alvi/main/ssh/trial.sh"
-wget -O renew "https://raw.githubusercontent.com/awanklod/alvi/main/ssh/renew.sh"
-wget -O hapus "https://raw.githubusercontent.com/awanklod/alvi/main/ssh/hapus.sh"
-wget -O cek "https://raw.githubusercontent.com/awanklod/alvi/main/ssh/cek.sh"
-wget -O member "https://raw.githubusercontent.com/awanklod/alvi/main/ssh/member.sh"
-wget -O delete "https://raw.githubusercontent.com/awanklod/alvi/main/ssh/delete.sh"
-wget -O autokill "https://raw.githubusercontent.com/awanklod/alvi/main/ssh/autokill.sh"
-wget -O ceklim "https://raw.githubusercontent.com/awanklod/alvi/main/ssh/ceklim.sh"
-wget -O tendang "https://raw.githubusercontent.com/awanklod/alvi/main/ssh/tendang.sh"
+#wget -O usernew "https://raw.githubusercontent.com/awanklod/alvi/main/ssh/usernew.sh"
+#wget -O trial "https://raw.githubusercontent.com/awanklod/alvi/main/ssh/trial.sh"
+#wget -O renew "https://raw.githubusercontent.com/awanklod/alvi/main/ssh/renew.sh"
+#wget -O hapus "https://raw.githubusercontent.com/awanklod/alvi/main/ssh/hapus.sh"
+#wget -O cek "https://raw.githubusercontent.com/awanklod/alvi/main/ssh/cek.sh"
+#wget -O member "https://raw.githubusercontent.com/awanklod/alvi/main/ssh/member.sh"
+#wget -O delete "https://raw.githubusercontent.com/awanklod/alvi/main/ssh/delete.sh"
+#wget -O autokill "https://raw.githubusercontent.com/awanklod/alvi/main/ssh/autokill.sh"
+#wget -O ceklim "https://raw.githubusercontent.com/awanklod/alvi/main/ssh/ceklim.sh"
+#wget -O tendang "https://raw.githubusercontent.com/awanklod/alvi/main/ssh/tendang.sh"
 
 # menu system
 wget -O menu-set "https://raw.githubusercontent.com/awanklod/alvi/main/menu/menu-set.sh"
@@ -367,16 +367,16 @@ chmod +x trafik
 chmod +x media
 
 chmod +x menu-ssh
-chmod +x usernew
-chmod +x trial
-chmod +x renew
-chmod +x hapus
-chmod +x cek
-chmod +x member
-chmod +x delete
-chmod +x autokill
-chmod +x ceklim
-chmod +x tendang
+#chmod +x usernew
+#chmod +x trial
+#chmod +x renew
+#chmod +x hapus
+#chmod +x cek
+#chmod +x member
+#chmod +x delete
+#chmod +x autokill
+#chmod +x ceklim
+#chmod +x tendang
 
 chmod +x menu-set
 chmod +x menu-domain
