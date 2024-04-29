@@ -95,17 +95,6 @@ echo "" > /etc/trojan-go/trgo
 fi
 clear
 
-# STATUS EXPIRED ACTIVE
-Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[4$below" && Font_color_suffix="\033[0m"
-Info="${Green_font_prefix}(Registered)${Font_color_suffix}"
-Error="${Green_font_prefix}${Font_color_suffix}${Red_font_prefix}[EXPIRED]${Font_color_suffix}"
-
-today=$(date -d "0 days" +"%Y-%m-%d")
-if [[ $today < $Exp2 ]]; then
-    sts="${Info}"
-else
-    sts="${Error}"
-fi
 # TOTAL CREATE ACC VMESS
 vmess=$(grep -c -E "^#vmg " "/etc/xray/config.json")
 # TOTAL CREATE ACC VLESS
@@ -320,24 +309,25 @@ echo -e "${BIYellow}║ RAM/USE RAM % CPU   = ${BIWhite}${totalram}MB / ${BIWhit
 #echo -e "${BIYellow}║ CPU Usage           = ${BIWhite}${cpu_usage}${NC}"
 echo -e "${BIYellow}╚═══════════════════════════════════════════════════════════╝\033[0m${NC}"
 DATE=$(date +'%d %B %Y')
-DATE=$(date +'%Y-%m-%d')
 datediff() {
-d1=$(date -d "$1" +%s)
-d2=$(date -d "$2" +%s)
-echo -e "$COLOR1 $NC Expiry In   : $(( (d1 - d2) / 86400 )) Days"
+    d1=$(date -d "$1" +%s)
+    d2=$(date -d "$2" +%s)
+echo -e " ${BIRed}║  DAYS LEFT    ${NC} : ${IYellow}$(( (d1 - d2) / 86400 )) Days $NC"
 }
-d1=$(date -d "$Exp2" +%s)
-d2=$(date -d "$today" +%s)
-certificate=$(( (d1 - d2) / 86400 ))
-
-
-echo -e "$COLOR1╭═════════════════════════════════════════════════════════╮${NC}"
-echo -e "$COLOR1│$NC ${WH} ❈ Client ${NC} : ${WH}$author${NC}"
-echo -e "$COLOR1│$NC ${WH} ❈ Durasi ${NC} : ${WH}$certificate hari${NC}$COLOR1"
-echo -e "$COLOR1│$NC ${WH} ❈ Expiry ${NC} : ${WH}$Exp2 $sts ${NC}$COLOR1"
-echo -e "$COLOR1╰═════════════════════════════════════════════════════════╯${NC}"
-echo -e " ${BIWhite}                 SSH OVPN: $ssh1  VMESS: $vma $NC"
-echo -e " ${BIWhite}              VLESS: $vla TROJAN: $tra SHADWSK: $ssa $NC"
+mai="datediff "$Exp" "$DATE""
+echo -e " ${BIRed}╔══════════════════════════════════════════════════════════${NC}"
+echo -e " ${BIRed}║  User ORDER   ${NC} : ${IWhite}$Name${NC}"
+echo -e " ${BIRed}║  Date EXP     ${NC} : ${IWhite}$Exp${NC}"
+if [ $exp \< 1000 ]; 
+then
+echo -e " ${BIRed}│$NC     License      : ${IWhite}$sisa_hari$NC Days Tersisa $NC"
+else
+    datediff "$Exp" "$DATE"
+fi;
+echo -e " ${BIRed}╚══════════════════════════════════════════════════════════${NC}"
+echo -e " ${BIWhite}                 SSH OVPN: $total_ssh  VMESS: $vmess $NC"
+echo -e " ${BIWhite}              VLESS: $vless TROJAN: $trtls SHADWSK: $ssa $NC"
+echo -e " ${BIWhite}                           TROJAN-GO: $jumlah_trgo $NC"
 echo -e "${BIBlack}╔═════════════════════════════════════════════════════════╗${NC}"
 echo -e "      ${red}SSH Websocket${NC} : $ressshws""   ${red}NGINX${NC} : $resngx""  ${red}XRAY${NC} : $resv2r"
 echo -e "${BIBlack}╚═════════════════════════════════════════════════════════╝${NC}"
