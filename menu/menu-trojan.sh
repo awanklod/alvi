@@ -3,7 +3,7 @@ biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 colornow=$(cat /etc/rmbl/theme/color.conf)
 NC="\e[0m"
 RED="\033[0;31m"
-COLOR1="$(cat /etc/rmbl/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
+RED="$(cat /etc/rmbl/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
 COLBG1="$(cat /etc/rmbl/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"
 WH='\033[1;37m'
 ipsaya=$(wget -qO- ifconfig.me)
@@ -15,15 +15,15 @@ useexp=$(curl -sS $data_ip | grep $ipsaya | awk '{print $3}')
 if [[ $date_list < $useexp ]]; then
 echo -ne
 else
-echo -e "$COLOR1╭═════════════════════════════════════════════════╮${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1}          ${WH}• AUTOSCRIPT PREMIUM •               ${NC} $COLOR1 $NC"
-echo -e "$COLOR1╰═════════════════════════════════════════════════╯${NC}"
-echo -e "$COLOR1╭═════════════════════════════════════════════════╮${NC}"
-echo -e "$COLOR1│            ${RED}PERMISSION DENIED !${NC}                  │"
-echo -e "$COLOR1│   \033[0;33mYour VPS${NC} $ipsaya \033[0;33mHas been Banned${NC}           │"
-echo -e "$COLOR1│     \033[0;33mBuy access permissions for scripts${NC}          │"
-echo -e "$COLOR1│             \033[0;33mContact Your Admin ${NC}                 │"
-echo -e "$COLOR1╰═════════════════════════════════════════════════╯${NC}"
+echo -e "$RED╭═════════════════════════════════════════════════╮${NC}"
+echo -e "$RED ${NC} ${COLBG1}          ${WH}• AUTOSCRIPT PREMIUM •               ${NC} $RED $NC"
+echo -e "$RED╰═════════════════════════════════════════════════╯${NC}"
+echo -e "$RED╭═════════════════════════════════════════════════╮${NC}"
+echo -e "$RED│            ${RED}PERMISSION DENIED !${NC}                  │"
+echo -e "$RED│   \033[0;33mYour VPS${NC} $ipsaya \033[0;33mHas been Banned${NC}           │"
+echo -e "$RED│     \033[0;33mBuy access permissions for scripts${NC}          │"
+echo -e "$RED│             \033[0;33mContact Your Admin ${NC}                 │"
+echo -e "$RED╰═════════════════════════════════════════════════╯${NC}"
 exit
 fi
 }
@@ -46,22 +46,22 @@ fi
 function add-tr(){
 clear
 until [[ $user =~ ^[a-zA-Z0-9_.-]+$ && ${user_EXISTS} == '0' ]]; do
-echo -e "$COLOR1╭═════════════════════════════════════════════════╮${NC}"
-echo -e "$COLOR1│${NC}${COLBG1}            ${WH}• Add Trojan Account •               ${NC}$COLOR1│ $NC"
-echo -e "$COLOR1╰═════════════════════════════════════════════════╯${NC}"
+echo -e "$RED╭═════════════════════════════════════════════════╮${NC}"
+echo -e "$RED│${NC}${COLBG1}            ${WH}• Add Trojan Account •               ${NC}$RED│ $NC"
+echo -e "$RED╰═════════════════════════════════════════════════╯${NC}"
 echo -e ""
 read -rp "User: " -e user
 user_EXISTS=$(grep -w $user /etc/xray/config.json | wc -l)
 if [[ ${user_EXISTS} == '1' ]]; then
 clear
-echo -e "$COLOR1╭═════════════════════════════════════════════════╮${NC}"
-echo -e "$COLOR1│${NC}${COLBG1}            ${WH}• Add Trojan Account •         ${NC}$COLOR1│ $NC"
-echo -e "$COLOR1╰═════════════════════════════════════════════════╯${NC}"
-echo -e "$COLOR1╭═════════════════════════════════════════════════╮${NC}"
-echo -e "$COLOR1│                                                 │"
-echo -e "$COLOR1│${WH} Nama Duplikat Silahkan Buat Nama Lain.          $COLOR1│"
-echo -e "$COLOR1│                                                 │"
-echo -e "$COLOR1╰═════════════════════════════════════════════════╯${NC}"
+echo -e "$RED╭═════════════════════════════════════════════════╮${NC}"
+echo -e "$RED│${NC}${COLBG1}            ${WH}• Add Trojan Account •         ${NC}$RED│ $NC"
+echo -e "$RED╰═════════════════════════════════════════════════╯${NC}"
+echo -e "$RED╭═════════════════════════════════════════════════╮${NC}"
+echo -e "$RED│                                                 │"
+echo -e "$RED│${WH} Nama Duplikat Silahkan Buat Nama Lain.          $RED│"
+echo -e "$RED│                                                 │"
+echo -e "$RED╰═════════════════════════════════════════════════╯${NC}"
 read -n 1 -s -r -p "Press any key to back on menu"
 add-tr
 fi
@@ -149,8 +149,8 @@ Premium Trojan Account
 User         : ${user}
 Domain       : <code>${domain}</code>
 Login Limit   : ${iplim} IP
-ISP          : ${ISP}
-CITY         : ${CITY}
+#ISP          : ${ISP}
+#CITY         : ${CITY}
 Port TLS     : 443
 Port gRPC    : 443
 UUID         : <code>${uuid}</code>
@@ -183,8 +183,8 @@ User         : ${user}
 Domain       : <code>${domain}</code>
 Login Limit   : ${iplim} IP
 Quota Limit  : ${Quota} GB
-ISP          : ${ISP}
-CITY         : ${CITY}
+#ISP          : ${ISP}
+#CITY         : ${CITY}
 Port TLS     : 443
 Port gRPC    : 443
 UUID         : <code>${uuid}</code>
@@ -234,38 +234,38 @@ TEXT2="
 <i>Notif Pembelian Akun Trojan..</i>"
 curl -s --max-time $TIMES -d "chat_id=$CHATID2&disable_web_page_preview=1&text=$TEXT2&parse_mode=html" $URL2 >/dev/null
 clear
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}• Premium Trojan Account •  ${NC} $COLOR1 $NC" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}User         ${COLOR1}: ${WH}${user}" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}ISP          ${COLOR1}: ${WH}$$ISP" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}City         ${COLOR1}: ${WH}$$CITY" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Host         ${COLOR1}: ${WH}${domain}" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Login Limit  ${COLOR1}: ${WH}${iplim} IP" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}• Premium Trojan Account •  ${NC} $RED $NC" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}User         ${RED}: ${WH}${user}" | tee -a /etc/trojan/akun/log-create-${user}.log
+#echo -e "$RED ${NC} ${WH}ISP          ${RED}: ${WH}$$ISP" | tee -a /etc/trojan/akun/log-create-${user}.log
+#echo -e "$RED ${NC} ${WH}City         ${RED}: ${WH}$$CITY" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Host         ${RED}: ${WH}${domain}" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Login Limit  ${RED}: ${WH}${iplim} IP" | tee -a /etc/trojan/akun/log-create-${user}.log
 if [ ${Quota} = '9999' ]; then
 echo -ne
 else
-echo -e "$COLOR1 ${NC} ${WH}Quota Limit  ${COLOR1}: ${WH}${Quota} GB" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Quota Limit  ${RED}: ${WH}${Quota} GB" | tee -a /etc/trojan/akun/log-create-${user}.log
 fi
-echo -e "$COLOR1 ${NC} ${WH}Port TLS     ${COLOR1}: ${WH}443" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Port gRPC    ${COLOR1}: ${WH}443" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Key          ${COLOR1}: ${WH}${uuid}" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Path WS      ${COLOR1}: ${WH}/trojan-ws" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Path gRPC    ${COLOR1}: ${WH}/trojan-grpc" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Link TLS     ${COLOR1}: " | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}${trojanlink}" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Link gRPC    ${COLOR1}: " | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}${trojanlink1}" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Format Openclash ${COLOR1}: " | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}http://$domain:89/trojan-$user.txt${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Expired Until   ${COLOR1}: ${WH}$exp" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}    $author     " | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Port TLS     ${RED}: ${WH}443" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Port gRPC    ${RED}: ${WH}443" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Key          ${RED}: ${WH}${uuid}" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Path WS      ${RED}: ${WH}/trojan-ws" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Path gRPC    ${RED}: ${WH}/trojan-grpc" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Link TLS     ${RED}: " | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}${trojanlink}" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Link gRPC    ${RED}: " | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}${trojanlink1}" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Format Openclash ${RED}: " | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}http://$domain:89/trojan-$user.txt${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Expired Until   ${RED}: ${WH}$exp" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}    $author     " | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
 echo "" | tee -a /etc/trojan/akun/log-create-${user}.log
 systemctl restart xray > /dev/null 2>&1
 read -n 1 -s -r -p "Press any key to back on menu"
@@ -274,9 +274,9 @@ menu
 function trial-trojan(){
 clear
 cd
-echo -e "$COLOR1╭═════════════════════════════════════════════════╮${NC}"
-echo -e "$COLOR1│${NC}${COLBG1}            ${WH}• Trial Trojan Account •             ${NC}$COLOR1│ $NC"
-echo -e "$COLOR1╰═════════════════════════════════════════════════╯${NC}"
+echo -e "$RED╭═════════════════════════════════════════════════╮${NC}"
+echo -e "$RED│${NC}${COLBG1}            ${WH}• Trial Trojan Account •             ${NC}$RED│ $NC"
+echo -e "$RED╰═════════════════════════════════════════════════╯${NC}"
 echo -e ""
 until [[ $timer =~ ^[0-9]+$ ]]; do
 read -p "Expired (Minutes): " timer
@@ -355,8 +355,8 @@ Trial Premium Trojan Account
 User         : ${user}
 Domain       : <code>${domain}</code>
 Login Limit  : ${iplim} IP
-ISP          : ${ISP}
-CITY         : ${CITY}
+#ISP          : ${ISP}
+#CITY         : ${CITY}
 Port TLS     : 443
 Port gRPC    : 443
 UUID         : <code>${uuid}</code>
@@ -389,33 +389,33 @@ echo "$TEXT" > /etc/notiftele
 bash /etc/tele
 fi
 clear
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}• Trial Premium Trojan Account •  ${NC} $COLOR1 $NC" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}User         ${COLOR1}: ${WH}${user}" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}ISP          ${COLOR1}: ${WH}$ISP" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}City         ${COLOR1}: ${WH}$CITY" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Host         ${COLOR1}: ${WH}${domain}" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Login Limit  ${COLOR1}: ${WH}${iplim} IP" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Port TLS     ${COLOR1}: ${WH}443" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Port gRPC    ${COLOR1}: ${WH}443" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}UUID         ${COLOR1}: ${WH}${uuid}" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Path TLS     ${COLOR1}: ${WH}/trojan-ws" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Path gRPC    ${COLOR1}: ${WH}/trojan-grpc" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Link TLS     ${COLOR1}: " | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}${trojanlink}" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Link gRPC    ${COLOR1}: " | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}${trojanlink1}" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Format Openclash ${COLOR1}: " | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}http://$domain:89/trojan-$user.txt${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Expired Until   ${COLOR1}: ${WH}$timer Minutes" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}    $author     " | tee -a /etc/trojan/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}• Trial Premium Trojan Account •  ${NC} $RED $NC" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}User         ${RED}: ${WH}${user}" | tee -a /etc/trojan/akun/log-create-${user}.log
+#echo -e "$RED ${NC} ${WH}ISP          ${RED}: ${WH}$ISP" | tee -a /etc/trojan/akun/log-create-${user}.log
+#echo -e "$RED ${NC} ${WH}City         ${RED}: ${WH}$CITY" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Host         ${RED}: ${WH}${domain}" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Login Limit  ${RED}: ${WH}${iplim} IP" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Port TLS     ${RED}: ${WH}443" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Port gRPC    ${RED}: ${WH}443" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}UUID         ${RED}: ${WH}${uuid}" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Path TLS     ${RED}: ${WH}/trojan-ws" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Path gRPC    ${RED}: ${WH}/trojan-grpc" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Link TLS     ${RED}: " | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}${trojanlink}" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Link gRPC    ${RED}: " | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}${trojanlink1}" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Format Openclash ${RED}: " | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}http://$domain:89/trojan-$user.txt${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Expired Until   ${RED}: ${WH}$timer Minutes" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}    $author     " | tee -a /etc/trojan/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/trojan/akun/log-create-${user}.log
 echo "" | tee -a /etc/trojan/akun/log-create-${user}.log
 systemctl restart xray > /dev/null 2>&1
 read -n 1 -s -r -p "Press any key to back on menu"
@@ -426,23 +426,23 @@ clear
 NUMBER_OF_CLIENTS=$(grep -c -E "^#tr " "/etc/xray/config.json")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 clear
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}    ${WH}⇱ Renew Trojan Account ⇲     ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC}${COLBG1}    ${WH}⇱ Renew Trojan Account ⇲     ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 echo "You have no existing clients!"
 echo ""
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 m-trojan
 fi
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}    ${WH}⇱ Renew Trojan Account ⇲     ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC}${COLBG1}    ${WH}⇱ Renew Trojan Account ⇲     ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Select the existing client you want to renew"
 echo " ketik [0] kembali kemenu"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo "     No  User   Expired"
 grep -E "^#tr " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | nl -s ') '
 until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -503,14 +503,14 @@ TEXT2="
 curl -s --max-time $TIMES -d "chat_id=$CHATID2&disable_web_page_preview=1&text=$TEXT2&parse_mode=html" $URL2 >/dev/null
 clear
 systemctl restart xray > /dev/null 2>&1
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Trojan Account Was Successfully Renewed"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 echo " Client Name : $user"
 echo " Expired On  : $exp4"
 echo ""
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 m-trojan
@@ -520,24 +520,24 @@ clear
 NUMBER_OF_CLIENTS=$(grep -c -E "^#tr " "/etc/xray/config.json")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 clear
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}    ${WH}⇱ Limit Trojan Account ⇲     ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC}${COLBG1}    ${WH}⇱ Limit Trojan Account ⇲     ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 echo "You have no existing clients!"
 echo ""
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 m-trojan
 fi
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}    ${WH}⇱ Limit Trojan Account ⇲     ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC}${COLBG1}    ${WH}⇱ Limit Trojan Account ⇲     ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo "     No  User   Expired"
 echo " Select the existing client you want to change ip"
 echo " ketik [0] kembali kemenu"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 grep -E "^#tr " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | nl -s ') '
 until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
 if [[ ${CLIENT_NUMBER} == '1' ]]; then
@@ -593,15 +593,15 @@ echo "$TEXT" > /etc/notiftele
 bash /etc/tele
 fi
 clear
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " TROJAN Account Was Successfully Change Limit IP"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 echo " Client Name : $user"
 echo " Limit IP    : $iplim IP"
 echo " Limit Quota : $Quota GB"
 echo ""
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 m-trojan
@@ -610,23 +610,23 @@ function del-tr(){
 clear
 NUMBER_OF_CLIENTS=$(grep -c -E "^#tr " "/etc/xray/config.json")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}    ${WH}⇱ Delete Trojan Account ⇲    ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC}${COLBG1}    ${WH}⇱ Delete Trojan Account ⇲    ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 echo "You have no existing clients!"
 echo ""
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 read -n 1 -s -r -p "Press any key to back on menu"
 m-trojan
 fi
 clear
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}    ${WH}⇱ Delete Trojan Account ⇲    ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC}${COLBG1}    ${WH}⇱ Delete Trojan Account ⇲    ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Select the existing client you want to remove"
 echo " ketik [0] kembali kemenu"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo "     No  User   Expired"
 grep -E "^#tr " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | nl -s ') '
 until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -674,12 +674,12 @@ else
 echo "$TEXT" > /etc/notiftele
 bash /etc/tele
 fi
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Trojan Account Deleted Successfully"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Client Name : $user"
 echo " Expired On  : $exp"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 m-trojan
@@ -723,10 +723,10 @@ if [[ xrayy -le 5 ]]; then
 systemctl restart xray
 fi
 xraylimit
-echo -e "$COLOR1╭═════════════════════════════════════════════════╮${NC}"
-echo -e "$COLOR1│${NC}${COLBG1}             ${WH}• TROJAN USER ONLINE •              ${NC}$COLOR1│ $NC"
-echo -e "$COLOR1╰═════════════════════════════════════════════════╯${NC}"
-echo -e "$COLOR1╭═════════════════════════════════════════════════╮${NC}"
+echo -e "$RED╭═════════════════════════════════════════════════╮${NC}"
+echo -e "$RED│${NC}${COLBG1}             ${WH}• TROJAN USER ONLINE •              ${NC}$RED│ $NC"
+echo -e "$RED╰═════════════════════════════════════════════════╯${NC}"
+echo -e "$RED╭═════════════════════════════════════════════════╮${NC}"
 vm=($(cat /etc/xray/config.json | grep "^#trg" | awk '{print $2}' | sort -u))
 echo -n >/tmp/vm
 for db1 in ${vm[@]}; do
@@ -760,15 +760,15 @@ byt=$(cat /etc/limit/trojan/${vmuser})
 gb=$(convert ${byt})
 lim=$(cat /etc/trojan/${vmuser})
 lim2=$(convert ${lim})
-echo -e "$COLOR1${NC} USERNAME : \033[0;33m$vmuser"
-echo -e "$COLOR1${NC} IP LOGIN : \033[0;33m$vmhas"
-echo -e "$COLOR1${NC} USAGE : \033[0;33m$gb"
-echo -e "$COLOR1${NC} LIMIT : \033[0;33m$lim2"
+echo -e "$RED${NC} USERNAME : \033[0;33m$vmuser"
+echo -e "$RED${NC} IP LOGIN : \033[0;33m$vmhas"
+echo -e "$RED${NC} USAGE : \033[0;33m$gb"
+echo -e "$RED${NC} LIMIT : \033[0;33m$lim2"
 echo -e ""
 fi
 done
 fi
-echo -e "$COLOR1╰═════════════════════════════════════════════════╯${NC}"
+echo -e "$RED╰═════════════════════════════════════════════════╯${NC}"
 echo ""
 read -n 1 -s -r -p "   Press any key to back on menu"
 m-trojan
@@ -777,22 +777,22 @@ function list-trojan(){
 clear
 NUMBER_OF_CLIENTS=$(grep -c -E "^#tr " "/etc/xray/config.json")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}    ${WH}⇱ Config Trojan Account ⇲    ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC}${COLBG1}    ${WH}⇱ Config Trojan Account ⇲    ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 echo "You have no existing clients!"
 echo ""
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 read -n 1 -s -r -p "Press any key to back on menu"
 m-trojan
 fi
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}    ${WH}⇱ Config Trojan Account ⇲    ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC}${COLBG1}    ${WH}⇱ Config Trojan Account ⇲    ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Select the existing client to view the config"
 echo " ketik [0] kembali kemenu"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo "     No  User   Expired"
 grep -E "^#tr " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | nl -s ') '
 until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -826,23 +826,23 @@ m-trojan
 }
 function login-tr(){
 clear
-echo -e "$COLOR1┌───────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}${COLBG1}           ${WH}• SETTING MULTI LOGIN •             ${NC}$COLOR1│ $NC"
-echo -e "$COLOR1╰══════════════════════════════════════════╯${NC}"
-echo -e "$COLOR1┌───────────────────────────────────────────────┐${NC}"
-echo -e "${COLOR1}│ $NC SILAHKAN TULIS JUMLAH NOTIFIKASI UNTUK LOCK    ${NC}"
-echo -e "${COLOR1}│ $NC AKUN USER YANG MULTI LOGIN     ${NC}"
-echo -e "$COLOR1╰══════════════════════════════════════════╯${NC}"
+echo -e "$RED┌───────────────────────────────────────────────┐${NC}"
+echo -e "$RED│${NC}${COLBG1}           ${WH}• SETTING MULTI LOGIN •             ${NC}$RED│ $NC"
+echo -e "$RED╰══════════════════════════════════════════╯${NC}"
+echo -e "$RED┌───────────────────────────────────────────────┐${NC}"
+echo -e "${RED}│ $NC SILAHKAN TULIS JUMLAH NOTIFIKASI UNTUK LOCK    ${NC}"
+echo -e "${RED}│ $NC AKUN USER YANG MULTI LOGIN     ${NC}"
+echo -e "$RED╰══════════════════════════════════════════╯${NC}"
 read -rp "   Jika Mau 3x Notif baru kelock tulis 3, dst: " -e notif
 cd /etc/trojan
 echo "$notif" > notif
 clear
-echo -e "$COLOR1┌───────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}${COLBG1}           ${WH}• SETTING MULTI LOGIN •             ${NC}$COLOR1│ $NC"
-echo -e "$COLOR1╰══════════════════════════════════════════╯${NC}"
-echo -e "$COLOR1┌───────────────────────────────────────────────┐${NC}"
-echo -e "${COLOR1}│ $NC SUCCES GANTI NOTIF LOCK JADI $notif $NC "
-echo -e "$COLOR1╰══════════════════════════════════════════╯${NC}"
+echo -e "$RED┌───────────────────────────────────────────────┐${NC}"
+echo -e "$RED│${NC}${COLBG1}           ${WH}• SETTING MULTI LOGIN •             ${NC}$RED│ $NC"
+echo -e "$RED╰══════════════════════════════════════════╯${NC}"
+echo -e "$RED┌───────────────────────────────────────────────┐${NC}"
+echo -e "${RED}│ $NC SUCCES GANTI NOTIF LOCK JADI $notif $NC "
+echo -e "$RED╰══════════════════════════════════════════╯${NC}"
 read -n 1 -s -r -p "Press any key to back on menu"
 m-trojan
 }
@@ -854,24 +854,24 @@ echo "" > /etc/trojan/listlock
 fi
 NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/trojan/listlock")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}    ${WH}⇱ Unlock Trojan Account ⇲    ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC}${COLBG1}    ${WH}⇱ Unlock Trojan Account ⇲    ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 echo "You have no existing user Lock!"
 echo ""
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 read -n 1 -s -r -p "Press any key to back on menu"
 m-trojan
 fi
 clear
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}    ${WH}⇱ Unlock Trojan Account ⇲    ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC}${COLBG1}    ${WH}⇱ Unlock Trojan Account ⇲    ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Select the existing client you want to Unlock"
 echo " ketik [0] kembali kemenu"
 echo " ketik [999] untuk delete semua Akun"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo "     No  User   Expired"
 grep -E "^### " "/etc/trojan/listlock" | cut -d ' ' -f 2-3 | nl -s ') '
 until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -917,12 +917,12 @@ echo "$TEXT" > /etc/notiftele
 bash /etc/tele
 fi
 clear
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Trojan Account Unlock Successfully"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Client Name : $user"
 echo " Status  : Unlocked"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 m-trojan
@@ -937,24 +937,24 @@ fi
 clear
 NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/trojan/akundelete")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}   ${WH}⇱ Restore Trojan Account ⇲    ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC}${COLBG1}   ${WH}⇱ Restore Trojan Account ⇲    ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 echo "You have no existing user Expired!"
 echo ""
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 read -n 1 -s -r -p "Press any key to back on menu"
 m-trojan
 fi
 clear
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}   ${WH}⇱ Restore Trojan Account ⇲    ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC}${COLBG1}   ${WH}⇱ Restore Trojan Account ⇲    ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Select the existing client you want to Restore"
 echo " ketik [0] kembali kemenu"
 echo " ketik [999] untuk delete semua Akun"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo "     No  User   Expired"
 grep -E "^### " "/etc/trojan/akundelete" | cut -d ' ' -f 2-3 | nl -s ') '
 until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -1023,16 +1023,16 @@ echo "$TEXT" > /etc/notiftele
 bash /etc/tele
 fi
 clear
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Trojan Account Restore Successfully"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " DOMAIN : $domain"
 echo " ISP  : $ISP $CITY"
 echo " USERNAME : $user"
 echo " IP LIMIT : $iplim IP"
 echo " EXPIRED  : $exp"
 echo " Succes to Restore"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 m-trojan
@@ -1045,24 +1045,24 @@ echo "" > /etc/trojan/userQuota
 fi
 NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/trojan/userQuota")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}    ${WH}⇱ Unlock Trojan Account ⇲    ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC}${COLBG1}    ${WH}⇱ Unlock Trojan Account ⇲    ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 echo "You have no existing user Lock!"
 echo ""
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 read -n 1 -s -r -p "Press any key to back on menu"
 m-trojan
 fi
 clear
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}    ${WH}⇱ Unlock Trojan Account ⇲    ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC}${COLBG1}    ${WH}⇱ Unlock Trojan Account ⇲    ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Select the existing client you want to Unlock"
 echo " ketik [0] kembali kemenu"
 echo " ketik [999] untuk delete semua Akun"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo "     No  User   Expired"
 grep -E "^### " "/etc/trojan/userQuota" | cut -d ' ' -f 2-3 | nl -s ') '
 until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -1108,34 +1108,34 @@ echo "$TEXT" > /etc/notiftele
 bash /etc/tele
 fi
 clear
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Trojan Account Unlock Successfully"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Client Name : $user"
 echo " Status  : Unlocked"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 m-trojan
 }
 clear
 #author=$(cat /etc/profil)
-echo -e " $COLOR1╭════════════════════════════════════════════════════╮${NC}"
-echo -e " $COLOR1│${NC} ${COLBG1}              ${WH}• TROJAN PANEL MENU •               ${NC} $COLOR1│ $NC"
-echo -e " $COLOR1╰════════════════════════════════════════════════════╯${NC}"
-echo -e " $COLOR1╭════════════════════════════════════════════════════╮${NC}"
-echo -e " $COLOR1│ $NC ${WH}[${COLOR1}01${WH}]${NC} ${COLOR1}• ${WH}ADD AKUN${NC}         ${WH}[${COLOR1}06${WH}]${NC} ${COLOR1}• ${WH}CEK USER CONFIG${NC}    $COLOR1│ $NC"
-echo -e " $COLOR1│ $NC ${WH}[${COLOR1}02${WH}]${NC} ${COLOR1}• ${WH}TRIAL AKUN${NC}       ${WH}[${COLOR1}07${WH}]${NC} ${COLOR1}• ${WH}CHANGE USER LIMIT${NC}  $COLOR1│ $NC"
-echo -e " $COLOR1│ $NC ${WH}[${COLOR1}03${WH}]${NC} ${COLOR1}• ${WH}RENEW AKUN${NC}       ${WH}[${COLOR1}08${WH}]${NC} ${COLOR1}• ${WH}SETTING LOCK LOGIN${NC} $COLOR1│ $NC"
-echo -e " $COLOR1│ $NC ${WH}[${COLOR1}04${WH}]${NC} ${COLOR1}• ${WH}DELETE AKUN${NC}      ${WH}[${COLOR1}09${WH}]${NC} ${COLOR1}• ${WH}UNLOCK USER LOGIN${NC}  $COLOR1│ $NC"
-echo -e " $COLOR1│ $NC ${WH}[${COLOR1}05${WH}]${NC} ${COLOR1}• ${WH}CEK USER LOGIN${NC}   ${WH}[${COLOR1}10${WH}]${NC} ${COLOR1}• ${WH}UNLOCK USER QUOTA ${NC} $COLOR1│ $NC"
-echo -e " $COLOR1│ $NC ${WH}[${COLOR1}00${WH}]${NC} ${COLOR1}• ${WH}GO BACK${NC}          ${WH}[${COLOR1}11${WH}]${NC} ${COLOR1}• ${WH}RESTORE AKUN   ${NC}    $COLOR1│ $NC"
-echo -e " $COLOR1╰════════════════════════════════════════════════════╯${NC}"
-echo -e " $COLOR1╭═════════════════════════ ${WH}BY${NC} ${COLOR1}═══════════════════════╮ ${NC}"
-echo -e "  $COLOR1${NC}              ${WH}   • $author •                 $COLOR1 $NC"
-echo -e " $COLOR1╰════════════════════════════════════════════════════╯${NC}"
+echo -e " $RED╭════════════════════════════════════════════════════╮${NC}"
+echo -e " $RED│${NC} ${COLBG1}              ${WH}• TROJAN PANEL MENU •               ${NC} $RED│ $NC"
+echo -e " $RED╰════════════════════════════════════════════════════╯${NC}"
+echo -e " $RED╭════════════════════════════════════════════════════╮${NC}"
+echo -e " $RED│ $NC ${WH}[${RED}01${WH}]${NC} ${RED}• ${WH}ADD AKUN${NC}         ${WH}[${RED}06${WH}]${NC} ${RED}• ${WH}CEK USER CONFIG${NC}    $RED│ $NC"
+echo -e " $RED│ $NC ${WH}[${RED}02${WH}]${NC} ${RED}• ${WH}TRIAL AKUN${NC}       ${WH}[${RED}07${WH}]${NC} ${RED}• ${WH}CHANGE USER LIMIT${NC}  $RED│ $NC"
+echo -e " $RED│ $NC ${WH}[${RED}03${WH}]${NC} ${RED}• ${WH}RENEW AKUN${NC}       ${WH}[${RED}08${WH}]${NC} ${RED}• ${WH}SETTING LOCK LOGIN${NC} $RED│ $NC"
+echo -e " $RED│ $NC ${WH}[${RED}04${WH}]${NC} ${RED}• ${WH}DELETE AKUN${NC}      ${WH}[${RED}09${WH}]${NC} ${RED}• ${WH}UNLOCK USER LOGIN${NC}  $RED│ $NC"
+echo -e " $RED│ $NC ${WH}[${RED}05${WH}]${NC} ${RED}• ${WH}CEK USER LOGIN${NC}   ${WH}[${RED}10${WH}]${NC} ${RED}• ${WH}UNLOCK USER QUOTA ${NC} $RED│ $NC"
+echo -e " $RED│ $NC ${WH}[${RED}00${WH}]${NC} ${RED}• ${WH}GO BACK${NC}          ${WH}[${RED}11${WH}]${NC} ${RED}• ${WH}RESTORE AKUN   ${NC}    $RED│ $NC"
+echo -e " $RED╰════════════════════════════════════════════════════╯${NC}"
+echo -e " $RED╭═════════════════════════ ${WH}BY${NC} ${RED}═══════════════════════╮ ${NC}"
+echo -e "  $RED${NC}              ${WH}   • $author •                 $RED $NC"
+echo -e " $RED╰════════════════════════════════════════════════════╯${NC}"
 echo -e ""
-echo -ne " ${WH}Select menu ${COLOR1}: ${WH}"; read opt
+echo -ne " ${WH}Select menu ${RED}: ${WH}"; read opt
 case $opt in
 01 | 1) clear ; add-tr ;;
 02 | 2) clear ; trial-trojan ;;
