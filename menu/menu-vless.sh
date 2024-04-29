@@ -3,7 +3,7 @@ biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 colornow=$(cat /etc/rmbl/theme/color.conf)
 NC="\e[0m"
 RED="\033[0;31m"
-COLOR1="$(cat /etc/rmbl/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
+RED="$(cat /etc/rmbl/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
 COLBG1="$(cat /etc/rmbl/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"
 WH='\033[1;37m'
 ipsaya=$(wget -qO- ifconfig.me)
@@ -15,22 +15,22 @@ useexp=$(curl -sS $data_ip | grep $ipsaya | awk '{print $3}')
 if [[ $date_list < $useexp ]]; then
 echo -ne
 else
-echo -e "$COLOR1╭═════════════════════════════════════════════════╮${NC}"
-echo -e "$COLOR1│${NC} ${COLBG1}         ${WH}• AUTOSCRIPT PREMIUM •                 ${NC}$COLOR1│$NC"
-echo -e "$COLOR1╰═════════════════════════════════════════════════╯${NC}"
-echo -e "$COLOR1╭═════════════════════════════════════════════════╮${NC}"
-echo -e "$COLOR1│            ${RED}PERMISSION DENIED !${NC}                  │"
-echo -e "$COLOR1│   \033[0;33mYour VPS${NC} $ipsaya \033[0;33mHas been Banned${NC}                             │"
-echo -e "$COLOR1│     \033[0;33mBuy access permissions for scripts${NC}          │"
-echo -e "$COLOR1│             \033[0;33mContact Your Admin ${NC}                 │"
-echo -e "$COLOR1╰═════════════════════════════════════════════════╯${NC}"
+echo -e "$RED╭═════════════════════════════════════════════════╮${NC}"
+echo -e "$RED│${NC} ${COLBG1}         ${WH}• AUTOSCRIPT PREMIUM •                 ${NC}$RED│$NC"
+echo -e "$RED╰═════════════════════════════════════════════════╯${NC}"
+echo -e "$RED╭═════════════════════════════════════════════════╮${NC}"
+echo -e "$RED│            ${RED}PERMISSION DENIED !${NC}                  │"
+echo -e "$RED│   \033[0;33mYour VPS${NC} $ipsaya \033[0;33mHas been Banned${NC}                             │"
+echo -e "$RED│     \033[0;33mBuy access permissions for scripts${NC}          │"
+echo -e "$RED│             \033[0;33mContact Your Admin ${NC}                 │"
+echo -e "$RED╰═════════════════════════════════════════════════╯${NC}"
 exit
 fi
 }
 checking_sc
-ISP=$(cat /etc/xray/isp)
-CITY=$(cat /etc/xray/city)
-author=$(cat /etc/profil)
+#ISP=$(cat /etc/xray/isp)
+#CITY=$(cat /etc/xray/city)
+#author=$(cat /etc/profil)
 TIMES="10"
 CHATID=$(cat /etc/per/id)
 KEY=$(cat /etc/per/token)
@@ -46,22 +46,22 @@ fi
 function add-vless(){
 clear
 until [[ $user =~ ^[a-zA-Z0-9_.-]+$ && ${CLIENT_EXISTS} == '0' ]]; do
-echo -e "$COLOR1╭═════════════════════════════════════════════════╮${NC}"
-echo -e "$COLOR1│${NC} ${COLBG1}           ${WH}• Add Vless Account •               ${NC} $COLOR1│ $NC"
-echo -e "$COLOR1╰═════════════════════════════════════════════════╯${NC}"
+echo -e "$RED╭═════════════════════════════════════════════════╮${NC}"
+echo -e "$RED│${NC} ${COLBG1}           ${WH}• Add Vless Account •               ${NC} $RED│ $NC"
+echo -e "$RED╰═════════════════════════════════════════════════╯${NC}"
 echo -e ""
 read -rp "User: " -e user
 CLIENT_EXISTS=$(grep -w $user /etc/xray/config.json | wc -l)
 if [[ ${CLIENT_EXISTS} == '1' ]]; then
 clear
-echo -e "$COLOR1╭═════════════════════════════════════════════════╮${NC}"
-echo -e "$COLOR1│${NC} ${COLBG1}           ${WH}• Add Vless Account •               ${NC} $COLOR1│ $NC"
-echo -e "$COLOR1╰═════════════════════════════════════════════════╯${NC}"
-echo -e "$COLOR1╭═════════════════════════════════════════════════╮${NC}"
-echo -e "$COLOR1│                                                 │"
-echo -e "$COLOR1│${WH} Nama Duplikat Silahkan Buat Nama Lain.          $COLOR1│"
-echo -e "$COLOR1│                                                 │"
-echo -e "$COLOR1╰═════════════════════════════════════════════════╯${NC}"
+echo -e "$RED╭═════════════════════════════════════════════════╮${NC}"
+echo -e "$RED│${NC} ${COLBG1}           ${WH}• Add Vless Account •               ${NC} $RED│ $NC"
+echo -e "$RED╰═════════════════════════════════════════════════╯${NC}"
+echo -e "$RED╭═════════════════════════════════════════════════╮${NC}"
+echo -e "$RED│                                                 │"
+echo -e "$RED│${WH} Nama Duplikat Silahkan Buat Nama Lain.          $RED│"
+echo -e "$RED│                                                 │"
+echo -e "$RED╰═════════════════════════════════════════════════╯${NC}"
 read -n 1 -s -r -p "Press any key to back"
 add-vless
 fi
@@ -269,44 +269,44 @@ TEXT2="
 <i>Notif Pembelian Akun Vless..</i>"
 curl -s --max-time $TIMES -d "chat_id=$CHATID2&disable_web_page_preview=1&text=$TEXT2&parse_mode=html" $URL2 >/dev/null
 clear
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}• Premium Vless Account •${NC} $COLOR1 $NC" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}User         ${COLOR1}: ${WH}${user}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}ISP          ${COLOR1}: ${WH}$ISP" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}City         ${COLOR1}: ${WH}$CITY" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Domain       ${COLOR1}: ${WH}${domain}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Login Limit  ${COLOR1}: ${WH}${iplim} IP" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}• Premium Vless Account •${NC} $RED $NC" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}User         ${RED}: ${WH}${user}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}ISP          ${RED}: ${WH}$ISP" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}City         ${RED}: ${WH}$CITY" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Domain       ${RED}: ${WH}${domain}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Login Limit  ${RED}: ${WH}${iplim} IP" | tee -a /etc/vless/akun/log-create-${user}.log
 if [ ${Quota} = '9999' ]; then
 echo -ne
 else
-echo -e "$COLOR1 ${NC} ${WH}Quota Limit  ${COLOR1}: ${WH}${Quota} GB" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Quota Limit  ${RED}: ${WH}${Quota} GB" | tee -a /etc/vless/akun/log-create-${user}.log
 fi
-echo -e "$COLOR1 ${NC} ${WH}Port TLS     ${COLOR1}: ${WH}443" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Port NTLS    ${COLOR1}: ${WH}80,8080" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Port gRPC    ${COLOR1}: ${WH}443" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}UUID         ${COLOR1}: ${WH}${uuid}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Encryption   ${COLOR1}: ${WH}none" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Network      ${COLOR1}: ${WH}ws" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Path         ${COLOR1}: ${WH}/vless" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Path grpc    ${COLOR1}: ${WH}/vless-grpc" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${COLOR1}Link Websocket TLS      ${WH}:${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1${NC}${WH}${vlesslink1}${NC}"  | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${COLOR1}Link Websocket NTLS  ${WH}:${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1${NC}${WH}${vlesslink2}${NC}"  | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${COLOR1}Link gRPC               ${WH}:${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1${NC}${WH}${vlesslink3}${NC}"  | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Format Openclash ${COLOR1}: " | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}http://$domain:89/vless-$user.txt${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Expired Until   ${COLOR1}: ${WH}$exp" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}    $author    " | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Port TLS     ${RED}: ${WH}443" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Port NTLS    ${RED}: ${WH}80,8080" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Port gRPC    ${RED}: ${WH}443" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}UUID         ${RED}: ${WH}${uuid}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Encryption   ${RED}: ${WH}none" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Network      ${RED}: ${WH}ws" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Path         ${RED}: ${WH}/vless" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Path grpc    ${RED}: ${WH}/vless-grpc" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${RED}Link Websocket TLS      ${WH}:${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED${NC}${WH}${vlesslink1}${NC}"  | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${RED}Link Websocket NTLS  ${WH}:${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED${NC}${WH}${vlesslink2}${NC}"  | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${RED}Link gRPC               ${WH}:${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED${NC}${WH}${vlesslink3}${NC}"  | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Format Openclash ${RED}: " | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}http://$domain:89/vless-$user.txt${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Expired Until   ${RED}: ${WH}$exp" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}    $author    " | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
 echo "" | tee -a /etc/vless/akun/log-create-${user}.log
 systemctl restart xray > /dev/null 2>&1
 read -n 1 -s -r -p "Press any key to back on menu"
@@ -315,9 +315,9 @@ menu
 function trial-vless(){
 clear
 cd
-echo -e "$COLOR1╭═════════════════════════════════════════════════╮${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}            ${WH}• Trial Vless Account •             ${NC} $COLOR1 $NC"
-echo -e "$COLOR1╰═════════════════════════════════════════════════╯${NC}"
+echo -e "$RED╭═════════════════════════════════════════════════╮${NC}"
+echo -e "$RED ${NC}${COLBG1}            ${WH}• Trial Vless Account •             ${NC} $RED $NC"
+echo -e "$RED╰═════════════════════════════════════════════════╯${NC}"
 until [[ $timer =~ ^[0-9]+$ ]]; do
 read -p "Expired (Minutes): " timer
 done
@@ -461,39 +461,39 @@ echo "$TEXT" > /etc/notiftele
 bash /etc/tele
 fi
 clear
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}• Trial Premium Vless Account •${NC} $COLOR1 $NC" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}User         ${COLOR1}: ${WH}${user}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}ISP          ${COLOR1}: ${WH}$ISP" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}City         ${COLOR1}: ${WH}$CITY" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Domain       ${COLOR1}: ${WH}${domain}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Login Limit  ${COLOR1}: ${WH}${iplim} IP" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Port TLS     ${COLOR1}: ${WH}443" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Port NTLS    ${COLOR1}: ${WH}80,8080" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Port gRPC    ${COLOR1}: ${WH}443" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}UUID         ${COLOR1}: ${WH}${uuid}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Encryption   ${COLOR1}: ${WH}none" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Network      ${COLOR1}: ${WH}ws" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Path         ${COLOR1}: ${WH}/vless" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Path grpc    ${COLOR1}: ${WH}/vless-grpc" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${COLOR1}Link Websocket TLS      ${WH}:${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1${NC}${WH}${vlesslink1}${NC}"  | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${COLOR1}Link Websocket NTLS  ${WH}:${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1${NC}${WH}${vlesslink2}${NC}"  | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${COLOR1}Link gRPC               ${WH}:${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1${NC}${WH}${vlesslink3}${NC}"  | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Format Openclash ${COLOR1}: " | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}http://$domain:89/vless-$user.txt${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}Expired Until   ${COLOR1}: ${WH}$timer Minutes" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ${NC} ${WH}    $author    " | tee -a /etc/vless/akun/log-create-${user}.log
-echo -e "$COLOR1 ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}• Trial Premium Vless Account •${NC} $RED $NC" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}User         ${RED}: ${WH}${user}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}ISP          ${RED}: ${WH}$ISP" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}City         ${RED}: ${WH}$CITY" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Domain       ${RED}: ${WH}${domain}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Login Limit  ${RED}: ${WH}${iplim} IP" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Port TLS     ${RED}: ${WH}443" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Port NTLS    ${RED}: ${WH}80,8080" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Port gRPC    ${RED}: ${WH}443" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}UUID         ${RED}: ${WH}${uuid}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Encryption   ${RED}: ${WH}none" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Network      ${RED}: ${WH}ws" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Path         ${RED}: ${WH}/vless" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Path grpc    ${RED}: ${WH}/vless-grpc" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${RED}Link Websocket TLS      ${WH}:${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED${NC}${WH}${vlesslink1}${NC}"  | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${RED}Link Websocket NTLS  ${WH}:${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED${NC}${WH}${vlesslink2}${NC}"  | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${RED}Link gRPC               ${WH}:${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED${NC}${WH}${vlesslink3}${NC}"  | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Format Openclash ${RED}: " | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}http://$domain:89/vless-$user.txt${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}Expired Until   ${RED}: ${WH}$timer Minutes" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ${NC} ${WH}    $author    " | tee -a /etc/vless/akun/log-create-${user}.log
+echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vless/akun/log-create-${user}.log
 echo "" | tee -a /etc/vless/akun/log-create-${user}.log
 systemctl restart xray > /dev/null 2>&1
 read -n 1 -s -r -p "Press any key to back on menu"
@@ -504,23 +504,23 @@ clear
 NUMBER_OF_CLIENTS=$(grep -c -E "^#vlg " "/etc/xray/config.json")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 clear
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1}    ${WH}⇱ Limit Vless Account ⇲     ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC} ${COLBG1}    ${WH}⇱ Limit Vless Account ⇲     ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 echo "You have no existing clients!"
 echo ""
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 m-vless
 fi
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1}    ${WH}⇱ Limit Vless Account ⇲     ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC} ${COLBG1}    ${WH}⇱ Limit Vless Account ⇲     ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo "Select the existing client you want to change ip"
 echo " ketik [0] kembali kemenu"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo "     No  User   Expired"
 grep -E "^#vlg " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | nl -s ') '
 until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -577,15 +577,15 @@ echo "$TEXT" > /etc/notiftele
 bash /etc/tele
 fi
 clear
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " VLESS Account Was Successfully Change Limit IP"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 echo " Client Name : $user"
 echo " Limit IP    : $iplim IP"
 echo " Limit Quota : $Quota GB"
 echo ""
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 m-vless
@@ -595,23 +595,23 @@ clear
 NUMBER_OF_CLIENTS=$(grep -c -E "^#vl " "/etc/xray/config.json")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 clear
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}    ${WH}⇱ Renew Vless Account ⇲      ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC}${COLBG1}    ${WH}⇱ Renew Vless Account ⇲      ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 echo "You have no existing clients!"
 echo ""
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 m-vless
 fi
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}     ${WH}⇱ Renew Vless Account ⇲      ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC}${COLBG1}     ${WH}⇱ Renew Vless Account ⇲      ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Select the existing client you want to renew"
 echo " ketik [0] kembali kemenu"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo "     No  User   Expired"
 grep -E "^#vl " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | nl -s ') '
 until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -672,14 +672,14 @@ TEXT2="
 curl -s --max-time $TIMES -d "chat_id=$CHATID2&disable_web_page_preview=1&text=$TEXT2&parse_mode=html" $URL2 >/dev/null
 clear
 systemctl restart xray > /dev/null 2>&1
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " VLESS Account Was Successfully Renewed"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 echo " Client Name : $user"
 echo " Expired On  : $exp4"
 echo ""
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 m-vless
@@ -688,23 +688,23 @@ function del-vless(){
 clear
 NUMBER_OF_CLIENTS=$(grep -c -E "^#vl " "/etc/xray/config.json")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}    ${WH}⇱ Delete Vless Account ⇲     ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC}${COLBG1}    ${WH}⇱ Delete Vless Account ⇲     ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 echo "You have no existing clients!"
 echo ""
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 read -n 1 -s -r -p "Press any key to back on menu"
 m-vless
 fi
 clear
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}    ${WH}⇱ Delete Vless Account ⇲     ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC}${COLBG1}    ${WH}⇱ Delete Vless Account ⇲     ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Select the existing client you want to remove"
 echo " ketik [0] kembali kemenu"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo "     No  User   Expired"
 grep -E "^#vl " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | nl -s ') '
 until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -753,12 +753,12 @@ else
 echo "$TEXT" > /etc/notiftele
 bash /etc/tele
 fi
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Vless Account Deleted Successfully"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Client Name : $user"
 echo " Expired On  : $exp"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 m-vless
@@ -802,10 +802,10 @@ if [[ xrayy -le 5 ]]; then
 systemctl restart xray
 fi
 xraylimit
-echo -e "$COLOR1╭═════════════════════════════════════════════════╮${NC}"
-echo -e "$COLOR1│${NC} ${COLBG1}            ${WH}• VLESS USER ONLINE •              ${NC} $COLOR1│ $NC"
-echo -e "$COLOR1╰═════════════════════════════════════════════════╯${NC}"
-echo -e "$COLOR1╭═════════════════════════════════════════════════╮${NC}"
+echo -e "$RED╭═════════════════════════════════════════════════╮${NC}"
+echo -e "$RED│${NC} ${COLBG1}            ${WH}• VLESS USER ONLINE •              ${NC} $RED│ $NC"
+echo -e "$RED╰═════════════════════════════════════════════════╯${NC}"
+echo -e "$RED╭═════════════════════════════════════════════════╮${NC}"
 vm=($(cat /etc/xray/config.json | grep "^#vlg" | awk '{print $2}' | sort -u))
 echo -n >/tmp/vm
 for db1 in ${vm[@]}; do
@@ -839,15 +839,15 @@ byt=$(cat /etc/limit/vless/${vmuser})
 gb=$(convert ${byt})
 lim=$(cat /etc/vless/${vmuser})
 lim2=$(convert ${lim})
-echo -e "$COLOR1${NC} USERNAME : \033[0;33m$vmuser"
-echo -e "$COLOR1${NC} IP LOGIN : \033[0;33m$vmhas"
-echo -e "$COLOR1${NC} USAGE : \033[0;33m$gb"
-echo -e "$COLOR1${NC} LIMIT : \033[0;33m$lim2"
+echo -e "$RED${NC} USERNAME : \033[0;33m$vmuser"
+echo -e "$RED${NC} IP LOGIN : \033[0;33m$vmhas"
+echo -e "$RED${NC} USAGE : \033[0;33m$gb"
+echo -e "$RED${NC} LIMIT : \033[0;33m$lim2"
 echo -e ""
 fi
 done
 fi
-echo -e "$COLOR1╰═════════════════════════════════════════════════╯${NC}"
+echo -e "$RED╰═════════════════════════════════════════════════╯${NC}"
 echo ""
 read -n 1 -s -r -p "   Press any key to back on menu"
 m-vless
@@ -856,22 +856,22 @@ function list-vless(){
 clear
 NUMBER_OF_CLIENTS=$(grep -c -E "^#vl " "/etc/xray/config.json")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}    ${WH}⇱ Config Vless Account ⇲     ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC}${COLBG1}    ${WH}⇱ Config Vless Account ⇲     ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 echo "You have no existing clients!"
 echo ""
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 read -n 1 -s -r -p "Press any key to back on menu"
 m-vless
 fi
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}    ${WH}⇱ Config Vless Account ⇲     ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC}${COLBG1}    ${WH}⇱ Config Vless Account ⇲     ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Select the existing client to view the config"
 echo " ketik [0] kembali kemenu"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo "     No  User   Expired"
 grep -E "^#vl " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | nl -s ') '
 until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -905,23 +905,23 @@ m-vless
 }
 function login-vless(){
 clear
-echo -e "$COLOR1╭═══════════════════════════════════════════════╮${NC}"
-echo -e "$COLOR1│${NC} ${COLBG1}          ${WH}• SETTING MULTI LOGIN •            ${NC} $COLOR1│ $NC"
-echo -e "$COLOR1╰═══════════════════════════════════════════════╯${NC}"
-echo -e "$COLOR1╭═══════════════════════════════════════════════╮${NC}"
-echo -e "${COLOR1}│ $NC SILAHKAN TULIS JUMLAH NOTIFIKASI UNTUK LOCK    ${NC}"
-echo -e "${COLOR1}│ $NC AKUN USER YANG MULTI LOGIN     ${NC}"
-echo -e "$COLOR1╰═══════════════════════════════════════════════╯${NC}"
+echo -e "$RED╭═══════════════════════════════════════════════╮${NC}"
+echo -e "$RED│${NC} ${COLBG1}          ${WH}• SETTING MULTI LOGIN •            ${NC} $RED│ $NC"
+echo -e "$RED╰═══════════════════════════════════════════════╯${NC}"
+echo -e "$RED╭═══════════════════════════════════════════════╮${NC}"
+echo -e "${RED}│ $NC SILAHKAN TULIS JUMLAH NOTIFIKASI UNTUK LOCK    ${NC}"
+echo -e "${RED}│ $NC AKUN USER YANG MULTI LOGIN     ${NC}"
+echo -e "$RED╰═══════════════════════════════════════════════╯${NC}"
 read -rp "   Jika Mau 3x Notif baru kelock tulis 3, dst: " -e notif
 cd /etc/vless
 echo "$notif" > notif
 clear
-echo -e "$COLOR1╭═══════════════════════════════════════════════╮${NC}"
-echo -e "$COLOR1│${NC} ${COLBG1}          ${WH}• SETTING MULTI LOGIN •            ${NC} $COLOR1│ $NC"
-echo -e "$COLOR1╰═══════════════════════════════════════════════╯${NC}"
-echo -e "$COLOR1╭═══════════════════════════════════════════════╮${NC}"
-echo -e "${COLOR1}│ $NC SUCCES GANTI NOTIF LOCK JADI $notif $NC "
-echo -e "$COLOR1╰═══════════════════════════════════════════════╯${NC}"
+echo -e "$RED╭═══════════════════════════════════════════════╮${NC}"
+echo -e "$RED│${NC} ${COLBG1}          ${WH}• SETTING MULTI LOGIN •            ${NC} $RED│ $NC"
+echo -e "$RED╰═══════════════════════════════════════════════╯${NC}"
+echo -e "$RED╭═══════════════════════════════════════════════╮${NC}"
+echo -e "${RED}│ $NC SUCCES GANTI NOTIF LOCK JADI $notif $NC "
+echo -e "$RED╰═══════════════════════════════════════════════╯${NC}"
 m-vless
 }
 function lock-vless(){
@@ -932,24 +932,24 @@ echo "" > /etc/vless/listlock
 fi
 NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/vless/listlock")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}    ${WH}⇱ Unlock Vless Account ⇲     ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC}${COLBG1}    ${WH}⇱ Unlock Vless Account ⇲     ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 echo "You have no existing user Lock!"
 echo ""
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 read -n 1 -s -r -p "Press any key to back on menu"
 m-vless
 fi
 clear
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}    ${WH}⇱ Unlock Vless Account ⇲     ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC}${COLBG1}    ${WH}⇱ Unlock Vless Account ⇲     ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Select the existing client you want to Unlock"
 echo " ketik [0] kembali kemenu"
 echo " ketik [999] untuk delete semua Akun"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo "     No  User   Expired"
 grep -E "^### " "/etc/vless/listlock" | cut -d ' ' -f 2-3 | nl -s ') '
 until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -994,12 +994,12 @@ else
 echo "$TEXT" > /etc/notiftele
 bash /etc/tele
 fi
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Vless Account Unlock Successfully"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Client Name : $user"
 echo " Status  : Unlocked"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 m-vless
@@ -1013,24 +1013,24 @@ fi
 clear
 NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/vless/akundelete")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}    ${WH}⇱ Restore Vless Account ⇲    ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC}${COLBG1}    ${WH}⇱ Restore Vless Account ⇲    ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 echo "You have no existing user Expired!"
 echo ""
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 read -n 1 -s -r -p "Press any key to back on menu"
 m-vless
 fi
 clear
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}    ${WH}⇱ Restore Vless Account ⇲    ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC}${COLBG1}    ${WH}⇱ Restore Vless Account ⇲    ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Select the existing client you want to Restore"
 echo " ketik [0] kembali kemenu"
 echo " ketik [999] untuk delete semua Akun"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo "     No  User   Expired"
 grep -E "^### " "/etc/vless/akundelete" | cut -d ' ' -f 2-3 | nl -s ') '
 until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -1098,13 +1098,13 @@ else
 echo "$TEXT" > /etc/notiftele
 bash /etc/tele
 fi
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Vless Account Restore Successfully"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Client Name : $user"
 echo " Expired  : $exp"
 echo " Succes to Restore"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 m-vless
@@ -1117,24 +1117,24 @@ echo "" > /etc/vless/userQuota
 fi
 NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/vless/userQuota")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}    ${WH}⇱ Unlock Vless Account ⇲     ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC}${COLBG1}    ${WH}⇱ Unlock Vless Account ⇲     ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 echo "You have no existing user Lock!"
 echo ""
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 read -n 1 -s -r -p "Press any key to back on menu"
 m-vless
 fi
 clear
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC}${COLBG1}    ${WH}⇱ Unlock Vless Account ⇲     ${NC} $COLOR1 $NC"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED ${NC}${COLBG1}    ${WH}⇱ Unlock Vless Account ⇲     ${NC} $RED $NC"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Select the existing client you want to Unlock"
 echo " ketik [0] kembali kemenu"
 echo " ketik [999] untuk delete semua Akun"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo "     No  User   Expired"
 grep -E "^### " "/etc/vless/userQuota" | cut -d ' ' -f 2-3 | nl -s ') '
 until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -1179,34 +1179,34 @@ else
 echo "$TEXT" > /etc/notiftele
 bash /etc/tele
 fi
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Vless Account Unlock Successfully"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " Client Name : $user"
 echo " Status  : Unlocked"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 m-vless
 }
 clear
-author=$(cat /etc/profil)
-echo -e " $COLOR1╭════════════════════════════════════════════════════╮${NC}"
-echo -e " $COLOR1│${NC} ${COLBG1}            ${WH}• VLESS PANEL MENU •                  ${NC} $COLOR1│ $NC"
-echo -e " $COLOR1╰════════════════════════════════════════════════════╯${NC}"
-echo -e " $COLOR1╭════════════════════════════════════════════════════╮${NC}"
-echo -e " $COLOR1│ $NC ${WH}[${COLOR1}01${WH}]${NC} ${COLOR1}• ${WH}ADD AKUN${NC}         ${WH}[${COLOR1}06${WH}]${NC} ${COLOR1}• ${WH}CEK USER CONFIG${NC}    $COLOR1│ $NC"
-echo -e " $COLOR1│ $NC ${WH}[${COLOR1}02${WH}]${NC} ${COLOR1}• ${WH}TRIAL AKUN${NC}       ${WH}[${COLOR1}07${WH}]${NC} ${COLOR1}• ${WH}CHANGE USER LIMIT${NC}  $COLOR1│ $NC"
-echo -e " $COLOR1│ $NC ${WH}[${COLOR1}03${WH}]${NC} ${COLOR1}• ${WH}RENEW AKUN${NC}       ${WH}[${COLOR1}08${WH}]${NC} ${COLOR1}• ${WH}SETTING LOCK LOGIN${NC} $COLOR1│ $NC"
-echo -e " $COLOR1│ $NC ${WH}[${COLOR1}04${WH}]${NC} ${COLOR1}• ${WH}DELETE AKUN${NC}      ${WH}[${COLOR1}09${WH}]${NC} ${COLOR1}• ${WH}UNLOCK USER LOGIN${NC}  $COLOR1│ $NC"
-echo -e " $COLOR1│ $NC ${WH}[${COLOR1}05${WH}]${NC} ${COLOR1}• ${WH}CEK USER LOGIN${NC}   ${WH}[${COLOR1}10${WH}]${NC} ${COLOR1}• ${WH}UNLOCK USER QUOTA ${NC} $COLOR1│ $NC"
-echo -e " $COLOR1│ $NC ${WH}[${COLOR1}00${WH}]${NC} ${COLOR1}• ${WH}GO BACK${NC}          ${WH}[${COLOR1}11${WH}]${NC} ${COLOR1}• ${WH}RESTORE AKUN   ${NC}    $COLOR1│ $NC"
-echo -e " $COLOR1╰════════════════════════════════════════════════════╯${NC}"
-echo -e " $COLOR1╭═════════════════════════ ${WH}BY${NC} ${COLOR1}═══════════════════════╮ ${NC}"
-echo -e "  $COLOR1${NC}              ${WH}   • $author •                 $COLOR1 $NC"
-echo -e " $COLOR1╰════════════════════════════════════════════════════╯${NC}"
+#author=$(cat /etc/profil)
+echo -e " $RED╭════════════════════════════════════════════════════╮${NC}"
+echo -e " $RED│${NC} ${COLBG1}            ${WH}• VLESS PANEL MENU •                  ${NC} $RED│ $NC"
+echo -e " $RED╰════════════════════════════════════════════════════╯${NC}"
+echo -e " $RED╭════════════════════════════════════════════════════╮${NC}"
+echo -e " $RED│ $NC ${WH}[${RED}01${WH}]${NC} ${RED}• ${WH}ADD AKUN${NC}         ${WH}[${RED}06${WH}]${NC} ${RED}• ${WH}CEK USER CONFIG${NC}    $RED│ $NC"
+echo -e " $RED│ $NC ${WH}[${RED}02${WH}]${NC} ${RED}• ${WH}TRIAL AKUN${NC}       ${WH}[${RED}07${WH}]${NC} ${RED}• ${WH}CHANGE USER LIMIT${NC}  $RED│ $NC"
+echo -e " $RED│ $NC ${WH}[${RED}03${WH}]${NC} ${RED}• ${WH}RENEW AKUN${NC}       ${WH}[${RED}08${WH}]${NC} ${RED}• ${WH}SETTING LOCK LOGIN${NC} $RED│ $NC"
+echo -e " $RED│ $NC ${WH}[${RED}04${WH}]${NC} ${RED}• ${WH}DELETE AKUN${NC}      ${WH}[${RED}09${WH}]${NC} ${RED}• ${WH}UNLOCK USER LOGIN${NC}  $RED│ $NC"
+echo -e " $RED│ $NC ${WH}[${RED}05${WH}]${NC} ${RED}• ${WH}CEK USER LOGIN${NC}   ${WH}[${RED}10${WH}]${NC} ${RED}• ${WH}UNLOCK USER QUOTA ${NC} $RED│ $NC"
+echo -e " $RED│ $NC ${WH}[${RED}00${WH}]${NC} ${RED}• ${WH}GO BACK${NC}          ${WH}[${RED}11${WH}]${NC} ${RED}• ${WH}RESTORE AKUN   ${NC}    $RED│ $NC"
+echo -e " $RED╰════════════════════════════════════════════════════╯${NC}"
+echo -e " $RED╭═════════════════════════ ${WH}BY${NC} ${RED}═══════════════════════╮ ${NC}"
+echo -e "  $RED${NC}              ${WH}   • $author •                 $RED $NC"
+echo -e " $RED╰════════════════════════════════════════════════════╯${NC}"
 echo -e ""
-echo -ne " ${WH}Select menu ${COLOR1}: ${WH}"; read opt
+echo -ne " ${WH}Select menu ${RED}: ${WH}"; read opt
 case $opt in
 1) clear ; add-vless ; exit ;;
 2) clear ; trial-vless ; exit ;;
