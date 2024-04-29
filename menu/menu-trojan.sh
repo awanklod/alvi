@@ -28,9 +28,9 @@ exit
 fi
 }
 checking_sc
-ISP=$(cat /etc/xray/isp)
-CITY=$(cat /etc/xray/city)
-author=$(cat /etc/profil)
+#ISP=$(cat /etc/xray/isp)
+#CITY=$(cat /etc/xray/city)
+#author=$(cat /etc/profil)
 TIMES="10"
 CHATID=$(cat /etc/per/id)
 KEY=$(cat /etc/per/token)
@@ -1119,7 +1119,7 @@ read -n 1 -s -r -p "Press any key to back on menu"
 m-trojan
 }
 clear
-author=$(cat /etc/profil)
+#author=$(cat /etc/profil)
 echo -e " $COLOR1╭════════════════════════════════════════════════════╮${NC}"
 echo -e " $COLOR1│${NC} ${COLBG1}              ${WH}• TROJAN PANEL MENU •               ${NC} $COLOR1│ $NC"
 echo -e " $COLOR1╰════════════════════════════════════════════════════╯${NC}"
