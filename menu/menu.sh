@@ -327,7 +327,7 @@ fi;
 echo -e " ${BIRed}╚══════════════════════════════════════════════════════════${NC}"
 echo -e " ${BIWhite}                 SSH OVPN: $total_ssh  VMESS: $vmess $NC"
 echo -e " ${BIWhite}              VLESS: $vless TROJAN: $trtls SHADWSK: $ssa $NC"
-echo -e " ${BIWhite}                           TROJAN-GO: $jumlah_trgo $NC"
+echo -e " ${BIWhite}                        TROJAN-GO: $jumlah_trgo $NC"
 echo -e "${BIBlack}╔═════════════════════════════════════════════════════════╗${NC}"
 echo -e "      ${red}SSH Websocket${NC} : $ressshws""   ${red}NGINX${NC} : $resngx""  ${red}XRAY${NC} : $resv2r"
 echo -e "${BIBlack}╚═════════════════════════════════════════════════════════╝${NC}"
@@ -338,7 +338,7 @@ echo -e "     ${BIYellow}[${BIWhite}1]${red}🌦 SSH    " "  ${BICyan}[${BIWhite
 echo -e "     ${BIYellow}[${BIWhite}2]${red}🌦 VMESS  " "  ${BICyan}[${BIWhite}7]${red}🌦 TRIAL    " " ${BICyan}[${BIWhite}12${red}]🔐 SET PW VPS"
 echo -e "     ${BIYellow}[${BIWhite}3]${red}🌦 VLESS  " "  ${BICyan}[${BIWhite}8]${red}🌦 BACKUP   " " ${BICyan}[${BIWhite}13${red}]🌦 UPDATE SC "
 echo -e "     ${BIYellow}[${BIWhite}4]${red}🌦 TROJAN " "  ${BICyan}[${BIWhite}9]${red}🌦 ADD-HOST " " ${BICyan}[${BIWhite}99${red}]🌦 CLEAR SAMPAH"
-echo -e "     ${BIYellow}[${BIWhite}5]${red}🌦 SHDSCK " "  ${BICyan}[${BIWhite}10]${red}🌦 RUNNING"
+echo -e "     ${BIYellow}[${BIWhite}5]${red}🌦 SHDSCK " "  ${BICyan}[${BIWhite}10]${red}🌦 RUNNING"  " ${BICyan}[${BIWhite}14${red}]🌦 TROJAN-GO"
 echo -e "${BIYellow}   ╚══════════════════════════════════════════════════════╝${NC}"
 echo -e "${BIBlack} ╔═════════════════════════════════════════════════════╗${NC}"
 echo -e "${BIBlack} ║$NC ${IWhite}TODAY${NC}: ${red}$ttoday$NC ${IWhite}YESTERDAY${NC}: ${red}$tyest$NC ${IWhite}MONTHLY${NC}: ${red}$tmon$NC $NC"
@@ -360,6 +360,7 @@ case $opt in
 11) clear ; jam ;;
 12) clear ; passwd ;;
 13) clear ; up ;;
+14) clear ; menu-trgo ;;
 99) clear ; clearcache ;;
 6969) clear ; wget https://raw.githubusercontent.com/ALVIICELL/1/main/update.sh && chmod +x update.sh && ./update.sh && rm -f /root/update.sh ;;
 0) clear ; menu ;;
