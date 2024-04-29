@@ -304,7 +304,7 @@ echo -e "${BIYellow}║ Current Time        = ${BIWhite}$( date -d "0 days" +"%d
 echo -e "${BIYellow}║ Operating System    = ${BIWhite}$( cat /etc/os-release | grep -w PRETTY_NAME | sed 's/PRETTY_NAME//g' | sed 's/=//g' | sed 's/"//g' ) ( $( uname -m) )${NC}"
 echo -e "${BIYellow}║ IP VPS              = ${BIWhite}$IPVPS${NC}"
 echo -e "${BIYellow}║ Current Domain      = ${BIWhite}$( cat /etc/xray/domain )${NC}"
-echo -e "${BIYellow}║ NS Domain           = ${BIWhite}$(cat /root/nsdomain)${NC}"
+#echo -e "${BIYellow}║ NS Domain           = ${BIWhite}$(cat /root/nsdomain)${NC}"
 echo -e "${BIYellow}║ RAM/USE RAM % CPU   = ${BIWhite}${totalram}MB / ${BIWhite}${USAGERAM} MB & ${BIWhite}${cpu_usage}${NC}"
 #echo -e "${BIYellow}║ CPU Usage           = ${BIWhite}${cpu_usage}${NC}"
 echo -e "${BIYellow}╚═══════════════════════════════════════════════════════════╝\033[0m${NC}"
