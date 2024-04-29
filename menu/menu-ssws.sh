@@ -5,8 +5,8 @@ biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 colornow=$(cat /etc/rmbl/theme/color.conf)
 NC="\e[0m"
 RED="\033[0;31m" 
-COLOR1="$(cat /etc/rmbl/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
-COLBG1="$(cat /etc/rmbl/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')" 
+RED="$(cat /etc/rmbl/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
+RED="$(cat /etc/rmbl/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')" 
 WH='\033[1;37m'         
 ###########- CLOUDVPNKU -##########
 
@@ -14,18 +14,18 @@ function addssws(){
 clear
 domain=$(cat /etc/xray/domain)
 
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1}             ${WH}• CREATE SSWS USER •              ${NC} $COLOR1 $NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$RED┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$RED ${NC} ${RED}             ${WH}• CREATE SSWS USER •              ${NC} $RED $NC"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}"
+echo -e "$RED┌─────────────────────────────────────────────────┐${NC}"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 read -rp "   Input Username : " -e user
 if [ -z $user ]; then
-echo -e "$COLOR1 ${NC} [Error] Username cannot be empty "
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
-echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• CLOUDVPNKU •${NC}                 $COLOR1 $NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
+echo -e "$RED ${NC} [Error] Username cannot be empty "
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}" 
+echo -e "$RED┌────────────────────── ${WH}BY${NC} ${RED}───────────────────────┐${NC}"
+echo -e "$RED ${NC}                ${WH}• CLOUDVPNKU •${NC}                 $RED $NC"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}"
 echo ""
 read -n 1 -s -r -p "   Press any key to back on menu"
 menu
@@ -34,15 +34,15 @@ CLIENT_EXISTS=$(grep -w $user /etc/xray/config.json | wc -l)
 
 if [[ ${CLIENT_EXISTS} == '1' ]]; then
 clear
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1}             ${WH}• CREATE SSWS USER •              ${NC} $COLOR1 $NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC} Please choose another name."
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
-echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• CLOUDVPNKU •${NC}                 $COLOR1 $NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
+echo -e "$RED┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$RED ${NC} ${RED}             ${WH}• CREATE SSWS USER •              ${NC} $RED $NC"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}"
+echo -e "$RED┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$RED ${NC} Please choose another name."
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}" 
+echo -e "$RED┌────────────────────── ${WH}BY${NC} ${RED}───────────────────────┐${NC}"
+echo -e "$RED ${NC}                ${WH}• CLOUDVPNKU •${NC}                 $RED $NC"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}"
 echo ""
 read -n 1 -s -r -p "   Press any key to back on menu"
 m-ssws
@@ -284,33 +284,33 @@ END
 systemctl restart xray > /dev/null 2>&1
 service cron restart > /dev/null 2>&1
 clear
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1}             ${WH}• CREATE SSWS USER •              ${NC} $COLOR1 $NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC} ${WH}Remarks     ${COLOR1}: ${WH}${user}" 
-echo -e "$COLOR1 ${NC} ${WH}Expired On  ${COLOR1}: ${WH}$exp"  
-echo -e "$COLOR1 ${NC} ${WH}Domain      ${COLOR1}: ${WH}${domain}"  
-echo -e "$COLOR1 ${NC} ${WH}Port TLS    ${COLOR1}: ${WH} 443"  
-echo -e "$COLOR1 ${NC} ${WH}Port  GRPC  ${COLOR1}: ${WH} 443" 
-echo -e "$COLOR1 ${NC} ${WH}Password    ${COLOR1}: ${WH}${uuid}"  
-echo -e "$COLOR1 ${NC} ${WH}Cipers      ${COLOR1}: ${WH}aes-128-gcm"  
-echo -e "$COLOR1 ${NC} ${WH}Network     ${COLOR1}: ${WH}ws/grpc"  
-echo -e "$COLOR1 ${NC} ${WH}Path        ${COLOR1}: ${WH}/ss-ws"  
-echo -e "$COLOR1 ${NC} ${WH}ServiceName ${COLOR1}: ${WH}ss-grpc"  
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC} ${WH}Link TLS ${COLOR1}: ${NC}"
-echo -e "$COLOR1 ${NC} ${shadowsockslink}"  
-echo -e "$COLOR1 ${NC} "
-echo -e "$COLOR1 ${NC} ${WH}Link GRPC ${COLOR1}: ${NC}"
-echo -e "$COLOR1 ${NC} ${shadowsockslink1}"  
-echo -e "$COLOR1 ${NC} "
-echo -e "$COLOR1 ${NC} Link JSON : http://${domain}:81/ss-ws/ss-$user.txt"  
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
-echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• CLOUDVPNKU •${NC}                 $COLOR1 $NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
+echo -e "$RED┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$RED ${NC} ${RED}             ${WH}• CREATE SSWS USER •              ${NC} $RED $NC"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}"
+echo -e "$RED┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$RED ${NC} ${WH}Remarks     ${RED}: ${WH}${user}" 
+echo -e "$RED ${NC} ${WH}Expired On  ${RED}: ${WH}$exp"  
+echo -e "$RED ${NC} ${WH}Domain      ${RED}: ${WH}${domain}"  
+echo -e "$RED ${NC} ${WH}Port TLS    ${RED}: ${WH} 443"  
+echo -e "$RED ${NC} ${WH}Port  GRPC  ${RED}: ${WH} 443" 
+echo -e "$RED ${NC} ${WH}Password    ${RED}: ${WH}${uuid}"  
+echo -e "$RED ${NC} ${WH}Cipers      ${RED}: ${WH}aes-128-gcm"  
+echo -e "$RED ${NC} ${WH}Network     ${RED}: ${WH}ws/grpc"  
+echo -e "$RED ${NC} ${WH}Path        ${RED}: ${WH}/ss-ws"  
+echo -e "$RED ${NC} ${WH}ServiceName ${RED}: ${WH}ss-grpc"  
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}" 
+echo -e "$RED┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$RED ${NC} ${WH}Link TLS ${RED}: ${NC}"
+echo -e "$RED ${NC} ${shadowsockslink}"  
+echo -e "$RED ${NC} "
+echo -e "$RED ${NC} ${WH}Link GRPC ${RED}: ${NC}"
+echo -e "$RED ${NC} ${shadowsockslink1}"  
+echo -e "$RED ${NC} "
+echo -e "$RED ${NC} Link JSON : http://${domain}:81/ss-ws/ss-$user.txt"  
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}" 
+echo -e "$RED┌────────────────────── ${WH}BY${NC} ${RED}───────────────────────┐${NC}"
+echo -e "$RED ${NC}                ${WH}• CLOUDVPNKU •${NC}                 $RED $NC"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}"
 echo ""  
 read -n 1 -s -r -p "   Press any key to back on menu"
 m-ssws
@@ -318,34 +318,34 @@ m-ssws
 
 function renewssws(){
 clear
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1}              ${WH}• RENEW SSWS USER •              ${NC} $COLOR1 $NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$RED┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$RED ${NC} ${RED}              ${WH}• RENEW SSWS USER •              ${NC} $RED $NC"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}"
+echo -e "$RED┌─────────────────────────────────────────────────┐${NC}"
 NUMBER_OF_CLIENTS=$(grep -c -E "^## " "/etc/xray/config.json")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
-echo -e "$COLOR1 ${NC}  • You have no existing clients!"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
-echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• CLOUDVPNKU •${NC}                 $COLOR1 $NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
+echo -e "$RED ${NC}  • You have no existing clients!"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}" 
+echo -e "$RED┌────────────────────── ${WH}BY${NC} ${RED}───────────────────────┐${NC}"
+echo -e "$RED ${NC}                ${WH}• CLOUDVPNKU •${NC}                 $RED $NC"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}"
 echo ""
 read -n 1 -s -r -p "   Press any key to back on menu"
 m-ssws
 fi
 clear
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1}              ${WH}• RENEW SSWS USER •              ${NC} $COLOR1 $NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$RED┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$RED ${NC} ${RED}              ${WH}• RENEW SSWS USER •              ${NC} $RED $NC"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}"
+echo -e "$RED┌─────────────────────────────────────────────────┐${NC}"
 grep -E "^## " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | column -t | sort | uniq | nl
-echo -e "$COLOR1 ${NC}"
-echo -e "$COLOR1 ${NC}  ${COLOR1}• ${WH}[${COLOR1}NOTE${WH}] Press any key to back on menu"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
-echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• CLOUDVPNKU •${NC}                 $COLOR1 $NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-echo -e "$COLOR1───────────────────────────────────────────────────${NC}"
+echo -e "$RED ${NC}"
+echo -e "$RED ${NC}  ${RED}• ${WH}[${RED}NOTE${WH}] Press any key to back on menu"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}" 
+echo -e "$RED┌────────────────────── ${WH}BY${NC} ${RED}───────────────────────┐${NC}"
+echo -e "$RED ${NC}                ${WH}• CLOUDVPNKU •${NC}                 $RED $NC"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}"
+echo -e "$RED───────────────────────────────────────────────────${NC}"
 read -rp "   Input Username : " user
 if [ -z $user ]; then
 m-ssws
@@ -364,19 +364,19 @@ exp4=`date -d "$exp3 days" +"%Y-%m-%d"`
 sed -i "/## $user/c\## $user $exp4" /etc/xray/config.json
 systemctl restart xray > /dev/null 2>&1
 clear
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1}              ${WH}• RENEW SSWS USER •              ${NC} $COLOR1 $NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}   ${WH}[${COLOR1}INFO${WH}]${NC}  ${WH}$user Account Renewed Successfully"
-echo -e "$COLOR1 ${NC}   "
-echo -e "$COLOR1 ${NC}   ${WH}Client Name ${COLOR1}: ${WH}$user"
-echo -e "$COLOR1 ${NC}   ${WH}Days Added  ${COLOR1}: ${WH}$masaaktif Days"
-echo -e "$COLOR1 ${NC}   ${WH}Expired On  ${COLOR1}: ${WH}$exp4"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
-echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• CLOUDVPNKU •${NC}                 $COLOR1 $NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
+echo -e "$RED┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$RED ${NC} ${RED}              ${WH}• RENEW SSWS USER •              ${NC} $RED $NC"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}"
+echo -e "$RED┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$RED ${NC}   ${WH}[${RED}INFO${WH}]${NC}  ${WH}$user Account Renewed Successfully"
+echo -e "$RED ${NC}   "
+echo -e "$RED ${NC}   ${WH}Client Name ${RED}: ${WH}$user"
+echo -e "$RED ${NC}   ${WH}Days Added  ${RED}: ${WH}$masaaktif Days"
+echo -e "$RED ${NC}   ${WH}Expired On  ${RED}: ${WH}$exp4"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}" 
+echo -e "$RED┌────────────────────── ${WH}BY${NC} ${RED}───────────────────────┐${NC}"
+echo -e "$RED ${NC}                ${WH}• CLOUDVPNKU •${NC}                 $RED $NC"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}"
 echo ""
 read -n 1 -s -r -p "   Press any key to back on menu"
 m-ssws
@@ -387,29 +387,29 @@ function delssws(){
     clear
 NUMBER_OF_CLIENTS=$(grep -c -E "^## " "/etc/xray/config.json")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1}           ${WH}• DELETE TROJAN USER •              ${NC} $COLOR1 $NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}  ${COLOR1}• ${WH}You Dont have any existing clients!${NC}"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
-echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• CLOUDVPNKU •${NC}                 $COLOR1 $NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
+echo -e "$RED┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$RED ${NC} ${RED}           ${WH}• DELETE TROJAN USER •              ${NC} $RED $NC"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}"
+echo -e "$RED┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$RED ${NC}  ${RED}• ${WH}You Dont have any existing clients!${NC}"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}" 
+echo -e "$RED┌────────────────────── ${WH}BY${NC} ${RED}───────────────────────┐${NC}"
+echo -e "$RED ${NC}                ${WH}• CLOUDVPNKU •${NC}                 $RED $NC"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}"
 echo ""
 read -n 1 -s -r -p "   Press any key to back on menu"
 m-ssws
 fi
 clear
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1}           ${WH}• DELETE TROJAN USER •              ${NC} $COLOR1 $NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$RED┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$RED ${NC} ${RED}           ${WH}• DELETE TROJAN USER •              ${NC} $RED $NC"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}"
+echo -e "$RED┌─────────────────────────────────────────────────┐${NC}"
 grep -E "^## " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | column -t | sort | uniq | nl
-echo -e "$COLOR1 ${NC}"
-echo -e "$COLOR1 ${NC}  ${COLOR1}• ${WH}[${COLOR1}NOTE${WH}]${NC} ${WH}Press any key to back on menu${NC}"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-echo -e "$COLOR1───────────────────────────────────────────────────${NC}"
+echo -e "$RED ${NC}"
+echo -e "$RED ${NC}  ${RED}• ${WH}[${RED}NOTE${WH}]${NC} ${WH}Press any key to back on menu${NC}"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}"
+echo -e "$RED───────────────────────────────────────────────────${NC}"
 read -rp "   Input Username : " user
 if [ -z $user ]; then
 m-ssws
@@ -419,18 +419,18 @@ sed -i "/^## $user $exp/,/^},{/d" /etc/xray/config.json
 systemctl restart xray > /dev/null 2>&1
 rm /home/vps/public_html/ss-ws/ss-$user.txt
 clear
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1}           ${WH}• DELETE TROJAN USER •              ${NC} $COLOR1 $NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}   ${COLOR1}• ${WH}Accound Delete Successfully"
-echo -e "$COLOR1 ${NC}"
-echo -e "$COLOR1 ${NC}   ${COLOR1}• ${WH}Client Name ${COLOR1}: ${WH}$user${NC}"
-echo -e "$COLOR1 ${NC}   ${COLOR1}• ${WH}Expired On  ${COLOR1}: ${WH}$exp${NC}"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
-echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• CLOUDVPNKU •${NC}                 $COLOR1 $NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
+echo -e "$RED┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$RED ${NC} ${RED}           ${WH}• DELETE TROJAN USER •              ${NC} $RED $NC"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}"
+echo -e "$RED┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$RED ${NC}   ${RED}• ${WH}Accound Delete Successfully"
+echo -e "$RED ${NC}"
+echo -e "$RED ${NC}   ${RED}• ${WH}Client Name ${RED}: ${WH}$user${NC}"
+echo -e "$RED ${NC}   ${RED}• ${WH}Expired On  ${RED}: ${WH}$exp${NC}"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}" 
+echo -e "$RED┌────────────────────── ${WH}BY${NC} ${RED}───────────────────────┐${NC}"
+echo -e "$RED ${NC}                ${WH}• CLOUDVPNKU •${NC}                 $RED $NC"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}"
 echo ""
 read -n 1 -s -r -p "   Press any key to back on menu"
 m-ssws
@@ -441,10 +441,10 @@ function cekssws(){
 clear
 echo -n > /tmp/other.txt
 data=( `cat /etc/xray/config.json | grep '^##' | cut -d ' ' -f 2 | sort | uniq`);
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1}             ${WH}• SSWS USER ONLINE •              ${NC} $COLOR1 $NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$RED┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$RED ${NC} ${RED}             ${WH}• SSWS USER ONLINE •              ${NC} $RED $NC"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}"
+echo -e "$RED┌─────────────────────────────────────────────────┐${NC}"
 
 for akun in "${data[@]}"
 do
@@ -472,37 +472,37 @@ if [[ -z "$jum" ]]; then
 echo > /dev/null
 else
 jum2=$(cat /tmp/ipssws.txt | nl)
-echo -e "$COLOR1 ${NC}   user : $akun";
-echo -e "$COLOR1 ${NC}   $jum2";
+echo -e "$RED ${NC}   user : $akun";
+echo -e "$RED ${NC}   $jum2";
 fi
 rm -rf /tmp/ipssws.txt
 done
 
 rm -rf /tmp/other.txt
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
-echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• CLOUDVPNKU •${NC}                 $COLOR1 $NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}" 
+echo -e "$RED┌────────────────────── ${WH}BY${NC} ${RED}───────────────────────┐${NC}"
+echo -e "$RED ${NC}                ${WH}• CLOUDVPNKU •${NC}                 $RED $NC"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}"
 echo ""
 read -n 1 -s -r -p "   Press any key to back on menu"
 m-ssws
 }
 
 clear
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1}              ${WH}• SSWS PANEL MENU •              ${NC} $COLOR1 $NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-echo -e " $COLOR1┌───────────────────────────────────────────────┐${NC}"
-echo -e " $COLOR1 $NC   ${WH}[${COLOR1}01${WH}]${NC} ${COLOR1}• ${WH}ADD SSWS${NC}      ${WH}[${COLOR1}03${WH}]${NC} ${COLOR1}• ${WH}DELETE SSWS${NC}     $COLOR1 $NC"
-echo -e " $COLOR1 $NC   ${WH}[${COLOR1}02${WH}]${NC} ${COLOR1}• ${WH}RENEW SSWS${NC}    ${WH}[${COLOR1}04${WH}]${NC} ${COLOR1}• ${WH}USER ONLINE${NC}     $COLOR1 $NC"
-echo -e " $COLOR1 $NC                                              ${NC} $COLOR1 $NC"
-echo -e " $COLOR1 $NC   ${WH}[${COLOR1}00${WH}]${NC} ${COLOR1}• ${WH}GO BACK${NC}                              $COLOR1 $NC"
-echo -e " $COLOR1└───────────────────────────────────────────────┘${NC}"
-echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}• CLOUDVPNKU •${NC}                 $COLOR1 $NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
+echo -e "$RED┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$RED ${NC} ${RED}              ${WH}• SSWS PANEL MENU •              ${NC} $RED $NC"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}"
+echo -e " $RED┌───────────────────────────────────────────────┐${NC}"
+echo -e " $RED $NC   ${WH}[${RED}01${WH}]${NC} ${RED}• ${WH}ADD SSWS${NC}      ${WH}[${RED}03${WH}]${NC} ${RED}• ${WH}DELETE SSWS${NC}     $RED $NC"
+echo -e " $RED $NC   ${WH}[${RED}02${WH}]${NC} ${RED}• ${WH}RENEW SSWS${NC}    ${WH}[${RED}04${WH}]${NC} ${RED}• ${WH}USER ONLINE${NC}     $RED $NC"
+echo -e " $RED $NC                                              ${NC} $RED $NC"
+echo -e " $RED $NC   ${WH}[${RED}00${WH}]${NC} ${RED}• ${WH}GO BACK${NC}                              $RED $NC"
+echo -e " $RED└───────────────────────────────────────────────┘${NC}"
+echo -e "$RED┌────────────────────── ${WH}BY${NC} ${RED}───────────────────────┐${NC}"
+echo -e "$RED ${NC}                ${WH}• CLOUDVPNKU •${NC}                 $RED $NC"
+echo -e "$RED└─────────────────────────────────────────────────┘${NC}"
 echo -e ""
-echo -ne " ${WH}Select menu ${COLOR1}: ${WH}"; read opt
+echo -ne " ${WH}Select menu ${RED}: ${WH}"; read opt
 case $opt in
 01 | 1) clear ; addssws ;;
 02 | 2) clear ; renewssws ;;
