@@ -1,49 +1,60 @@
 #!/bin/bash
-biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
-MYIP=$(wget -qO- ifconfig.me)
-colornow=$(cat /etc/rmbl/theme/color.conf)
-export NC="\e[0m"
-export yl='\033[0;33m';
-export RED="\033[0;31m"
-export COLOR1="$(cat /etc/rmbl/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
-export COLBG1="$(cat /etc/rmbl/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"
-WH='\033[1;37m'
-tram=$( free -h | awk 'NR==2 {print $2}' )
-uram=$( free -h | awk 'NR==2 {print $3}' )
-ISP=$(cat /etc/xray/isp)
-CITY=$(cat /etc/xray/city)
-author=$(cat /etc/profil)
-DAY=$(date +%A)
-DATE=$(date +%m/%d/%Y)
-DATE2=$(date -R | cut -d " " -f -5)
-MYIP=$(wget -qO- ifconfig.me)
-Isadmin=$(curl -sS https://raw.githubusercontent.com/awanklod/izin_reaz/main/izin | grep $MYIP | awk '{print $5}')
-Exp2=$(curl -sS https://raw.githubusercontent.com/awanklod/izin_reaz/main/izin | grep $MYIP | awk '{print $3}')
-export RED='\033[0;31m'
-export GREEN='\033[0;32m'
-Name=$(curl -sS https://raw.githubusercontent.com/awanklod/izin_reaz/main/izin | grep $MYIP | awk '{print $2}')
-ipsaya=$(wget -qO- ifconfig.me)
-data_server=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
-date_list=$(date +"%Y-%m-%d" -d "$data_server")
-data_ip="https://raw.githubusercontent.com/awanklod/izin_reaz/main/izin"
-checking_sc() {
-useexp=$(curl -sS $data_ip | grep $ipsaya | awk '{print $3}')
-if [[ $date_list < $useexp ]]; then
-echo -ne
+BURIQ () {
+    curl -sS https://raw.githubusercontent.com/awanklod/izin_alvi/main/izin > /root/tmp
+    data=( `cat /root/tmp | grep -E "^### " | awk '{print $2}'` )
+    for user in "${data[@]}"
+    do
+    exp=( `grep -E "^### $user" "/root/tmp" | awk '{print $3}'` )
+    d1=(`date -d "$exp" +%s`)
+    d2=(`date -d "$biji" +%s`)
+    exp2=$(( (d1 - d2) / 86400 ))
+    if [[ "$exp2" -le "0" ]]; then
+    echo $user > /etc/.$user.ini
+    else
+    rm -f /etc/.$user.ini > /dev/null 2>&1
+    fi
+    done
+    rm -f /root/tmp
+}
+
+MYIP=$(curl -sS ipv4.icanhazip.com)
+Name=$(curl -sS https://raw.githubusercontent.com/awanklod/izin_alvi/main/izin | grep $MYIP | awk '{print $2}')
+echo $Name > /usr/local/etc/.$Name.ini
+CekOne=$(cat /usr/local/etc/.$Name.ini)
+
+Bloman () {
+if [ -f "/etc/.$Name.ini" ]; then
+CekTwo=$(cat /etc/.$Name.ini)
+    if [ "$CekOne" = "$CekTwo" ]; then
+        res="Expired"
+    fi
 else
-systemctl stop nginx
-echo -e "$COLOR1╭═════════════════════════════════════════════════╮${NC}"
-echo -e "$COLOR1│${NC}${COLBG1}          ${WH}• AUTOSCRIPT PREMIUM •                 ${NC}$COLOR1│ $NC"
-echo -e "$COLOR1╰═════════════════════════════════════════════════╯${NC}"
-echo -e "$COLOR1╭═════════════════════════════════════════════════╮${NC}"
-echo -e "$COLOR1│            ${RED}PERMISSION DENIED !${NC}                  $COLOR1│"
-echo -e "$COLOR1│   ${yl}Your VPS${NC} $ipsaya \033[0;36mHas been Banned ${NC}      $COLOR1│"
-echo -e "$COLOR1│     ${yl}Buy access permissions for scripts${NC}          $COLOR1│"
-echo -e "$COLOR1│             \033[0;32mContact Your Admin ${NC}                 $COLOR1│"
-echo -e "$COLOR1╰═════════════════════════════════════════════════╯${NC}"
-exit
+res="Permission Accepted..."
 fi
 }
+
+PERMISSION () {
+    MYIP=$(curl -sS ipv4.icanhazip.com)
+    IZIN=$(curl -sS https://raw.githubusercontent.com/awanklod/izin_alvi/main/izin | awk '{print $4}' | grep $MYIP)
+    if [ "$MYIP" = "$IZIN" ]; then
+    Bloman
+    else
+    res="Permission Denied!"
+    fi
+    BURIQ
+}
+red='\e[1;31m'
+green='\e[1;32m'
+NC='\e[0m'
+green() { echo -e "\\033[32;1m${*}\\033[0m"; }
+red() { echo -e "\\033[31;1m${*}\\033[0m"; }
+PERMISSION
+
+if [ "$res" = "Expired" ]; then
+Exp="\e[36mExpired\033[0m"
+else
+Exp=$(curl -sS https://raw.githubusercontent.com/awanklod/izin_alvi/main/izin | grep $MYIP | awk '{print $3}')
+fi
 checking_sc
 madmin=$(curl -sS https://raw.githubusercontent.com/awanklod/izin_reaz/main/izin | grep $MYIP | awk '{print $5}')
 cd
