@@ -1,56 +1,32 @@
 #!/bin/bash
-#Script UdpCustom 2023
-#Script By CLOUDVPN
-#https://t.me/amiqyu
+
 cd
-rm -rf /root/udp
-mkdir -p /root/udp
+rm -rf /etc/udp
+mkdir -p /etc/udp
+
+# change to time GMT+7
+echo "change to time GMT+7"
+ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
+
 # install udp-custom
-echo ""
-sleep 4
-echo " Proses Download Script UdpCustom........"
-sleep 4
-clear
-echo " Cecking Tool UdpCustom By CLOUDVPN......."
-sleep 4
-clear
-echo " Succes Cecking Tool..........."
-sleep 4
-clear
-echo " Please Waiting Proses Downloading Toll UdpCustom........"
-sleep 4
-clear
-wget -q --show-progress --load-cookies /tmp/cookies.txt "https://gitlab.com/Exe302/Tunnel/-/raw/main/udp-custom-linux-amd64" -O /root/udp/udp-custom && rm -rf /tmp/cookies.txt
-chmod +x /root/udp/udp-custom
-clear
-# install Config Default Udp
-echo ""
-sleep 4
-echo " Proses Download Script Config Default........"
-sleep 4
-clear
-echo " Cecking Config Default By CLOUDVPN......."
-sleep 4
-clear
-echo " Succes Cecking Config Default Tool..........."
-sleep 4
-clear
-echo " Please Waiting Proses Downloading Default Config UdpCustom........"
-sleep 4
-clear
-wget -q --show-progress --load-cookies /tmp/cookies.txt "https://gitlab.com/Exe302/Tunnel/-/raw/main/config.json" -O /root/udp/config.json && rm -rf /tmp/cookies.txt
-chmod 644 /root/udp/config.json
+echo downloading udp-custom
+wget -q --show-progress --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1ixz82G_ruRBnEEp4vLPNF2KZ1k8UfrkV' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1ixz82G_ruRBnEEp4vLPNF2KZ1k8UfrkV" -O /etc/udp/udp-custom && rm -rf /tmp/cookies.txt
+chmod +x /etc/udp/udp-custom
+
+echo downloading default config
+wget -q --show-progress --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1klXTiKGUd2Cs5cBnH3eK2Q1w50Yx3jbf' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1klXTiKGUd2Cs5cBnH3eK2Q1w50Yx3jbf" -O /etc/udp/config.json && rm -rf /tmp/cookies.txt
+chmod 644 /etc/udp/config.json
 
 if [ -z "$1" ]; then
 cat <<EOF > /etc/systemd/system/udp-custom.service
 [Unit]
-Description=UDP Custom by cloudvpn
+Description=UDP Custom by ePro Dev. Team
 
 [Service]
 User=root
 Type=simple
-ExecStart=/root/udp/udp-custom server
-WorkingDirectory=/root/udp/
+ExecStart=/etc/udp/udp-custom server
+WorkingDirectory=/etc/udp/
 Restart=always
 RestartSec=2s
 
@@ -60,13 +36,13 @@ EOF
 else
 cat <<EOF > /etc/systemd/system/udp-custom.service
 [Unit]
-Description=UDP Custom by cloudvpn
+Description=UDP Custom by ePro Dev. Team
 
 [Service]
 User=root
 Type=simple
-ExecStart=/root/udp/udp-custom server -exclude $1
-WorkingDirectory=/root/udp/
+ExecStart=/etc/udp/udp-custom server -exclude $1
+WorkingDirectory=/etc/udp/
 Restart=always
 RestartSec=2s
 
@@ -81,6 +57,5 @@ systemctl start udp-custom &>/dev/null
 echo enable service udp-custom
 systemctl enable udp-custom &>/dev/null
 
-echo ""
-sleep 0,5
-clear
+echo restart service udp-custom
+systemctl restart udp-custom &>/dev/null
