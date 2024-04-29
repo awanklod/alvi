@@ -1,10 +1,7 @@
 #!/bin/bash
 biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
-colornow=$(cat /etc/rmbl/theme/color.conf)
 NC="\e[0m"
 RED="\033[0;31m"
-RED="$(cat /etc/rmbl/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
-COLBG1="$(cat /etc/rmbl/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"
 WH='\033[1;37m'
 ipsaya=$(wget -qO- ifconfig.me)
 data_server=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
@@ -30,9 +27,6 @@ fi
 checking_sc
 clear
 cd
-#ISP=$(cat /etc/xray/isp)
-#CITY=$(cat /etc/xray/city)
-#author=$(cat /etc/profil)
 TIMES="10"
 CHATID=$(cat /etc/per/id)
 KEY=$(cat /etc/per/token)
@@ -306,8 +300,6 @@ Premium Vmess Account
 User         : ${user}
 Domain       : <code>${domain}</code>
 Login Limit  : ${iplim} IP
-ISP          : ${ISP}
-CITY         : ${CITY}
 Port TLS     : 443
 Port NTLS    : 80, 8080
 Port GRPC    : 443
@@ -328,12 +320,10 @@ Link NTLS    :
 Link GRPC    :
 <code>${vmesslink3}</code>
 ◇━━━━━━━━━━━━━━━━━◇
-Format OpenClash :
-http://$domain:89/vmess-$user.txt
 ◇━━━━━━━━━━━━━━━━━◇
 Expired Until    : $exp
 ◇━━━━━━━━━━━━━━━━━◇
-$author
+
 ◇━━━━━━━━━━━━━━━━━◇
 "
 else
@@ -345,8 +335,6 @@ User         : ${user}
 Domain       : <code>${domain}</code>
 Login Limit  : ${iplim} IP
 Quota Limit  : ${Quota} GB
-ISP          : ${ISP}
-CITY         : ${CITY}
 Port TLS     : 443
 Port NTLS    : 80, 8080
 Port GRPC    : 443
@@ -367,12 +355,7 @@ Link NTLS    :
 Link GRPC    :
 <code>${vmesslink3}</code>
 ◇━━━━━━━━━━━━━━━━━◇
-Format OpenClash :
-http://$domain:89/vmess-$user.txt
-◇━━━━━━━━━━━━━━━━━◇
 Expired Until    : $exp
-◇━━━━━━━━━━━━━━━━━◇
-$author
 ◇━━━━━━━━━━━━━━━━━◇
 "
 fi
@@ -391,7 +374,6 @@ TEXT2="
 <b>   PEMBELIAN VMESS SUCCES </b>
 <code>◇━━━━━━━━━━━━━━━━━━━◇</code>
 <b>DOMAIN  :</b> <code>${domain} </code>
-<b>CITY    :</b> <code>$CITY </code>
 <b>DATE    :</b> <code>${TIME2} WIB </code>
 <b>DETAIL  :</b> <code>Trx VMESS </code>
 <b>USER    :</b> <code>${user2}xxx </code>
@@ -405,8 +387,6 @@ echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" |
 echo -e "$RED ${NC} ${WH}• Premium Vmess Account • ${NC} $RED $NC" | tee -a /etc/vmess/akun/log-create-${user}.log
 echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vmess/akun/log-create-${user}.log
 echo -e "$RED ${NC} ${WH}User          ${RED}: ${WH}${user}" | tee -a /etc/vmess/akun/log-create-${user}.log
-echo -e "$RED ${NC} ${WH}ISP           ${RED}: ${WH}$ISP" | tee -a /etc/vmess/akun/log-create-${user}.log
-echo -e "$RED ${NC} ${WH}City          ${RED}: ${WH}$CITY" | tee -a /etc/vmess/akun/log-create-${user}.log
 echo -e "$RED ${NC} ${WH}Domain        ${RED}: ${WH}${domain}" | tee -a /etc/vmess/akun/log-create-${user}.log
 echo -e "$RED ${NC} ${WH}Login Limit  ${RED}: ${WH}${iplim} IP" | tee -a /etc/vmess/akun/log-create-${user}.log
 if [ ${Quota} = '9999' ]; then
@@ -434,8 +414,6 @@ echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" |
 echo -e "$RED ${NC} ${RED}Link Websocket gRPC     ${WH}: ${NC}" | tee -a /etc/vmess/akun/log-create-${user}.log
 echo -e "$RED${NC}${WH}${vmesslink3}${NC}"  | tee -a /etc/vmess/akun/log-create-${user}.log
 echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vmess/akun/log-create-${user}.log
-echo -e "$RED ${NC} ${WH}Format Openclash ${RED}:" | tee -a /etc/vmess/akun/log-create-${user}.log
-echo -e "$RED ${NC} ${WH}http://$domain:89/vmess-$user.txt${NC}" | tee -a /etc/vmess/akun/log-create-${user}.log
 echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vmess/akun/log-create-${user}.log
 echo -e "$RED ${NC} ${WH}Expired Akun    ${RED}: ${WH}$exp" | tee -a /etc/vmess/akun/log-create-${user}.log
 echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vmess/akun/log-create-${user}.log
@@ -684,8 +662,6 @@ Trial Premium Vmess Account
 User         : ${user}
 Domain       : <code>${domain}</code>
 Login Limit  : ${iplim} IP
-ISP          : ${ISP}
-CITY         : ${CITY}
 Port TLS     : 443
 Port NTLS    : 80, 8080
 Port GRPC    : 443
@@ -706,12 +682,8 @@ Link NTLS    :
 Link GRPC    :
 <code>${vmesslink3}</code>
 ◇━━━━━━━━━━━━━━━━━◇
-Format OpenClash :
-http://$domain:89/vmess-$user.txt
-◇━━━━━━━━━━━━━━━━━◇
 Expired Until    : $timer Minutes
 ◇━━━━━━━━━━━━━━━━━◇
-$author
 ◇━━━━━━━━━━━━━━━━━◇
 "
 curl -s --max-time $TIMES -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
@@ -727,8 +699,6 @@ echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" |
 echo -e "$RED ${NC} ${WH}• Trial Premium Vmess Account • ${NC} $RED $NC" | tee -a /etc/vmess/akun/log-create-${user}.log
 echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vmess/akun/log-create-${user}.log
 echo -e "$RED ${NC} ${WH}User          ${RED}: ${WH}${user}" | tee -a /etc/vmess/akun/log-create-${user}.log
-echo -e "$RED ${NC} ${WH}ISP           ${RED}: ${WH}$ISP" | tee -a /etc/vmess/akun/log-create-${user}.log
-echo -e "$RED ${NC} ${WH}City          ${RED}: ${WH}$CITY" | tee -a /etc/vmess/akun/log-create-${user}.log
 echo -e "$RED ${NC} ${WH}Domain        ${RED}: ${WH}${domain}" | tee -a /etc/vmess/akun/log-create-${user}.log
 echo -e "$RED ${NC} ${WH}Login Limit  ${RED}: ${WH}${iplim} IP" | tee -a /etc/log-create-.log
 echo -e "$RED ${NC} ${WH}Port TLS      ${RED}: ${WH}443" | tee -a /etc/vmess/akun/log-create-${user}.log
@@ -751,8 +721,6 @@ echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" |
 echo -e "$RED ${NC} ${RED}Link Websocket gRPC     ${WH}: ${NC}" | tee -a /etc/vmess/akun/log-create-${user}.log
 echo -e "$RED${NC}${WH}${vmesslink3}${NC}"  | tee -a /etc/vmess/akun/log-create-${user}.log
 echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vmess/akun/log-create-${user}.log
-echo -e "$RED ${NC} ${WH}Format Openclash ${RED}:" | tee -a /etc/vmess/akun/log-create-${user}.log
-echo -e "$RED ${NC} ${WH}http://$domain:89/vmess-$user.txt${NC}" | tee -a /etc/vmess/akun/log-create-${user}.log
 echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vmess/akun/log-create-${user}.log
 echo -e "$RED ${NC} ${WH}Expired Until     ${RED}: ${WH}$timer Minutes" | tee -a /etc/vmess/akun/log-create-${user}.log
 echo -e "$RED ◇━━━━━━━━━━━━━━━━━◇ ${NC}" | tee -a /etc/vmess/akun/log-create-${user}.log
@@ -814,7 +782,6 @@ TEXT="
 <b>   XRAY VMESS RENEW</b>
 <code>◇━━━━━━━━━━━━━━◇</code>
 <b>DOMAIN   :</b> <code>${domain} </code>
-<b>ISP      :</b> <code>$ISP $CITY </code>
 <b>USERNAME :</b> <code>$user </code>
 <b>EXPIRED  :</b> <code>$exp4 </code>
 <code>◇━━━━━━━━━━━━━━◇</code>
@@ -834,7 +801,6 @@ TEXT2="
 <b>   PEMBELIAN VMESS SUCCES </b>
 <code>◇━━━━━━━━━━━━━━◇</code>
 <b>DOMAIN   :</b> <code>${domain} </code>
-<b>ISP      :</b> <code>$ISP $CITY </code>
 <b>DATE   :</b> <code>${TIME2} WIB </code>
 <b>DETAIL   :</b> <code>Trx VMESS </code>
 <b>USER :</b> <code>${user2}xxx </code>
@@ -919,7 +885,6 @@ TEXT="
 <b>  XRAY VMESS IP LIMIT</b>
 <code>◇━━━━━━━━━━━━━━◇</code>
 <b>DOMAIN   :</b> <code>${domain} </code>
-<b>ISP      :</b> <code>$ISP $CITY </code>
 <b>USERNAME :</b> <code>$user </code>
 <b>IP LIMIT NEW :</b> <code>$iplim IP </code>
 <b>QUOTA LIMIT NEW :</b> <code>$Quota GB </code>
@@ -1003,7 +968,6 @@ TEXT="
 <b>  XRAY VMESS DELETE</b>
 <code>◇━━━━━━━━━━━━━━◇</code>
 <b>DOMAIN   :</b> <code>${domain} </code>
-<b>ISP      :</b> <code>$ISP $CITY </code>
 <b>USERNAME :</b> <code>$user </code>
 <b>EXPIRED :</b> <code>$exp </code>
 <code>◇━━━━━━━━━━━━━━◇</code>
@@ -1440,7 +1404,6 @@ TEXT="
 <b>  XRAY VMESS RESTORE</b>
 <code>◇━━━━━━━━━━━━━━◇</code>
 <b>DOMAIN   :</b> <code>${domain} </code>
-<b>ISP      :</b> <code>$ISP $CITY </code>
 <b>USERNAME :</b> <code>$user </code>
 <b>IP LIMIT  :</b> <code>$iplim IP </code>
 <b>Quota LIMIT  :</b> <code>$Quota GB </code>
@@ -1461,7 +1424,6 @@ echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━�
 echo " Vmess Account Restore Successfully"
 echo -e "$RED━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo " DOMAIN : $domain"
-echo " ISP  : $ISP $CITY"
 echo " USERNAME : $user"
 echo " IP LIMIT : $iplim IP"
 echo " EXPIRED  : $exp"
@@ -1527,7 +1489,6 @@ TEXT="
 <b>  XRAY VMESS UNLOCKED</b>
 <code>◇━━━━━━━━━━━━━━◇</code>
 <b>DOMAIN   :</b> <code>${domain} </code>
-<b>ISP      :</b> <code>$ISP $CITY </code>
 <b>USERNAME :</b> <code>$user </code>
 <b>EXPIRED  :</b> <code>$exp </code>
 <code>◇━━━━━━━━━━━━━━◇</code>
